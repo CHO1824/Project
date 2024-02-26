@@ -1,0 +1,790 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="HE_INSA_N_MN070505" width="1665" height="838" titletext="제증명서신청발급(복지사)" onload="fn_onload">
+    <Layouts>
+      <Layout height="838" width="1665">
+        <Div id="div_search" taborder="0" left="0" top="0" height="73" cssclass="div_WF_search" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="stc_09_00" text="20" visible="false" left="0" width="20" top="11" height="23" background="orange" taborder="0"/>
+              <Static id="stc_35_00_00" text="10" visible="false" left="20" right="19" top="0" height="10" background="orange" taborder="9"/>
+              <Static id="stc_35_00_00_00" text="10" visible="false" left="20" right="19" top="61" height="10" background="orange" taborder="10"/>
+              <Static id="stc_35_00_00_01" text="5" visible="false" left="19" right="20" top="33" height="5" background="orange" taborder="11"/>
+              <Static id="sta_01" taborder="12" text="구분" left="284" top="38" width="34" height="23" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="stc_00" text="30" visible="false" left="317" width="30" top="37" height="26" background="orange" taborder="13"/>
+              <Static id="sta_01_00" taborder="14" text="기간" left="20" top="11" width="87" height="23" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="stc_00_03" text="30" visible="false" left="74" width="30" top="10" height="23" background="orange" taborder="15"/>
+              <Combo id="cbo_Sortation" taborder="3" left="347" top="38" width="110" height="23" autoselect="true" type="search"/>
+              <Static id="stc_00_01_00_00" text="70" visible="false" left="214" width="70" top="38" height="23" background="orange" taborder="16"/>
+              <Combo id="cbo_Progress" taborder="2" left="104" top="38" width="110" height="23" autoselect="true" type="search"/>
+              <Static id="stc_00_00" text="30" visible="false" left="74" width="30" top="38" height="23" background="orange" taborder="17"/>
+              <Static id="sta_01_01" taborder="18" text="진행상태" left="19" top="38" width="54" height="23" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="sta_01_01_00" taborder="19" text="증명서종류" left="527" top="38" width="69" height="23" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="stc_00_00_00" text="30" visible="false" left="593" width="30" top="36" height="26" background="orange" taborder="20"/>
+              <Combo id="cbo_Certificate" taborder="4" left="623" top="38" width="110" height="23" displayrowcount="5" type="search" autoselect="true"/>
+              <Static id="stc_00_01_00_01" text="70" visible="false" left="457" width="70" top="38" height="23" background="orange" taborder="21"/>
+              <Static id="stc_09_00_00" text="20" visible="false" left="-1" width="20" top="39" height="23" background="orange" taborder="22"/>
+              <cp_periodCal id="cp_data" taborder="1" text="" left="104" top="10" width="443" height="23" async="false"/>
+              <Button id="btn_DepartmentAdd" taborder="7" cssclass="btn_WF_popSrch" left="1011" width="23" top="38" height="23" onclick="consumerFind" text=""/>
+              <Static id="sta_01_01_00_00" taborder="23" text="사원코드" left="803" top="38" width="59" height="23" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="stc_00_00_00_00" text="30" visible="false" left="860" width="30" top="36" height="26" background="orange" taborder="24"/>
+              <Edit id="edt_EmployeeNameCD" taborder="6" left="890" top="38" width="98" height="23" onkeyup="fn_search_onkeyup" readonly="true"/>
+              <Button id="btn_DepartmentDelete" taborder="8" left="1037" width="23" top="38" height="23" onclick="consumerFind" textAlign="center" cssclass="btn_WF_reload"/>
+              <Static id="stc_00_01_00_01_00" text="70" visible="false" left="733" width="70" top="38" height="23" background="orange" taborder="25"/>
+              <Edit id="edt_EmployeeNameNM" taborder="5" left="890" top="38" width="118" height="23" onchanged="Edit_onchanged" onkeyup="div_search_edt_EmployeeNameNM_onkeyup"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_40_00_00" text="15" visible="false" left="0" top="73" height="15" background="orange" taborder="2" right="0"/>
+        <Static id="stc_79_00_00" taborder="4" left="0" top="88" height="23" text="제증명서신청(복지사)" width="139" cssclass="sta_WF_title" fittocontents="width"/>
+        <Static id="sta_gridListCnt" text="총 &lt;fc v='#278c6d'&gt;&lt;b v='true'&gt;[ 0 ]&lt;/b&gt;&lt;/fc&gt; 건" cssclass="sta_WF_count" top="88" height="23" taborder="3" usedecorate="true" width="90" textAlign="left" left="stc_79_00_00:10" fittocontents="width"/>
+        <Static id="stc_40_02_00" text="20" visible="false" left="1645" background="orange" taborder="5" top="0" width="20" bottom="0"/>
+        <Static id="stc_40_02" text="20" visible="false" left="0" background="orange" taborder="6" right="0" height="20" bottom="0"/>
+        <PopupDiv id="pdp_commonBtn" text="PopupDiv00" left="1785" width="350" top="126" height="42" visible="false">
+          <Layouts>
+            <Layout>
+              <Button id="btn_excel" taborder="12" text="엑셀" onclick="fn_excel" left="290" width="56" top="4" height="34"/>
+              <Button id="btn_print" taborder="13" text="출력" onclick="fn_print" left="232" width="56" top="4" height="34"/>
+              <Button id="btn_search" taborder="14" text="조회" onclick="fn_search" left="175" width="56" top="4" height="34"/>
+              <Button id="btn_delete" taborder="15" text="삭제" onclick="fn_delete" left="117" width="56" top="4" height="34"/>
+              <Button id="btn_edit" taborder="16" text="수정" onclick="fn_edit" left="60" width="56" top="4" height="34"/>
+              <Button id="btn_save" taborder="17" text="저장" onclick="fn_save" left="3" width="56" top="4" height="34"/>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+        <Button id="btn_Approval" taborder="9" text="승인" top="88" height="23" onclick="fn_addNew" right="20" width="48" cssclass="btn_WF_orange"/>
+        <Static id="stc_00" text="23" visible="false" left="330" width="30" top="88" height="23" background="orange" taborder="8"/>
+        <Grid id="grd_list" taborder="1" left="0" right="20" top="116" binddataset="ds_list" bottom="20" oncellclick="grd_list_oncellclick" autoenter="select" cellmovingtype="col" cellsizingtype="col" useExport="false" useFilter="true" useFind="true" useFixCol="true" useSort="true">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="150"/>
+                <Column size="48"/>
+                <Column size="80"/>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="95"/>
+                <Column size="90"/>
+                <Column size="120"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="승인처리"/>
+                <Cell col="1" text="문서번호" cssclass="essential"/>
+                <Cell col="2" text="신청일자"/>
+                <Cell col="3" text="진행상태"/>
+                <Cell col="4" text="사원구분"/>
+                <Cell col="5" text="사원코드"/>
+                <Cell col="6" text="사원명"/>
+                <Cell col="7" text="증명서명"/>
+                <Cell col="8" text="출력"/>
+                <Cell col="9" text="수량"/>
+                <Cell col="10" text="발급용도"/>
+                <Cell col="11" text="수령방법"/>
+                <Cell col="12" text="기타요청사항"/>
+                <Cell col="13" text="승인사원명"/>
+                <Cell col="14" text="승인일자"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="expr:진행상태 == '01' ? 'checkboxcontrol' : 'none'" text="bind:승인처리" edittype="expr:진행상태 == '01' ? 'checkbox' : 'none'"/>
+                <Cell col="1" padding="1px" displaytype="text" text="bind:문서번호"/>
+                <Cell col="2" text="bind:신청일자" displaytype="date" edittype="expr:dataset.getRowType(currow) == 2 || 진행상태 == &quot;01&quot;  ? &quot;date&quot; :&quot;none&quot;" calendardateformat="yyyy-MM-dd" calendardisplaynulltype="none"/>
+                <Cell col="3" text="bind:진행상태" displaytype="combotext" edittype="expr:dataset.getRowType(currow) == 2 ? &quot;combo&quot; :&quot;none&quot;" padding="1px" textAlign="left"/>
+                <Cell col="4" text="bind:대상구분" displaytype="combotext" edittype="expr:dataset.getRowType(currow) == 2 ? &quot;combo&quot; :&quot;none&quot;" padding="1px" textAlign="left"/>
+                <Cell col="5" text="bind:대상사원코드" displaytype="text"/>
+                <Cell col="6" text="bind:대상사원명" displaytype="text" textAlign="left"/>
+                <Cell col="7" text="bind:증명서종류" displaytype="combotext" padding="1px" textAlign="left" edittype="expr:dataset.getRowType(currow) == 2 ? &quot;combo&quot; :&quot;none&quot;"/>
+                <Cell col="8" edittype="expr:진행상태=='02' &amp;&amp; 출력여부 == 'Y' ? 'button':'none'" displaytype="expr:진행상태=='02' &amp;&amp; 출력여부 == 'Y' ? 'buttoncontrol':'none'" text="expr:진행상태=='02' ? '출력':''" padding="1px" tooltiptext="증명서출력"/>
+                <Cell col="9" text="bind:발급수량" displaytype="mask" textAlign="right" maskeditformat="#,##0"/>
+                <Cell col="10" text="bind:발급용도" displaytype="text" edittype="expr:dataset.getRowType(currow) == 2 || 진행상태 == &quot;01&quot;  ? &quot;text\&quot; :&quot;none&quot;" textAlign="left"/>
+                <Cell col="11" text="bind:수령방법" displaytype="text" edittype="expr:dataset.getRowType(currow) == 2 || 진행상태 == &quot;01&quot;  ? &quot;text&quot; :&quot;none&quot;" textAlign="left"/>
+                <Cell col="12" text="bind:비고" displaytype="text" edittype="expr:dataset.getRowType(currow) == 2 || 진행상태 == &quot;01&quot;  ? &quot;text&quot; :&quot;none&quot;" textAlign="left"/>
+                <Cell col="13" text="bind:승인사원코드" displaytype="text"/>
+                <Cell col="14" text="bind:승인일자" displaytype="date" calendardateformat="yyyy-MM-dd HH:mm:ss" calendardisplaynulltype="none" calendareditformat="yyyy-MM-dd HH:mm:ss"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="stc_35_00_00_00_01_00_00" text="3" visible="false" left="0" right="2" top="111" height="5" background="orange" taborder="7"/>
+        <Grid id="grd_excel" taborder="10" left="1788" right="-1095" top="240" binddataset="ds_list" bottom="258" oncellclick="grd_list_oncellclick" autoenter="select" cellmovingtype="col" cellsizingtype="col" useExport="false" useFilter="true" useFind="true" useFixCol="true" useSort="true" visible="false">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="150"/>
+                <Column size="80"/>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="95"/>
+                <Column size="90"/>
+                <Column size="120"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="승인처리"/>
+                <Cell col="1" text="문서번호"/>
+                <Cell col="2" text="신청일자"/>
+                <Cell col="3" text="진행상태"/>
+                <Cell col="4" text="사원구분"/>
+                <Cell col="5" text="사원코드"/>
+                <Cell col="6" text="사원명"/>
+                <Cell col="7" text="증명서명"/>
+                <Cell col="8" text="수량"/>
+                <Cell col="9" text="발급용도"/>
+                <Cell col="10" text="수령방법"/>
+                <Cell col="11" text="기타요청사항"/>
+                <Cell col="12" text="승인사원명"/>
+                <Cell col="13" text="승인일자"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:승인처리" displaytype="text"/>
+                <Cell col="1" padding="1px" displaytype="text" text="bind:문서번호"/>
+                <Cell col="2" text="bind:신청일자" calendardateformat="yyyy-MM-dd" calendardisplaynulltype="none" displaytype="text"/>
+                <Cell col="3" text="bind:진행상태명" padding="1px" textAlign="left" displaytype="text"/>
+                <Cell col="4" text="bind:대상구분명" padding="1px" textAlign="left" displaytype="text"/>
+                <Cell col="5" text="bind:대상사원코드" displaytype="text"/>
+                <Cell col="6" text="bind:대상사원명" displaytype="text" textAlign="left"/>
+                <Cell col="7" text="bind:증명서명" padding="1px" textAlign="left" displaytype="text"/>
+                <Cell col="8" text="bind:발급수량" displaytype="mask" textAlign="right" maskeditformat="#,##0"/>
+                <Cell col="9" text="bind:발급용도" displaytype="text" textAlign="left"/>
+                <Cell col="10" text="bind:수령방법" displaytype="text" textAlign="left"/>
+                <Cell col="11" text="bind:비고" displaytype="text" textAlign="left"/>
+                <Cell col="12" text="bind:승인사원코드" displaytype="text"/>
+                <Cell col="13" text="bind:승인일자" displaytype="date" calendardateformat="yyyy-MM-dd HH:mm:ss" calendardisplaynulltype="none" calendareditformat="yyyy-MM-dd HH:mm:ss"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_list" onrowposchanged="ds_list_onrowposchanged">
+        <ColumnInfo>
+          <Column id="일련번호" type="BIGDECIMAL" size="20"/>
+          <Column id="문서번호" type="STRING" size="20"/>
+          <Column id="신청일자" type="STRING" size="8"/>
+          <Column id="진행상태" type="STRING" size="2"/>
+          <Column id="진행상태명" type="STRING" size="256"/>
+          <Column id="대상구분" type="STRING" size="2"/>
+          <Column id="대상구분명" type="STRING" size="256"/>
+          <Column id="대상사원코드" type="STRING" size="10"/>
+          <Column id="퇴사일자" type="STRING" size="8"/>
+          <Column id="해촉일" type="STRING" size="256"/>
+          <Column id="증명서종류" type="STRING" size="2"/>
+          <Column id="증명서명" type="STRING" size="256"/>
+          <Column id="출력여부" type="STRING" size="1"/>
+          <Column id="출력일자" type="DATETIME" size="23"/>
+          <Column id="발급용도" type="STRING" size="30"/>
+          <Column id="발급수량" type="INT" size="11"/>
+          <Column id="수령방법" type="STRING" size="30"/>
+          <Column id="수령상세주소" type="STRING" size="256"/>
+          <Column id="비고" type="STRING" size="100"/>
+          <Column id="승인처리" type="STRING" size="1"/>
+          <Column id="승인사원코드" type="STRING" size="10"/>
+          <Column id="승인일자" type="DATETIME" size="23"/>
+          <Column id="일차이" type="STRING" size="256"/>
+          <Column id="대상사원명" type="STRING" size="50"/>
+          <Column id="주민번호" type="STRING" size="39"/>
+          <Column id="조직명" type="STRING" size="256"/>
+          <Column id="근무일자" type="STRING" size="4000"/>
+          <Column id="현재일자" type="STRING" size="4000"/>
+          <Column id="사업자번호" type="STRING" size="20"/>
+          <Column id="회사명" type="STRING" size="100"/>
+          <Column id="회사주소" type="STRING" size="100"/>
+          <Column id="대표자명" type="STRING" size="59"/>
+          <Column id="소속" type="STRING" size="256"/>
+          <Column id="회사로고이미지" type="STRING" size="62"/>
+          <Column id="법인도장이미지" type="STRING" size="66"/>
+          <Column id="해피엔딩이미지" type="STRING" size="256"/>
+          <Column id="팩스전화" type="STRING" size="256"/>
+          <Column id="등록자" type="STRING" size="10"/>
+          <Column id="등록일자" type="DATETIME" size="23"/>
+          <Column id="수정자" type="STRING" size="10"/>
+          <Column id="수정일자" type="STRING" size="18"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_input">
+        <ColumnInfo>
+          <Column id="신청일자_첫째날" type="STRING" size="256"/>
+          <Column id="신청일자_현재" type="STRING" size="256"/>
+          <Column id="대상구분" type="STRING" size="256"/>
+          <Column id="진행상태" type="STRING" size="256"/>
+          <Column id="증명서종류" type="STRING" size="256"/>
+          <Column id="대상사원코드" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_report" onrowposchanged="ds_list_onrowposchanged">
+        <ColumnInfo>
+          <Column id="일련번호" type="BIGDECIMAL" size="20"/>
+          <Column id="문서번호" type="STRING" size="20"/>
+          <Column id="신청일자" type="STRING" size="8"/>
+          <Column id="진행상태" type="STRING" size="2"/>
+          <Column id="진행상태명" type="STRING" size="256"/>
+          <Column id="대상구분" type="STRING" size="2"/>
+          <Column id="대상구분명" type="STRING" size="256"/>
+          <Column id="대상사원코드" type="STRING" size="10"/>
+          <Column id="퇴사일자" type="STRING" size="8"/>
+          <Column id="해촉일" type="STRING" size="256"/>
+          <Column id="증명서종류" type="STRING" size="2"/>
+          <Column id="증명서명" type="STRING" size="40"/>
+          <Column id="출력여부" type="STRING" size="1"/>
+          <Column id="출력일자" type="DATETIME" size="23"/>
+          <Column id="발급용도" type="STRING" size="30"/>
+          <Column id="발급수량" type="INT" size="11"/>
+          <Column id="수령방법" type="STRING" size="30"/>
+          <Column id="수령상세주소" type="STRING" size="80"/>
+          <Column id="비고" type="STRING" size="100"/>
+          <Column id="승인처리" type="STRING" size="1"/>
+          <Column id="승인사원코드" type="STRING" size="10"/>
+          <Column id="승인일자" type="DATETIME" size="23"/>
+          <Column id="대상사원명" type="STRING" size="50"/>
+          <Column id="주민번호" type="STRING" size="39"/>
+          <Column id="조직명" type="STRING" size="256"/>
+          <Column id="근무일자" type="STRING" size="4000"/>
+          <Column id="현재일자" type="STRING" size="4000"/>
+          <Column id="사업자번호" type="STRING" size="20"/>
+          <Column id="회사명" type="STRING" size="100"/>
+          <Column id="회사주소" type="STRING" size="100"/>
+          <Column id="대표자명" type="STRING" size="59"/>
+          <Column id="소속" type="STRING" size="256"/>
+          <Column id="회사로고이미지" type="STRING" size="62"/>
+          <Column id="법인도장이미지" type="STRING" size="66"/>
+          <Column id="해피엔딩이미지" type="STRING" size="256"/>
+          <Column id="팩스전화" type="STRING" size="256"/>
+          <Column id="등록자" type="STRING" size="10"/>
+          <Column id="등록일자" type="DATETIME" size="23"/>
+          <Column id="수정자" type="STRING" size="10"/>
+          <Column id="수정일자" type="STRING" size="18"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_Employee">
+        <ColumnInfo>
+          <Column id="행사사원코드" type="STRING" size="256"/>
+          <Column id="사원명" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/********************************************************************************
+ * Name		: HE_INSA_N_MN070505.xfdl
+ * Title	: 재증명서신청(복지사)
+ * Desc		: 재증명서신청(복지사)
+ * 작성자	: 조하영
+ * 작성일	: 2023.03.03
+ * 변경사항	: 
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+ *=============================================================================*/
+//저장키값 변수 선언
+var setRowKey = 0;
+
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+ *=============================================================================*/
+/**
+ * 화면 온로드 이벤트
+ */
+this.fn_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfn_loadForm(obj);
+	
+	this.gfn_exGridSet(this.grd_list); //그리드 No Data
+	//공통코드
+	var param = [
+		 {code:"IS17", dsName: "ds_IS17", selecttype:"S", targetObj:this.grd_list, bindcolumn:"진행상태", edit:"false"}		//진행상태
+		,{code:"IS17", dsName: "ds_IS17_1", selecttype:"A", targetObj:this.div_search.form.cbo_Progress, edit:"true"}		//조회조건 진행상태
+		,{code:"IS23", dsName: "ds_IS23", selecttype:"S", targetObj:this.grd_list, bindcolumn:"대상구분", edit:"false"}		//대상구분
+		,{code:"IS23", dsName: "ds_IS23_1", selecttype:"A", targetObj:this.div_search.form.cbo_Sortation, edit:"true"} 		//조회조건 대상구분
+		,{code:"IS24", dsName: "ds_IS24", selecttype:"S", targetObj:this.grd_list, bindcolumn:"증명서종류", edit:"false"}	//증명서종류
+		,{code:"IS24", dsName: "ds_IS24_1", selecttype:"A", targetObj:this.div_search.form.cbo_Certificate, edit:"true"}	//조회조건 증명서종류
+	];
+	
+	// 공통코드 가져오기
+	this.gfn_comCode(param);
+	
+	//권한 설정을 위한 로직(인사총무(B01), 관리자(A00))
+	if(nexacro.getApplication().gv_AuthCode == "B01" || nexacro.getApplication().gv_AuthCode == "A00"){
+		this.btn_Approval.set_enable(true); //(승인 버튼 비활성화)
+	}else{
+		this.btn_Approval.set_enable(false); //(승인 버튼 활성화)
+	}
+	
+	//사원코드 값 조회조건에 세팅(권한으로 구분)
+	var EmdId = nexacro.getApplication().gv_userId; //사용자 id
+	var EmdName = nexacro.getApplication().gv_userName; //사용자 id
+	if (nexacro.getApplication().gv_AuthCode != "B01" && nexacro.getApplication().gv_AuthCode != "A00") {
+		this.div_search.form.cp_data.form.btn_lastMonth12_onclick();
+		this.div_search.form.edt_EmployeeNameCD.set_value(EmdId);
+		this.div_search.form.edt_EmployeeNameNM.set_value(EmdName);
+		this.fn_search(); //조회
+		this.div_search.form.edt_EmployeeNameNM.set_readonly(true);
+		this.div_search.form.btn_DepartmentAdd.set_enable(false);
+		this.div_search.form.btn_DepartmentDelete.set_enable(false);
+	}
+		this.fn_search(); //조회
+};
+/*===============================================================================
+ * 3.FORM 공통 FUNCTION 영역 
+ *=============================================================================*/
+/**
+* 조회 호출
+*/
+ this.fn_search = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.ds_input.clearData();
+	this.ds_input.addRow();
+	
+	this.ds_input.setColumn(0,"신청일자_첫째날", comSys.transNullToEmpty(this.div_search.form.cp_data.form.getData()[0]));	//신청일자_첫째날
+	this.ds_input.setColumn(0,"신청일자_현재", comSys.transNullToEmpty(this.div_search.form.cp_data.form.getData()[1]));	//신청일자_현재
+	this.ds_input.setColumn(0,"진행상태", comSys.transNullToEmpty(this.div_search.form.cbo_Progress.value));			 	//진행상태
+	this.ds_input.setColumn(0,"대상구분", comSys.transNullToEmpty(this.div_search.form.cbo_Sortation.value));				//대상구분
+	this.ds_input.setColumn(0,"증명서종류", comSys.transNullToEmpty(this.div_search.form.cbo_Certificate.value));			//증명서종류
+	this.ds_input.setColumn(0,"대상사원코드", comSys.transNullToEmpty(this.div_search.form.edt_EmployeeNameCD.value));		//대상사원코드
+	
+	this.fsp_clear();
+	this.fsp_addSearch("happy/insa:INSA_N_MN070505_S_01", false);
+	
+	// connect the server
+	this.fsp_callService(
+        ""
+        ,""
+        ,"ds_input=ds_input"
+        ,"ds_list=ds_output"
+        ,""
+        ,"fn_afterSearch"
+        ,true
+    );
+};
+
+/**
+* 대상사원코드 조회 호출
+*/
+ this.fn_Employee = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.ds_input.clearData();
+	this.ds_input.addRow();
+	
+	this.ds_input.setColumn(0,"대상사원코드", comSys.transNullToEmpty(this.div_search.form.edt_EmployeeNameCD.value));		//대상사원코드
+	
+	this.fsp_clear();
+	this.fsp_addSearch("happy/insa:INSA_N_MN070505_S_02", false);
+	
+	// connect the server
+	this.fsp_callService(
+        ""
+        ,""
+        ,"ds_input=ds_input"
+        ,"ds_Employee=ds_output"
+        ,""
+        ,"fn_afterEmployee"
+        ,true
+    );
+};
+
+/**
+* 저장 호출
+*/
+this.fn_save = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	//저장할 데이터가 없으면 리턴(처리할 정보가 없습니다.) -> false일 경우
+	if(!comSys.isDsUpdateChk(this.ds_list)){
+		comSys.showMsg("I0010","I");
+		return;
+	}
+	
+	//필수로 입력해야 할 컬럼(해당 컬럼이 null일 경우 리턴) -> 벨리데이션 체크
+	for(var i=0; i < this.ds_list.rowcount; i++){
+		if(this.ds_list.getColumn(i,"진행상태") == null){
+			comSys.showMsg("I0067","W",["진행상태"]);
+			return;
+		}else if(this.ds_list.getColumn(i,"대상구분") == null){
+			comSys.showMsg("I0067","W",["사원구분"]);
+			return;
+		}else if(this.ds_list.getColumn(i,"증명서종류") == null){
+			comSys.showMsg("I0067","W",["증명서명"]);
+			return;
+		}
+	}
+	
+	//임직원 저장시 리턴
+	var Sortation = this.ds_list.getColumn(this.ds_list.rowposition,"대상구분");
+	if (Sortation == "01"){ //대상구분 -> 임직원
+		comSys.showMsg("복지사 화면에서는 복지사 구분만 저장이 가능합니다.","W");
+		this.ds_list.setColumn(this.ds_list.rowposition, "대상구분" ,"02");
+		return;
+	}
+	
+	// 저장 확인 메세지(저장하시겠습니까? 질의)
+    if(!comSys.showMsg("C0001","Q")) return;
+	
+	//저장시 키값세팅
+	var ds = this.ds_list;
+	setRowKey = ds.getColumn(ds.rowposition, "문서번호");
+	
+	this.fsp_clear();
+    this.fsp_addSave(
+		  "happy/insa:INSA_N_MN070505_I"	// insert
+        , "happy/insa:INSA_N_MN070505_U"	// update
+        , ""								// delete
+        , ""								// flag column 명
+        , ""								// key sql id
+        , 0									// key 증가 값
+        , "" 								
+        , 0 								
+        , "N"								// 실행타입
+    );
+    
+	// 서버 호출
+    this.fsp_callService(
+        ""
+        , ""
+        , "ds_input=ds_list:U" // inDs
+        , "" // outDs
+        , "" // args
+        , "fn_afterSave"
+        , false
+    );
+};
+
+/**
+* 승인 호출
+*/
+this.fn_addNew = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	//승인할 사원이 없을 경우
+	if(this.ds_list.rowcount == -1){
+		comSys.showMsg("승인할 사원이 없습니다.", "I"); 
+		return;
+	}
+	
+	//처리할 정보가 없을 경우 (변경된 데이터가 없을 경우)
+	if(!comSys.isDsUpdateChk(this.ds_list))
+	{
+		comSys.showMsg("승인할 정보가 없습니다.","I");
+		return;
+	}
+	
+	//필수로 입력해야 할 컬럼(해당 컬럼이 null일 경우 리턴) -> 벨리데이션 체크
+	for(var i=0; i < this.ds_list.rowcount; i++){
+		if(this.ds_list.getColumn(i,"진행상태") == null){
+			comSys.showMsg("I0067","W",["진행상태"]);
+			return;
+		}
+	}
+	
+	// 승인 확인 메세지
+    if(!comSys.showMsg("해당 사원을 승인하시겠습니까?","Q")) return;
+	
+	this.fsp_clear();
+    this.fsp_addSave(
+		  ""									// insert
+        , "happy/insa:INSA_N_MN070505_U_01"		// update
+        , ""									// delete
+        , ""									// flag column 명
+        , ""									// key sql id
+        , 0										// key 증가 값
+        , "" 									
+        , 0 									
+        , "N"									// 실행타입
+    );
+    
+	// 서버 호출
+    this.fsp_callService(
+        ""
+        , ""
+        , "ds_input=ds_list:U" // inDs
+        , "" // outDs
+        , "" // args
+        , "fn_afterSave1"
+        , false
+    );
+};
+
+//엑셀 호출
+this.fn_excel = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var grd   = this.grd_excel;
+	var grdNm = "제증명서신청발급(복지사)";
+	
+	if(! comSys.showMsg("엑셀Export 작업을 진행하시겠습니까?","Q")) return;
+		this.gfn_exportExcel(grd,grdNm);
+};
+ /*===============================================================================
+* 4.CALLBACK 콜백 처리부분
+*=============================================================================*/
+/**
+ * 조회 콜백
+ */
+this.fn_afterSearch = function (ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		comSys.showMsg("E0001", "W", [""]);    // @자료 조회 시 오류가 발생했습니다.
+	}
+	//조회건수
+	this.sta_gridListCnt.set_text(comSys.getGridRowCntText(this.ds_list));
+	
+	var ds = this.ds_list;
+	var fRow = ds.findRow("문서번호", setRowKey);
+	
+	if(fRow < 0){
+		ds.set_rowposition(0);
+	} else {
+		ds.set_rowposition(fRow);
+		setRowKey = 0; //Key Reset
+	}
+};
+
+
+this.fn_afterEmployee = function (ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		comSys.showMsg("E0001", "W", [""]);    // @자료 조회 시 오류가 발생했습니다.
+	}
+};
+	
+	
+
+/**
+ * 저장 콜백
+ */
+this.fn_afterSave = function(ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0 ) {
+		comSys.showMsg("E0002", "W", ["저장"]); //@ 오류가 발생했습니다.
+	} else {
+		comSys.showMsg("I0004", "I"); // 저장을 완료했습니다.
+	this.fn_search(); //재조회
+	}//end of if ~ else : ErrorCode
+};
+
+/**
+ * 승인 콜백
+ */
+this.fn_afterSave1 = function(ErrorCode, ErrorMsg)
+{
+	if(ErrorCode > -1){
+		comSys.showMsg("승인이 완료되었습니다.","I");
+		this.fn_search(); //재조회
+	}
+	
+	var Approval = this.ds_list.setColumn(0, "승인처리");
+	var Progress = this.ds_list.getColumn(0, "진행상태");
+		
+	//승인처리가 1일때 발급완료로 세팅
+	if(Approval == "1"){
+		this.ds_list.setColumn(0, "진행상태", "03");
+	}
+}
+/*===============================================================================
+* 5.사용자 FUNCTION 영역
+*=============================================================================*/
+//신규 팝업 (복지사)
+this.fn_new = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.ds_list.addRow(); //행추가
+	
+	//신규시 신청일자 오늘날짜로 세팅
+	var objDate = new nexacro.Date();
+	this.ds_list.setColumn(this.ds_list.rowposition,"신청일자",objDate);
+	this.ds_list.setColumn(this.ds_list.rowposition,"발급수량","0");  //발급수량
+	this.ds_list.setColumn(this.ds_list.rowposition,"대상구분","02"); //대상구분
+	this.ds_list.setColumn(this.ds_list.rowposition,"출력여부","Y");  //출력여부
+	this.ds_list.setColumn(this.ds_list.rowposition,"진행상태","01"); //진행상태
+	
+	oArgs = { returnType : "A" };
+	comSys.openPopup("INSA::HE_INSA_P_MN070505_01.xfdl", "btn_sawon", oArgs, null, this, "fn_popupCallBack");
+};
+
+//신규 팝업 콜백
+this.fn_popupCallBack = function (popupId, rtn)
+{
+	//팝업 닫을 시 (ROWTYPE_INSERT -> 행이 추가된 상태) rtn이 null이면 행삭제
+	if (Dataset.ROWTYPE_INSERT == 2 && rtn == null){
+		this.ds_list.deleteRow(this.ds_list.rowposition);
+	}else{
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	try{
+		aJson = JSON.parse(rtn);
+	}catch(ex){}
+		this.ds_list.setColumn(this.ds_list.rowposition,"발급수량",aJson[0]);		//발급수량
+		this.ds_list.setColumn(this.ds_list.rowposition,"발급용도",aJson[1]);		//발급용도
+		this.ds_list.setColumn(this.ds_list.rowposition,"대상사원코드",aJson[5]);	//대상사원코드
+		this.ds_list.setColumn(this.ds_list.rowposition,"대상사원명",aJson[6]);		//대상사원명
+		this.ds_list.setColumn(this.ds_list.rowposition,"증명서종류",aJson[2]);		//증명서종류
+		this.ds_list.setColumn(this.ds_list.rowposition,"수령상세주소",aJson[3])	//수령상세주소
+		this.ds_list.setColumn(this.ds_list.rowposition,"근무일자",aJson[4]);		//근무일자
+		this.fn_save();
+	}
+};
+
+//유비리포트 출력
+this.grd_list_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	var toolText = obj.getCellProperty("body", e.cell, "tooltiptext");
+	var ds = this.ds_report;
+	var kind = this.ds_list.getColumn(this.ds_list.rowposition, "증명서종류");
+	var Output = this.ds_list.getColumn(this.ds_list.rowposition,"출력여부");
+	var Approval = this.ds_list.getColumn(this.ds_list.rowposition,"진행상태");
+	var kindName = this.ds_list.getColumn(this.ds_list.rowposition, "증명서명");
+	var sDay = this.ds_list.getColumn(this.ds_list.rowposition, "일차이");
+	
+	this.ds_report.clearData();
+	this.ds_report.addRow()
+	this.ds_report.copyRow(0,this.ds_list,this.ds_list.rowposition);
+	
+
+	if (toolText == "증명서출력"){
+		if (sDay <= 7){		//승인일로부터 7일 지난 증명서는 출력 불가
+			if(toolText == "증명서출력" && Approval == '02' && kind == '21'){
+				var oArgs = {
+								popJrfName : "insa/인사_복지사(근무확인서)" //리포트파일명
+								,popArgs : "" //리포트 args
+								,popDataList : [ds] // 데이터셋 없으면 null
+								,popDirectPrinter : "N"// 다이렉트프린터 옵션 값없으면 기본 "N"
+							};
+					comSys.openPopup("com::comReport.xfdl", "comReport1", oArgs, null, this, "fn_popupCallBack1");
+				}
+			if(toolText == "증명서출력" && Approval == '02' && kind == '22'){
+				var oArgs = {
+								popJrfName : "insa/인사_복지사(해촉증명서)" //리포트파일명
+								,popArgs : "" //리포트 args
+								,popDataList : [ds] // 데이터셋 없으면 null
+								,popDirectPrinter : "N"// 다이렉트프린터 옵션 값없으면 기본 "N"
+							};
+				comSys.openPopup("com::comReport.xfdl", "comReport2", oArgs, null, this, "fn_popupCallBack2");
+			}
+		}else{
+			comSys.showMsg("7일이 지난 "+ kindName +"는 출력이 불가합니다.","E");
+			return;
+		}
+	}
+};
+
+/**
+* 리포트 팝업 call back
+*/
+this.fn_popupCallBack1= function(popupId, printResults)
+{
+  /* 출력 성공이면 값 자동 세팅 */
+	var cDate = new nexacro.Date();
+	var aJson;
+	
+	if(Base.isEmpty(printResults)) return;
+	
+	try{
+		aJson = JSON.parse(printResults);
+	}catch(ex){
+	
+	}
+	if (popupId == 'comReport1' && printResults == 0) {
+		this.ds_list.setColumn(this.ds_list.rowposition,"진행상태",'03');
+		this.ds_list.setColumn(this.ds_list.rowposition, "출력일자",cDate);
+		comSys.showMsg("출력한 후 저장해야 발급완료 처리가 가능합니다.", "I");  
+		this.fn_save();
+  }
+}
+
+this.fn_popupCallBack2= function(popupId, printResults)
+{
+  /* 출력 성공이면 값 자동 세팅 */
+	var cDate = new nexacro.Date();
+	var aJson;
+	
+	if(Base.isEmpty(printResults)) return;
+	
+	try{
+		aJson = JSON.parse(printResults);
+	}catch(ex){
+	
+	}
+  
+	if (popupId == 'comReport2' && printResults == 0 ){
+		this.ds_list.setColumn(this.ds_list.rowposition,"진행상태",'03');
+		this.ds_list.setColumn(this.ds_list.rowposition, "출력일자",cDate);
+		comSys.showMsg("출력한 후 저장해야 발급완료 처리가 가능합니다.", "I");  
+		this.fn_save();
+  }
+}
+/*===============================================================================
+* 6.각 COMPONENT 별 EVENT 영역
+*=============================================================================*/
+this.consumerFind = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var btnName = obj.name;
+	var oArgs = [];
+	var target, searchVal, returnType;
+	
+	if (btnName == "btn_DepartmentAdd"){ 
+		
+		// 팝업에서 데이터 선택시 컴포넌트에 데이터를 바로 넣는 유형 ( this. 을 제외한 컴포넌트 아이디를 넣어야함 )
+		target = ["div_search.form.edt_EmployeeNameCD","div_search.form.edt_EmployeeNameNM"];
+		searchVal = this.div_search.form.edt_EmployeeNameNM.value;
+		returnType = "C";
+		oArgs = { 
+			returnType : returnType
+			,searchVal : searchVal
+			,target : target
+		};
+		comSys.openPopup("com::com_P_000004.xfdl", "btn_Employe", oArgs, null, this, "fn_EmployeAddlBack");
+	}else if(btnName == "btn_DepartmentDelete"){ //사원버튼
+		this.div_search.form.edt_EmployeeNameCD.set_value("");
+		this.div_search.form.edt_EmployeeNameNM.set_value("");
+	}
+};
+
+//사원 팝업 콜백
+this.fn_EmployeAddlBack = function (popupId, sArg)
+{
+	var aJson;
+	try{
+		aJson = JSON.parse(sArg);
+	}catch(ex){}
+	
+	if(popupId == "btn_Employe") {
+		this.fn_search();
+		return;
+	}
+};
+
+
+this.Edit_onchanged = function(obj:nexacro.Edit,e:nexacro.ChangeEventInfo)
+{
+	if (obj.id == "edt_DepartmentNM"){
+		this.div_search.form.edt_DepartmentCD.set_value("");
+	}else {
+		this.div_search.form.edt_EmployeeNameCD.set_value("");
+	}
+};
+
+
+this.div_search_edt_EmployeeNameNM_onkeyup = function(obj:nexacro.Edit,e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == "13"){
+		this.consumerFind(this.div_search.form.btn_DepartmentAdd);
+	}
+};
+]]></Script>
+  </Form>
+</FDL>
