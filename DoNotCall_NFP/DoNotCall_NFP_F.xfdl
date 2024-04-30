@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="DoNotCall_NFP_F" classname="DoNotCall_NFP_F" inheritanceid="" position="absolute 0 0 1024 768" titletext="고객연락금지" onload="fn_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static04" class="sta_WF_Info_Blue_Box" position2="absolute l:5 r:5 t:6px h:65" positiontype="position2"/>
+        <Static id="Static01" text="Do Not Cell" class="sta_WF_TitleLev1" position2="absolute l:20 w:137 t:24 h:29" positiontype="position2" style="font:dotum,11,bold;"/>
+        <Combo id="cb_Bonbu" taborder="2" codecolumn="코드" datacolumn="명칭" class="cmb_WF_P" position2="absolute l:230 w:116 t:14 h:20" positiontype="position2" innerdataset="@ds_Bonbu"/>
+        <Static id="Static03" text="사업단별" class="sta_WF_subtitle" position="absolute 156 18 232 33" style="align:left;"/>
+        <Static id="Static00" text="고객명" class="sta_WF_subtitle" position="absolute 156 45 232 60" style="align:left;"/>
+        <Edit id="edt_customer" taborder="6" position2="absolute l:230 w:116 t:42 h:20" positiontype="position2"/>
+        <Static id="Static02" text="콜접수일자" class="sta_WF_subtitle" position="absolute 356 45 432 60" style="align:left;"/>
+        <Grid id="grd_list" taborder="8" position2="absolute l:5 r:5 t:104 b:1" positiontype="position2" style="border:1 solid #385d8aff ;" binddataset="ds_list" oncellclick="grd_list_oncellclick" valid="콜접수일자|required^고객명|required" onkeyup="grd_list_onkeyup" class="grd_SawonSearch">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="60"/>
+                <Column size="100"/>
+                <Column size="90"/>
+                <Column size="110"/>
+                <Column size="90"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="90"/>
+                <Column size="25"/>
+                <Column size="100"/>
+                <Column size="120"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="NO"/>
+                <Cell col="1" text="사업단"/>
+                <Cell col="2" text="고객명"/>
+                <Cell col="3" text="고객연락처"/>
+                <Cell col="4" text="콜접수일자"/>
+                <Cell col="5" text="접수자(스텝)"/>
+                <Cell col="6" text="담당설계사코드"/>
+                <Cell col="7" text="담당설계사"/>
+                <Cell col="8"/>
+                <Cell col="9" text="설계사전달일자"/>
+                <Cell col="10" text="설계사확인유무일자"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:일련번호"/>
+                <Cell col="1" text="bind:사업단"/>
+                <Cell col="2" edittype="normal" text="bind:고객명"/>
+                <Cell col="3" edittype="normal" text="bind:고객사연락처"/>
+                <Cell col="4" displaytype="date" edittype="date" text="bind:콜접수일자" calendardisplaynulltype="none"/>
+                <Cell col="5" edittype="normal" text="bind:접수자"/>
+                <Cell col="6" text="bind:담당설계사코드"/>
+                <Cell col="7" text="bind:담당설계사명"/>
+                <Cell col="8" displaytype="button" edittype="button" tooltiptext="사원검색"/>
+                <Cell col="9" displaytype="date" edittype="date" text="bind:설계사전달일자" calendardisplaynulltype="none"/>
+                <Cell col="10" displaytype="date" edittype="date" text="bind:설계사확인유무일자" calendardisplaynulltype="none"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_select" taborder="9" text="조회" onclick="btn_select_onclick" class="btn_WFSA_Search" position="absolute 668 39 728 63" style="image:URL('..\..\Images\icon\magnifier.png');imagepadding:0 0 0 3;font:돋움체,10,bold;"/>
+        <Button id="btn_dwnExcel" taborder="11" onclick="btn_dwnExcel_onclick" class="btn_WF_crud" position="absolute 733 39 757 63" style="image:URL('..\..\Images\icon\16.png');font:dotum,9,bold;"/>
+        <Button id="btn_save" taborder="12" text="  저 장" class="btn_WF_crudL2" position2="absolute l:777 w:84 t:39 h:24" positiontype="position2" style="image:URL('..\..\Images\icon\database_save.png');" onclick="btn_save_onclick"/>
+        <Button id="btn_add" taborder="13" text="+ 행추가" position2="absolute r:78 w:70 t:76 h:23" positiontype="position2" onclick="btn_add_onclick"/>
+        <Button id="btn_delete" taborder="14" text="- 행삭제" position2="absolute r:5 w:70 t:76 h:23" positiontype="position2" onclick="btn_delete_onclick"/>
+        <Static id="Static05" text="~" position="absolute 552 41 571 61" style="font:돋움체,10,bold;"/>
+        <Calendar id="StrDate" taborder="15" dateformat="yyyy-MM-dd" class="input_point" position="absolute 450 42 549 62" style="font:돋움체,10;"/>
+        <Calendar id="EndDate" taborder="16" dateformat="yyyy-MM-dd" class="input_point" position="absolute 564 42 663 62" style="font:돋움체,10;"/>
+        <Static id="Static06" text="5" position2="absolute l:5 w:1014 t:71 h:5" positiontype="position2" visible="false" style="background:orange;"/>
+        <Static id="Static07" text="5" visible="false" position2="absolute l:4 w:1015 t:99 h:5" positiontype="position2" style="background:orange;"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item3" compid="cb_Bonbu" propid="value" datasetid="ds_gds_UserInfo" columnid="본부코드"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_list" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="일련번호" type="STRING" size="256"/>
+          <Column id="담당설계사코드" type="STRING" size="256"/>
+          <Column id="담당설계사명" type="STRING" size="256"/>
+          <Column id="사업단" type="STRING" size="256"/>
+          <Column id="고객명" type="STRING" size="256"/>
+          <Column id="고객사연락처" type="STRING" size="256"/>
+          <Column id="콜접수일자" type="STRING" size="256"/>
+          <Column id="연락금지요청일자" type="STRING" size="256"/>
+          <Column id="접수자" type="STRING" size="256"/>
+          <Column id="설계사전달일자" type="STRING" size="256"/>
+          <Column id="설계사확인유무일자" type="STRING" size="256"/>
+          <Column id="등록자" type="STRING" size="256"/>
+          <Column id="등록일자" type="STRING" size="256"/>
+          <Column id="수정자" type="STRING" size="256"/>
+          <Column id="수정일자" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <ExportObject id="ExportObject00" exporttype="0" exporteventtype="itemrecord"/>
+      <FileDialog id="FileDialog00" filter="All(*.*)|*.*|" filterindex="0" defaultextension="false"/>
+      <Dataset id="ds_Bonbu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_Bonbu_onload">
+        <ColumnInfo>
+          <Column id="코드" type="STRING" size="256"/>
+          <Column id="명칭" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[/********************************************************************************
+ * Name			: DoNotCall_NFP_F.xfdl
+ * Title		: Do Not Call
+ * Desc			: Do Not Call
+ * 작성자		: 조하영
+ * 작성일		: 2023.11.07
+ * 변경사항	:
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+ *=============================================================================*/
+include "lib::comLib.xjs"; // 공통함수 호출
+include "lib::Lib_GaSupport.xjs";
+include "lib::lib_Date.xjs";
+include "lib::commFrame.xjs";
+
+var rtnVal0 = null; // 팝업 ID
+var EmpCode = gds_UserInfo.getColumn(0, '사원코드');
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+ *=============================================================================*/
+/**
+ * 화면 온로드 이벤트
+ */
+function fn_onload(obj:Form, e:LoadEventInfo) {
+	gfn_loadForm(obj);
+	
+	fn_BonbuOnChanged();	//콤보조회
+	cb_Bonbu.index	= 0;
+	
+	//오늘 날짜 세팅
+	var objDate = new Date();
+	var mm = (objDate.getMonth()+1).toString();
+	var dd = objDate.getDate().toString();
+	var today = objDate.getYear()+ mm + dd;
+	
+	StrDate.value = "20000101";	//시작일자
+	EndDate.value = today;		//종료일자
+}
+
+/*===============================================================================
+* 3.FORM 공통 FUNCTION 영역 
+*=============================================================================*/
+/**
+ * 조회 호출
+ */
+ 
+//사업단별 콤보 조회
+function fn_BonbuOnChanged()
+{	    
+	transaction(
+        "SEPARATE"
+        ,"DataURL::Jsp/Organization/select_DoNotCallNFP.jsp?gbn=S1"
+        + ""
+        + ""
+        + ""
+        + "&cmpNam="		+gv_DB
+        , ""
+        , "ds_Bonbu=ds_output"
+        , ""
+        , false        
+        , 0
+        , false
+	)
+}
+
+//고객 연락금지 조회
+function btn_select_onclick(obj:Button,  e:ClickEventInfo)
+{
+	transaction(
+        "SEPARATE"
+        ,"DataURL::Jsp/Organization/select_DoNotCallNFP.jsp?gbn=S&bonbu="+gfn_nullToEmpty(cb_Bonbu.value)
+        + "&sDate="			+gfn_nullToEmpty(StrDate.value)
+        + "&eDate="			+gfn_nullToEmpty(EndDate.value)
+        + "&customer="		+gfn_nullToEmpty(edt_customer.value)
+        + "&cmpNam="		+gv_DB
+        , ""
+        , "ds_list=ds_output"
+        , ""
+        , true
+        , 0
+        , false
+	)
+}
+
+/**
+ * 저장 호출
+ */
+function btn_save_onclick(obj:Button,  e:ClickEventInfo)
+{
+	var ds = ds_list;
+	var designer = ds_list.getColumn(ds_list.rowposition,"담당설계사코드");	//담당설계사코드
+	var bSetType = ds_list.getRowType(ds_list.rowposition);					//rowType
+	
+	//저장할 데이터가 없으면 리턴(처리할 정보가 없습니다.) -> false일 경우
+	if(!comSys.isDsUpdateChk(ds_list))
+	{
+		comSys.showMsg("I0010","I");
+		return;
+	}
+	
+	//밸리데이션 체크
+	if(!comValid.isValid(grd_list)){
+		return;
+	}
+	
+	if(designer == null && bSetType == 2){
+		comSys.showMsg("I0067", "I", ["담당설계사코드"]);
+		var arrRect  = fn_getScreenCenterXY(500, 480);
+		var objNew = new ChildFrame();
+		objNew.init("Popup", arrRect[0], arrRect[1], arrRect[0] + 200, arrRect[1] + 180, "Common::popSawonListF.xfdl");
+		objRtnPopup = objNew.showModeless("Popup",this.getOwnerFrame(), {a:'1',b:''});
+		return;
+	}
+	
+	
+	//저장하시겠습니까?
+	if(confirm("     저장하시겠습니까?", "Question", "question") ) {
+		transaction("save",
+					"DataURL::Jsp/Organization/save_DoNotCallNFP.jsp?EmpCode="+EmpCode+"&cmpNam="+gv_DB,
+					"input=ds_list:U"
+					,"ds_list=output"
+					,""
+					,"fn_callback"
+					,true
+					,0
+					,false
+		)
+	}
+}
+
+/**
+ * 엑셀 호출
+ */
+function btn_dwnExcel_onclick(obj:Button,  e:ClickEventInfo)
+{
+	if (ds_list.rowcount > 50000 ){
+	   fn_excel_down("DoNotCall",ds_list);
+	} else {
+	  fn_excel_down2("DoNotCall",grd_list);
+	}
+}
+
+function fn_excel_down(jeName,dsNam){
+	//ExportItem 삭제 방법1
+	var sheetName = jeName;
+    var fileName = sheetName+".csv";
+
+	//*---------------------------------------------------------------------------------
+ 	// 저장일 경우 파일 선택창을 오픈한다 (START)
+ 	//*---------------------------------------------------------------------------------  
+	var virtualFile = FileDialog00.open("파일저장", FileDialog.SAVE, "%MYDOCUMENT%", fileName);
+	var fileName = virtualFile.fullpath;
+     
+	var vfile = new VirtualFile(fileName, VirtualFile.openWrite | VirtualFile.openText);
+	vfile.write(dsNam.saveCSV());
+	vfile.close();
+}
+
+function fn_excel_down2(jeName,gridNam){
+	//ExportItem 삭제 방법1
+	var nCnt = ExportObject00.clear();
+
+	ExportObject00.exporttype = ExportTypes.EXCEL;
+	
+	var sheetName = jeName;
+	
+	var fileName = jeName+".xlsx";
+	
+	ExportObject00.activepagename = sheetName;	
+	ExportObject00.exportfilename = fileName;
+	
+	ExportObject00.exportopenmode = "overwrite";
+	var ret = ExportObject00.addExportItem(ExportItemTypes.GRID,  gridNam, sheetName+"!A1" );
+	ExportObject00.exporteventtype = "itemrecord";
+	ExportObject00.exportuitype = "exportprogress";
+	ExportObject00.exportmessageprocess = "%d 항목을 출력중입니다. %d/%d";
+
+	ExportObject00.export();
+}
+/*===============================================================================
+* 4.CALLBACK 콜백 처리부분
+*=============================================================================*/
+/**
+ * 저장 콜백
+ */
+var out_var;
+function fn_callback(strSvcId, nErrorCode, strErrorMsg) {
+	if(strSvcId == "save") {
+		if(nErrorCode < 0) {
+			comSys.showMsg("E0002", "W", ["저장"]);  //@ 오류가 발생했습니다.
+		} else {
+			comSys.showMsg("I0004","I");  // 저장을 완료했습니다.
+		}
+	}   
+	btn_select_onclick();
+}
+
+/*===============================================================================
+* 5.사용자 FUNCTION 영역
+*=============================================================================*/
+
+/*===============================================================================
+* 6.각 COMPONENT 별 EVENT 영역
+*=============================================================================*/
+/**
+ * 행추가
+ */
+function btn_add_onclick(obj:Button,  e:ClickEventInfo)
+{
+	var objDate = new Date();
+	var mm = (objDate.getMonth()+1).toString();
+	var dd = objDate.getDate().toString();
+	var today = objDate.getYear()+ mm + dd;
+	
+	ds_list.addRow();
+	ds_list.setColumn(ds_list.rowposition, "콜접수일자", today);
+}
+
+/**
+ * 행삭제
+ */
+function btn_delete_onclick(obj:Button,  e:ClickEventInfo)
+{
+	var btnName = obj.name;
+	var ds;
+	var cRow;
+	
+	if (btnName == "btn_delete") {
+		ds = ds_list;
+		cRow = ds.rowposition;
+	} // End of if
+	
+	if(cRow == -1) {
+		comSys.showMsg("삭제할 행을 선택해주세요.","E","");
+		return;
+	} // End of if
+    
+	if(ds_list.getRowType(cRow) != 2){
+		if(!comSys.showMsg("     삭제하시겠습니까? 삭제 후 저장은 필수입니다.","Q", "")) {
+			return;
+		} // End of if
+	}
+
+	ds.deleteRow(cRow);
+}
+
+/**
+* 사원찾기 팝업
+**/
+function grd_list_oncellclick(obj:Grid, e:GridClickEventInfo)
+{
+	var Button = obj.getCellProperty("body",e.col,"tooltiptext");
+	if(Button == "사원검색"){
+		var arrRect  = fn_getScreenCenterXY(500, 480);
+		var objNew = new ChildFrame();
+		objNew.init("Popup", arrRect[0], arrRect[1], arrRect[0] + 200, arrRect[1] + 180, "Common::popSawonListF.xfdl");
+		objRtnPopup = objNew.showModeless("Popup",this.getOwnerFrame(), {a:'1',b:''});
+	}
+}
+
+/**
+* 사원찾기 팝업 리턴
+**/
+function fn_return()
+{
+	if (objRtnPopup){
+		if( rtnVal0=="1") { // 사원검색결과
+			var cRow = ds_list.rowposition;
+			ds_list.setColumn(cRow,"담당설계사코드",rtnVal1);
+			ds_list.setColumn(cRow,"담당설계사명",rtnVal2);
+       }
+	}
+}
+]]></Script>
+  </Form>
+</FDL>
