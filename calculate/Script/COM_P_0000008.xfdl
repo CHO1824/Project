@@ -1,0 +1,728 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="COM_P_0000008" width="950" height="539" titletext="사원 찾기" onload="fn_onload" onkeyup="COM_P_0000008_onkeyup">
+    <Layouts>
+      <Layout height="539" width="950">
+        <Static id="stc_40" text="20" visible="false" left="0" top="0" height="20" background="orange" taborder="0" right="11"/>
+        <Static id="stc_40_00_00" text="20" visible="false" left="0" top="0" background="orange" taborder="1" width="20" bottom="0"/>
+        <Static id="stc_40_00_00_00" text="20" visible="false" background="orange" taborder="2" right="0" top="0" width="20" bottom="0"/>
+        <Static id="Static34" taborder="3" text="5" left="20" top="159" height="5" cssclass="sta_GU_space" visible="false" background="orange" textAlign="center" wordWrap="char" right="0"/>
+        <Static id="st_STitle" taborder="4" text="조회된 사용자" left="20" top="136" width="97" height="23" cssclass="sta_WF_title"/>
+        <Static id="sta_gridListCnt1" taborder="5" text="총 &lt;fc v='#278c6d'&gt;&lt;b v='true'&gt;[ 0 ]&lt;/b&gt;&lt;/fc&gt; 건" left="127" top="136" width="89" height="23" cssclass="sta_WF_count" usedecorate="true"/>
+        <Static id="sta_title00" taborder="6" text="사원상담내역" left="20" top="-44" width="110" height="21" cssclass="sta_WF_title" visible="true"/>
+        <Static id="Static08_01_00" taborder="7" text="12" left="0" top="480" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0"/>
+        <Static id="Static08_01_00_00_00" taborder="8" text="12" left="0" top="527" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0"/>
+        <Grid id="exGrid01" taborder="9" left="20" top="164" binddataset="ds_list" autoenter="select" cellmovingtype="col" cellsizingtype="col" useExport="false" useFilter="true" useFind="true" useFixCol="true" useSort="true" right="20" height="316" oncelldblclick="fn_ok_rtn" onkeydown="fn_keyReturn">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="60"/>
+                <Column size="80"/>
+                <Column size="100"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="33" band="head"/>
+                <Row size="30"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" text="사원코드"/>
+                <Cell col="1" displaytype="normal" text="사원명"/>
+                <Cell col="2" text="생년월일"/>
+                <Cell col="3" displaytype="normal" text="직급명"/>
+                <Cell col="4" text="휴대폰"/>
+                <Cell col="5" text="본사"/>
+                <Cell col="6" text="지사"/>
+                <Cell col="7" displaytype="normal" text="지점"/>
+                <Cell col="8" displaytype="normal" text="팀"/>
+                <Cell col="9" text="입사일자"/>
+                <Cell col="10" displaytype="normal" text="퇴사일자"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="normal" style="align:center;" text="bind:사원코드"/>
+                <Cell col="1" displaytype="normal" text="bind:사원명"/>
+                <Cell col="2" style="align:left;" text="bind:주민번호" mask="######-*******"/>
+                <Cell col="3" displaytype="normal" text="bind:직급명"/>
+                <Cell col="4" text="bind:휴대폰"/>
+                <Cell col="5" text="bind:본부명"/>
+                <Cell col="6" text="bind:지사명"/>
+                <Cell col="7" displaytype="normal" text="bind:지점명"/>
+                <Cell col="8" displaytype="normal" text="bind:팀명"/>
+                <Cell col="9" displaytype="date" style="align:center;" text="bind:사원등록일자" calendardisplaynulltype="none" calendardateformat="yyyy-MM-dd"/>
+                <Cell col="10" displaytype="date" style="align:center;" text="bind:퇴사일자" calendardisplaynulltype="none" calendardateformat="yyyy-MM-dd"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="stc_09" text="23" visible="false" left="191" width="20" top="136" height="23" background="orange" taborder="10" onclick="stc_09_00_00_onclick"/>
+        <Div id="div_search" taborder="11" left="20" top="20" height="101" cssclass="div_WF_search" text="" formscrolltype="none" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="sta_dept" taborder="0" text="조직" left="134" top="10" width="77" height="23" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="stc_00" text="30" visible="false" left="104" width="30" top="10" height="23" background="orange" taborder="1"/>
+              <Static id="stc_09_00" text="20" visible="false" left="0" width="20" top="0" background="orange" taborder="2" bottom="0"/>
+              <Static id="stc_35_00_00" text="10" visible="false" left="20" right="19" top="0" height="10" background="orange" taborder="3"/>
+              <Static id="stc_35_00_00_00_00_00" text="5" visible="false" left="20" right="19" top="33" height="5" background="orange" taborder="4"/>
+              <Static id="stc_35_00_00_00_00_00_00" text="10" visible="false" left="20" right="19" top="89" background="orange" taborder="5" height="10"/>
+              <Static id="stc_00_02" text="30" visible="false" left="104" width="30" top="38" height="23" background="orange" taborder="6"/>
+              <Static id="stc_35_00_00_00_00_00_01" text="5" visible="false" left="20" right="19" top="61" height="5" background="orange" taborder="7"/>
+              <Static id="stc_00_02_01" text="30" visible="false" left="104" width="30" top="66" height="23" background="orange" taborder="8"/>
+              <Button id="btn_clear00" taborder="9" text="화면클리어" left="20" top="10" width="84" height="23" onclick="fn_searchClear"/>
+              <Static id="stc_00_01" text="30" visible="false" left="190" width="30" top="10" height="23" background="orange" taborder="10"/>
+              <Static id="sta_dept00" taborder="11" text="성명" left="134" top="38" width="77" height="23" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="stc_00_00" text="30" visible="false" left="190" width="30" top="38" height="23" background="orange" taborder="12"/>
+              <Edit id="edt_nmKorea" taborder="13" left="220" top="38" width="100" height="23" onkeydown="div_search_edt_nmKorea_onkeydown" onkeyup="fn_search_onkeyup"/>
+              <Static id="stc_00_00_01_00" text="70" visible="false" left="320" width="70" top="38" height="23" background="orange" taborder="14"/>
+              <Static id="sta_dept01" taborder="15" text="사번" left="390" top="38" width="57" height="23" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="stc_00_00_01" text="30" visible="false" left="437" width="30" top="38" height="23" background="orange" taborder="16"/>
+              <Static id="sta_dept03" taborder="17" text="생년월일" left="134" top="66" width="77" height="23" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="stc_00_02_00_00_00_00" text="30" visible="false" left="190" width="30" top="66" height="23" background="orange" taborder="18"/>
+              <Static id="stc_09_00_00" text="20" visible="false" top="0" background="orange" taborder="19" bottom="0" width="20" right="0"/>
+              <Edit id="edt_nmBirth" taborder="20" left="220" top="66" width="100" height="23" onkeydown="div_search_edt_nmBirth_onkeydown" onkeyup="fn_search_onkeyup"/>
+              <Edit id="edt_noEmp" taborder="21" left="467" top="38" width="100" height="23" onkeydown="div_search_edt_noEmp_onkeydown" onkeyup="fn_search_onkeyup"/>
+              <Static id="stc_00_00_01_00_00" text="70" visible="false" left="320" width="70" top="66" height="23" background="orange" taborder="22"/>
+              <Static id="sta_dept04" taborder="23" text="휴대폰" left="390" top="66" width="57" height="23" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="stc_00_00_01_01" text="30" visible="false" left="437" width="30" top="66" height="23" background="orange" taborder="24"/>
+              <Edit id="edt_noCellPhone" taborder="25" left="467" top="66" width="100" height="23" onkeydown="div_search_edt_noCellPhone_onkeydown" onkeyup="fn_search_onkeyup"/>
+              <Combo id="cbo_area" taborder="26" left="788" top="38" width="100" height="23" innerdataset="ds_Group" datacolumn="그룹사명" codecolumn="그룹사SEQ" displayrowcount="5" visible="false" onkeyup="fn_search_onkeyup"/>
+              <Static id="sta_area" taborder="27" text="지역" left="723" top="38" width="57" height="23" textAlign="left" cssclass="sta_WF_searchLabel" visible="false"/>
+              <Static id="stc_00_00_01_02" text="30" visible="false" left="758" width="30" top="38" height="23" background="orange" taborder="28"/>
+              <Static id="sta_dept02" taborder="29" text="직급" left="637" top="66" width="57" height="23" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="stc_00_00_01_00_01_00" text="70" visible="false" left="567" width="70" top="66" height="23" background="orange" taborder="30"/>
+              <Static id="stc_00_00_01_02_00" text="30" visible="false" left="680" width="30" top="66" height="23" background="orange" taborder="31"/>
+              <Combo id="Combo00" taborder="32" left="710" top="66" width="100" height="23" innerdataset="ds_auth" datacolumn="직급명" codecolumn="직급코드" displayrowcount="5" onkeyup="fn_search_onkeyup"/>
+              <CheckBox id="CheckBox00" taborder="33" text="퇴직자제외" left="570" top="38" width="100" height="23" tooltiptype="hover" onkeyup="fn_search_onkeyup"/>
+              <Static id="stc_00_00_01_00_01_00_00" text="70" visible="false" left="653" width="70" top="38" height="23" background="orange" taborder="34"/>
+              <Button id="btn_search" taborder="35" text="조회" width="64" onclick="btn_select_onclick" left="824" height="23" top="10" cssclass="btn_WF_search"/>
+              <exOrgan id="exOrg_dept" taborder="36" left="220" top="10" width="600" height="23" nComboCnt="4"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_40_00_00_01" text="15" visible="false" left="0" top="121" height="15" background="orange" taborder="12" right="20"/>
+        <Button id="btn_save" taborder="13" text="적용" left="411" top="492" width="64" height="35" onclick="btn_save_onclick"/>
+        <Button id="btn_close" taborder="14" text="닫기" top="492" width="64" height="35" cssclass="btn_WF_delete" left="478" onclick="btn_close_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[/********************************************************************************
+ * Name		: COM_P_0000008.xfdl
+ * Title	: 사원찾기 팝업
+ * Desc		: 사원찾기 팝업
+ * 작성자		: 조하영
+ * 작성일		: 2024.03.11
+ * 변경사항	: 
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+ *=============================================================================*/
+//include "lib::comLib.xjs"; //공통함수 호출
+var fv_fspGroup = nexacro.getApplication().gv_fspGroup;
+var fv_sNoEmp      = "";
+var fv_sNoEmpNm    = "";
+var fv_sCdDept     = "";
+var fv_sNmDept     = "";
+var fv_sReturnType = "";
+var fv_target	   = "";
+
+var fv_sawonNm = "";
+var fv_selectType = "";
+var fv_sawonCell = "";
+var fv_sawonBday = "";
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+ *=============================================================================*/
+/**
+ * 화면 온로드 이벤트
+ */
+this.fn_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfn_loadForm(obj);
+	
+	this.div_search.form.exOrg_dept.SetComboCnt = this.gv_exOrg_depth;
+	
+	this.div_search.form.edt_nmKorea.setFocus();
+
+    try {
+		if (!Base.isEmpty(this.parent.pv_sReturnType)) {
+			fv_sReturnType  = comSys.transNullToEmpty(this.parent.pv_sReturnType);
+		}
+		fv_sNoEmp	= comSys.transNullToEmpty(this.parent.pv_sNoEmp);
+		fv_sNoEmpNm = comSys.transNullToEmpty(this.parent.pv_sNoEmpNm);
+		fv_sCdDept  = comSys.transNullToEmpty(this.parent.pv_sCdDept);
+		fv_sNmDept  = comSys.transNullToEmpty(this.parent.pv_sNmDept);
+		
+		fv_selectType = comSys.transNullToEmpty(this.parent.pv_selectType);
+		fv_target  	  = comSys.transNullToEmpty(this.parent.pv_target);
+
+		if (fv_selectType == "auto") {
+			
+			fv_sawonNm = comSys.transNullToEmpty(this.parent.pv_sawonNm);
+			
+			fv_sawonCell = comSys.transNullToEmpty(this.parent.pv_sawonCell);
+			fv_sawonBday = comSys.transNullToEmpty(this.parent.pv_sawonBday);
+			this.div_search.form.edt_nmKorea.set_value(fv_sawonNm);
+			this.div_search.form.edt_noCellPhone.set_value(fv_sawonCell);
+			this.div_search.form.edt_nmBirth.set_value(fv_sawonBday);
+			
+			if ( fv_sawonNm != "" || fv_sawonCell != "" || fv_sawonBday != "" ) {
+				this.fn_search();
+			}
+		}
+    } catch(ex) { trace(ex.message) }
+    //권한제어(직급:영업사원/행사사원)
+	if((nexacro.getApplication().gv_AuthCode == "00008")||(nexacro.getApplication().gv_AuthCode == "00014")){
+		this.div_search.form.edt_noEmp.set_value(nexacro.getApplication().gv_userId);
+		this.div_search.form.edt_nmKorea.set_value(nexacro.getApplication().gv_userName);
+		this.div_search.form.edt_noEmp.set_readonly(true);
+		this.div_search.form.edt_nmKorea.set_readonly(true);
+		this.div_search.form.edt_noCellPhone.set_readonly(true);
+		this.div_search.form.edt_nmBirth.set_readonly(true);
+		this.div_search.form.Combo00.set_readonly(true);
+	}
+
+    this.fn_setDefault();	
+    this.fn_authSearch();	//직급
+    this.fn_areaCode(); 	//지역
+};
+
+/*===============================================================================
+ * 3.FORM 공통 FUNCTION 영역 
+ *=============================================================================*/
+// 조회
+this.fn_search = function() {
+
+ 	var sDeptCd = this.div_search.form.exOrg_dept.getData();
+	
+	this.ds_input.clearData();
+	this.ds_input.addRow();
+	
+	this.ds_input.setColumn(0,"본부코드",sDeptCd[0].code);
+	this.ds_input.setColumn(0,"지사코드",sDeptCd[1].code);
+	this.ds_input.setColumn(0,"지점코드",sDeptCd[2].code);
+	this.ds_input.setColumn(0,"팀코드",sDeptCd[3].code);
+
+	var sName	= comSys.transNullToEmpty(this.div_search.form.edt_nmKorea.value);	//사원명
+	var sCode	= comSys.transNullToEmpty(this.div_search.form.edt_noEmp.value);		//사원코드
+	var sYN		= comSys.transNullToEmpty(this.div_search.form.CheckBox00.value);		//퇴직자
+	var sAuth	= comSys.transNullToEmpty(this.div_search.form.Combo00.value);		//직급
+	var sArea	= comSys.transNullToEmpty(this.div_search.form.cbo_area.value);		//지역
+	var sCell   = comSys.transNullToEmpty(this.div_search.form.edt_noCellPhone.value); //휴대폰번호
+	var sBday	= comSys.transNullToEmpty(this.div_search.form.edt_nmBirth.value);	 //생년월일
+	
+	this.ds_input.setColumn(0, "사원코드",sCode);
+	this.ds_input.setColumn(0, "사원명", sName);
+	this.ds_input.setColumn(0, "재직구분",sYN);
+	this.ds_input.setColumn(0, "직급코드",sAuth);
+	this.ds_input.setColumn(0, "지역코드",sArea);
+	this.ds_input.setColumn(0, "휴대폰번호",sCell);
+	this.ds_input.setColumn(0, "생년월일",sBday);
+	
+	this.fsp_clear();
+	this.fsp_addSearch(fv_fspGroup+"community:COM_P_EMP_LIST_S", false);
+	// connect the server 
+	this.fsp_callService(
+		""
+		, ""
+		, "ds_in_emp=ds_input"	// inDs
+		, "ds_list=ds_out_emp"	// outDs
+		, ""					// args
+		, "fn_afterSearch"
+		, true
+	);
+	//this.exGrid01.setFocus();
+}
+
+// 조회
+this.fn_autoSearch = function()
+{
+	this.ds_input.clearData();
+	this.ds_input.addRow();
+	
+	//조직권한코드 후 주석제거 및 테스트
+	this.ds_input.setColumn(0,"본부코드",comSys.getUserInfo("본부코드"));
+	this.ds_input.setColumn(0,"지사코드",comSys.getUserInfo("지사코드"));
+	this.ds_input.setColumn(0,"지점코드",comSys.getUserInfo("지점코드"));
+	
+	if(this.gv_exOrg_depth == 4){
+		this.ds_input.setColumn(0,"팀코드",comSys.getUserInfo("팀코드"));
+	}
+	var sName	= comSys.transNullToEmpty(this.div_search.form.edt_nmKorea.value);	//사원명
+	var sCell   = comSys.transNullToEmpty(this.div_search.form.edt_noCellPhone.value); //휴대폰번호
+	var sBday	= comSys.transNullToEmpty(this.div_search.form.edt_nmBirth.value);	 //생년월일
+	 
+	this.ds_input.setColumn(0, "사원명",	sName);
+	this.ds_input.setColumn(0, "재직구분",	"T");
+	this.ds_input.setColumn(0, "휴대폰번호",sCell);
+	this.ds_input.setColumn(0, "생년월일",	sBday);
+	
+	this.fsp_clear();
+	this.fsp_addSearch(fv_fspGroup+"community:COM_P_EMP_LIST_S", false);
+	// connect the server 
+	this.fsp_callService(
+		""
+		, ""
+		, "ds_in_emp=ds_input"	// inDs
+		, "ds_list=ds_out_emp"	// outDs
+		, ""					// args 
+		, "fn_afterAutoSearch"
+		, true
+	);
+}
+
+// 직급
+this.fn_authSearch = function() 
+{
+	this.fsp_clear();
+	this.fsp_addSearch(fv_fspGroup+"community:COMM_RANK_S", false);
+	// connect the server 
+	this.fsp_callService(
+		""
+		, ""
+		, ""	// inDs
+		, "ds_auth=ds_output"	// outDs
+		, ""					// args 
+		, ""
+		, true
+	);
+}
+
+//지역
+this.fn_areaCode = function(){
+
+	this.fsp_init();
+	this.fsp_clear();
+	this.fsp_addSearch(fv_fspGroup+"system:SYS_N_90100600_S", false);
+	// connect the server 
+	this.fsp_callService(
+		""
+		,""
+		,""	// inDs
+		,"ds_area=ds_output"	// outDs
+		,"MOD=지역코드"
+		,""
+		,true
+	);
+}
+/*===============================================================================
+ * 4.CALLBACK 콜백 처리부분
+ *=============================================================================*/
+this.fn_afterSearch = function(ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0){
+		comSys.showMsg("E0002","W",["조회"]);
+		return;
+	} // End of if
+	
+	this.sta_gridListCnt1.set_text(comSys.getGridRowCntText(this.ds_list));
+}
+
+/**
+ * 자동조회 콜벡
+ */
+this.fn_afterAutoSearch = function(ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0){
+		comSys.showMsg("E0002","W",["조회"]);
+		return;
+	} // End of if
+	
+	this.sta_gridListCnt1.set_text(comSys.getGridRowCntText(this.ds_list));
+	
+// 	//조직권한코드 후 주석제거 및 테스트
+// 	this.gv_orgAuthCode  = comSys.getUserInfo("조직권한코드"); // 00:회사, 01:채널,02:본부,03:사업단,04:지사,05:지점,06:팀, 99:FP
+// 	
+// 	// 조직정보 셋팅.
+// 	gv_org2 = comSys.getUserInfo("본부코드");
+// 	gv_org4 = comSys.getUserInfo("지사코드");
+// 	gv_org5 = comSys.getUserInfo("지점코드");
+// 	
+// 	if(gv_exOrg_depth == 4){
+// 		gv_org6 = comSys.getUserInfo("팀코드");
+// 	}
+}
+
+/*===============================================================================
+ * 5.사용자 FUNCTION 영역
+ *=============================================================================*/
+this.fn_setDefault = function() {
+	var aNoEmp;
+	var aNoEmpNm;
+	var nRow;
+	//this.fn_search();
+	//this.fn_autoSearch();
+	
+	if(!Base.isEmpty(fv_sNoEmp)) {
+		aNoEmp = fv_sNoEmp.split(",");
+		aNoEmpNm = fv_sNoEmpNm.split(",");
+         
+		for(var i = 0; i < aNoEmp.length; i++) {
+			nRow = this.ds_adminList.addRow();
+			this.ds_adminList.setColumn(nRow, "CHK", "0");
+			this.ds_adminList.setColumn(nRow, "사원코드", aNoEmp[i]);
+			this.ds_adminList.setColumn(nRow, "사원명", aNoEmpNm[i]);
+		}
+	}
+}
+
+/*===============================================================================
+ * 6.각 COMPONENT 별 EVENT 영역
+ *=============================================================================*/
+//저장버튼 클릭
+this.btn_save_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fn_ok_rtn();
+};
+
+
+// this.btn_ok_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo) {
+// 	var sCodeList = "";
+// 	var sNameList = "";
+// 	
+// 	for(var i = 0; i < this.ds_adminList.rowcount; i++) {
+// 		sCodeList += (Base.isEmpty(sCodeList)) ? this.ds_adminList.getColumn(i,"사원코드") : "," + this.ds_adminList.getColumn(i, "사원코드");
+// 		sNameList += (Base.isEmpty(sNameList)) ? this.ds_adminList.getColumn(i,"사원명") : "," + this.ds_adminList.getColumn(i, "사원명");
+// 	}
+// 	
+// 	this.close([sCodeList,sNameList]);
+// };
+
+// 조회 버튼 클릭
+this.btn_select_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fn_search();
+};
+
+// 성명 입력 창에서 엔터 키 입력
+this.div_search_edt_nmKorea_onkeydown = function(obj:nexacro.Edit,e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13) {
+		this.fn_search();
+	}
+};
+
+// 사번 입력 창에서 엔터 키 입력
+this.div_search_edt_noEmp_onkeydown = function(obj:nexacro.Edit,e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13) {
+		this.fn_search();
+	}
+};
+
+//생년월일창에서 엔터 키 입력 
+this.div_search_edt_nmBirth_onkeydown = function(obj:nexacro.Edit,e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13) {
+		this.fn_search();
+	}
+};
+
+//휴대폰번호에서 엔터키 입력 
+this.div_search_edt_noCellPhone_onkeydown = function(obj:nexacro.Edit,e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13) {
+		this.fn_search();
+	}
+};
+
+this.btn_plus_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo) {
+	var nCnt = this.ds_list.getCaseCount("CHK == '1'");
+	
+	if(nCnt == 0)
+	{
+	    comSys.showMsg("I0039","W",["선택한"]);
+	    return;
+	}
+	
+	this.comSys.dsFilter(this.ds_list,this.ds_listTmp,"CHK == '1'");
+	
+	var sEmpNo = "";
+	var nRow;
+	
+	for(var i = 0; i < this.ds_listTmp.rowcount; i++) {
+	    this.ds_listTmp.setColumn(i, "CHK", "0");
+	    sEmpNo = this.ds_listTmp.getColumn(i, "사원코드");
+	    
+	    nRow = this.ds_adminList.findRow("사원코드", sEmpNo);
+	    
+		if(nRow < 0) {
+			nRow = this.ds_adminList.addRow();
+	        
+	       this. ds_adminList.copyRow(nRow,this.ds_listTmp,i);
+	    }
+	}
+	this.sta_gridListCnt1.set_text(comSys.getGridRowCntText(this.ds_adminList));
+};
+
+this.btn_minus_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo) {
+	var nCnt = this.ds_adminList.getCaseCount("CHK == '1'");
+	
+	if(nCnt == 0) {
+		comSys.showMsg("I0039","W",["선택한"]);
+		return;
+	}
+	
+	for(var i = ds_adminList.rowcount; i > -1; i--) {
+		if(this.ds_adminList.getColumn(i,"CHK") == "1") {
+			this.ds_adminList.deleteRow(i);
+		}
+	}
+	
+	this.sta_gridListCnt1.set_text(comSys.getGridRowCntText(this.ds_adminList));
+};
+
+this.fn_ok_rtn = function() {
+
+	var rowposition = this.ds_list.rowposition;
+	
+	if ( rowposition == -1 ) { 
+		comSys.showMsg("선택된 자료가 없습니다.","W");
+		return;
+	}
+
+	//배열 형식
+	if(fv_sReturnType == "A"){
+		var oArgs = []; // 리턴결과
+		
+		// 데이터별내용 생성
+		for(var i = 0 ; i < this.ds_list.colcount; i++){
+			oArgs.push(new String(comSys.transNullToEmpty(this.ds_list.getColumn(this.ds_list.rowposition, i))));
+		} // End of for
+		oArgs = JSON.stringify(oArgs); // json변환
+		this.gfn_closePopup(oArgs); //부모화면으로 값 리턴
+
+ 	//파라미터 형식
+	}else if(fv_sReturnType == "P") {
+		//json 데이터 형식
+		var raw = {}; // 데이터
+		
+		// 데이터별내용 생성
+		for(var i=0 ; i<this.ds_list.colcount; i++){
+			var colName = this.ds_list.getColID(i);
+			
+			eval("raw."+colName+" = ''");
+			raw[colName] = this.ds_list.getColumn(this.ds_list.rowposition, i);
+		} // End of for
+		
+		oArgs = JSON.stringify(raw); // json변환	
+		this.gfn_closePopup(oArgs); //부모화면으로 값 리턴
+		
+	} else if(fv_sReturnType == "C") { 
+	// 컴포넌트에 데이터 넣기
+		if ( fv_target != ""){
+			for ( var i=0; i < fv_target.length; i ++ ){
+				var val = this.ds_list.getColumn(this.ds_list.rowposition, i);
+				var objArray = fv_target[i].split(".");				
+				var openerObj = this.opener;
+				var formChk = false;
+				
+				if ( objArray.length < 1 ) return;
+				
+				for ( var arr=0; arr < objArray.length; arr++){
+					if (objArray[arr] == "form" ) {
+						formChk = true;
+						continue;
+					}
+					if ( arr == 0 ) {
+						openerObj = openerObj.all[objArray[arr]];
+					}else {
+						if (formChk){
+							openerObj = openerObj.form.all[objArray[arr]];
+							formChk = false;
+						}else {
+							openerObj = openerObj[objArray[arr]];
+						}
+					}
+				}
+				openerObj.set_value(val);
+			}
+		}
+		this.close(fv_sReturnType);
+	}
+};
+
+/**
+ * 조회조건에서 엔터시
+ */
+this.fn_search_onkeyup = function(obj:nexacro.Edit,e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == "13") {
+		this.fn_search();
+		obj.setFocus();
+	}
+};
+
+//그리드 엔터시
+this.fn_keyReturn = function(obj:nexacro.Edit,e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == "13") {
+		this.fn_ok_rtn();
+	}
+};
+
+//화면클리어버튼실행시 화면클리어
+this.fn_searchClear = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.div_search.form.edt_nmKorea.set_value("");
+	this.div_search.form.edt_noEmp.set_value("");
+	this.div_search.form.CheckBox00.set_value("");
+	this.div_search.form.Combo00.set_index(-1);
+	this.div_search.form.exOrg_dept.exFn_compoClear();
+	this.ds_list.set_enableevent(false);
+	this.ds_list.clearData();
+	this.ds_list.set_enableevent(true);
+	
+	this.fn_autoSearch();
+};
+
+this.COM_P_0000008_onkeyup = function(obj:nexacro.Form,e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 27){
+		this.close();
+	}
+};
+
+//닫기 버튼 클릭시
+this.btn_close_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+]]></Script>
+    <Objects>
+      <Dataset id="ds_list">
+        <ColumnInfo>
+          <Column id="사원코드" type="STRING" size="256"/>
+          <Column id="사원명" type="STRING" size="256"/>
+          <Column id="대표사원코드" type="STRING" size="256"/>
+          <Column id="사원구분" type="STRING" size="256"/>
+          <Column id="재직구분" type="STRING" size="256"/>
+          <Column id="주민번호" type="STRING" size="256"/>
+          <Column id="사원등급" type="STRING" size="256"/>
+          <Column id="사원등록일자" type="STRING" size="256"/>
+          <Column id="퇴사일자" type="STRING" size="256"/>
+          <Column id="지원서접수일" type="STRING" size="256"/>
+          <Column id="유치자코드" type="STRING" size="256"/>
+          <Column id="증원사원명" type="STRING" size="256"/>
+          <Column id="멘토코드" type="STRING" size="256"/>
+          <Column id="ERP사용구분" type="STRING" size="256"/>
+          <Column id="SMS수신" type="STRING" size="256"/>
+          <Column id="재고불출구분" type="STRING" size="256"/>
+          <Column id="휴대폰" type="STRING" size="256"/>
+          <Column id="집전화" type="STRING" size="256"/>
+          <Column id="직장전화" type="STRING" size="256"/>
+          <Column id="업종" type="STRING" size="256"/>
+          <Column id="직종" type="STRING" size="256"/>
+          <Column id="직장명" type="STRING" size="256"/>
+          <Column id="부서명" type="STRING" size="256"/>
+          <Column id="자택우편번호" type="STRING" size="256"/>
+          <Column id="자택우편주소" type="STRING" size="256"/>
+          <Column id="자택도로명주소" type="STRING" size="256"/>
+          <Column id="자택상세주소" type="STRING" size="256"/>
+          <Column id="직장우편번호" type="STRING" size="256"/>
+          <Column id="직장우편주소" type="STRING" size="256"/>
+          <Column id="직장상세주소" type="STRING" size="256"/>
+          <Column id="은행코드" type="STRING" size="256"/>
+          <Column id="계좌번호" type="STRING" size="256"/>
+          <Column id="예금주" type="STRING" size="256"/>
+          <Column id="예금주주민번호" type="STRING" size="256"/>
+          <Column id="예금주관계" type="STRING" size="256"/>
+          <Column id="지급방법" type="STRING" size="256"/>
+          <Column id="거래처코드" type="STRING" size="256"/>
+          <Column id="법인카드사" type="STRING" size="256"/>
+          <Column id="법인카드번호" type="STRING" size="256"/>
+          <Column id="시간당비용" type="STRING" size="256"/>
+          <Column id="EMail계정" type="STRING" size="256"/>
+          <Column id="EMail호스트" type="STRING" size="256"/>
+          <Column id="EMail" type="STRING" size="256"/>
+          <Column id="생일" type="STRING" size="256"/>
+          <Column id="생일구분" type="STRING" size="256"/>
+          <Column id="결혼기념일" type="STRING" size="256"/>
+          <Column id="비밀번호" type="STRING" size="256"/>
+          <Column id="입사지원서" type="STRING" size="256"/>
+          <Column id="위촉계약서" type="STRING" size="256"/>
+          <Column id="정보제공동의서" type="STRING" size="256"/>
+          <Column id="신분증사본" type="STRING" size="256"/>
+          <Column id="등본" type="STRING" size="256"/>
+          <Column id="통장사본" type="STRING" size="256"/>
+          <Column id="가족관계증명서" type="STRING" size="256"/>
+          <Column id="고객리스트" type="STRING" size="256"/>
+          <Column id="BP적립확인서" type="STRING" size="256"/>
+          <Column id="사원사진" type="STRING" size="256"/>
+          <Column id="실적본부코드" type="STRING" size="256"/>
+          <Column id="실적지사코드" type="STRING" size="256"/>
+          <Column id="실적지점코드" type="STRING" size="256"/>
+          <Column id="실적팀코드" type="STRING" size="256"/>
+          <Column id="직장팩스" type="STRING" size="256"/>
+          <Column id="세금성명" type="STRING" size="256"/>
+          <Column id="세금주민번호" type="STRING" size="256"/>
+          <Column id="세금사업자번호" type="STRING" size="256"/>
+          <Column id="본부코드" type="STRING" size="256"/>
+          <Column id="본부명" type="STRING" size="256"/>
+          <Column id="지사코드" type="STRING" size="256"/>
+          <Column id="지사명" type="STRING" size="256"/>
+          <Column id="지점코드" type="STRING" size="256"/>
+          <Column id="지점명" type="STRING" size="256"/>
+          <Column id="팀코드" type="STRING" size="256"/>
+          <Column id="팀명" type="STRING" size="256"/>
+          <Column id="조직시작일자" type="STRING" size="256"/>
+          <Column id="조직종료일자" type="STRING" size="256"/>
+          <Column id="직급코드" type="STRING" size="256"/>
+          <Column id="직급명" type="STRING" size="256"/>
+          <Column id="직급시작일자" type="STRING" size="256"/>
+          <Column id="직급종료일자" type="STRING" size="256"/>
+          <Column id="신용등급" type="STRING" size="256"/>
+          <Column id="비고" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_input">
+        <ColumnInfo>
+          <Column id="사원코드" size="15" type="STRING"/>
+          <Column id="사원명" size="50" type="STRING"/>
+          <Column id="재직구분" size="10" type="STRING"/>
+          <Column id="본부코드" size="7" type="STRING"/>
+          <Column id="지사코드" size="7" type="STRING"/>
+          <Column id="지점코드" size="7" type="STRING"/>
+          <Column id="팀코드" size="7" type="STRING"/>
+          <Column id="직급코드" type="STRING" size="15"/>
+          <Column id="지역코드" type="STRING" size="5"/>
+          <Column id="휴대폰번호" type="STRING" size="15"/>
+          <Column id="생년월일" type="STRING" size="6"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_adminList">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="사원코드" type="STRING" size="256"/>
+          <Column id="사원명" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_listTmp">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="NO_EMP" type="STRING" size="256"/>
+          <Column id="NM_KORNAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_auth">
+        <ColumnInfo>
+          <Column id="직급코드" type="STRING" size="256"/>
+          <Column id="직급명" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_area">
+        <ColumnInfo>
+          <Column id="관리지역코드" type="STRING" size="256"/>
+          <Column id="관리지역명" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

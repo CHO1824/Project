@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="COM_P_0000001" width="436" height="600" titletext="공통조회 팝업" onload="fn_onload" onkeyup="COM_P_0000001_onkeyup" scrollbartype="none none">
+    <Layouts>
+      <Layout height="600" width="436">
+        <Static id="stc_40" text="20" visible="false" left="0" top="0" height="20" background="orange" taborder="1" right="20"/>
+        <Static id="stc_40_00_00" text="20" visible="false" left="0" top="0" background="orange" taborder="2" width="20" bottom="0"/>
+        <Static id="stc_40_00_00_00" text="20" visible="false" background="orange" taborder="3" right="0" top="0" width="20" bottom="0"/>
+        <Static id="Static34" taborder="4" text="5" left="20" top="43" height="5" cssclass="sta_GU_space" visible="false" background="orange" textAlign="center" wordWrap="char" right="20"/>
+        <Static id="st_STitle" taborder="5" text="조회결과" left="20" top="20" width="77" height="23" cssclass="sta_WF_title"/>
+        <Static id="sta_gridListCnt1" taborder="6" text="총 &lt;fc v='#278c6d'&gt;&lt;b v='true'&gt;[ 0 ]&lt;/b&gt;&lt;/fc&gt; 건" left="st_STitle:10" top="20" width="89" height="23" cssclass="sta_WF_count" usedecorate="true"/>
+        <Static id="sta_title00" taborder="7" text="사원상담내역" left="20" top="-44" width="110" height="21" cssclass="sta_WF_title" visible="true"/>
+        <Static id="Static08_01_00" taborder="8" text="12" left="0" top="541" height="12" cssclass="sta_GU_space" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0" visible="false"/>
+        <Static id="Static08_01_00_00_00" taborder="9" text="12" height="12" cssclass="sta_GU_space" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" bottom="0" left="0" right="0" visible="false"/>
+        <Grid id="exGrid00" taborder="0" left="20" top="48" binddataset="ds_list" autoenter="select" cellmovingtype="col" cellsizingtype="col" useExport="false" useFilter="true" useFind="true" useFixCol="true" useSort="true" right="20" oncelldblclick="exGrid00_oncelldblclick" onkeydown="exGrid00_onkeydown" bottom="59" onkeyup="exGrid00_onkeyup">
+          <Formats>
+            <Format id="default"/>
+          </Formats>
+        </Grid>
+        <Static id="stc_09" text="23" visible="false" left="251" width="20" top="20" height="23" background="orange" taborder="10" onclick="stc_09_00_00_onclick"/>
+        <Button id="btn_select" taborder="11" text="적용" left="154" top="553" width="64" height="35" onclick="btn_select_onclick"/>
+        <Button id="btn_close" taborder="12" text="닫기" top="553" width="64" height="35" cssclass="btn_WF_delete" left="221" onclick="btn_close_onclick"/>
+        <Static id="sta_gide" taborder="13" text="12" left="155" top="549" height="12" cssclass="sta_GU_space" visible="false" background="red" opacity="0.5" textAlign="center" wordWrap="char" right="219"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[ /********************************************************************************
+ * Name			: COM_P_0000001.xfdl
+ * Title		: 공통조회 팝업
+ * Desc			: 공통조회 팝업
+ * 작성자		: 김용현
+ * 작성일		: 2024.03.05
+ * 변경사항	: 
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+ *=============================================================================*/
+var fv_title = "공통팝업 조회";
+var fv_dsOut = "ds_output";
+var fv_btnN = "Y";
+var fv_viewCol;
+var fv_params;
+var fv_sql;
+var fv_target;
+var fv_returnType;
+
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+ *=============================================================================*/
+/**
+ * 화면 온로드 이벤트
+ */
+this.fn_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfn_loadForm(obj);
+	
+	var fromWidthSize = this.width+3;	//이유모르겠음 부모창에서 값 맞출려고 +3
+	var fromHeightSize = this.height+23;	//이유모르겠음 부모창에서 값 맞출려고 +23
+	
+	try {
+			fv_sql        = this.parent.sql;            //쿼리경로
+			fv_params     = this.parent.params;         //쿼리파라미터
+			fv_viewCol    = this.parent.viewCol;        //데이터 칼럼정의
+			fv_returnType = this.parent.returnType;     //리턴 타입( A:배열, P:파라미터 )
+			fv_title      = this.parent.sTitle;         //팝업 타이틀명	
+			fv_target  	  = this.parent.target;
+		
+		//FSP에서 돌려주는 데이터셋명
+		if (!Base.isEmpty(this.parent.dsOut)){
+			fv_dsOut      = this.parent.dsOut;          
+		}
+		
+		fromWidthSize = (fromWidthSize/2);
+		fromWidthSize = Math.round(fromWidthSize)
+		fromHeightSize = fromHeightSize;
+		
+		//적용버튼 설정
+		if (!Base.isEmpty(this.parent.btnN)){
+		
+			fv_btnN      = this.parent.btnN;
+			fv_btnN      = "N";
+			
+			if(fv_btnN == "N"){
+				this.btn_select.set_visible(false);
+				
+ 				this.btn_close.set_left(fromWidthSize-33);
+ 				this.btn_close.set_top(fromHeightSize-70);
+			} else {
+				trace(fv_btnN);
+			
+				this.btn_select.set_left(fromWidthSize-62);			// fromWidthSize - sta_gide(화면에 빨간거)
+				this.btn_close.set_left(this.btn_select.left+64+3); // fromWidthSize - 적용버튼크기
+				this.btn_select.set_top(fromHeightSize-70);
+				this.btn_close.set_top(fromHeightSize-70);
+			}
+		}	
+		 else {
+			if(fv_btnN == "N"){
+				this.btn_select.set_visible(false);
+				
+ 				this.btn_close.set_left(fromWidthSize-33);
+ 				this.btn_close.set_top(fromHeightSize-70);
+			} else {
+				trace(fv_btnN);
+			
+				this.btn_select.set_left(fromWidthSize-62);			// fromWidthSize - sta_gide(화면에 빨간거)
+				this.btn_close.set_left(this.btn_select.left+64+3); // fromWidthSize - 적용버튼크기
+				this.btn_select.set_top(fromHeightSize-70);
+				this.btn_close.set_top(fromHeightSize-70);
+			}
+		}
+
+	} catch(ex) {}
+	
+	this.titletext = this.fv_title;
+	
+	if( !Base.isEmpty( fv_viewCol ) ){
+		var sColumns = "";
+		var sHead = "";
+		var sBody = "";
+		
+		// 선언된 칼럼수에 따라 칼럼, 헤드, 바디 셋팅
+		for(var i = 0; i < fv_viewCol.length; i++ && this.ds_list.rowposition == -1){
+			var cols = fv_viewCol[i].split(":");                     		//":"로 구분함 ( 0:칼럼명, 1:사이즈, .......등)
+			
+			var colId = cols[0];                                            //칼럼 명
+			var colSize = Base.isEmpty( cols[1] ) ? 90 : cols[1];           //칼럼 사이즈( 기본 사이즈 : 90 )
+			var colType = Base.isEmpty( cols[2] ) ? "normal" : cols[2];     //칼럼 타입  ( 기본 타입 : normal )
+			
+			/**
+			  * 제어셋팅 변수 추가
+			  */
+			  
+			var colAlign = "center";
+			
+			if(colType == "left"){
+				colAlign = "left";
+			}else if(colType == "right"){
+				colAlign = "right";
+			}
+			/**
+			  * 칼럼 타입에 따른 정렬 추가
+			  */
+			  
+
+			// 헤드 - 칼럼 사이즈
+			sColumns += '<Col size="'+colSize+'"/>\n'
+			
+			
+			// 헤드 - 칼럼 명
+			sHead += '<Cell col="'+i+'" text="'+colId+'"/>\n'
+
+			// 바디 - 타입, 정렬, 바인드:칼럼 명
+			sBody += '<Cell col="'+i+'"';
+			sBody += ' displaytype="'+colType+'"';
+			sBody += ' textAlign="'+colAlign+'"';
+			sBody += ' text="bind:'+colId+'"';
+			sBody += ' calendardisplaynulltype="none"';
+			sBody += '/>\n';
+		}
+		
+		
+		
+		// 그리드 기본 Formats
+		var sFormat = '<Formats>\n';
+			sFormat += '<Format id="default">\n';
+		    sFormat += '<Columns>\n';
+			
+		    sFormat += sColumns;
+			
+		    sFormat += '</Columns>\n';
+		    sFormat += '<Rows>\n';
+		    sFormat += '<Row band="head" size="33"/>\n';
+		    sFormat += '<Row band="body" size="30"/>\n';
+		    sFormat += '</Rows>\n';
+		    sFormat += '<Band id="head">\n';
+		    
+		    sFormat += sHead;
+		    
+		    sFormat += '</Band>\n';
+		    sFormat += '<Band id="body">\n';
+		    
+		    sFormat += sBody;
+		    
+		    sFormat += '</Band>\n';
+		    sFormat += '</Format>\n';
+		    sFormat += '</Formats>\n';
+		
+		// 동적그리드 할당
+		this.exGrid00.set_formats(sFormat);
+		this.gfn_exGridSet(this.exGrid00);
+		
+		
+		//조회
+		this.fn_search();
+	
+	}
+}
+
+/*===============================================================================
+ * 3.FORM 공통 FUNCTION 영역 
+ *=============================================================================*/
+/**
+ * 선택 시
+ */
+this.fn_selectRow = function()
+{
+	if(fv_returnType == "A"){                //배열 형식
+		//배열 형식        
+		var oArgs = []; // 리턴결과
+		
+		// 데이터별내용 생성
+		for(var i=0 ; i<this.ds_list.colcount; i++){
+			oArgs.push(new String(comSys.transNullToEmpty(this.ds_list.getColumn(this.ds_list.rowposition, i))));
+		} // End of for
+		
+		oArgs = JSON.stringify(oArgs); // json변환
+		this.gfn_closePopup(oArgs); //부모화면으로 값 리턴
+		
+	} else if(fv_returnType == "P") {        //파라미터 형식
+		//json 데이터 형식
+		var raw = {}; // 데이터
+		
+		// 데이터별내용 생성
+		for(var i=0 ; i<this.ds_list.colcount; i++){
+			var colName = this.ds_list.getColID(i);
+			
+			eval("raw."+colName+" = ''");
+			raw[colName] = this.ds_list.getColumn(this.ds_list.rowposition, i);
+		} // End of for
+		
+		oArgs = JSON.stringify(raw); // json변환	
+		this.gfn_closePopup(oArgs); //부모화면으로 값 리턴
+	}else if(fv_returnType == "C") { 
+	// 컴포넌트에 데이터 넣기
+		if ( this.fv_target != ""){
+			for ( var i=0; i < fv_target.length; i ++ ){
+				var val = this.ds_list.getColumn(this.ds_list.rowposition, i);
+				var objArray = fv_target[i].split(".");				
+				var openerObj = this.opener;
+				var formChk = false;
+				
+				if ( objArray.length < 1 ) return;
+				
+				for ( var arr=0; arr < objArray.length; arr++){
+					if (objArray[arr] == "form" ) {
+						formChk = true;
+						continue;
+					}
+					if ( arr == 0 ) {
+						openerObj = openerObj.all[objArray[arr]];
+					}else {
+						if (formChk){
+							openerObj = openerObj.form.all[objArray[arr]];
+							formChk = false;
+						}else {
+							openerObj = openerObj[objArray[arr]];
+						}
+					}
+				}
+				openerObj.set_value(val);
+			}
+		}
+		this.close(fv_returnType);
+	}
+}
+/*===============================================================================
+* 4.CALLBACK 콜백 처리부분
+*=============================================================================*/
+this.fn_afterSearch = function(ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0){
+		comSys.showMsg("E0001", "W", ["조회"]);    // @자료 조회 시 오류가 발생했습니다.
+	}
+	this.sta_gridListCnt1.set_text(comSys.getGridRowCntText(this.ds_list));
+	this.set_titletext(fv_title); //타이틀 제목
+}
+/*===============================================================================
+ * 5.사용자 FUNCTION 영역
+ *=============================================================================*/
+/**
+ * 조회
+ */
+this.fn_search = function()
+{
+	this.fsp_clear();
+	if( !Base.isEmpty(fv_sql) ) {
+		
+		this.fsp_addSearch(fv_sql, false );
+		// connect the server
+		this.fsp_callService(
+			""
+			,""
+			,"ds_input=ds_list"	    // inDs
+			,"ds_list="+fv_dsOut	// outDs
+			,fv_params	            // args 
+			,"fn_afterSearch"
+			,true
+		);
+		this.exGrid00.setFocus();
+
+	} else {
+		trace("쿼리정의가 없음.");
+	}
+}
+/*===============================================================================
+* 6.각 COMPONENT 별 EVENT 영역
+*=============================================================================*/
+this.btn_select_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fn_selectRow();
+};
+
+this.exGrid00_oncelldblclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	this.fn_selectRow();
+};
+
+this.exGrid00_onkeydown = function(obj:nexacro.Grid,e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		this.fn_selectRow();
+	}
+};
+
+this.COM_P_0000001_onkeyup = function(obj:nexacro.Form,e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 27){
+		this.close();
+	}
+};
+
+this.btn_close_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+
+this.exGrid00_onkeyup = function(obj:nexacro.Grid,e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		this.close();
+	}
+};
+]]></Script>
+    <Objects>
+      <Dataset id="ds_list"/>
+      <Dataset id="ds_input">
+        <ColumnInfo>
+          <Column id="CD_DEPT" type="string" size="10"/>
+          <Column id="NO_EMP" type="STRING" size="10"/>
+          <Column id="NM_KORNAME" type="STRING" size="100"/>
+          <Column id="YN_RETIRE" type="STRING" size="2"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>
