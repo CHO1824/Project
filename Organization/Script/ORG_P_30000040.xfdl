@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="ORG_P_30000040" width="820" height="276" titletext="부활요청" onload="fn_onload">
+    <Layouts>
+      <Layout height="276" mobileorientation="landscape" width="820">
+        <Static id="stc_40" text="20" visible="false" left="0" top="0" height="20" background="orange" taborder="0" right="0"/>
+        <Static id="stc_40_00_00" text="20" visible="false" left="0" top="0" background="orange" taborder="1" width="20" bottom="0"/>
+        <Static id="stc_40_00_00_00" text="20" visible="false" background="orange" taborder="2" right="0" top="0" width="20" bottom="0"/>
+        <Static id="Static08_01_00" taborder="3" text="12" left="0" top="217" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0"/>
+        <Static id="Static08_01_00_00_00" taborder="4" text="12" left="0" top="264" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0"/>
+        <Static id="stc_40_00_00_01" text="15" visible="false" left="0" top="52" height="15" background="orange" taborder="5" right="5" textAlign="center"/>
+        <Static id="sta_title" taborder="6" text="부활" left="20" top="68" width="110" height="21" cssclass="sta_WF_title" visible="true"/>
+        <Static id="Static05_00_00_03" taborder="7" text="height 23" left="313" top="67" width="100" height="23" cssclass="sta_GU_space" visible="false" background="orange" textAlign="center" wordWrap="char"/>
+        <Static id="stc_35_00_00_00_01_00_00" text="3" visible="false" left="0" right="5" top="90" height="5" background="orange" taborder="8"/>
+        <Div id="Div00" taborder="9" left="20" top="20" height="32" cssclass="div_WF_detail" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="sta01_00" taborder="0" text="사원" left="0" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Edit id="edt_saCode" taborder="1" left="93" top="5" width="92" height="23" readonly="true"/>
+              <Edit id="edt_saName" taborder="2" left="188" top="5" width="112" height="23" readonly="true"/>
+              <Static id="sta01_00_00" taborder="3" text="사원구분" left="303" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Edit id="edt_saGbn" taborder="4" left="396" top="5" width="112" height="23" readonly="true"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div01" taborder="10" left="20" top="95" height="122" cssclass="div_WF_detail" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="sta01_00" taborder="0" text="부활일자" left="0" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Calendar id="cal_02" taborder="1" left="93" top="5" width="102" height="23" dateformat="yyyy-MM-dd" tabstop="false"/>
+              <Static id="sta01_00_00" taborder="2" text="요청사유" left="0" top="32" width="90" height="90" cssclass="sta_WF_detail"/>
+              <TextArea id="TextArea00" taborder="3" left="94" top="35" height="83" right="3"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_save" taborder="11" text="저장" left="346" top="229" width="64" height="35" onclick="fn_save" cssclass="btn_WF_saveRow"/>
+        <Button id="btn_close" taborder="12" text="닫기" top="229" width="64" height="35" cssclass="btn_WF_delete" left="413" onclick="btn_close_onclick"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Div01.form.cal_02" propid="value" datasetid="ds_revival" columnid="부활일자"/>
+      <BindItem id="item1" compid="Div01.form.TextArea00" propid="value" datasetid="ds_revival" columnid="요청사유"/>
+    </Bind>
+    <Script type="xscript5.1"><![CDATA[/********************************************************************************
+ * Name			: ORG_P_30000040.xfdl
+ * Title		: 부활요청 팝업
+ * Desc			: 부활요청 팝업
+ * 작성자		: 최종혁
+ * 작성일		: 2024.03.19
+ * 변경사항	: 
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+ *=============================================================================*/
+var fv_fspGroup = nexacro.getApplication().gv_fspGroup + "organization";
+var fv_saCode;
+var fv_saName;
+var fv_saGbn;
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+ *=============================================================================*/
+/**
+ * 화면 온로드 이벤트
+ */
+this.fn_onload = function (obj:Form, e:LoadEventInfo)
+{
+	//필수
+	this.gfn_loadForm(obj);
+	
+	try {
+		fv_saCode = this.parent.saCode; //사원코드
+		fv_saName = this.parent.saName; //사원명
+		fv_saGbn  = this.parent.saGbn;
+	} catch(e) {}
+	
+	this.Div00.form.edt_saCode.set_value(fv_saCode);
+	this.Div00.form.edt_saName.set_value(fv_saName);
+	this.Div00.form.edt_saGbn.set_value(fv_saGbn);
+	
+	var nRow = this.ds_revival.addRow();
+	this.ds_revival.setColumn(nRow,"사원코드",fv_saCode);
+	
+	this.Div01.form.cal_02.set_value(Base.date.getDate()); //발령일자를 현재일자로 기본 셋팅
+};
+/*===============================================================================
+ * 3.FORM 공통 FUNCTION 영역 
+ *=============================================================================*/
+ /*
+ * 저장 버튼 클릭 시
+ */
+this.fn_save = function (obj:Button,  e:ClickEventInfo)
+{
+	this.fn_dataSave();
+}
+
+/*
+ * 저장 함수
+ */
+this.fn_dataSave = function()
+{
+	this.opener.fn_clearData();
+	
+    //저장하시겠습니까?
+    if(!comSys.showMsg("C0001","Q")) return;
+	
+	this.fsp_clear();
+	this.fsp_addSave(
+		  fv_fspGroup+":ORG_P_30000040_I"	// insert
+		, ""								// update
+		, ""								// delete
+		, ""								// flag column 명
+		, ""								// key sql id
+		, 0									// key 증가 값
+		, "" 
+		, 0 
+		, "N"								// 실행타입
+	);
+	
+	// 서버 호출 
+	this.fsp_callService(
+		""
+		,""
+		,"ds_input=ds_revival:U"			// inDs
+		,""	// outDs
+		,""// args 
+		,"fn_afterSave"
+		,false
+		,false
+		,false
+		,""
+	);
+}
+
+/*===============================================================================
+ * 4.CALLBACK 콜백 처리부분
+ *=============================================================================*/
+this.fn_afterSave = function (ErrorCode, ErrorMsg, TrId)
+{
+	if(ErrorCode < 0) {
+		comSys.showMsg("E0002", "W", ["저장"]);
+		newGbn = ""; //신규여부
+		return;
+	}
+	comSys.showMsg("I0004", "I");
+	//this.opener.Div00.ImageViewer00.image = "URL('Images::증명사진.jpg')";
+	//this.opener.Div00.ImageViewer00.redraw();
+	this.opener.fn_sawonData(fv_saCode);
+	this.close();
+}
+/*===============================================================================
+ * 5.사용자 FUNCTION 영역
+ *=============================================================================*/
+/*===============================================================================
+ * 6.각 COMPONENT 별 EVENT 영역
+ *=============================================================================*/
+//닫기버튼
+this.btn_close_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+]]></Script>
+    <Objects>
+      <Dataset id="ds_revival">
+        <ColumnInfo>
+          <Column id="사원코드" type="STRING" size="256"/>
+          <Column id="부활일자" type="STRING" size="256"/>
+          <Column id="요청사유" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

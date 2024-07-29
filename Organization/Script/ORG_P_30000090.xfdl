@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="ORG_P_30000090" width="1000" height="712" titletext="사원상담내역" onload="fn_onload">
+    <Layouts>
+      <Layout height="712" mobileorientation="landscape" width="1000">
+        <Static id="stc_40" text="20" visible="false" left="0" top="0" height="20" background="orange" taborder="5" right="0"/>
+        <Static id="stc_40_00_00" text="20" visible="false" left="0" top="0" background="orange" taborder="6" width="20" bottom="0"/>
+        <Static id="stc_40_00_00_00" text="20" visible="false" background="orange" taborder="7" right="0" top="0" width="20" bottom="0"/>
+        <Grid id="grd_list" taborder="8" left="20" top="107" binddataset="ds_list" right="20" height="546" useExport="false" useFilter="true" useFind="true" useFixCol="true" useSort="true" autoenter="select" cellmovingtype="col" cellsizingtype="col" oncellclick="grd_list_oncellclick" tabstop="false">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="150"/>
+                <Column size="615"/>
+                <Column size="90"/>
+              </Columns>
+              <Rows>
+                <Row size="33" band="head"/>
+                <Row size="30"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" text="상담일시"/>
+                <Cell col="1" displaytype="normal" text="상담내용"/>
+                <Cell col="2" displaytype="normal" text="등록자"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="date" edittype="date" style="align:center middle;" text="bind:상담일시" mask="yyyy-MM-dd HH:mm" calendardisplaynulltype="none" calendardateformat="yyyy-MM-dd hh:mm" calendareditformat="yyyy-MM-dd hh:mm"/>
+                <Cell col="1" displaytype="normal" text="bind:상담내용" tooltiptext="상담내용" textAlign="left"/>
+                <Cell col="2" displaytype="normal" text="bind:등록자명"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static08_01_00" taborder="9" text="12" left="0" top="653" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="19"/>
+        <Static id="Static08_01_00_00_00" taborder="10" text="12" left="0" top="700" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="20"/>
+        <Button id="btn_save" taborder="3" text="저장" left="426" top="665" width="64" height="35" cssclass="btn_WF_saveRow" onclick="fn_save"/>
+        <Div id="div_search" taborder="0" text="Div00" left="20" top="20" height="43" cssclass="div_WF_search" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="stc_35_00_00" text="10" visible="false" left="-1" right="-722" top="32" height="10" background="orange" taborder="0"/>
+              <Edit id="edt_SaName" taborder="1" left="181" top="9" width="100" height="23" readonly="true" tabstop="false"/>
+              <Edit id="edt_SaCode" taborder="2" left="88" top="9" width="90" height="23" readonly="true" tabstop="false"/>
+              <Static id="stc_35_00_00_00_00" text="10" visible="false" left="1" right="-604" height="10" background="orange" taborder="3" bottom="32"/>
+              <Static id="stc_00_01_00" text="30" visible="false" left="58" width="30" top="9" height="23" background="orange" taborder="4"/>
+              <Static id="st_STitle00" taborder="5" text="사원" left="19" top="10" width="54" height="21" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="stc_09_00" text="20" visible="false" left="-1" width="20" top="-1" background="orange" taborder="6" bottom="-1"/>
+              <Static id="stc_09_00_00" text="20" visible="false" top="1" background="orange" taborder="7" right="0" width="20" height="38"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_40_00_00_01" text="15" visible="false" left="0" top="63" height="15" background="orange" taborder="11" right="5" textAlign="center"/>
+        <Static id="sta_title" taborder="12" text="사원상담내역" left="20" top="79" width="110" height="21" cssclass="sta_WF_title" visible="true"/>
+        <Static id="sta_gridListCnt" taborder="13" text="총 &lt;fc v='#278c6d'&gt;&lt;b v='true'&gt;[ 0 ]&lt;/b&gt;&lt;/fc&gt; 건" left="sta_title:10" top="78" width="120" height="23" cssclass="sta_WF_count" usedecorate="true"/>
+        <Static id="stc_35_00_00_00_01_00_00" text="3" visible="false" left="0" right="5" top="101" height="5" background="orange" taborder="14"/>
+        <Static id="Static05_00_00_03" taborder="15" text="height 23" left="313" top="78" width="100" height="23" cssclass="sta_GU_space" visible="false" background="orange" textAlign="center" wordWrap="char"/>
+        <Button id="btn_add" taborder="1" text="행추가" top="78" width="72" height="23" cssclass="btn_WF_addRow" right="95" onclick="btn_add_onclick"/>
+        <Button id="btn_del" taborder="2" text="행삭제" top="78" width="72" height="23" cssclass="btn_WF_addDel" right="20" onclick="btn_del_onclick"/>
+        <Button id="btn_close" taborder="4" text="닫기" top="665" width="64" height="35" cssclass="btn_WF_delete" left="493" onclick="btn_close_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[/********************************************************************************
+ * Name			: ORG_P_30000090.xfdl
+ * Title		: 사원상담내역 팝업
+ * Desc			: 사원상담내역 팝업
+ * 작성자		: 최종혁
+ * 작성일		: 2024.03.19
+ * 변경사항	: 
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+ *=============================================================================*/
+ var fv_consEmpCode = ""; // 상담내역 사원코드
+ var fv_consEmpName = ""; // 상담내역 사원명
+ var fv_fspGroup = nexacro.getApplication().gv_fspGroup + "organization";
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+ *=============================================================================*/
+/**
+ * 화면 온로드 이벤트
+ */
+this.fn_onload = function (obj:Form, e:LoadEventInfo)
+{
+	this.gfn_loadForm(obj);
+	
+	this.gfn_exGridSet(this.grd_list);
+	
+	try {
+		fv_consEmpCode = this.parent.pv_consEmpCode; // 상담내역 사원코드
+		fv_consEmpName = this.parent.pv_consEmpName; // 상담내역 사원명
+	} catch(e) {}
+	
+	this.div_search.form.edt_SaCode.set_value(fv_consEmpCode); // 상담내역 사원코드
+	this.div_search.form.edt_SaName.set_value(fv_consEmpName); // 상담내역 사원명
+	
+	if (Base.isEmpty(fv_consEmpCode)) return false;
+	this.fn_search();
+}
+/*===============================================================================
+ * 3.FORM 공통 FUNCTION 영역 
+ *=============================================================================*/
+ /**
+ * 조회
+ */
+this.fn_search = function ()
+{	
+	this.ds_list.clearData();
+	this.ds_input.setColumn(0, "사원코드", fv_consEmpCode);
+	
+	this.fsp_clear();
+
+	//상담내역
+ 	this.fsp_addSearch(fv_fspGroup+":ORG_P_30000090_S", false);
+	
+	// connect the server 
+	this.fsp_callService(
+		""
+		,""
+		,"ds_input=ds_input" 	            // inDs
+		,"ds_list=ds_output"	    // outDs
+		,""                                 // args 
+		,"fn_afterSearch"
+		,true
+		,true
+		,false                              // 비동기화
+		,"list"
+	);
+}
+
+/**
+ * 저장
+ */
+this.fn_save = function ()
+{	
+	// 데이터셋 변경사항 체크
+	if(!this.fn_isUpdateChk(this.ds_list,["i","u","d"]))
+	{
+        //comSys.showMsg("I0130", "I", [""]); // 변경된 @자료가 없습니다.
+		comSys.showMsg("I0010", "I"); // 처리할 정보가 없습니다.
+        return;
+	}
+	
+	// 저장 하시겠습니까?
+	if(!comSys.showMsg("C0001", "Q", [""])){
+        return;
+	}
+	
+	this.fsp_clear();
+	this.fsp_addSave(
+          fv_fspGroup+":ORG_P_30000090_U"	// insert
+         , fv_fspGroup+":ORG_P_30000090_U"	// update
+        , fv_fspGroup+":ORG_P_30000090_D"	// delete
+        , "" // flag column 명
+        , "" // key sql id
+        , 0 // key 증가 값
+        , ""
+        , 0
+        , "N" // 실행타입
+    );
+
+	// connect the server 
+	this.fsp_callService(
+		""
+		,""
+		,"ds_input=ds_list:u" // inDs
+		,"" // outDs
+		,"" // args 
+		,"fn_afterSave"
+		,true
+		,true
+		,false // 비동기화
+		,"saveData"
+	);
+}
+/*===============================================================================
+ * 4.CALLBACK 콜백 처리부분
+ *=============================================================================*/
+/**
+ * 조회
+ */
+this.fn_afterSearch = function (ErrorCode, ErrorMsg, TrId)
+{
+	if (ErrorCode < 0) {
+		comSys.showMsg("E0001", "W", [""]);    //@ 자료 조회 시 오류가 발생했습니다.
+		return;
+	}
+	
+	this.sta_gridListCnt.set_text(comSys.getGridRowCntText(this.ds_list));
+}
+
+/**
+ * 저장
+ */
+this.fn_afterSave = function (ErrorCode, ErrorMsg, TrId)
+{
+	if (ErrorCode < 0) {
+		comSys.showMsg("E0002", "W", ["저장"]);// @ 오류가 발생했습니다.
+		return;
+	}
+	
+	comSys.showMsg("I0004", "I", ["저장"]);// 저장을 완료했습니다.
+// 	this.opener.Div00.ImageViewer00.set_image("URL('Images::증명사진.jpg')");
+// 	this.opener.Div00.ImageViewer00.redraw();
+	this.opener.fn_sawonData(fv_consEmpCode);
+	this.opener.Tab01.set_tabindex(7);
+	this.close();
+}
+/*===============================================================================
+ * 5.사용자 FUNCTION 영역
+ *=============================================================================*/
+this.fn_isUpdateChk = function (ds,chkTypeArray){
+    var isUpdateYN = false; // 리턴값
+    var rowTypeArray = new Array(); // 비교할 rowType
+    
+    // 비교할 row type 정의
+    for(var i = 0; i < chkTypeArray.length; i++){
+        switch(chkTypeArray[i]){
+            case "i" : // 등록
+                rowTypeArray.push(Dataset.ROWTYPE_INSERT);
+                break;
+            case "u" : // 수정
+                rowTypeArray.push(Dataset.ROWTYPE_UPDATE);
+                break;
+            case "d" : // 삭제
+                rowTypeArray.push(Dataset.ROWTYPE_DELETE);
+                break;
+            default :
+                break;
+        } // End of switch
+    } // End of for
+    
+    ds.set_updatecontrol(false);
+    ds.set_enableevent(false);
+    
+    // row type 체크
+    for(var row = 0; row < ds.rowcount; row++){
+        var rowType = ds.getRowType(row);
+        
+        for(var i = 0; i < rowTypeArray.length; i++){
+            if(rowType == rowTypeArray[i]){
+                isUpdateYN = true;
+                break;
+            } // End of if
+        } // End of for
+        
+        if(isUpdateYN){
+            break;
+        }
+    } // End of for
+    
+    // 삭제 row 체크
+    if(!isUpdateYN){
+        for(var i = 0; i < rowTypeArray.length; i++){
+            if(rowTypeArray[i] == Dataset.ROWTYPE_DELETE && ds.getDeletedRowCount() > 0){
+                isUpdateYN = true;
+                break;
+            } // End of if
+        } // End of for
+    } // End of for
+    
+    ds.set_updatecontrol(true);
+    ds.set_enableevent(true);
+	
+    return isUpdateYN;
+}
+
+
+/**
+ * 상담내용 팝업 콜백
+ */
+this.fn_bigoPopupCallBack = function (popupId, rtn)
+{	
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	
+	try{
+		aJson = JSON.parse(rtn);
+	} catch(ex){}
+	
+	if(popupId == "COM_P_0000003"){
+		this.ds_list.setColumn(this.ds_list.rowposition,"상담내용",aJson[0]);
+	}
+};
+/*===============================================================================
+* 6.각 COMPONENT 별 EVENT 영역
+*=============================================================================*/
+/**
+ * 닫기
+ */
+this.div_search_btn_close_onclick = function (obj:Button,  e:ClickEventInfo)
+{
+	this.close();
+}
+
+// 행추가
+this.btn_add_onclick = function (obj:Button,  e:ClickEventInfo)
+{
+    var row = -1;
+    var yyyyMMddhhmm = null;
+    var dt = new Date();
+	
+	//this.gds_date.getColumn(0,"현재일자시분초")+"";
+    //this.fn_systemDate(); // 현재시간 갱신
+    yyyyMMddhhmm = Base.date.getMaskFormatString(dt, "yyyy-MM-dd hh:mm");
+	
+	row = this.ds_list.insertRow(0);
+	
+	// 기초값 설정
+	this.ds_list.setColumn(row,"사원코드",fv_consEmpCode);
+	this.ds_list.setColumn(row,"상담일시",yyyyMMddhhmm);
+	this.ds_list.setColumn(row,"등록자",nexacro.getApplication().gds_userInfo.getColumn(0,"사원코드"));
+	this.ds_list.setColumn(row,"등록자명",nexacro.getApplication().gds_userInfo.getColumn(0,"사원명"));
+}
+
+// 행삭제
+this.btn_del_onclick = function (obj:Button,  e:ClickEventInfo)
+{
+	if(this.ds_list.rowcount <= 0){
+        comSys.showMsg("삭제할 행이 없습니다.","I");
+        return;
+	}
+	
+	if(!comSys.showMsg("행을 삭제하시겠습니까? 저장은 필수입니다.", "Q")){
+        return;
+	}
+	
+	this.ds_list.deleteRow(this.ds_list.rowposition);
+}
+
+// 상담내용 팝업 호출
+this.grd_list_oncellclick = function (obj:Grid, e:GridClickEventInfo)
+{
+	var toolText = obj.getCellProperty("body", e.cell, "tooltiptext");
+	var val = comSys.transNullToEmpty(this.ds_list.getColumn(this.ds_list.rowposition,"상담내용")); //2024.04.12 조하영 추가
+	
+	if(toolText == "상담내용"){
+	
+		var oArgs = { 
+				params:val
+				, sTitle:"사원상담내역 > 상담내용"
+		};			
+	comSys.openPopup("com::COM_P_0000003.xfdl", "COM_P_0000003",oArgs, null, this, "fn_bigoPopupCallBack");
+	}
+}
+
+//닫기버튼
+this.btn_close_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+]]></Script>
+    <Objects>
+      <Dataset id="ds_input">
+        <ColumnInfo>
+          <Column id="사원코드" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_list">
+        <ColumnInfo>
+          <Column id="SEQ" type="STRING" size="256"/>
+          <Column id="사원코드" type="STRING" size="256"/>
+          <Column id="상담일시" type="STRING" size="256"/>
+          <Column id="상담내용" type="STRING" size="256"/>
+          <Column id="등록자" type="STRING" size="256"/>
+          <Column id="등록자명" type="STRING" size="256"/>
+          <Column id="시스템일자" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

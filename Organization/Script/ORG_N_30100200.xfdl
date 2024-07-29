@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="ORG_N_30100200" width="1665" height="820" titletext="조직현황" onload="fn_onload">
+    <Layouts>
+      <Layout height="820" mobileorientation="landscape" width="1665">
+        <Div id="div_search" taborder="0" left="0" top="0" height="74" cssclass="div_WF_search" text="" right="19">
+          <Layouts>
+            <Layout>
+              <Static id="sta_dept" taborder="0" text="조직" left="20" top="10" width="37" height="23" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="stc_09_00" text="20" visible="false" left="0" width="20" top="10" height="23" background="orange" taborder="3"/>
+              <Static id="stc_35_00_00" text="10" visible="false" left="20" right="0" top="0" height="10" background="orange" taborder="4"/>
+              <Static id="stc_35_00_00_00" text="10" visible="false" left="20" right="-1" top="62" height="10" background="orange" taborder="5"/>
+              <Static id="stc_00_03" text="30" visible="false" left="57" width="30" top="10" height="23" background="orange" taborder="6"/>
+              <CheckBox id="chk_03" taborder="2" left="87" top="39" width="120" height="23" tooltiptype="hover" text="폐쇄조직포함여부" onkeyup="fn_enterSearch" onclick="chk_03_onclick" truevalue="true" value="true" falsevalue="false"/>
+              <Static id="stc_35_00_00_00_00" text="5" visible="false" left="20" right="-1" top="33" height="5" background="orange" taborder="7"/>
+              <Static id="stc_09_00_00" text="20" visible="false" left="0" width="20" top="39" height="23" background="orange" taborder="8"/>
+              <exOrgan id="exOrgan00" taborder="1" text="exOrgan00" left="87" top="10" width="992" height="23" nComboCnt="4"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_40_00_00" text="15" visible="false" left="0" top="74" height="15" background="orange" taborder="1" right="19"/>
+        <Static id="stc_35_00_00_00_01_00_00" text="3" visible="false" left="0" right="20" top="112" height="5" background="orange" taborder="2"/>
+        <Grid id="grd_list" taborder="3" left="0" top="117" right="20" bottom="20" autoenter="select" cellmovingtype="col" cellsizingtype="col" useExport="false" useFilter="true" useFind="true" useFixCol="true" useSort="true" binddataset="ds_list">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="160"/>
+                <Column size="160"/>
+                <Column size="160"/>
+                <Column size="160"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="80"/>
+                <Column size="79"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="250"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="82"/>
+                <Column size="100"/>
+                <Column size="61"/>
+                <Column size="100"/>
+                <Column size="200"/>
+              </Columns>
+              <Rows>
+                <Row size="33" band="head"/>
+                <Row size="30"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" text="본부"/>
+                <Cell col="1" displaytype="normal" text="지사"/>
+                <Cell col="2" displaytype="normal" text="지점"/>
+                <Cell col="3" displaytype="normal" text="팀"/>
+                <Cell col="4" displaytype="normal" text="시작일자"/>
+                <Cell col="5" displaytype="normal" text="종료일자"/>
+                <Cell col="6" displaytype="normal" text="수수료지급"/>
+                <Cell col="7" displaytype="normal" text="계산서발급"/>
+                <Cell col="8" displaytype="normal" text="인원수"/>
+                <Cell col="9" displaytype="normal" text="재직인원수"/>
+                <Cell col="10" displaytype="normal" text="우편번호"/>
+                <Cell col="11" displaytype="normal" text="상세주소"/>
+                <Cell col="12" displaytype="normal" text="전화번호"/>
+                <Cell col="13" displaytype="normal" text="FAX"/>
+                <Cell col="14" text="관리자코드"/>
+                <Cell col="15" text="관리자명"/>
+                <Cell col="16" text="재직구분"/>
+                <Cell col="17" text="관리자휴대폰"/>
+                <Cell col="18" displaytype="normal" text="비고"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="text" style="color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:본부명" textAlign="left" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="1" displaytype="text" style="color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:지사명" textAlign="left" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="2" displaytype="text" style="color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:지점명" textAlign="left" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="3" displaytype="text" style="color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:팀명" textAlign="left" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="4" displaytype="date" style="align:center;color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:운영시작일자" calendardisplaynulltype="none" calendardateformat="yyyy-MM-dd" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="5" displaytype="date" style="align:center;color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:운영종료일자" calendardisplaynulltype="none" calendardateformat="yyyy-MM-dd" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="6" displaytype="text" style="align:center;color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:수수료지급" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="7" displaytype="text" style="align:center;color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:계산서발급" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="8" displaytype="number" style="align:center;color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:전체인원수" textAlign="right" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="9" displaytype="number" style="align:center;color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:재직인원수" textAlign="right" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="10" displaytype="text" style="align:center;color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:우편번호" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="11" displaytype="text" style="color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:주소" textAlign="left" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="12" displaytype="text" style="align:center;color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:전화번호" textAlign="center" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="13" displaytype="text" style="align:center;color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:FAX" textAlign="center" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="14" displaytype="text" style="align:center;color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:관리자코드" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="15" style="align:left;color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:관리자명" textAlign="left" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="16" style="align:center;color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:관리자재직구분" textAlign="left" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="17" displaytype="text" style="align:center;color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:관리자휴대폰" textAlign="center" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+                <Cell col="18" displaytype="text" style="color:EXPR(폐쇄여부 == 'T' ? 'red':'');color2:EXPR(폐쇄여부 == 'T' ? 'red':'');" text="bind:비고" textAlign="left" cssclass="expr:dataset.getColumn(currow, '폐쇄여부') == 'T' ? 'grd_TxtRed' : 'none'"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="stc_40_00_00_00" text="20" visible="false" left="1645" top="0" background="orange" taborder="4" width="20" bottom="20" textAlign="center"/>
+        <Static id="stc_40_00_00_01" text="20" visible="false" left="0" top="800" height="20" background="orange" taborder="5" right="0"/>
+        <Static id="stc_09_00_00" text="23" visible="false" left="270" width="20" top="89" height="23" background="orange" taborder="6" onclick="stc_09_00_00_onclick"/>
+        <PopupDiv id="pdp_commonBtn" text="PopupDiv00" left="1745" width="350" top="76" height="42" visible="false">
+          <Layouts>
+            <Layout>
+              <Button id="btn_excel" taborder="12" text="엑셀" onclick="fn_excel" left="290" width="56" top="4" height="34"/>
+              <Button id="btn_print" taborder="13" text="출력" onclick="fn_print" left="232" width="56" top="4" height="34"/>
+              <Button id="btn_search" taborder="14" text="조회" onclick="fn_search" left="175" width="56" top="4" height="34"/>
+              <Button id="btn_delete" taborder="15" text="삭제" onclick="fn_delete" left="117" width="56" top="4" height="34"/>
+              <Button id="btn_new" taborder="16" text="신규" onclick="fn_new" left="60" width="56" top="4" height="34"/>
+              <Button id="btn_save" taborder="17" text="저장" onclick="fn_save" left="3" width="56" top="4" height="34"/>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+        <Static id="stc_79" taborder="8" left="0" top="89" height="23" text="조직현황" width="81" cssclass="sta_WF_title" fittocontents="width"/>
+        <Static id="sta_gridListCnt" taborder="7" left="stc_79:10" top="89" height="23" text="총 &lt;fc v='#278c6d'&gt;&lt;b v='true'&gt;[ 0 ]&lt;/b&gt;&lt;/fc&gt; 건" width="120" usedecorate="true" cssclass="sta_WF_count"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[/********************************************************************************
+ * Name			: ORG_N_30100200.xfdl
+ * Title		: 사원및조직 > 조직관리 > 조직현황
+ * Desc			: 조직현황
+ * 작성자		: 최종혁
+ * 작성일		: 2024.03.12
+ * 변경사항	: 
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+*=============================================================================*/
+var fv_exOrg_depth = nexacro.getApplication().gv_DeptCboCnt;
+var fv_fspGroup = nexacro.getApplication().gv_fspGroup + "organization";
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+*=============================================================================*/
+/**
+ * 화면 온로드 이벤트
+ */
+this.fn_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo) {
+
+	this.gfn_loadForm(obj);
+	//this.exOrgan00.set_nComboCnt(4);
+	this.gfn_exGridSet(this.grd_list);
+	
+	this.div_search.form.exOrgan00.SetComboCnt = this.fv_exOrg_depth;
+};
+
+/*===============================================================================
+ * 3.FORM 공통 FUNCTION 영역 
+*=============================================================================*/
+/**
+* 조회
+*/
+this.fn_search = function (){
+	
+	var sDeptCd = this.div_search.form.exOrgan00.getData();
+	var sYN 	= this.div_search.form.chk_03.value;
+
+	this.ds_input.setColumn(0,"본부코드",sDeptCd[0].code);
+	this.ds_input.setColumn(0,"지사코드",sDeptCd[1].code);
+	this.ds_input.setColumn(0,"지점코드",sDeptCd[2].code);
+	this.ds_input.setColumn(0,"팀코드",sDeptCd[3].code);
+	
+	this.ds_input.setColumn(0,"폐쇄구분",sYN);
+
+	this.fsp_clear();
+	this.fsp_addSearch(fv_fspGroup+":ORG_N_30100200_S", false);
+	// connect the server 
+	this.fsp_callService(
+		""
+		,""
+		,"ds_input=ds_input"	// inDs
+		,"ds_list=ds_output"	// outDs
+		,"fn_afterSearch"
+		,""
+		,true
+	);
+}
+
+/**
+* 엑셀내려받기
+**/
+this.fn_btnExcel = function (obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{
+	if(comSys.showMsg(" 엑셀내려받기 작업을 진행하시겠습니까?","Q")){ 
+      //comSys.exportExcel2(this.grd_list, "조직현황","Sheet1",false);   
+	  this.gfn_downExcelMaskData(this.grd_list,"조직현황","조직현황",true);
+   }
+}
+/*===============================================================================
+* 4.CALLBACK 콜백 처리부분
+*=============================================================================*/
+/**
+ * 조회콜백
+ */
+this.fn_afterSearch = function (ErrorCode, ErrorMsg, TrId)
+{
+	if(ErrorCode > 0) {
+		comSys.showMsg("E0002", "W", "");
+	} else {
+		if ( this.ds_list.rowcount == 0 ) {
+			comSys.showMsg("조회된 데이터가 없습니다.", "W");
+			return;
+		}else{
+			this.sta_gridListCnt.set_text(comSys.getGridRowCntText(this.ds_list));
+			this.ds_list.rowposition =-1;
+		}
+	}//end of if
+}
+/*===============================================================================
+* 5.사용자 FUNCTION 영역
+*=============================================================================*/
+ 
+/*===============================================================================
+* 6.각 COMPONENT 별 EVENT 영역
+*=============================================================================*/
+
+//그리드 복사하기 
+this.fn_copyPaste_onkeydown = function (obj:nexacro.Grid, e:nexacro.KeyEventInfo)
+{
+	if( e.ctrlKey && e.keycode == 67 ){
+		this.gfn_CopyToClipboard(obj,"100");
+	}else if( e.ctrlKey && e.keycode == 86 ){
+		this.gfn_CopyToClipboard(obj,"200");
+	}
+}
+
+//폐쇄조직클릭시, 조회이벤트
+this.chk_03_onclick = function (obj:nexacro.CheckBox,  e:nexacro.ClickEventInfo)
+{
+	this.fn_search();
+}
+
+//건수카운트
+this.ds_list_onrowposchanged = function (obj:nexacro.Dataset, e:nexacro.DSRowPosChangeEventInfo)
+{
+	this.sta_gridListCnt.set_text(comSys.getGridRowCntText(this.ds_list));
+}]]></Script>
+    <Objects>
+      <Dataset id="ds_list" onrowposchanged="ds_list_onrowposchanged">
+        <ColumnInfo>
+          <Column id="본부코드" type="STRING" size="5"/>
+          <Column id="본부명" type="STRING" size="50"/>
+          <Column id="지사코드" type="STRING" size="5"/>
+          <Column id="지사명" type="STRING" size="50"/>
+          <Column id="지점코드" type="STRING" size="5"/>
+          <Column id="지점명" type="STRING" size="50"/>
+          <Column id="팀코드" type="STRING" size="5"/>
+          <Column id="팀명" type="STRING" size="50"/>
+          <Column id="운영시작일자" type="STRING" size="8"/>
+          <Column id="운영종료일자" type="STRING" size="8"/>
+          <Column id="조직구분" type="STRING" size="50"/>
+          <Column id="전체인원수" type="STRING" size="256"/>
+          <Column id="재직인원수" type="STRING" size="256"/>
+          <Column id="퇴직인원수" type="STRING" size="256"/>
+          <Column id="수수료지급" type="STRING" size="1"/>
+          <Column id="계산서발급" type="STRING" size="1"/>
+          <Column id="지점생성" type="STRING" size="10"/>
+          <Column id="우편번호" type="STRING" size="7"/>
+          <Column id="주소" type="STRING" size="100"/>
+          <Column id="전화번호" type="STRING" size="20"/>
+          <Column id="FAX" type="STRING" size="20"/>
+          <Column id="비고" type="STRING" size="200"/>
+          <Column id="관리자코드" type="STRING" size="20"/>
+          <Column id="관리자명" type="STRING" size="100"/>
+          <Column id="관리자재직구분" type="STRING" size="20"/>
+          <Column id="관리자휴대폰" type="STRING" size="20"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_input">
+        <ColumnInfo>
+          <Column id="본부코드" type="STRING" size="5"/>
+          <Column id="지사코드" type="STRING" size="5"/>
+          <Column id="지점코드" type="STRING" size="5"/>
+          <Column id="팀코드" type="STRING" size="5"/>
+          <Column id="폐쇄구분" type="STRING" size="1"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

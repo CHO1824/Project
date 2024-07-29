@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="ORG_P_30000100" width="630" height="471" titletext="계산서발행변경신청" onload="fn_onload">
+    <Layouts>
+      <Layout height="471" mobileorientation="landscape" width="630">
+        <Static id="stc_40" text="20" visible="false" left="0" top="0" height="20" background="orange" taborder="0" right="0"/>
+        <Static id="stc_40_00_00" text="20" visible="false" left="0" top="0" background="orange" taborder="1" width="20" bottom="0"/>
+        <Static id="stc_40_00_00_00" text="20" visible="false" left="610" top="0" background="orange" taborder="2" width="20" bottom="0"/>
+        <Static id="st_STitle01" taborder="3" text="현재 세금계산서신고정보" left="20" top="68" width="170" height="21" cssclass="sta_WF_title" visible="true"/>
+        <Static id="Static05_00_00_03" taborder="4" text="height 23" left="203" top="67" width="100" height="23" cssclass="sta_GU_space" visible="false" background="orange" textAlign="center" wordWrap="char"/>
+        <Static id="stc_35_00_00_00_01_00_00" text="3" visible="false" left="0" right="0" top="90" height="5" background="orange" taborder="5"/>
+        <Div id="Div01" taborder="6" left="20" top="95" height="62" cssclass="div_WF_detail" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="sta01_00" taborder="0" text="성명" left="0" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Edit id="edt_beforeName" taborder="1" left="93" top="5" width="215" height="23" readonly="true"/>
+              <Static id="sta01_05_00_00" taborder="2" text="주민번호" left="0" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+              <MaskEdit id="edt_beforeSecuNumber" taborder="3" left="93" top="35" width="72" height="23" format="######-#" type="string" onkeyup="tpg_main_tpg_personal_div_input_mdt_Resident_onkeyup" validName="주민번호" valid="required" readonly="true"/>
+              <Static id="Static04" taborder="4" text="******" left="165" top="35" width="37" height="23"/>
+              <Static id="Static00" taborder="5" text="** - *****" left="333" top="35" width="47" height="23"/>
+              <Static id="sta01_05_00_00_00" taborder="6" text="사업자번호" left="193" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+              <MaskEdit id="medt_beforeBizNumber" taborder="7" left="286" top="35" width="46" height="23" format="###-" clipmode="excludespace" type="string" onkeyup="tpg_main_tpg_personal_div_input_mdt_Resident_onkeyup" validName="주민번호" valid="required" readonly="true"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_40_00_00_01" text="15" visible="false" left="0" top="157" height="15" background="orange" taborder="7" right="0" textAlign="center"/>
+        <Static id="st_STitle00" taborder="8" text="변경 세금계산서신고정보" left="20" top="173" width="170" height="21" cssclass="sta_WF_title" visible="true"/>
+        <Static id="Static05_00_00_03_00" taborder="9" text="height 23" left="207" top="172" width="100" height="23" cssclass="sta_GU_space" visible="false" background="orange" textAlign="center" wordWrap="char"/>
+        <Static id="stc_35_00_00_00_01_00_00_00" text="3" visible="false" left="0" right="0" top="328" height="5" background="orange" taborder="10"/>
+        <Div id="Div02" taborder="11" left="20" top="200" height="212" cssclass="div_WF_detail" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="sta01_00" taborder="0" text="시작일자" left="0" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Static id="sta01_00_00" taborder="1" text="성명" left="0" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Calendar id="cal_02" taborder="2" left="93" top="5" width="112" height="23" dateformat="yyyy-MM-dd" tabstop="false"/>
+              <Edit id="edt_afterName" taborder="3" left="93" top="35" width="215" height="23" onkeydown="Div02_edt_afterName_onkeydown"/>
+              <Static id="sta01_00_00_00" taborder="4" text="신고유형" left="0" top="62" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Static id="sta01_01_00" taborder="5" text="주민번호" left="0" top="92" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Static id="sta01_01_00_00" taborder="6" text="사업자번호" left="311" top="92" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Static id="sta01_01_00_01" taborder="7" text="요청사유" left="0" top="122" width="90" height="90" cssclass="sta_WF_detail"/>
+              <TextArea id="TextArea02" taborder="8" left="92" top="125" height="83" right="3" onkeydown="Div02_TextArea02_onkeydown"/>
+              <Radio id="Radio00" taborder="9" left="93" top="66" width="180" height="23" direction="vertical" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" onitemchanged="Div02_Radio00_onitemchanged" onkeydown="Div02_Radio00_onkeydown">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">개인</Col>
+                      <Col id="datacolumn">개인</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">법인</Col>
+                      <Col id="datacolumn">법인</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <MaskEdit id="edt_afterSecuNumber" taborder="10" left="93" top="95" width="215" height="23" format="######-#######" type="string" validName="주민번호" valid="required" onkeydown="Div02_edt_afterSecuNumber_onkeydown"/>
+              <MaskEdit id="medt_afterBizNumber" taborder="11" left="404" top="95" width="183" height="23" format="###-##-######" type="string" enable="false" onkeydown="Div02_medt_afterBizNumber_onkeydown"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_40_00_00_01_00" text="15" visible="false" left="0" top="52" height="15" background="orange" taborder="12" right="0" textAlign="center"/>
+        <Div id="Div00" taborder="13" left="20" top="20" height="32" cssclass="div_WF_detail" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="sta01_00" taborder="0" text="사원" left="0" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Edit id="edt_saCode" taborder="1" left="93" top="5" width="92" height="23" readonly="true"/>
+              <Edit id="edt_saName" taborder="2" left="188" top="5" width="112" height="23" readonly="true"/>
+              <Static id="sta01_00_00" taborder="3" text="사원구분" left="303" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Edit id="edt_saGbn" taborder="4" left="396" top="5" width="112" height="23" readonly="true"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_35_00_00_00_01_00_00_01" text="3" visible="false" left="0" right="0" top="195" height="5" background="orange" taborder="14"/>
+        <Static id="Static08_01_00" taborder="15" text="12" left="0" top="412" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0"/>
+        <Static id="Static08_01_00_00_00" taborder="16" text="12" left="0" top="459" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0"/>
+        <Button id="btn_save" taborder="17" text="저장" left="251" top="424" width="64" height="35" onclick="fn_save" cssclass="btn_WF_saveRow"/>
+        <Button id="btn_close" taborder="18" text="닫기" top="424" width="64" height="35" cssclass="btn_WF_delete" left="318" onclick="btn_close_onclick"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Div01.form.edt_beforeSecuNumber" propid="value" datasetid="ds_tax" columnid="변경전계산서주민번호"/>
+      <BindItem id="item2" compid="Div01.form.medt_beforeBizNumber" propid="value" datasetid="ds_tax" columnid="변경전계산서사업자번호"/>
+      <BindItem id="item1" compid="Div02.form.edt_afterSecuNumber" propid="value" datasetid="ds_tax" columnid="변경후계산서주민번호"/>
+      <BindItem id="item3" compid="Div01.form.edt_beforeName" propid="value" datasetid="ds_tax" columnid="변경전계산서성명"/>
+      <BindItem id="item4" compid="Div02.form.cal_02" propid="value" datasetid="ds_tax" columnid="시작일자"/>
+      <BindItem id="item5" compid="Div02.form.edt_afterName" propid="value" datasetid="ds_tax" columnid="변경후계산서성명"/>
+      <BindItem id="item6" compid="Div02.form.Radio00" propid="value" datasetid="ds_tax" columnid="신고유형"/>
+      <BindItem id="item7" compid="Div02.form.medt_afterBizNumber" propid="value" datasetid="ds_tax" columnid="변경후계산서사업자번호"/>
+      <BindItem id="item8" compid="Div02.form.TextArea02" propid="value" datasetid="ds_tax" columnid="요청사유"/>
+    </Bind>
+    <Script type="xscript5.1"><![CDATA[/********************************************************************************
+ * Name			: ORG_P_30000100.xfdl
+ * Title		: 계산서발행변경신청 팝업
+ * Desc			: 계산서발행변경신청 팝업
+ * 작성자		: 조하영
+ * 작성일		: 2024.03.21
+ * 변경사항	: 
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+ *=============================================================================*/
+var fv_saCode;
+var fv_saName;
+var fv_saGbn;
+var fv_befName;
+var fv_befSecuNum;
+var fv_befBizNum;
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+ *=============================================================================*/
+/**
+ * 화면 온로드 이벤트
+ */
+this.fn_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	//필수
+	this.gfn_loadForm(obj);
+	
+	try {
+		fv_saCode = this.parent.saCode;				//사원코드
+		fv_saName = this.parent.saName;				//사원명
+		fv_saGbn  = this.parent.saGbn;				//사원구분
+		fv_befName = this.parent.beforeName;		//세금성명
+		fv_befSecuNum = this.parent.beforeSecuNum;	//세금주민번호
+		fv_befBizNum = this.parent.beforeBizNum;	//세금사업자번호
+	} catch(e) {}
+	
+	var nRow;
+	var date = new nexacro.Date();
+	this.Div00.form.edt_saCode.set_value(fv_saCode);				//사원코드
+	this.Div00.form.edt_saName.set_value(fv_saName);				//사원명
+	this.Div00.form.edt_saGbn.set_value(fv_saGbn);					//사원구분
+	this.Div01.form.edt_beforeName.set_value(fv_befName); 			//변경전세금성명
+	this.Div02.form.edt_afterSecuNumber.set_value(fv_befSecuNum);	//변경전주민번호
+	this.Div02.form.medt_afterBizNumber.set_value(fv_befBizNum);	//변경전사업자번호
+	
+	nRow = this.ds_tax.addRow();
+	this.ds_tax.setColumn(nRow,"사원코드",fv_saCode);
+	
+	this.ds_tax.setColumn(nRow,"변경전계산서성명",fv_saName);
+	this.ds_tax.setColumn(nRow,"변경전계산서주민번호",fv_befSecuNum);
+	this.ds_tax.setColumn(nRow,"변경전계산서사업자번호",fv_befBizNum);
+	
+	this.Div02.form.cal_02.set_value(date); //시작일자를 현재일자로 기본 셋팅
+	this.Div02.form.edt_afterName.setFocus();
+	this.Div02.form.Radio00.set_value("개인");
+};
+
+/*===============================================================================
+ * 3.FORM 공통 FUNCTION 영역 
+ *=============================================================================*/
+/*
+ * 저장 버튼 클릭 시 저장 함수
+ */
+this.fn_save = function(obj:Button,  e:ClickEventInfo)
+{
+	//저장하시겠습니까?
+    if(!comSys.showMsg("C0001","Q")) return;
+	
+	this.fsp_clear();
+	this.fsp_addSave(
+		  "kwoo/organization:ORG_N_30200200_U"	// insert
+		, ""								// update
+		, ""								// delete
+		, ""								// flag column 명
+		, ""								// key sql id
+		, 0									// key 증가 값
+		, ""
+		, 0
+		, "N"								// 실행타입
+	);
+	
+	// 서버 호출 
+	this.fsp_callService(
+		""
+		,""
+		,"ds_input=ds_tax:U"		// inDs
+		,""							// outDs
+		,"Processing=승인 classification=계산서발행변경요청"// args 
+		,"fn_taxChgAfterSave"
+		,false
+		,false
+		,false
+		,""
+	);
+}
+
+/*===============================================================================
+ * 4.CALLBACK 콜백 처리부분
+ *=============================================================================*/
+this.fn_taxChgAfterSave = function(ErrorCode, ErrorMsg, TrId)
+{
+	var saCode = this.ds_tax.getColumn(this.ds_tax.rowposition,"사원코드");
+	if(ErrorCode < 0) {
+		comSys.showMsg("E0002", "W", ["저장"]);
+		return;
+	}
+	comSys.showMsg("I0004", "I");
+	this.opener.fn_clearData();	
+// 	this.opener.Div00.ImageViewer00.image = "URL('Images::증명사진.jpg')";
+// 	this.opener.Div00.ImageViewer00.redraw();
+	this.opener.fn_sawonData(fv_saCode);
+	this.opener.Tab01.set_tabindex(5);
+	this.close();
+}
+/*===============================================================================
+ * 5.사용자 FUNCTION 영역
+ *=============================================================================*/
+/**
+* 주민번호체크
+**/
+this.fn_checkJuminNum = function()
+{
+	if(!comSys.isRsrno(this.Div02.form.edt_afterSecuNumber.value)){
+		comSys.showMsg("주민번호가 올바르지 않습니다. 다시 입력해주세요.");
+		return false;
+	}else{
+		return true;
+	}
+}
+
+/*********************** 엔터키로 포커스 이동 공통함수 시작**********************/
+this.fn_moveNext = function(nEvent, nNextObj) {
+	if(nEvent == 13) {
+		nNextObj.setFocus();
+	}
+}
+/*===============================================================================
+ * 6.각 COMPONENT 별 EVENT 영역
+ *=============================================================================*/
+//성명 -> 주민번호 
+this.Div02_edt_afterName_onkeydown = function(obj:nexacro.Edit,e:nexacro.KeyEventInfo)
+{
+	this.fn_moveNext(e.keycode, this.Div02.form.Radio00);
+};
+
+//주민번호 -> 요청사유 or 사업자번호 
+
+this.Div02_edt_afterSecuNumber_onkeydown = function(obj:nexacro.MaskEdit,e:nexacro.KeyEventInfo)
+{
+	var num = this.Div02.form.edt_afterSecuNumber.value+"";
+	
+	if (e.keycode == 13) {
+		if(!comSys.isRsrno(this.Div02.form.edt_afterSecuNumber.value)){
+			comSys.showMsg("주민번호가 올바르지 않습니다. 다시 입력해주세요.", "W", [""]);
+			return false;		
+		}else{
+			this.fn_moveNext(e.keycode, this.Div02.form.TextArea02);
+			return true;	
+		}
+	}
+};
+
+//신교유형바뀔때마다 입력창 제어 
+this.Div02_Radio00_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	if (obj.value == "개인") {
+		this.Div02.form.medt_afterBizNumber.set_enable(false);
+		this.Div02.form.edt_afterSecuNumber.set_enable(true);
+		this.Div02.form.medt_afterBizNumber.set_value("");
+		this.Div02.form.medt_afterBizNumber.setFocus();
+	} else {
+		this.Div02.form.medt_afterBizNumber.set_enable(true);
+		this.Div02.form.edt_afterSecuNumber.set_enable(false);
+		this.Div02.form.medt_afterBizNumber.setFocus();
+		this.Div02.form.edt_afterSecuNumber.set_value("");
+	}
+};
+
+//신고유형 -> 주민번호 또는 사업자
+this.Div02_Radio00_onkeydown = function(obj:nexacro.Radio,e:nexacro.KeyEventInfo)
+{
+	if (obj.value == "개인") {
+		this.fn_moveNext(e.keycode,this.Div02.form.edt_afterSecuNumber);
+		
+	} else {
+		this.fn_moveNext(e.keycode,this.Div02.form.medt_afterBizNumber);
+		
+	}
+};
+
+
+this.Div02_medt_afterBizNumber_onkeydown = function(obj:nexacro.MaskEdit,e:nexacro.KeyEventInfo)
+{
+	this.fn_moveNext(e.keycode,this.Div02.form.TextArea02);
+};
+
+
+this.Div02_TextArea02_onkeydown = function(obj:nexacro.TextArea,e:nexacro.KeyEventInfo)
+{
+	this.fn_moveNext(e.keycode,this.btn_close);
+};
+
+this.btn_close_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close(); 
+};
+]]></Script>
+    <Objects>
+      <Dataset id="ds_tax">
+        <ColumnInfo>
+          <Column id="사원코드" type="STRING" size="256"/>
+          <Column id="변경전계산서성명" type="STRING" size="256"/>
+          <Column id="변경전계산서주민번호" type="STRING" size="256"/>
+          <Column id="변경전계산서사업자번호" type="STRING" size="256"/>
+          <Column id="변경후계산서성명" type="STRING" size="256"/>
+          <Column id="변경후계산서주민번호" type="STRING" size="256"/>
+          <Column id="변경후계산서사업자번호" type="STRING" size="256"/>
+          <Column id="시작일자" type="STRING" size="256"/>
+          <Column id="요청사유" type="STRING" size="256"/>
+          <Column id="신고유형" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

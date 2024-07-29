@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="ORG_P_30000070" width="630" height="501" titletext="지급계좌변경" onload="fn_onload">
+    <Layouts>
+      <Layout height="501" mobileorientation="landscape" width="630">
+        <Static id="stc_40" text="20" visible="false" left="0" top="0" height="20" background="orange" taborder="1" right="0"/>
+        <Static id="stc_40_00_00" text="20" visible="false" left="0" top="0" background="orange" taborder="2" width="20" bottom="0"/>
+        <Static id="stc_40_00_00_00" text="20" visible="false" left="610" top="0" background="orange" taborder="3" width="20" bottom="0"/>
+        <Static id="st_STitle01" taborder="4" text="현재 지급계좌" left="20" top="68" width="110" height="21" cssclass="sta_WF_title" visible="true"/>
+        <Static id="Static05_00_00_03" taborder="5" text="height 23" left="203" top="67" width="100" height="23" cssclass="sta_GU_space" visible="false" background="orange" textAlign="center" wordWrap="char"/>
+        <Static id="stc_35_00_00_00_01_00_00" text="3" visible="false" left="0" right="0" top="90" height="5" background="orange" taborder="6"/>
+        <Div id="Div00" taborder="7" left="20" top="95" height="92" cssclass="div_WF_detail" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="sta01_00" taborder="0" text="예금주" left="0" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Edit id="edt_accName" taborder="1" left="93" top="5" width="215" height="23" readonly="true" tabstop="false"/>
+              <Static id="sta01_00_00" taborder="2" text="지급방법" left="0" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Edit id="edt_payMethod" taborder="3" left="93" top="35" width="215" height="23" readonly="true" tabstop="false"/>
+              <Combo id="edt_accRelation" taborder="4" left="404" top="35" width="102" height="23" innerdataset="ds_relation" type="search" autoselect="true" readonly="true" tabstop="false"/>
+              <Static id="sta01_05_00" taborder="5" text="관계" left="311" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Static id="sta01_01_00" taborder="6" text="은행" left="0" top="62" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Static id="sta01_01_00_00" taborder="7" text="계좌번호" left="311" top="62" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Edit id="edt_bankCode" taborder="8" left="93" top="65" width="75" height="23" readonly="true" tabstop="false"/>
+              <Edit id="edt_bankName" taborder="9" left="171" top="65" width="137" height="23" readonly="true" tabstop="false"/>
+              <Static id="sta01_05_00_00" taborder="10" text="주민번호" left="311" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <MaskEdit id="edt_accSecuNumber" taborder="11" left="404" top="5" width="62" height="23" format="######-#" clipmode="excludespace" type="string" onkeyup="tpg_main_tpg_personal_div_input_mdt_Resident_onkeyup" validName="주민번호" valid="required" readonly="true" tabstop="false"/>
+              <Static id="Static04" taborder="12" text="******" left="466" top="5" width="37" height="23"/>
+              <Edit id="edt_accNumber" taborder="13" left="404" top="65" width="183" height="23" readonly="true" tabstop="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_40_00_00_01" text="15" visible="false" left="0" top="187" height="15" background="orange" taborder="8" right="0" textAlign="center"/>
+        <Static id="st_STitle00" taborder="9" text="변경 지급계좌" left="20" top="203" width="110" height="21" cssclass="sta_WF_title" visible="true"/>
+        <Static id="Static05_00_00_03_00" taborder="12" text="height 23" left="207" top="202" width="100" height="23" cssclass="sta_GU_space" visible="false" background="orange" textAlign="center" wordWrap="char"/>
+        <Static id="stc_35_00_00_00_01_00_00_00" text="3" visible="false" left="0" right="0" top="328" height="5" background="orange" taborder="13"/>
+        <Div id="Div00_00" taborder="0" left="20" top="230" height="212" cssclass="div_WF_detail" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="sta01_00" taborder="0" text="시작일자" left="0" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Static id="sta01_00_00" taborder="10" text="예금주" left="0" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Calendar id="cal_02" taborder="1" left="93" top="5" width="112" height="23" dateformat="yyyy-MM-dd"/>
+              <Edit id="edt_incSaCode03" taborder="2" left="93" top="35" width="215" height="23" onkeydown="edt_incSaCode03_onkeydown"/>
+              <Static id="sta01_00_00_00" taborder="11" text="지급방법" left="0" top="62" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Static id="sta01_01_00" taborder="12" text="은행" left="0" top="92" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Edit id="edt_nBankCode" taborder="13" left="93" top="95" width="75" height="23" readonly="true" tabstop="false"/>
+              <Edit id="edt_nBankName" taborder="6" left="171" top="95" width="110" height="23" onkeyup="Div00_00_edt_nBankName_onkeyup" onkeydown="Div00_00_edt_nBankName_onkeydown"/>
+              <Static id="sta01_05_00" taborder="14" text="관계" left="311" top="62" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Combo id="cbo_relation" taborder="5" left="404" top="65" width="108" height="23" innerdataset="ds_relation" codecolumn="코드" datacolumn="값" type="search" autoselect="true" onkeydown="cbo_relation_onkeydown"/>
+              <Static id="sta01_01_00_00" taborder="15" text="계좌번호" left="311" top="92" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Static id="sta01_05_00_00" taborder="16" text="주민번호" left="311" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+              <MaskEdit id="edt_accSecuNumber00" taborder="3" left="404" top="35" width="108" height="23" format="######-#######" clipmode="excludespace" type="string" validName="주민번호" valid="required" autoselect="true"/>
+              <Static id="sta01_01_00_01" taborder="17" text="요청사유" left="0" top="122" width="90" height="90" cssclass="sta_WF_detail"/>
+              <TextArea id="TextArea02" taborder="9" left="92" top="125" height="83" right="3" onkeydown="TextArea02_onkeydown"/>
+              <Button id="btn_bank" taborder="7" cssclass="btn_WF_popSrch" left="284" width="24" top="95" height="23" onclick="btn_openPopup_onclick" text=""/>
+              <Combo id="cbo_payMethod" taborder="4" left="94" top="65" width="214" height="23" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" type="search" autoselect="true" text="대량이체" value="대량이체" index="0" onkeydown="cbo_payMethod_onkeydown">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">대량이체</Col>
+                      <Col id="datacolumn">대량이체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">지급보류</Col>
+                      <Col id="datacolumn">지급보류</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">합산지급</Col>
+                      <Col id="datacolumn">합산지급</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <MaskEdit id="edt_incSaName04" taborder="8" left="404" top="95" width="183" height="23" textAlign="left"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_40_00_00_01_00" text="15" visible="false" left="10" top="52" height="15" background="orange" taborder="14" right="0" textAlign="center"/>
+        <Div id="Div00_01" taborder="15" left="20" top="20" height="32" cssclass="div_WF_detail" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="sta01_00" taborder="0" text="사원" left="0" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Edit id="edt_saCode" taborder="1" left="93" top="5" width="92" height="23" readonly="true" tabstop="false"/>
+              <Edit id="edt_saName" taborder="2" left="188" top="5" width="112" height="23" readonly="true" tabstop="false"/>
+              <Static id="sta01_00_00" taborder="3" text="사원구분" left="303" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Edit id="edt_saGbn" taborder="4" left="396" top="5" width="112" height="23" readonly="true" tabstop="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_35_00_00_00_01_00_00_01" text="3" visible="false" left="0" right="0" top="225" height="5" background="orange" taborder="16"/>
+        <Static id="Static08_01_00" taborder="17" text="12" left="0" top="442" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0"/>
+        <Static id="Static08_01_00_00_00" taborder="18" text="12" left="0" top="489" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0"/>
+        <Button id="btn_save" taborder="10" text="저장" left="251" top="454" width="64" height="35" onclick="fn_save" cssclass="btn_WF_saveRow"/>
+        <Button id="btn_close" text="닫기" top="454" width="64" height="35" cssclass="btn_WF_delete" left="318" onclick="btn_close_onclick" taborder="11"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Div00.form.edt_accSecuNumber" propid="value" datasetid="ds_list" columnid="주민번호"/>
+      <BindItem id="item1" compid="Div00_00.form.edt_accSecuNumber00" propid="value" datasetid="ds_account" columnid="변경후예금주주민번호"/>
+      <BindItem id="item2" compid="Div00_00.form.TextArea02" propid="value" datasetid="ds_account" columnid="요청사유"/>
+      <BindItem id="item5" compid="Div00_00.form.cbo_relation" propid="value" datasetid="ds_account" columnid="변경후예금주관계"/>
+      <BindItem id="item6" compid="Div00_00.form.cbo_payMethod" propid="value" datasetid="ds_account" columnid="변경후지급방법"/>
+      <BindItem id="item7" compid="Div00_00.form.edt_incSaCode03" propid="value" datasetid="ds_account" columnid="변경후예금주"/>
+      <BindItem id="item8" compid="Div00_00.form.cal_02" propid="value" datasetid="ds_account" columnid="시작일자"/>
+      <BindItem id="item9" compid="Div00.form.edt_accRelation" propid="value" datasetid="ds_account" columnid="변경전예금주관계"/>
+      <BindItem id="item4" compid="Div00_00.form.edt_nBankCode" propid="value" datasetid="ds_account" columnid="변경후은행코드"/>
+      <BindItem id="item3" compid="Div00_00.form.edt_incSaName04" propid="value" datasetid="ds_account" columnid="변경후계좌번호"/>
+    </Bind>
+    <Script type="xscript5.1"><![CDATA[/********************************************************************************
+ * Name			: ORG_P_30000070.xfdl
+ * Title		: 지급계좌변경 팝업
+ * Desc			: 지급계좌변경 팝업
+ * 작성자		: 최종혁
+ * 작성일		: 2024.03.19
+ * 변경사항	: 
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+ *=============================================================================*/
+var fv_fspGroup = nexacro.getApplication().gv_fspGroup + "organization";
+var fv_saCode;
+var fv_saName;
+var fv_saGbn;
+var fv_accNm;
+var fv_accSecuNum;
+var fv_payMet;
+var fv_bankCd;
+var fv_bankNm;
+var fv_accNum;
+var fv_accRel;
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+ *=============================================================================*/
+/**
+ * 화면 온로드 이벤트
+ */
+this.fn_onload = function (obj:Form, e:LoadEventInfo)
+{
+	//필수
+	this.gfn_loadForm(obj);
+	
+	this.Div00_00.form.edt_incSaCode03.valid = "required"; //예금주
+	this.Div00_00.form.edt_accSecuNumber00.valid = "required";//주민번호
+	this.Div00_00.form.edt_nBankCode.valid = "required";//은행코드
+	this.Div00_00.form.edt_incSaName04.valid = "required";//은행계좌
+	
+	var param = [
+			  {code:"00017", dsName:"ds_00017",selecttype:"S",targetObj:this.Div00_00.form.cbo_relation}
+			 ,{code:"00017", dsName:"ds_00017_1",selecttype:"S",targetObj:this.Div00.form.edt_accRelation}
+	];
+	
+	this.gfn_comCode(param);
+	
+	try {
+		fv_saCode = this.parent.saCode; 			//사원코드
+		fv_saName = this.parent.saName; 			//사원명
+		fv_saGbn  = this.parent.saGbn;				//사원구분
+		fv_accNm = this.parent.accNm;				//예금주
+		fv_accSecuNum = this.parent.accSecuNum;		//예금주주민번호
+		fv_payMet = this.parent.payMet;				//지급방법
+		fv_bankCd = this.parent.bankCd;				//은행코드
+		fv_bankNm = this.parent.bankNm;				//은행명
+		fv_accNum = this.parent.accNum;				//계좌번호
+		fv_accRel = this.parent.accRel;				//예금주관계
+	} catch(e) {}
+							
+	this.Div00_01.form.edt_saCode.set_value(fv_saCode);
+	this.Div00_01.form.edt_saName.set_value(fv_saName);
+	this.Div00_01.form.edt_saGbn.set_value(fv_saGbn);
+	
+	this.Div00.form.edt_accName.set_value(fv_accNm); //예금주
+	this.Div00.form.edt_accSecuNumber.set_value(fv_accSecuNum); //예금주주민번호
+	//edt_accRelation.value = accRelTxt; //예금주관계
+	this.Div00.form.edt_payMethod.set_value(fv_payMet); //지급방법
+	this.Div00.form.edt_bankCode.set_value(fv_bankCd); //은행코드
+	this.Div00.form.edt_bankName.set_value(fv_bankNm); //은행명
+	this.Div00.form.edt_accNumber.set_value(fv_accNum); //계좌번호			 
+		
+	var nRow = this.ds_account.addRow();
+	this.ds_account.setColumn(nRow,"사원코드",fv_saCode);
+	
+	this.ds_account.setColumn(nRow,"변경전예금주",fv_accNum);
+	this.ds_account.setColumn(nRow,"변경전예금주주민번호",fv_accSecuNum);
+	this.ds_account.setColumn(nRow,"변경전예금주관계",fv_accRel);
+	this.ds_account.setColumn(nRow,"변경전지급방법",fv_payMet);
+	this.ds_account.setColumn(nRow,"변경전은행코드",fv_bankCd);
+	this.ds_account.setColumn(nRow,"변경전계좌번호",fv_accNum);
+	
+	this.Div00_00.form.cal_02.set_value(Base.date.getDate()); //시작일자를 현재일자로 기본 셋팅
+	this.Div00_00.form.cbo_payMethod.set_index(0); //지급방법 기본값 : 대량이체 
+	this.Div00_00.form.cbo_relation.set_index(0);  //관계 기본값 : 본인
+	this.Div00_00.form.edt_incSaCode03.setFocus();
+}  
+
+/*===============================================================================
+ * 3.FORM 공통 FUNCTION 영역 
+ *=============================================================================*/
+/*
+ * 저장 버튼 클릭 시
+ */
+this.fn_save = function (obj:Button,  e:ClickEventInfo)
+{
+	this.fn_dataSave();
+}
+/*
+ * 저장 함수
+ */
+this.fn_dataSave = function ()
+{
+	//if(!fn_checkJuminNum()) return; //주민번호체크
+			
+   //저장하시겠습니까?
+    if(!comSys.showMsg("C0001","Q")) return;
+	
+		this.fsp_clear();
+		this.fsp_addSave(
+			//  "organization:ORG_P_30000070_I"	// insert
+			 fv_fspGroup+":ORG_N_30200200_U"	// insert
+			, ""	// update
+			, ""	// delete
+			, ""									// flag column 명
+			, ""									// key sql id
+			, 0										// key 증가 값
+			, "" 
+			, 0 
+			, "N"									// 실행타입
+		);
+		
+		// 서버 호출 
+		this.fsp_callService(
+			""
+			,""
+			,"ds_input=ds_account:U"	// inDs
+			,""	// outDs
+			,"Processing=승인 classification=계좌변경요청"// args 
+			,"fn_accountChgAfterSave"
+			,false
+			,false
+			,false
+			,""
+		);
+}
+/*===============================================================================
+ * 4.CALLBACK 콜백 처리부분
+ *=============================================================================*/
+this.fn_accountChgAfterSave = function (ErrorCode, ErrorMsg, TrId)
+{
+	var saCode = this.ds_account.getColumn(this.ds_account.rowposition,"사원코드");
+	if(ErrorCode < 0) {
+		comSys.showMsg("E0002", "W", ["저장"]);
+		return;
+				
+	}
+	comSys.showMsg("I0004", "I");
+	this.opener.fn_clearData();	
+// 	this.opener.Div00.ImageViewer00.image = "URL('Images::증명사진.jpg')";
+// 	this.opener.Div00.ImageViewer00.redraw();
+	this.opener.fn_sawonData(fv_saCode);
+	this.opener.Tab01.set_tabindex(4);
+	this.close();
+}
+/*===============================================================================
+ * 5.사용자 FUNCTION 영역
+ *=============================================================================*/
+/**
+ * 무통장입금계좌 팝업 콜백
+ */
+this.fn_popupCallBack = function(popupId, rtn)
+{
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	try{
+		aJson = JSON.parse(rtn);
+	}catch(ex){}
+
+	this.Div00_00.form.edt_nBankCode.set_value(aJson[0]); //은행코드
+	this.Div00_00.form.edt_nBankName.set_value(aJson[1]); //은행명
+	this.Div00_00.form.edt_incSaName04.setFocus();	
+	//trace(aJson[0],aJson[1]);
+};
+
+this.fn_popupCallBack1 = function(popupId, rtn)
+{
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	try{
+		aJson = JSON.parse(rtn);
+	}catch(ex){}
+	trace("aJson==" + aJson);
+	
+	this.Div00_00.form.edt_nBankCode.set_value(aJson["은행코드"]);	//은행코드
+	this.Div00_00.form.edt_nBankName.set_value(aJson["은행명"]);	//은행명
+}
+
+/*********************** 엔터키로 포커스 이동 공통함수 시작**********************/
+this.fn_moveNext = function (nEvent, nNextObj) {
+	if(nEvent == 13) {
+		nNextObj.setFocus();
+	}
+}
+
+/*===============================================================================
+ * 6.각 COMPONENT 별 EVENT 영역
+ *=============================================================================*/
+//은행조회(버튼 클릭)
+this.btn_openPopup_onclick = function (obj:Button,  e:ClickEventInfo)
+{
+	var returnType;
+	var sOption = "autosize=false, width=800, height=800,modeless=false"; // 세로모드
+	
+	if(obj.name == "btn_bank") {
+		var oArgs = {
+			sql:"kwoo/system:COMM_BANK_S"
+			,params:"bankGbn=은행"
+			,viewCol:["은행코드:180","은행명:250","비고:250"]
+			,returnType:"A"
+			,sTitle:"은행조회"
+		};
+		
+		comSys.openPopup("com::COM_P_0000001.xfdl", "COM_P_0000001", oArgs, sOption, this, "fn_popupCallBack");
+	}
+}
+
+// 은행 조회(엔터)
+this.Div00_00_edt_nBankName_onkeydown = function(obj:nexacro.Edit,e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		this.gfn_getBank(obj.value,"은행","","","fn_popupCallBack1");
+		if (!Base.isEmpty(obj.value)){
+			//은행-계좌번호
+			this.fn_moveNext(e.keycode, this.Div00_00.form.edt_incSaName04);
+		} else {
+			this.Div00_00.form.edt_incSaName04.setFocus();
+		}
+	}
+}
+
+//예금주->주민번호 
+this.edt_incSaCode03_onkeydown = function (obj:Edit, e:KeyEventInfo)
+{
+	this.fn_moveNext(e.keycode, this.Div00_00.form.edt_accSecuNumber00);
+
+}
+
+//주민번호 ->지급방법
+this.edt_accSecuNumber00_onkeydown = function(obj:nexacro.MaskEdit,e:nexacro.KeyEventInfo)
+{
+// 	var checkNum = this.Div00_00.form.edt_accSecuNumber00.value+"";
+// 	trace("keycode==" +e.keycode);
+// 	if (e.keycode == 13) {
+// 		if(!comSys.isRsrno(checkNum))
+// 		{
+// 			comSys.showMsg("주민번호가 올바르지 않습니다. 다시 입력해주세요.", "W", [""]);
+// 			this.Div00_00.form.edt_accSecuNumber00.setFocus(); //틀리면 생년월일로 포커스이동
+// 			return;
+// 		} else {
+// 			//comSys.showMsg("올바른 주민번호 입니다.", "I", [""]);
+// 			this.Div00_00.form.cbo_payMethod.setFocus();//휴대폰 번호로 포커스이동	
+// 		}	
+// 	}
+	this.Div00_00.form.cbo_payMethod.setFocus();//휴대폰 번호로 포커스이동	
+}
+
+//지급번호->관계
+this.cbo_payMethod_onkeydown = function (obj:Combo, e:KeyEventInfo)
+{
+	this.fn_moveNext(e.keycode, this.Div00_00.form.cbo_relation);
+}
+
+//관계->은행
+this.cbo_relation_onkeydown = function (obj:Combo, e:KeyEventInfo)
+{
+	this.fn_moveNext(e.keycode,this.Div00_00.form.btn_bank);
+}
+
+//계좌번호 -> 요청사항
+this.edt_incSaName04_onkeydown = function (obj:Edit, e:KeyEventInfo)
+{
+	this.fn_moveNext(e.keycode,this.Div00_00.form.TextArea02);
+}
+
+//요청사항 -> 저장
+this.TextArea02_onkeydown = function (obj:TextArea, e:KeyEventInfo)
+{
+	this.fn_moveNext(e.keycode,this.btn_close);
+}
+
+//닫기 버튼
+this.btn_close_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+]]></Script>
+    <Objects>
+      <Dataset id="ds_account">
+        <ColumnInfo>
+          <Column id="사원코드" type="STRING" size="256"/>
+          <Column id="변경전예금주관계" type="STRING" size="256"/>
+          <Column id="변경전예금주" type="STRING" size="256"/>
+          <Column id="변경전예금주주민번호" type="STRING" size="256"/>
+          <Column id="변경전은행코드" type="STRING" size="256"/>
+          <Column id="변경전계좌번호" type="STRING" size="256"/>
+          <Column id="변경전지급방법" type="STRING" size="256"/>
+          <Column id="변경후예금주관계" type="STRING" size="256"/>
+          <Column id="변경후예금주" type="STRING" size="256"/>
+          <Column id="변경후예금주주민번호" type="STRING" size="256"/>
+          <Column id="변경후은행코드" type="STRING" size="256"/>
+          <Column id="변경후계좌번호" type="STRING" size="256"/>
+          <Column id="변경후지급방법" type="STRING" size="256"/>
+          <Column id="시작일자" type="STRING" size="256"/>
+          <Column id="요청사유" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_relation">
+        <ColumnInfo>
+          <Column id="코드" type="STRING" size="256"/>
+          <Column id="값" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

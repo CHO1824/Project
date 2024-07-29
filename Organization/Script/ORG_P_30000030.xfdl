@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="ORG_P_30000030" width="1100" height="562" titletext="영업자격관리" onload="fn_onload">
+    <Layouts>
+      <Layout height="562" mobileorientation="landscape" width="1100">
+        <Static id="stc_40" text="20" visible="false" left="0" top="0" height="20" background="orange" taborder="0" right="20"/>
+        <Static id="stc_40_00_00_00" text="20" visible="false" background="orange" taborder="1" right="0" top="0" width="20" bottom="0"/>
+        <Static id="Static08_01_00" taborder="2" text="12" left="0" top="503" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0"/>
+        <Static id="Static08_01_00_00_00" taborder="3" text="12" left="0" top="550" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0"/>
+        <Static id="stc_40_00_00" text="20" visible="false" left="0" top="0" background="orange" taborder="4" width="20" bottom="0"/>
+        <Static id="sta_title" taborder="5" text="영업자격관리" left="20" top="21" width="110" height="21" cssclass="sta_WF_title" visible="true"/>
+        <Static id="Static05_00_00_03" taborder="6" text="height 23" left="313" top="20" width="100" height="23" cssclass="sta_GU_space" visible="false" background="orange" textAlign="center" wordWrap="char"/>
+        <Static id="stc_35_00_00_00_01_00_00" text="3" visible="false" left="0" right="0" top="43" height="5" background="orange" taborder="7"/>
+        <Grid id="exGrid01" taborder="8" top="48" bottom="59" binddataset="ds_list" right="20" left="20" autoenter="select" cellmovingtype="col" cellsizingtype="col" useExport="false" useFilter="true" useFind="true" useFixCol="true" useSort="true" ondropdown="exGrid01_ondropdown" oncloseup="exGrid01_oncloseup" oncellclick="exGrid01_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="110"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="120"/>
+                <Column size="29"/>
+                <Column size="120"/>
+                <Column size="120"/>
+                <Column size="29"/>
+                <Column size="100"/>
+                <Column size="90"/>
+                <Column size="138"/>
+              </Columns>
+              <Rows>
+                <Row size="33" band="head"/>
+                <Row size="30"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="대분류"/>
+                <Cell col="1" text="상세분류"/>
+                <Cell col="2" text="자격명"/>
+                <Cell col="3" colspan="2" text="의전지역" taborder="undefined"/>
+                <Cell col="5" text="창고지역"/>
+                <Cell col="6" colspan="2" text="창고지역상세" taborder="undefined"/>
+                <Cell col="8" text="자격상태"/>
+                <Cell col="9" text="자격부여일자"/>
+                <Cell col="10" text="사유"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="combotext" edittype="combo" text="bind:대분류" combodataset="ds_gbn1" combocodecol="코드" combodatacol="코드명"/>
+                <Cell col="1" displaytype="combotext" edittype="combo" text="bind:상세분류" combodataset="ds_gbn2" combocodecol="코드" combodatacol="코드명"/>
+                <Cell col="2" displaytype="combotext" edittype="combo" text="bind:자격코드" combodataset="ds_gbn3" combocodecol="코드" combodatacol="코드명"/>
+                <Cell col="3" displaytype="normal" edittype="none" style="align:center;linetype:onlyhorz;" text="bind:관리지역명" combodisplayrowcount="10"/>
+                <Cell col="4" displaytype="buttoncontrol" edittype="button" style="padding:1 1 1 1;" cssclass="grd_SawonSearch" padding="1px"/>
+                <Cell col="5" displaytype="normal" edittype="none" text="bind:창고지역명"/>
+                <Cell col="6" displaytype="normal" edittype="none" style="linetype:onlyhorz;" text="bind:창고지역상세명"/>
+                <Cell col="7" displaytype="buttoncontrol" edittype="button" style="padding:1 1 1 1;" cssclass="grd_SawonSearch" padding="1px"/>
+                <Cell col="8" displaytype="combotext" edittype="combo" text="bind:자격상태" combodataset="ds_status" combocodecol="코드" combodatacol="값"/>
+                <Cell col="9" displaytype="date" edittype="date" style="align:center;" text="bind:자격부여일자" calendardisplaynulltype="none" calendardateformat="yyyy-MM-dd"/>
+                <Cell col="10" displaytype="text" edittype="text" text="bind:사유"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_addOpt" taborder="9" text="행추가" top="20" width="72" height="23" cssclass="btn_WF_addRow" right="95" onclick="btn_addOpt_onclick"/>
+        <Button id="btn_delOpt" taborder="10" text="행삭제" top="20" width="72" height="23" cssclass="btn_WF_addDel" right="20" onclick="btn_delOpt_onclick"/>
+        <Button id="btn_save" taborder="11" text="저장" left="487" top="515" width="64" height="35" onclick="fn_save" cssclass="btn_WF_saveRow"/>
+        <Button id="btn_close" taborder="12" text="닫기" top="515" width="64" height="35" cssclass="btn_WF_delete" left="554" onclick="btn_close_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[/********************************************************************************
+ * Name			: ORG_P_30000030.xfdl
+ * Title		: 영업자격관리
+ * Desc			: 영업자격관리
+ * 작성자		: 조하영
+ * 작성일		: 2024.03.21
+ * 변경사항	: 
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+ *=============================================================================*/
+var fv_saCode;
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+ *=============================================================================*/
+/**
+ * 화면 온로드 이벤트
+ */
+this.fn_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	//필수
+	this.gfn_loadForm(obj);
+	
+	this.fn_setBusiCert(); 		//영업자격관리 내 자격분류코드 셋팅
+	
+	try {
+		fv_saCode = this.parent.saCode; //사원코드
+	} catch(e) {}
+
+	this.fn_getBusiCertList(fv_saCode); //영업자격조회
+};
+
+/*===============================================================================
+ * 3.FORM 공통 FUNCTION 영역 
+ *=============================================================================*/
+ /*
+ * 자격코드 셋팅
+ */
+this.fn_setBusiCert = function()
+{
+	this.fsp_clear();
+	this.fsp_addSearch("kwoo/organization:ORG_P_30000030_GBN_S", false);
+	
+	// connect the server
+	this.fsp_callService(
+		""
+		,""
+		,""	// inDs
+		,"ds_gbn1=ds_output_1 ds_gbn2=ds_output_2 ds_gbn3=ds_output_3"	// outDs
+		,""
+		,"fn_afterSearch1"
+		,true
+		,true
+		,true
+	);
+}
+
+/*
+ * 해당사원에 대한 영업자격관리 조회
+ */
+this.fn_getBusiCertList = function(sNoEmp)
+{
+	this.fsp_clear();
+	this.fsp_addSearch("kwoo/organization:ORG_N_30200100_BUSICERT_S", false);
+	// connect the server 
+	this.fsp_callService(
+		""
+		,""
+		,""	// inDs
+		,"ds_list=ds_outputS"	// outDs
+		,"sNoEmp="+sNoEmp+" MOD=2"
+		,"fn_afterSearch2"
+		,true
+	);
+}
+
+this.fn_save = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fn_dataSave();
+};
+
+/*
+ * 저장 함수
+ */
+this.fn_dataSave = function(){
+			
+    //저장하시겠습니까?
+    if(!comSys.showMsg("C0001","Q")) return;
+	
+	this.fsp_clear();
+	this.fsp_addSave(
+		  "kwoo/organization:ORG_N_30200100_BUSICERT_I"	// insert
+		, "kwoo/organization:ORG_N_30200100_BUSICERT_U"	// update
+		, "kwoo/organization:ORG_N_30200100_BUSICERT_D"	// delete
+		, ""										// flag column 명
+		, ""										// key sql id
+		, 0											// key 증가 값
+		, "" 
+		, 0 
+		, "N"										// 실행타입
+	);
+	
+	// 서버 호출 
+	this.fsp_callService(
+		""
+		,""
+		,"ds_inputB=ds_list:U"	// inDs
+		,""						// outDs
+		,""						// args 
+		,"fn_afterSave"
+		,true
+		,false
+		,false
+		,""
+	);
+}
+
+/*===============================================================================
+ * 4.CALLBACK 콜백 처리부분
+ *=============================================================================*/
+ /**
+ * 저장 콜백
+ */
+this.fn_afterSave = function(ErrorCode, ErrorMsg, TrId)
+{
+	if(ErrorCode < 0) {
+		comSys.showMsg("E0002", "W", ["저장"]);
+		return;
+	}
+		comSys.showMsg("I0004", "I");	
+		this.fn_getBusiCertList(fv_saCode); //영업자격 재조회
+		this.opener.fn_sawonData(fv_saCode); //사원등록정보 화면 영업자격정보 reload
+		this.close();
+};
+
+/**
+ * 자격코드 조회 콜백
+ */
+this.fn_afterSearch1 = function(ErrorCode, ErrorMsg, Trid) 
+{ 
+	if(ErrorCode < 0) {
+		comSys.showMsg("E0001", "W", ["조회"]);    //@ 자료 조회 시 오류가 발생했습니다.
+	}
+};
+
+/**
+ * 영업자격관리조회 콜백
+ */
+this.fn_afterSearch2 = function(ErrorCode, ErrorMsg, Trid) 
+{
+	if(ErrorCode < 0) {
+		comSys.showMsg("E0001", "W", ["조회"]);    //@ 자료 조회 시 오류가 발생했습니다.
+	}
+};
+/*===============================================================================
+ * 5.사용자 FUNCTION 영역
+ *=============================================================================*/
+
+/*===============================================================================
+ * 6.각 COMPONENT 별 EVENT 영역
+ *=============================================================================*/
+this.ds_list_onrowposchanged = function(obj:nexacro.NormalDataset,e:nexacro.DSRowPosChangeEventInfo)
+{
+	if(e.col == 1){
+		var code = this.ds_list.getColumn(this.ds_list.rowposition,"대분류");
+		this.ds_gbn2.filter("대분류=='"+code+"'");
+		//fn_areaSearch(code);
+		
+	}else if(e.col == 2){
+		var code = this.ds_list.getColumn(this.ds_list.rowposition,"대분류");
+		var code2 = this.ds_list.getColumn(this.ds_list.rowposition,"상세분류");
+		this.ds_gbn3.filter("대분류=='"+code+"' && 상세분류=='"+code2+"'");
+	}
+}
+
+this.exGrid01_oncloseup = function(obj:nexacro.Grid,e:nexacro.GridEditEventInfo)
+{
+	if(e.col == 1){
+		this.ds_gbn2.filter("");
+	}else if(e.col == 2){
+		this.ds_gbn3.filter("");
+	}
+}
+
+// this.ds_list_oncolumnchanged = function(obj:nexacro.NormalDataset,e:nexacro.DSColChangeEventInfo)
+// {
+// 	if(e.columnid == "대분류"){
+// 		this.fn_areaSearch(e.newvalue);
+// 	}
+// }
+
+//행추가
+this.btn_addOpt_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var date = new nexacro.Date();
+	var nRow = this.ds_list.addRow();
+	this.ds_list.set_rowposition(nRow);
+	
+	this.ds_list.setColumn(nRow,"사원코드",fv_saCode);
+	this.ds_list.setColumn(nRow,"자격상태","정상");
+	this.ds_list.setColumn(nRow,"자격부여일자",date);
+};
+
+//행삭제
+this.btn_delOpt_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	if(this.ds_list.rowcount == 0) return;
+	 this.ds_list.set_enableevent(false);
+	 this.ds_list.deleteRow(this.ds_list.rowposition);
+	 this.ds_list.set_enableevent(true);
+};
+
+/**
+ * 관리지역 팝업
+ */
+this.exGrid01_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	var gRow = this.ds_list.getRowType(this.ds_list.rowposition);
+	var Gbn = comSys.transNullToEmpty(this.ds_list.getColumn(this.ds_list.rowposition,"대분류"));
+	var DetailGbn = comSys.transNullToEmpty(this.ds_list.getColumn(this.ds_list.rowposition,"상세분류"));
+	var date = new nexacro.Date();
+	
+	//의전지역
+	if(e.col == 4 ){
+		if(Gbn == ""){
+			comSys.showMsg("대분류를 선택해주세요.", "I");
+			return;
+		}// end of if
+		
+		if(DetailGbn == ""){
+			comSys.showMsg("상세분류를 선택해주세요.", "I");
+			return;
+		}// end of if
+		
+		var oArgs = { sql:"kwoo/community:COMM_AREA_S", params:"Gbn=의전팀장", viewCol:["관리지역코드","관리지역명:211"], returnType:"A", sTitle:"관리지역 조회" };
+		var path = "com::";
+			
+		//팝업 호출
+		comSys.openPopup(path+"COM_P_0000001.xfdl", "COM_P_0000001", oArgs, null, this, "fn_popupCallBack1");                 
+	}
+	
+	//창고지역,창고지역상세
+	if(e.col == 7 ){
+		var sOption = "autosize=false, width=690, height=400,modeless=false"; // 세로모드
+		var AreaCD = this.ds_list.getColumn(this.ds_list.rowposition,"관리지역코드");
+	
+		if(Gbn == ""){
+			comSys.showMsg("대분류를 선택해주세요.","I");
+			return;
+		}// end of if
+	
+		if(DetailGbn == ""){
+			comSys.showMsg("상세분류를 선택해주세요.", "I");
+			return;
+		}// end of if
+	
+		var oArgs = { sql:"kwoo/community:COMM_STORAGE_S", params:"use=Y inquiry="+date, viewCol:["창고지역","창고지역명:211","창고지역상세:115","창고지역상세명:211"], returnType:"A", sTitle:"창고지역 조회" };
+		var path = "com::";
+		
+		//팝업 호출
+		comSys.openPopup(path+"COM_P_0000001.xfdl", "COM_P_0000001", oArgs, sOption, this, "fn_popupCallBack2");                
+	}
+};
+
+/**
+ * 의전지역 팝업 콜백
+ */
+this.fn_popupCallBack1 = function(popupId, rtn)
+{
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	try{
+		aJson = JSON.parse(rtn);
+	}catch(ex){}
+	
+	//구성품 돋보기 누를시 중복되는거 안되게
+	for(var i= 0 ; i < this.ds_list.rowcount; i++){
+		var warehouseCD = this.ds_list.getColumn(i, "창고지역코드");
+		if (aJson[0] == warehouseCD){
+			comSys.showMsg("이미 등록된 구성품입니다.", "I");
+			return;
+		}
+	}
+	
+	this.ds_list.setColumn(this.ds_list.rowposition,"관리지역코드",aJson[0]);
+	this.ds_list.setColumn(this.ds_list.rowposition,"관리지역명",aJson[1]);
+};
+
+/**
+ * 창고지역, 창고지역상세 팝업 콜백
+ */
+this.fn_popupCallBack2 = function(popupId, rtn)
+{
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	try{
+		aJson = JSON.parse(rtn);
+	}catch(ex){}
+	
+	//구성품 돋보기 누를시 중복되는거 안되게
+	for(var i= 0 ; i < this.ds_list.rowcount; i++){
+		var areaCD = this.ds_list.getColumn(i, "관리지역코드");
+		if (aJson[0] == areaCD){
+			comSys.showMsg("이미 등록된 구성품입니다.", "I");
+			return;
+		}
+	}
+	this.ds_list.setColumn(this.ds_list.rowposition,"창고지역코드",aJson[0]);
+	this.ds_list.setColumn(this.ds_list.rowposition,"창고지역명",aJson[1]);
+	this.ds_list.setColumn(this.ds_list.rowposition,"창고지역상세코드",aJson[2]);
+	this.ds_list.setColumn(this.ds_list.rowposition,"창고지역상세명",aJson[3]);
+
+};
+
+//닫기버튼
+this.btn_close_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};]]></Script>
+    <Objects>
+      <Dataset id="ds_list" onrowposchanged="ds_list_onrowposchanged">
+        <ColumnInfo>
+          <Column id="사원코드" type="STRING" size="256"/>
+          <Column id="대분류" type="STRING" size="256"/>
+          <Column id="상세분류" type="STRING" size="256"/>
+          <Column id="자격코드" type="STRING" size="256"/>
+          <Column id="자격명" type="STRING" size="256"/>
+          <Column id="자격상태" type="STRING" size="256"/>
+          <Column id="자격부여일자" type="STRING" size="256"/>
+          <Column id="사유" type="STRING" size="256"/>
+          <Column id="관리지역코드" type="STRING" size="256"/>
+          <Column id="관리지역명" type="STRING" size="256"/>
+          <Column id="창고지역코드" type="STRING" size="256"/>
+          <Column id="창고지역명" type="STRING" size="256"/>
+          <Column id="창고지역상세코드" type="STRING" size="256"/>
+          <Column id="창고지역상세명" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_gbn1">
+        <ColumnInfo>
+          <Column id="코드" type="STRING" size="256"/>
+          <Column id="코드명" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_gbn2">
+        <ColumnInfo>
+          <Column id="대분류" type="STRING" size="15"/>
+          <Column id="코드" type="STRING" size="15"/>
+          <Column id="코드명" type="STRING" size="15"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_gbn3">
+        <ColumnInfo>
+          <Column id="대분류" type="STRING" size="15"/>
+          <Column id="상세분류" type="STRING" size="15"/>
+          <Column id="코드" type="STRING" size="15"/>
+          <Column id="코드명" type="STRING" size="15"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_status">
+        <ColumnInfo>
+          <Column id="코드" type="STRING" size="256"/>
+          <Column id="값" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="코드">정상</Col>
+            <Col id="값">정상</Col>
+          </Row>
+          <Row>
+            <Col id="코드">취소</Col>
+            <Col id="값">취소</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_jAreaCD">
+        <ColumnInfo>
+          <Column id="관리지역코드" type="STRING" size="256"/>
+          <Column id="관리지역명" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_wAreaCD">
+        <ColumnInfo>
+          <Column id="관리지역코드" type="STRING" size="256"/>
+          <Column id="관리지역명" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_tAreaCD">
+        <ColumnInfo>
+          <Column id="관리지역코드" type="STRING" size="256"/>
+          <Column id="관리지역명" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_lAreaCD">
+        <ColumnInfo>
+          <Column id="관리지역코드" type="STRING" size="256"/>
+          <Column id="관리지역명" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

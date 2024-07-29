@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="ORG_P_30000080" width="1475" height="837" titletext="사원증명서출력" onload="fn_onload">
+    <Layouts>
+      <Layout height="837" mobileorientation="landscape" width="1475">
+        <Div id="div_search" taborder="0" left="20" top="20" height="45" cssclass="div_WF_search" text="" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="stc_09_00" text="20" visible="false" left="0" width="20" top="10" height="23" background="orange" taborder="0"/>
+              <Static id="stc_35_00_00" text="10" visible="false" left="20" right="0" top="0" height="10" background="orange" taborder="1"/>
+              <Static id="stc_35_00_00_01" text="10" visible="false" left="20" right="0" top="33" height="10" background="orange" taborder="2"/>
+              <Static id="sta_cdJobres" taborder="3" text="사원" left="20" top="10" width="43" height="23" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="stc_00_03_00_00" text="30" visible="false" left="55" width="30" top="10" height="23" background="orange" taborder="4"/>
+              <Edit id="edt_sawonCD" taborder="5" left="85" top="10" width="90" height="23" readonly="true"/>
+              <Edit id="edt_sawonNM" taborder="6" left="178" top="10" width="100" height="23" onchanged="Edit_onchanged" onkeyup="div_search_edt_EmployeeNameNM_onkeyup" readonly="true"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_40_00_00" text="15" visible="false" left="0" top="65" height="15" background="orange" taborder="1" right="19"/>
+        <Static id="stc_40_00_00_00" text="20" visible="false" left="1455" top="0" background="orange" taborder="2" width="20" bottom="20" textAlign="center"/>
+        <Static id="stc_40_00_00_01" text="20" visible="false" left="0" top="817" height="20" background="orange" taborder="3" right="0"/>
+        <Static id="stc_40_00_00_00_00" text="20" visible="false" left="0" top="0" background="orange" taborder="4" width="20" bottom="10" textAlign="center"/>
+        <Static id="stc_40" text="20" visible="false" left="0" top="0" height="20" background="orange" taborder="5" right="0"/>
+        <Static id="stc_02" taborder="6" left="20" top="80" width="220" height="360" border="1px solid #d3d1d1" borderRadius="10px" text="" onclick="stc_02_onclick"/>
+        <Static id="sta_dept01" taborder="7" text="사원관리" left="26" top="82" width="76" height="27" cssclass="sta_WF_searchLabel"/>
+        <Radio id="Radio00" taborder="8" left="25" top="111" width="210" height="317" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" onitemchanged="Radio00_onitemchanged">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">사원_모집인변경신청서</Col>
+                <Col id="datacolumn">모집인변경신청서</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">사원_상품변경신청서</Col>
+                <Col id="datacolumn">상품변경신청서</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">사원_영업사원삭제신청서</Col>
+                <Col id="datacolumn">영업사원삭제신청서</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">사원_영업수당수령계좌변경신청서</Col>
+                <Col id="datacolumn">영업수당수령계좌변경신청서</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">사원_회원무효처리신청서</Col>
+                <Col id="datacolumn">회원무효처리신청서</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">사원_회원삭제신청서</Col>
+                <Col id="datacolumn">회원삭제신청서</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">사원_회원이관신청서</Col>
+                <Col id="datacolumn">회원이관신청서</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="stc_40_00_00_02" text="15" visible="false" left="20" top="440" height="15" background="orange" taborder="9" width="220"/>
+        <Static id="stc_40_00_00_02_00" text="15" visible="false" left="20" top="478" height="15" background="orange" taborder="10" width="220"/>
+        <Static id="stc_40_00_00_00_00_00" text="15" visible="false" left="240" top="60" background="orange" taborder="11" width="15" bottom="20" textAlign="center"/>
+        <Div id="div_print" taborder="12" left="255" top="80" width="899" background="white" cssclass="div_WFSA_SearchBg" border="1px solid darkgray" height="737" text="">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="1" text="참고 - ActiveX넓이 1273 이상일때 수평스크롤이 생김." left="3" top="25" width="282" height="23" color="red" visible="false"/>
+              <UbiReport id="act_reportView" taborder="1" left="4" top="50" width="885" height="682" toolbar="true"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="Button01" taborder="13" text="미리보기" width="72" height="23" cssclass="btn_WF_crud" top="455" left="128" onclick="fn_print"/>
+        <Button id="Button00" taborder="14" text="출력" top="455" width="64" height="23" cssclass="btn_WF_print" right="1350" onclick="fn_directPrint"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[/********************************************************************************
+ * Name			: ORG_P_30000080.xfdl
+ * Title		: 업무양식출력
+ * Desc			: 업무양식출력
+ * 작성자		: 하명준/조하영
+ * 작성일		: 2024.03.19
+ * 변경사항	: 2024.03.25 유정목 수정, 리포트경로 62번 서버
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+ *=============================================================================*/
+var FV_ROOT = nexacro.getEnvironment().services["ReportService"].url; //ubireport tool 설치된 서버
+var FV_RPT_ROOT = nexacro.getEnvironment().services["ReportFileService"].url; // ubireport jrf 파일 경로
+trace("FV_RPT_ROOT=="+ FV_RPT_ROOT);
+var loginSawonCd = nexacro.getApplication().gds_userInfo.getColumn(0,"사원코드");
+var loginjisaNM = nexacro.getApplication().gds_userInfo.getColumn(0,"지사명");
+
+var fv_sawonCode = "";
+var fv_sawonName = "";
+var fv_dataList = "";
+
+/************************************************************************************
+* 뷰어 초기 설정
+************************************************************************************/
+
+//this.div_print.form.act_reportView.key = getRandomKey();									// result디렉토리에 생성될 exportseq값
+this.div_print.form.act_reportView.ubiserverurl = FV_ROOT +"REPORT/UbiServer";				//리포트 통신을 담당할 URL
+this.div_print.form.act_reportView.resource = FV_ROOT + "REPORT/ubi4/js";					//리소스를 가져올 URL
+this.div_print.form.act_reportView.reporturl = FV_RPT_ROOT;									//리포트 파일을 가져올 URL : 리포트 파일명을 제외한 디렉토리까지 정의 -> 런타임인경우
+this.div_print.form.act_reportView.resid = "UBIHTML_"+nexacro.getApplication().gv_action;	//HTML 사용시 ubiservice.xml에 등록되어 있는 리소스ID  -> 웹브라우저인경우
+this.div_print.form.act_reportView.scale = "100"; 											//기본배율설정 ※ 쪽 맞춤 : -9999 or WholePage, 폭 맞춤 : -9998 or PageWidth
+//this.UbiViewer.datasource = "Tutorial";								// 런타임용 ubiserver.xml DataSource id
+
+var formObj = this;
+//설정된 값을 이용하여 UbiReport 출력
+//this.UbiReport.retrieve(this, "UbiPreviewEnd");
+//this.UbiReport.retrieve();
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+ *=============================================================================*/
+/**
+ * 화면 온로드 이벤트
+ */
+this.fn_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{	
+	this.gfn_loadForm(obj);
+	
+	this.div_print.form.act_reportView.setToolbar(false);	
+	
+// 	var param = [
+// 				   {code:"00081", dsName:"ds_com00081",selecttype:""}	//증명서담당자
+// 				];
+// 	this.gfn_comCode(param);
+
+	try {
+		fv_sawonCode = this.parent.pv_sawonCode; //사원코드
+		fv_sawonName = this.parent.pv_sawonName; //사원명
+		fv_dataList = this.parent.pv_dataList; //데이터셋
+		
+	} catch(e) {}
+
+	this.div_search.form.edt_sawonCD.set_value(this.fv_sawonCode); //사원코드
+	this.div_search.form.edt_sawonNM.set_value(this.fv_sawonName); //사원명
+
+}; 
+
+/*===============================================================================
+ * 3.FORM 공통 FUNCTION 영역 
+ *=============================================================================*/
+ /*
+  * 4.0 버전
+  */
+this.fn_createReport4v = function(jrfName, args, outputGbn)
+{	
+	this.div_print.form.act_reportView.jrffile = jrfName+".jrf"; //리포트파일명
+	//이벤트 선언
+	this.div_print.form.act_reportView.addEventHandler('PrintEnd', this.UbiPrintEnd, this);
+	//this.div_print.form.act_reportView.addEventHandler('ExportEnd', this.UbiExportEnd, this);
+	
+ 	this.div_print.form.act_reportView.ubiserverurl = FV_ROOT +"REPORT/UbiServer";				//리포트 통신을 담당할 URL
+ 	this.div_print.form.act_reportView.resource = FV_ROOT + "REPORT/ubi4/js";					//리소스를 가져올 URL
+ 	this.div_print.form.act_reportView.reporturl = FV_RPT_ROOT;									//리포트 파일을 가져올 URL : 리포트 파일명을 제외한 디렉토리까지 정의 -> 런타임인경우
+ 	this.div_print.form.act_reportView.set_datasource("DNBOX");
+ 	this.div_print.form.act_reportView.resid = "UBIHTML_"+ "kwooAction";						//리포트 파일을 가져올 URL : 리포트 파일명을 제외한 디렉토리까지 정의 -> 런타임인경우
+	this.div_print.form.act_reportView.set_arg(args);
+	
+	if(outputGbn == "미리보기") {
+		this.div_print.form.act_reportView.retrieve();
+	} else { 
+		this.div_print.form.act_reportView.retrieve();
+		this.div_print.form.act_reportView.printSet(); // 바로출력
+	}
+	
+}
+
+/*===============================================================================
+ * 4.CALLBACK 콜백 처리부분
+ *=============================================================================*/ 
+ /*
+  * 유비리포트 프린트 콜백
+  */
+ this.UbiPrintEnd = function(flag) {
+	var printResults = "";
+
+	if (nexacro._Browser == "Runtime") { 
+		printResults = this.div_print.form.act_reportView.getPrintStatus(); // 1 실패, 0 성공, -999 취소
+	} else { 
+		switch(flag) { // false 실패, true 성공, false 취소
+			case true :
+				printResults = 0;
+				break;
+			case false :
+				printResults = 1;
+				break;
+			default:
+			break;
+		}		
+	}
+	
+	trace("status : 성공=0, 실패=1, 취소,999 ======>" + "최종결과 : " + printResults);
+	
+	if(printResults == 0) {
+		comSys.showMsg("출력을 성공하였습니다.","I");
+		return;
+	} else if (printResults == 1) {
+		comSys.showMsg("출력을 실패하였습니다.","I");
+		return;
+	} else { // -999
+		comSys.showMsg("출력을 취소하였습니다.","W");		
+		return;
+	}
+}
+
+/*===============================================================================
+ * 5.사용자 FUNCTION 영역
+ *=============================================================================*/
+ // 데이터셋 설정
+this.fn_setDataset = function(dataList) {
+
+    if(dataList == null){
+        return;
+    }
+	
+	var localDs = [];
+	trace("dataList.length==" + dataList.length);
+	for(var i = 0; i < dataList.length; i++){
+        var ds = dataList[i];
+        var name = ds.name;
+        //trace("popDataList[i].name == "+popDataList[i].name+",      popDataList[i] == "+popDataList[i].name);
+		localDs.push([fv_dataList[i].name, fv_dataList[i]]);
+    }
+
+	this.ubiLocalDs = localDs;
+	//this.act_reportView.arg = "companyNM"+companyNM+"#"+fv_popArgs;//"COMPANY#유비디시전#HOMEPAGE#http://www.ubireport.com#";
+	if( this.ubiLocalDs != null ) {
+
+		for( var i = 0; i < this.ubiLocalDs.length; i++ ) {
+			
+			var data = this.ubiLocalDs[i];
+			
+			this.div_print.form.act_reportView.setDataset(data[0], data[1]);
+			//this.div_print.form.act_reportView.SetDataset(data[0],data[1].saveXML());
+		}
+	}
+}
+/*===============================================================================
+ * 6.각 COMPONENT 별 EVENT 영역
+ *=============================================================================*/
+/*
+ * 출력 - 미리보기
+ */
+this.fn_printNm = function(outputGbn)
+{
+    var jrfName = ""; // 레포트명
+    var args = ""; // 파라미터
+    var	sawonCD = this.div_search.form.edt_sawonCD.value;//사원코드
+    var certificateName = this.Radio00.text;
+    var dataList = null; // 데이터셋
+	
+	//var finRow = ds_com00081.findRow("구분1", "사원증명서");
+	//var printSawonCd = ds_com00081.findRow(finRow, "CD_CODE");
+	
+    switch(this.Radio00.value) {
+        case "사원_모집인변경신청서" : 
+            jrfName = "Organization/사원_모집인변경신청서";
+            break;
+			
+        case "사원_상품변경신청서" :  
+            jrfName = "Organization/사원_상품변경신청서";
+            break;
+			
+        case "사원_영업사원삭제신청서" : 
+			jrfName = "Organization/사원_영업사원삭제신청서";
+            break;
+			
+        case "사원_영업수당수령계좌변경신청서" : 
+            jrfName = "Organization/사원_영업수당수령계좌변경신청서";
+            break;     
+			
+        case "사원_확인원" : 
+            jrfName = "Organization/사원_확인원";
+            break;
+			
+        case "사원_회원무효처리신청서" : 
+            jrfName = "Organization/사원_회원무효처리신청서";
+            break; 
+			
+        case "사원_회원삭제신청서" : 
+            jrfName = "Organization/사원_회원삭제신청서";
+            break; 
+			
+        case "사원_회원이관신청서" : 
+            jrfName = "Organization/사원_회원이관신청서";
+            break; 
+			
+		case "사원_향군정회원입회신청서" : 
+            jrfName = "Organization/사원_향군정회원입회신청서";
+            break;
+			
+        case "사원_향군지사등록신청서" : 
+            jrfName = "Organization/사원_향군지사등록신청서";
+            break; 
+			
+        case "사원_지사등록신청서" : 
+            jrfName = "Organization/사원_지사등록신청서";
+            break; 
+			
+		case "사원_영업사원등록신청서" : 
+            jrfName = "Organization/사원_영업사원등록신청서";
+            break; 
+			
+        default :
+            break;
+    } // End of switch
+    
+    trace("FV_ROOT=="+FV_ROOT)
+	args = "empLogo#"+FV_RPT_ROOT+"/images/경우라이프_CI.png#";   	//로고이미지
+    args = args +"loginSawonCd#"+loginSawonCd 			//로그인사원코드
+				+"#sawonCd#"	+sawonCD 				//사원코드
+				+"#loginjisaNM#"+loginjisaNM			//로그인사원지사명
+				+"#masterCd#"	+"00081"	   			//대표코드
+				+"#detailCd#"	+"" 					//상세코드(사원담당자)  printSawonCd
+				+"#";									//파라미터값
+				
+	this.fn_setDataset(fv_dataList);
+	this.fn_createReport4v(jrfName, args, outputGbn);
+// 	this.div_print.set_visible(false);
+//  this.div_print.set_visible(true);
+};
+
+
+/*
+ * 미리보기 화면 출력
+ */
+this.fn_print = function(obj:nexacro.Button,e:nexacro.MouseEventInfo) 
+{
+	if (this.Radio00.index == -1) {
+		comSys.showMsg("선택된 리포트가 없습니다.", "I");
+		return;
+	}
+	this.fn_printNm("미리보기");
+};
+
+/* 
+ * 미리보기 화면없이 출력
+ */
+this.fn_directPrint = function(obj:nexacro.Button,e:nexacro.MouseEventInfo) {
+	if (this.Radio00.index == -1) {
+		comSys.showMsg("리포트를 선택후 출력이 가능합니다.", "I");
+		return;
+	}
+	this.fn_printNm("바로출력");
+};
+
+]]></Script>
+    <Objects>
+      <Dataset id="ds_list">
+        <ColumnInfo>
+          <Column id="신청일자" type="STRING" size="256"/>
+          <Column id="문서번호" type="STRING" size="256"/>
+          <Column id="증명서종류" type="STRING" size="256"/>
+          <Column id="소속" type="STRING" size="256"/>
+          <Column id="사원번호" type="STRING" size="256"/>
+          <Column id="사원명" type="STRING" size="256"/>
+          <Column id="주민번호" type="STRING" size="256"/>
+          <Column id="직책" type="STRING" size="256"/>
+          <Column id="입사일자" type="STRING" size="256"/>
+          <Column id="퇴사일자" type="STRING" size="256"/>
+          <Column id="주소" type="STRING" size="256"/>
+          <Column id="발급용도" type="STRING" size="256"/>
+          <Column id="제출처" type="STRING" size="256"/>
+          <Column id="신청상태" type="STRING" size="256"/>
+          <Column id="비고" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_list02">
+        <ColumnInfo>
+          <Column id="결재라인" type="STRING" size="256"/>
+          <Column id="결재상태" type="STRING" size="256"/>
+          <Column id="결재일자" type="STRING" size="256"/>
+          <Column id="사원코드" type="STRING" size="256"/>
+          <Column id="사원명" type="STRING" size="256"/>
+          <Column id="직책" type="STRING" size="256"/>
+          <Column id="지점" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_report">
+        <ColumnInfo>
+          <Column id="유치자코드" type="STRING" size="256"/>
+          <Column id="사원코드" type="STRING" size="256"/>
+          <Column id="사원명" type="STRING" size="256"/>
+          <Column id="사원등록일자" type="STRING" size="256"/>
+          <Column id="직급명" type="STRING" size="256"/>
+          <Column id="본부코드" type="STRING" size="256"/>
+          <Column id="본부명" type="STRING" size="256"/>
+          <Column id="지사코드" type="STRING" size="256"/>
+          <Column id="지사명" type="STRING" size="256"/>
+          <Column id="지점코드" type="STRING" size="256"/>
+          <Column id="지점명" type="STRING" size="256"/>
+          <Column id="QRCODE" type="STRING" size="256"/>
+          <Column id="당월계약" type="STRING" size="256"/>
+          <Column id="누적계약" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="ORG_P_30000010" width="540" height="394" titletext="직급변경" onload="fn_onload">
+    <Layouts>
+      <Layout height="394" mobileorientation="landscape" width="540">
+        <Static id="stc_40" text="20" visible="false" left="0" top="0" height="20" background="orange" taborder="2" right="0"/>
+        <Static id="stc_40_00_00" text="20" visible="false" left="0" top="0" background="orange" taborder="3" width="20" bottom="0"/>
+        <Static id="stc_40_00_00_00" text="20" visible="false" left="520" top="0" background="orange" taborder="4" width="20" bottom="0"/>
+        <Static id="Static08_01_00" taborder="5" text="12" left="0" top="335" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0"/>
+        <Static id="Static08_01_00_00_00" taborder="6" text="12" left="0" top="382" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0"/>
+        <Static id="st_STitle01" taborder="7" text="현재 직급 정보" left="20" top="21" width="110" height="21" cssclass="sta_WF_title" visible="true"/>
+        <Static id="Static05_00_00_03" taborder="8" text="height 23" left="203" top="20" width="100" height="23" cssclass="sta_GU_space" visible="false" background="orange" textAlign="center" wordWrap="char"/>
+        <Static id="stc_35_00_00_00_01_00_00" text="3" visible="false" left="0" right="0" top="43" height="5" background="orange" taborder="9"/>
+        <Div id="Div00" taborder="0" left="20" top="48" height="92" cssclass="div_WF_detail" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="sta01_00" taborder="0" text="사원" left="0" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Edit id="edt_saCode" taborder="1" left="93" top="5" width="112" height="23" readonly="true" tabstop="false"/>
+              <Edit id="edt_saName" taborder="2" left="208" top="5" width="195" height="23" readonly="true" tabstop="false"/>
+              <Static id="sta01_00_00" taborder="3" text="사원구분" left="0" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Edit id="edt_saGbn00" taborder="4" left="93" top="35" width="112" height="23" readonly="true" tabstop="false"/>
+              <Combo id="cb_rankCode" taborder="5" left="301" top="35" width="102" height="23" type="search" autoselect="true" readonly="true" tabstop="false"/>
+              <Static id="sta01_05_00" taborder="6" text="직급" left="208" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Static id="sta01_01_00" taborder="7" text="발령일자" left="0" top="62" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Calendar id="edt_rankStartDate" taborder="8" left="93" top="65" width="112" height="23" dateformat="yyyy-MM-dd" tabstop="false" readonly="true"/>
+              <Static id="sta01_01_00_00" taborder="9" text="종료일자" left="208" top="62" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Calendar id="edt_rankEndDate" taborder="10" left="301" top="65" width="102" height="23" dateformat="yyyy-MM-dd" tabstop="false" readonly="true"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_40_00_00_01" text="15" visible="false" left="0" top="140" height="15" background="orange" taborder="10" right="0" textAlign="center"/>
+        <Static id="st_STitle00" taborder="11" text="변경 직급 정보" left="20" top="156" width="110" height="21" cssclass="sta_WF_title" visible="true"/>
+        <Static id="Static05_00_00_03_00" taborder="12" text="height 23" left="207" top="155" width="100" height="23" cssclass="sta_GU_space" visible="false" background="orange" textAlign="center" wordWrap="char"/>
+        <Static id="stc_35_00_00_00_01_00_00_00" text="3" visible="false" left="0" right="0" top="178" height="5" background="orange" taborder="13"/>
+        <Div id="Div00_00" taborder="1" left="20" top="183" height="152" cssclass="div_WF_detail" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="sta01_00" taborder="0" text="발령일자" left="0" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Static id="sta01_00_00" taborder="1" text="사원구분" left="0" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Combo id="cbo_rank" taborder="4" left="301" top="35" width="102" height="23" innerdataset="ds_rank" codecolumn="직급코드" datacolumn="직급명" type="filter" autoselect="true" cssclass="essential"/>
+              <Static id="sta01_05_00" taborder="6" text="직급" left="208" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Static id="sta01_01_00" taborder="7" text="요청사유" left="0" top="62" width="90" height="90" cssclass="sta_WF_detail"/>
+              <Calendar id="cal_02" taborder="2" left="93" top="5" width="112" height="23" dateformat="yyyy-MM-dd" tabstop="false"/>
+              <Combo id="edt_saGbn" taborder="3" left="92" top="35" width="112" height="23" type="search" autoselect="true" onitemchanged="edt_saGbn_onitemchanged" cssclass="essential" value="" index="-1"/>
+              <TextArea id="TextArea00" taborder="5" left="92" top="65" height="83" right="3"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_save" taborder="14" text="저장" left="205" top="347" width="64" height="35" onclick="fn_save" cssclass="btn_WF_saveRow"/>
+        <Button id="btn_close" taborder="15" text="닫기" top="347" width="64" height="35" cssclass="btn_WF_delete" left="272" onclick="btn_close_onclick"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item2" compid="Div00_00.form.cbo_rank" propid="value" datasetid="ds_sawon" columnid="변경후직급"/>
+      <BindItem id="item3" compid="Div00_00.form.edt_saGbn" propid="value" datasetid="ds_sawon" columnid="변경후사원구분"/>
+      <BindItem id="item4" compid="Div00_00.form.cal_02" propid="value" datasetid="ds_sawon" columnid="발령일자"/>
+      <BindItem id="item5" compid="Div00_00.form.TextArea00" propid="value" datasetid="ds_sawon" columnid="요청사유"/>
+      <BindItem id="item6" compid="Div00.form.cb_rankCode" propid="value" datasetid="ds_sawon" columnid="변경전직급코드"/>
+      <BindItem id="item8" compid="Div00.form.edt_saGbn00" propid="value" datasetid="ds_sawon" columnid="변경전사원구분"/>
+      <BindItem id="item0" compid="Div00.form.cb_rankCode" propid="text" datasetid="ds_sawon" columnid="변경전직급명"/>
+    </Bind>
+    <Script type="xscript5.1"><![CDATA[/********************************************************************************
+ * Name			: ORG_P_30000010.xfdl
+ * Title		: 사원직급변경 팝업
+ * Desc			: 사원직급변경 팝업
+ * 작성자		: 최종혁
+ * 작성일		: 2024.03.19
+ * 변경사항	: 
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+ *=============================================================================*/
+var fv_fspGroup = nexacro.getApplication().gv_fspGroup + "organization";
+var fv_saCode;
+var fv_saName;
+var fv_saGbn;
+var fv_rankStartDt;
+var fv_rankEndDt;
+var fv_rankCode;
+var fv_rankNm;
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+ *=============================================================================*/
+/**
+ * 화면 온로드 이벤트
+ */
+this.fn_onload = function (obj:Form, e:LoadEventInfo)
+{
+	//필수
+	this.gfn_loadForm(obj);
+	
+	//밸리데이션 체크
+	this.Div00_00.form.cbo_rank.valid = "required";
+	
+	//직급 콤보데이터 셋팅
+	//this.setRank();
+	
+	this.Div00_00.form.edt_saGbn.valid = "required"; 	//사원구분
+	this.Div00_00.form.edt_saGbn.set_accessibilitylabel("변경후사원구분");		//사원구분
+	
+	this.Div00_00.form.cbo_rank.valid = "required";  	//직급
+	this.Div00_00.form.cbo_rank.set_accessibilitylabel("변경후직급");			//직급
+	
+	/* 공통코드 이메일 도메인 콤보 셋팅 */
+	var param = [
+		{code:"00018", dsName:"ds_00018", selecttype:"S", targetObj:this.Div00_00.form.edt_saGbn} //공통코드-사원구분
+	];
+	
+	this.gfn_comCode(param);
+	
+	try {
+		fv_saCode = this.parent.saCode; 			//사원코드
+		fv_saName = this.parent.saName; 			//사원명
+		fv_saGbn  = this.parent.saGbn;				//사원구분
+		fv_rankStartDt = this.parent.rankStartDt;	//직급시작일자
+		fv_rankEndDt = this.parent.rankEndDt;		//직급종료일자
+		fv_rankCode = this.parent.rankCd;			//직급코드
+		fv_rankNmt = this.parent.rankNm;			//직급명
+	} catch(e) {}
+	
+	this.Div00.form.edt_saCode.set_value(fv_saCode); 				//사원코드
+	this.Div00.form.edt_saName.set_value(fv_saName); 				//사원명
+	this.Div00.form.edt_saGbn00.set_value(fv_saGbn);				//사원구분
+	this.Div00.form.edt_rankStartDate.set_value(fv_rankStartDt);	//현재직급발령일자
+	this.Div00.form.edt_rankEndDate.set_value(fv_rankEndDt);		//현재직급종료일자
+	
+	var nRow = this.ds_sawon.addRow();
+	this.ds_sawon.setColumn(nRow,"사원코드",fv_saCode);
+	this.ds_sawon.setColumn(nRow,"변경전직급코드",fv_rankCode);
+	this.ds_sawon.setColumn(nRow,"변경전직급명",fv_rankNmt);
+	this.ds_sawon.setColumn(nRow,"변경전사원구분",fv_saGbn);
+	
+	this.Div00_00.form.cal_02.set_value(Base.date.getDate()); //발령일자를 현재일자로 기본 셋팅
+};
+/*===============================================================================
+ * 3.FORM 공통 FUNCTION 영역 
+ *=============================================================================*/
+/*
+* 직급코드 셋팅
+*/
+this.setRank = function()
+{
+	this.fsp_clear();
+	this.fsp_addSearch("kwoo/community:COMM_RANK_S", false);
+	// connect the server 
+	this.fsp_callService(
+		""
+		,""
+		,"ds_input=ds_input"	// inDs
+		,"ds_rank=ds_output"	// outDs
+		,""
+		,"fn_afterSelect"
+		,true
+		,false
+		,false
+		,""
+	);
+}
+
+/*
+ * 저장 버튼 클릭 시
+ */
+this.fn_save = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	//밸리데이션체크
+    if(!comValid.isValid(this.Div00_00)) return;
+	
+	this.fn_dataSave();
+}
+
+/*
+ * 저장 함수
+ */
+this.fn_dataSave = function()
+{
+    //저장하시겠습니까?
+    if(!comSys.showMsg("C0001","Q")) return;
+	
+	this.fsp_clear();
+	this.fsp_addSave(
+		  fv_fspGroup+":ORG_P_30000010_I"	// insert
+		, ""	// update
+		, ""	// delete
+		, ""									// flag column 명
+		, ""									// key sql id
+		, 0										// key 증가 값
+		, "" 
+		, 0 
+		, "N"									// 실행타입
+	);
+	
+	// 서버 호출 
+	this.fsp_callService(
+		""
+		,""
+		,"ds_input=ds_sawon:U"	// inDs
+		,""	// outDs
+		,""// args 
+		,"fn_afterSave"
+		,false
+		,false
+		,false
+		,""
+	); 
+}	
+/*===============================================================================
+ * 4.CALLBACK 콜백 처리부분
+ *=============================================================================*/
+this.fn_afterSelect = function(ErrorCode, ErrorMsg, TrId)
+{
+	if(ErrorCode < 0) {
+		comSys.showMsg("E0001", "W", ["확인"]);
+		return;
+	}
+};
+ 
+this.fn_afterSave = function (ErrorCode, ErrorMsg, TrId)
+{
+	if(ErrorCode < 0) {
+		comSys.showMsg("E0002", "W", ["저장"]);
+		var newGbn = ""; //신규여부
+		return;
+	}
+	comSys.showMsg("I0004", "I");	
+	this.opener.fn_clearData();
+// 	this.opener.Div00.ImageViewer00.image = "URL('Images::증명사진.jpg')";
+// 	this.opener.Div00.ImageViewer00.redraw();
+	this.opener.fn_sawonData(fv_saCode);
+	this.close();
+};
+/*===============================================================================
+ * 5.사용자 FUNCTION 영역
+ *=============================================================================*/
+ 
+/*===============================================================================
+ * 6.각 COMPONENT 별 EVENT 영역
+ *=============================================================================*/
+this.edt_saGbn_onitemchanged = function (obj:Combo, e:ItemChangeEventInfo)
+{	
+	//사원구분 선택시 직급 조회하기 위해 추가
+	this.setRank();
+	var gbn = e.postvalue; 
+	if(gbn == "임직원" || gbn == "영업사원") {
+		var sGbn = this.ds_sawon.getColumn(this.ds_sawon.rowposition,"변경후사원구분");
+		this.ds_rank.filter("직급분류 == '"+sGbn+"'");
+	}else{
+		this.ds_rank.filter("직급분류 == '영업사원'");
+	}	
+}
+
+this.fn_setRankChange = function()
+{
+	var sGbn = this.ds_sawon.getColumn(this.ds_sawon.rowposition,"변경후사원구분");
+	this.ds_rank.filter("직급분류 == '"+sGbn+"'");
+}
+
+this.btn_close_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+]]></Script>
+    <Objects>
+      <Dataset id="ds_sawon">
+        <ColumnInfo>
+          <Column id="사원코드" type="STRING" size="256"/>
+          <Column id="발령일자" type="STRING" size="256"/>
+          <Column id="변경전직급코드" type="STRING" size="256"/>
+          <Column id="변경전직급명" type="STRING" size="256"/>
+          <Column id="변경후직급" type="STRING" size="256"/>
+          <Column id="요청사유" type="STRING" size="256"/>
+          <Column id="변경전사원구분" type="STRING" size="256"/>
+          <Column id="변경후사원구분" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_rank">
+        <ColumnInfo>
+          <Column id="직급코드" type="STRING" size="256"/>
+          <Column id="직급명" type="STRING" size="256"/>
+          <Column id="직급분류" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>
