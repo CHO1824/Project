@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="com_P_0000011" width="800" height="600" titletext="서버 파일업로드" onsize="com_P_0000011_onsize" onkeydown="com_P_0000011_onkeydown" onload="fn_onload">
+    <Layouts>
+      <Layout height="600" mobileorientation="landscape" width="800">
+        <Static id="stc_40_00_00_00_00" text="20" visible="false" left="0" top="0" background="orange" taborder="0" width="20" bottom="0" textAlign="center"/>
+        <Static id="stc_40" text="20" visible="false" left="0" top="0" height="20" background="orange" taborder="1" right="0"/>
+        <Div id="div_search" taborder="2" left="20" top="20" height="45" cssclass="div_WF_search" text="" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="stc_09_00" text="20" visible="false" left="0" width="20" top="10" height="23" background="orange" taborder="0"/>
+              <Static id="stc_35_00_00" text="10" visible="false" left="20" right="0" top="0" height="10" background="orange" taborder="1"/>
+              <Static id="stc_35_00_00_01" text="10" visible="false" left="20" right="0" top="33" height="10" background="orange" taborder="2"/>
+              <Button id="Button01" taborder="3" text="파일 내려받기" left="20" top="10" width="108" height="23" onclick="div_search_Button01_onclick"/>
+              <Button id="Button00" taborder="4" text="파일 올리기" left="131" top="10" width="96" height="23" onclick="div_search_Button00_onclick"/>
+              <FileDownload id="FileDownload00" taborder="5" text="FileDownload00" left="256" top="10" width="100" height="23" color="red" border="1px solid red" enable="false" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_40_00_00" text="15" visible="false" left="0" top="65" height="15" background="orange" taborder="3" right="10"/>
+        <Static id="stc_40_00_00_00_01" text="20" visible="false" background="orange" taborder="4" right="0" top="0" width="20" bottom="0"/>
+        <ImageViewer id="ImageViewer00" taborder="5" left="20" top="80" right="20" bottom="20"/>
+        <Static id="stc_40_00_00_01_00" text="20" visible="false" left="0" top="580" height="20" background="orange" taborder="6" right="0"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[/********************************************************************************
+ * Name			: COM_P_0000011.xfdl
+ * Title		: 서버 파일업로드
+ * Desc			: 서버 파일업로드
+ * 작성자		: 조하영
+ * 작성일		: 2024.03.05
+ * 변경사항		: 2017.04.27 저장 후 서버반영에서 서버 바로적용으로 변경
+                  2018.10.15 fv_pathF 값 존재할 때 fv_pathF 값 적용되어 불러오지 않아서 수정
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+ *=============================================================================*/
+var fv_title	= "";	// 타이틀
+var fv_img		= "";	// 이미지경로
+var fv_pathF	= "";	// 폴더경로
+var fv_uploadYN;
+var fv_deepth;
+//var fv_num;
+//var fv_type;
+//var fv_compType = "";
+
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+ *=============================================================================*/
+/**
+ * 화면 온로드 이벤트
+ */
+this.fn_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	// 필수
+	this.gfn_loadForm(obj);
+	 
+	try {
+		fv_title = comSys.transNullToEmpty(this.parent.pv_title);		// 타이틀
+		fv_img = comSys.transNullToEmpty(this.parent.pv_img);			// 이미지경로
+		fv_pathF = comSys.transNullToEmpty(this.parent.pv_pathF);		// 폴더경로(전체)
+		fv_uploadYN = comSys.transNullToEmpty(this.parent.pv_uploadYN);	// 업로드기능 사용여부
+		fv_deepth = comSys.transNullToEmpty(this.parent.pv_deepth);		// 파일경로
+		//fv_num = comSys.transNullToEmpty(this.parent.pv_num);			// 업로드 크기
+		//fv_type = comSys.transNullToEmpty(this.parent.pv_type);		// 파일단위
+	//	fv_compType = comSys.transNullToEmpty(this.parent.pv_compType);	// 컴포넌트 ativeX/image
+	
+		if(fv_uploadYN == "N") {
+			this.div_search.form.Button00.set_visible(false);
+		}
+		if(!Base.isEmpty(fv_img)) {
+			//if(Base.isEmpty(fv_compType) || fv_compType == "img"){
+				//this.act_view.set_visible(false);
+				this.ImageViewer00.set_visible(true);
+					
+				if(fv_title == "메인이미지 등록"){
+					this.ImageViewer00.set_image(fv_pathF+fv_img);
+					this.com_P_0000011.set_tooltiptext(fv_title);
+				}else{
+					this.ImageViewer00.set_image(fv_pathF+fv_img);
+					this.com_P_0000011.set_tooltiptext(fv_title);
+				}
+			//}
+		}
+		
+		
+	
+	} catch(ex) {}
+	
+// 	trace("fv_img==" + fv_img);
+// 	trace("fv_pathF==" + fv_pathF);
+};
+
+/*===============================================================================
+ * 3.FORM 공통 FUNCTION 영역 
+ *=============================================================================*/
+
+
+/*===============================================================================
+ * 4.CALLBACK 콜백 처리부분
+ *=============================================================================*/
+
+
+/*===============================================================================
+ * 5.사용자 FUNCTION 영역
+ *=============================================================================*/
+
+
+/*===============================================================================
+ * 6.각 COMPONENT 별 EVENT 영역
+ *=============================================================================*/
+this.div_search_Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var path = { deepth:fv_deepth};
+	this.gfn_upladFileSingle(this, path, function(obj, e){
+		var ds = e.datasets[0];
+		this.ImageViewer00.set_image(fv_pathF+ds.getColumn(0, "newFileName"));
+		var oArgs = [];			//리턴결과
+		/* 부모창에 파라미터 보내기 위한 로직 */
+		var oArgs = new Array();
+		var newFileName = ds.getColumn(0, "newFileName");
+			
+		oArgs.push(new String(newFileName)); //리턴값
+		oArgs = JSON.stringify(oArgs); // json변환
+		this.gfn_closePopup(oArgs); //부모화면으로 값 리턴
+	},"","img","MB","500");
+};
+
+
+this.div_search_Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	if (fv_img == ""){ //파일명
+		comSys.showMsg("파일업로드후 내려받기가 가능합니다.","I");
+		return;
+	}else{
+		var path = {
+						deepth:fv_deepth
+					};
+		this.gfn_downLoadFile(this,path,"","",fv_img,fv_img);
+	}
+};
+
+this.com_P_0000011_onkeydown = function(obj:nexacro.Form,e:nexacro.KeyEventInfo)
+{
+	//ESC key 입력시 팝업 닫힘 처리
+	if(e.keycode == 27){
+		this.close();
+	}
+};
+]]></Script>
+  </Form>
+</FDL>

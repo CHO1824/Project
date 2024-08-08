@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="COM_P_0000033" width="700" height="480" titletext="감독관조회" onload="fn_onload">
+    <Layouts>
+      <Layout height="480" mobileorientation="landscape" width="700">
+        <Grid id="exGrid02" taborder="0" left="20" top="49" binddataset="ds_list" width="660" bottom="59" useExport="false" useFilter="true" useFind="true" useFixCol="true" useSort="true" autoenter="select" cellmovingtype="col" cellsizingtype="col" oncelldblclick="exGrid02_oncelldblclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="120"/>
+                <Column size="90"/>
+                <Column size="150"/>
+                <Column size="150"/>
+              </Columns>
+              <Rows>
+                <Row size="33" band="head"/>
+                <Row size="30"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="사원코드"/>
+                <Cell col="1" text="사원명"/>
+                <Cell col="2" text="휴대폰"/>
+                <Cell col="3" text="주민번호"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:사원코드"/>
+                <Cell col="1" textAlign="left" text="bind:사원명"/>
+                <Cell col="2" text="bind:휴대폰" textAlign="left"/>
+                <Cell col="3" textAlign="left" text="bind:주민번호"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static08_01_00" taborder="1" text="12" left="2" top="421" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0"/>
+        <Button id="btn_save" taborder="2" text="적용" left="287" top="433" width="64" height="35" onclick="btn_save_onclick"/>
+        <Button id="btn_close00" taborder="3" text="닫기" top="433" width="64" height="35" cssclass="btn_WF_delete" left="354" onclick="btn_close_onclick"/>
+        <Static id="Static08_01_00_00_00" taborder="4" text="12" left="2" top="468" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0"/>
+        <Static id="stc_40_00_00" text="20" visible="false" left="0" top="0" background="orange" taborder="5" width="20" bottom="1"/>
+        <Static id="stc_40" text="20" visible="false" left="20" top="0" height="20" background="orange" taborder="6" right="0"/>
+        <Static id="stc_40_00_00_00" text="20" visible="false" background="orange" taborder="7" right="0" top="0" width="20" bottom="0"/>
+        <Static id="st_STitle" taborder="8" text="감독관조회" left="20" top="20" width="100" height="23" cssclass="sta_WF_title" visible="true"/>
+        <Static id="Static34" taborder="9" text="5" left="20" top="43" height="5" cssclass="sta_GU_space" visible="false" background="orange" textAlign="center" wordWrap="char" right="0"/>
+        <Static id="sta_gridListCnt1" taborder="10" text="총 &lt;fc v='#278c6d'&gt;&lt;b v='true'&gt;[ 0 ]&lt;/b&gt;&lt;/fc&gt; 건" left="st_STitle:10" top="20" width="120" height="23" cssclass="sta_WF_count" usedecorate="true"/>
+        <Static id="stc_00_01" text="23" visible="false" left="264" width="22" top="20" height="23" background="orange" taborder="11"/>
+        <Button id="btn_excel" taborder="12" text="엑셀" top="20" width="64" height="23" cssclass="btn_WF_excel" right="20" onclick="fn_excel"/>
+        <Button id="btn_search" taborder="13" text="조회" width="64" cssclass="btn_WF_search" left="549" height="23" top="20" onclick="fn_search"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_list">
+        <ColumnInfo>
+          <Column id="사원코드" type="STRING" size="256"/>
+          <Column id="사원명" type="STRING" size="256"/>
+          <Column id="사원구분" type="STRING" size="256"/>
+          <Column id="자격코드" type="STRING" size="256"/>
+          <Column id="자격상태" type="STRING" size="256"/>
+          <Column id="휴대폰" type="STRING" size="256"/>
+          <Column id="주민번호" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/********************************************************************************
+ * Name			: COM_P_0000033.xfdl
+ * Title		: 감독관조회
+ * Desc			: 감독관조회
+ * 작성자		: 조하영
+ * 작성일		: 2024.06.27
+ * 변경사항	: 
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+ *=============================================================================*/
+var fv_returnType;
+var fv_fspGroup = new String(nexacro.getApplication().gv_fspGroup);
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+ *=============================================================================*/
+/**
+ * 화면 온로드 이벤트
+ */
+this.fn_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfn_loadForm(obj);
+	
+	this.gfn_exGridSet(this.exGrid02);
+	
+	try {
+		fv_returnType = comSys.transNullToEmpty(this.parent.returnType);
+    } catch(ex) {}
+	
+	this.fn_search();
+};
+/*===============================================================================
+ * 3.FORM 공통 FUNCTION 영역 
+ *=============================================================================*/
+// 조회
+this.fn_search = function() 
+{
+	this.fsp_clear();
+	this.fsp_addSearch(fv_fspGroup+"common:COM_P_0000033_S", false);
+	
+	// connect the server
+	this.fsp_callService(
+		""
+		, ""
+		, "ds_input=ds_input"	// inDs
+		, "ds_list=ds_output"	// outDs
+		, ""					// args 
+		, "fn_afterSearch"
+		, true
+	);
+}
+/*===============================================================================
+ * 4.CALLBACK 콜백 처리부분
+ *=============================================================================*/
+/**
+ * 조회 콜백
+ */
+this.fn_afterSearch = function(ErrorCode, ErrorMsg,trid)
+{
+	if(ErrorCode < 0) {
+		comSys.showMsg("E0001", "W", [""]);    //@ 자료 조회 시 오류가 발생했습니다.
+	}
+	this.sta_gridListCnt1.set_text(comSys.getGridRowCntText(this.ds_list));	
+};
+/*===============================================================================
+ * 5.사용자 FUNCTION 영역
+ *=============================================================================*/
+
+/*===============================================================================
+ * 6.각 COMPONENT 별 EVENT 영역
+ *=============================================================================*/
+/**
+ * 그리드 더블클릭시
+ */
+this.exGrid02_oncelldblclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	this.fn_ok_rtn();
+};
+
+this.fn_ok_rtn = function()
+{		
+	if(fv_returnType == "A"){                //배열 형식
+		//배열 형식        
+		var oArgs = []; // 리턴결과
+		
+		// 데이터별내용 생성
+		for(var i=0 ; i<this.ds_list.colcount; i++){
+			oArgs.push(new String(comSys.transNullToEmpty(this.ds_list.getColumn(this.ds_list.rowposition, i))));
+		} // End of for
+		
+		oArgs = JSON.stringify(oArgs); // json변환
+		this.gfn_closePopup(oArgs); //부모화면으로 값 리턴
+		
+	} else if(fv_returnType == "P") {        //파라미터 형식
+		//json 데이터 형식
+		var raw = {}; // 데이터
+		
+		// 데이터별내용 생성
+		for(var i=0 ; i<this.ds_list.colcount; i++){
+			var colName = this.ds_list.getColID(i);
+			
+			eval("raw."+colName+" = ''");
+			raw[colName] = this.ds_list.getColumn(this.ds_list.rowposition, i);
+		} // End of for
+		
+		oArgs = JSON.stringify(raw); // json변환	
+		this.gfn_closePopup(oArgs); //부모화면으로 값 리턴
+	}
+};
+
+this.btn_save_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fn_ok_rtn();
+};
+
+this.btn_close_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+
+this.fn_excel = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	if(!comSys.showMsg("엑셀Export 작업을 진행하시겠습니까?","Q")) return;
+	this.gfn_exportExcel(this.exGrid02, "감독관조회"); //그리드, 엑셀파일명, 시트명
+};
+]]></Script>
+  </Form>
+</FDL>

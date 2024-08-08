@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="COM_P_0000021" titletext="의전팀장배정정보" background="#FFFFFF" onload="fn_onload" width="1000" height="512">
+    <Layouts>
+      <Layout height="512" width="1000">
+        <Static id="stc_40_00_00_00" text="20" visible="false" background="orange" taborder="1" right="0" top="0" width="20" bottom="0"/>
+        <Static id="stc_40_00_00" text="20" visible="false" left="0" top="0" background="orange" taborder="2" width="20" bottom="0"/>
+        <Static id="st_STitle" taborder="3" text="조회된 사용자" left="20" top="80" width="110" height="23" cssclass="sta_WF_title" visible="true"/>
+        <Static id="Static34" taborder="4" text="5" left="20" top="103" height="5" cssclass="sta_GU_space" visible="false" background="orange" textAlign="center" wordWrap="char" right="20"/>
+        <Static id="stc_40" text="20" visible="false" left="20" top="0" height="20" background="orange" taborder="6" right="20"/>
+        <Div id="div_search" taborder="0" left="20" top="20" height="45" cssclass="div_WF_search" text="" formscrolltype="none" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="sta_ynRetire03" taborder="0" text="배정일자" left="20" top="10" width="77" height="23" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="stc_09_00" text="20" visible="false" left="0" width="20" top="10" background="orange" taborder="5" height="23"/>
+              <Static id="stc_35_00_00" text="10" visible="false" left="20" right="19" top="0" height="10" background="orange" taborder="6"/>
+              <Static id="stc_35_00_00_00_00_00" text="10" visible="false" left="20" right="19" top="33" height="10" background="orange" taborder="7"/>
+              <Static id="stc_00_01" text="30" visible="false" left="74" width="30" top="10" height="23" background="orange" taborder="8"/>
+              <Static id="stc_09_00_00" text="20" visible="false" top="0" background="orange" taborder="9" bottom="0" width="20" right="0"/>
+              <Static id="sta_ynRetire00" taborder="10" text="의전지역" left="274" top="10" width="77" height="23" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="stc_00_01_00" text="30" visible="false" left="328" width="30" top="10" height="23" background="orange" taborder="11"/>
+              <Static id="stc_00_01_00_00" text="70" visible="false" left="204" width="70" top="10" height="23" background="orange" taborder="12"/>
+              <Combo id="cbo_area" taborder="2" left="358" top="10" width="100" height="23" innerdataset="ds_areaCD" codecolumn="관리지역코드" datacolumn="관리지역명"/>
+              <cp_dayCal id="cp_dayCal00" taborder="1" text="" left="104" top="11" width="100" height="23"/>
+              <Button id="btn_search" taborder="4" text="조회" width="64" cssclass="btn_WF_search" onclick="fn_search" left="874" height="23" top="10"/>
+              <Static id="stc_00_01_00_01" text="15" visible="false" left="458" width="15" top="10" height="23" background="orange" taborder="13"/>
+              <CheckBox id="CheckBox00" taborder="14" text="외주팀장만" left="473" top="10" width="86" height="23" tabstop="false" falsevalue="N" truevalue="Y"/>
+              <Static id="stc_00_01_00_00_00" text="70" visible="false" left="551" width="70" top="10" height="23" background="orange" taborder="15"/>
+              <Static id="sta_ynRetire01" taborder="16" text="의전관" left="621" top="10" width="77" height="23" textAlign="left" cssclass="sta_WF_searchLabel"/>
+              <Static id="stc_00_01_00_02" text="30" visible="false" left="665" width="30" top="10" height="23" background="orange" taborder="17"/>
+              <Edit id="edt_name" taborder="3" left="695" top="10" width="140" height="23"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_40_01" text="15" visible="false" left="20" top="65" height="15" background="orange" taborder="7" right="20"/>
+        <Grid id="exGrid02" taborder="5" left="20" top="108" height="345" right="20" binddataset="ds_list" useExport="false" useFilter="true" useFind="true" useFixCol="true" useSort="true" oncelldblclick="exGrid02_oncelldblclick" onkeydown="exGrid02_onkeydown">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="70"/>
+                <Column size="40"/>
+                <Column size="100"/>
+                <Column size="80"/>
+                <Column size="100"/>
+                <Column size="30"/>
+                <Column size="80"/>
+                <Column size="40"/>
+                <Column size="150"/>
+                <Column size="80"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="33" band="head"/>
+                <Row size="30"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" text="의전지역"/>
+                <Cell col="1" displaytype="normal" text="순번"/>
+                <Cell col="2" text="지점명"/>
+                <Cell col="3" displaytype="normal" text="사원명"/>
+                <Cell col="4" colspan="2" displaytype="normal" text="휴대폰" taborder="undefined"/>
+                <Cell col="6" displaytype="normal" text="배정일자"/>
+                <Cell col="7" displaytype="normal" text="휴가&#13;&#10;여부"/>
+                <Cell col="8" displaytype="normal" text="비고"/>
+                <Cell col="9" text="행사여부"/>
+                <Cell col="10" text="행사중&#13;&#10;계약코드"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="normal" text="bind:관리지역명"/>
+                <Cell col="1" displaytype="normal" style="align:right;" text="bind:순번"/>
+                <Cell col="2" text="bind:지점명"/>
+                <Cell col="3" displaytype="normal" text="bind:사원명"/>
+                <Cell col="4" displaytype="normal" text="bind:휴대폰"/>
+                <Cell col="5" displaytype="buttoncontrol" cssclass="grd_WF_sms" padding="1px"/>
+                <Cell col="6" displaytype="date" text="bind:배정일자" calendardisplaynulltype="none" calendardateformat="yyyy-MM-dd"/>
+                <Cell col="7" displaytype="checkboxcontrol" style="align:center;" text="bind:휴가여부"/>
+                <Cell col="8" displaytype="normal" text="bind:비고"/>
+                <Cell col="9" text="bind:행사여부"/>
+                <Cell col="10" displaytype="normal" text="bind:행사계약코드"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static08_01_00" taborder="8" text="12" left="20" top="453" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="20"/>
+        <Static id="Static08_01_00_00_00" taborder="9" text="12" left="20" top="500" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="20"/>
+        <Static id="sta_gridListCnt1" taborder="10" text="총 &lt;fc v='#278c6d'&gt;&lt;b v='true'&gt;[ 0 ]&lt;/b&gt;&lt;/fc&gt; 건" left="st_STitle:10" top="80" width="120" height="23" cssclass="sta_WF_count" usedecorate="true"/>
+        <Button id="btn_save" taborder="11" text="적용" left="437" top="465" width="64" height="35" onclick="btn_save_onclick"/>
+        <Button id="btn_close00" taborder="12" text="닫기" top="465" width="64" height="35" cssclass="btn_WF_delete" left="504" onclick="btn_close_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[/********************************************************************************
+ * Name			: COM_P_0000021.xfdl
+ * Title		: 의전팀장배정정보
+ * Desc			: 의전팀장배정정보
+ * 작성자		: 조하영
+ * 작성일		: 2024.03.26
+ * 변경사항	: 
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+ *=============================================================================*/
+var fv_areaCd = "";
+//var fv_today = gds_date.getColumn(0,"현재일자"); 
+var fv_divDate = "";
+var fv_returnType;
+var fv_fspGroup = new String(nexacro.getApplication().gv_fspGroup);
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+ *=============================================================================*/
+/**
+ * 화면 온로드 이벤트
+ */
+this.fn_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfn_loadForm(obj);
+	
+	this.gfn_exGridSet(this.exGrid02);
+	
+    try {
+		fv_returnType = comSys.transNullToEmpty(this.parent.returnType);
+		fv_areaCd	= comSys.transNullToEmpty(this.parent.pv_areaCd);
+		fv_divDate 	= comSys.transNullToEmpty(this.parent.pv_divDate);
+		
+    } catch(ex) {}
+    
+    this.fn_areaCode();			//지역코드
+};
+/*===============================================================================
+ * 3.FORM 공통 FUNCTION 영역 
+ *=============================================================================*/
+// 조회
+this.fn_search = function() 
+{
+	var sArea = comSys.transNullToEmpty(this.div_search.form.cbo_area.value);
+	
+	this.ds_input.clearData();
+	var nRow = this.ds_input.addRow();
+	
+	this.ds_input.setColumn(nRow, "배정일자",	comSys.transNullToEmpty(this.div_search.form.cp_dayCal00.form.getData()));
+	this.ds_input.setColumn(nRow, "의전지역",	comSys.transNullToEmpty(sArea));	
+	this.ds_input.setColumn(nRow, "외주팀장만", comSys.transNullToEmpty(this.div_search.form.CheckBox00.value));	
+	this.ds_input.setColumn(nRow, "의전팀장명", comSys.transNullToEmpty(this.div_search.form.edt_name.value));	
+	
+	this.fsp_clear();
+	this.fsp_addSearch(fv_fspGroup+"community:COMM_FUNERAL_WORK_EMP_S", false);
+	
+	// connect the server
+	this.fsp_callService(
+		""
+		, ""
+		, "ds_input=ds_input"	// inDs
+		, "ds_list=ds_output"	// outDs
+		, ""					// args 
+		, "fn_afterSearch"
+		, true
+	);
+}
+
+//지역
+this.fn_areaCode = function()
+{
+	this.fsp_init();
+	this.fsp_clear();
+	
+	this.fsp_addSearch(fv_fspGroup+"community:COMM_AREA_S", false);
+	
+	// connect the server 
+	this.fsp_callService(
+		""
+		,""
+		,""	// inDs
+		,"ds_areaCD=ds_output"	// outDs
+		,"Gbn=의전팀장"
+		,"fn_afterAreaCode"
+		,true
+	);
+}
+/*===============================================================================
+ * 4.CALLBACK 콜백 처리부분
+ *=============================================================================*/
+/**
+ * 조회 콜백
+ */
+this.fn_afterSearch = function(ErrorCode, ErrorMsg,trid)
+{
+	if(ErrorCode < 0) {
+		comSys.showMsg("E0001", "W", [""]);    //@ 자료 조회 시 오류가 발생했습니다.
+	}
+	this.sta_gridListCnt1.set_text(comSys.getGridRowCntText(this.ds_list));	
+};
+
+/**
+ * 관리지역코드 조회콜백
+ */
+this.fn_afterAreaCode = function(ErrorCode, ErrorMsg, trId)
+{
+	if(ErrorCode > 0) {
+		comSys.showMsg("E0002", "W", ["조회"]);
+	} else {
+		this.div_search.form.cbo_area.set_value(fv_areaCd);
+		this.fn_search();
+	}//end of if
+};
+
+/*===============================================================================
+ * 5.사용자 FUNCTION 영역
+ *=============================================================================*/
+
+/*===============================================================================
+ * 6.각 COMPONENT 별 EVENT 영역
+ *=============================================================================*/
+this.btn_close_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+
+this.exGrid02_oncelldblclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	this.fn_ok_rtn();
+}
+
+this.fn_ok_rtn = function()
+{	
+	var eventYn = this.ds_list.getColumn(this.ds_list.rowposition,"행사여부");
+	var unableYn = this.ds_list.getColumn(this.ds_list.rowposition,"배정불가여부");
+	
+	if(eventYn == "진행중"){
+		comSys.showMsg("현재 진행중인 팀장입니다.", "I");
+		return;
+	}
+	
+	if(unableYn == "Y"){
+		comSys.showMsg("현재 진행 불가한 팀장입니다.", "I");
+		return;
+	}
+	
+	if(fv_returnType == "A"){                //배열 형식
+		//배열 형식        
+		var oArgs = []; // 리턴결과
+		
+		// 데이터별내용 생성
+		for(var i=0 ; i<this.ds_list.colcount; i++){
+			oArgs.push(new String(comSys.transNullToEmpty(this.ds_list.getColumn(this.ds_list.rowposition, i))));
+		} // End of for
+		
+		oArgs = JSON.stringify(oArgs); // json변환
+		this.gfn_closePopup(oArgs); //부모화면으로 값 리턴
+		
+	} else if(fv_returnType == "P") {        //파라미터 형식
+		//json 데이터 형식
+		var raw = {}; // 데이터
+		
+		// 데이터별내용 생성
+		for(var i=0 ; i<this.ds_list.colcount; i++){
+			var colName = this.ds_list.getColID(i);
+			
+			eval("raw."+colName+" = ''");
+			raw[colName] = this.ds_list.getColumn(this.ds_list.rowposition, i);
+		} // End of for
+		
+		oArgs = JSON.stringify(raw); // json변환	
+		this.gfn_closePopup(oArgs); //부모화면으로 값 리턴
+	}
+}; 
+
+this.exGrid02_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+// 	if(e.col != 5) return;
+// 	
+// 	var nCallNo = this.ds_list.getColumn(e.row,"휴대폰CTI");
+// 	if(!comSys.showMsg(nCallNo + " 에 전화를 거시겠습니까?", "Q"))  return;
+// 	
+// 	//전문 메세지 가져오기 (전화걸기)
+// 	
+// 	var nMsg = gv_bottomFrame.form.gfn_msg("makeCall", "N", nCallNo);
+// 	
+// 	//CTI 서버로 전문 보내기
+// 	gv_bottomFrame.form.gfn_sendMsg(nMsg);
+};
+
+
+this.div_search_edt_name_onkeyup = function(obj:nexacro.Edit,e:nexacro.KeyEventInfo)
+{
+	if(e.keycode != 13) return;
+	this.fn_search();
+}
+
+this.btn_save_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fn_ok_rtn();
+};
+
+this.exGrid02_onkeydown = function(obj:nexacro.Grid,e:nexacro.KeyEventInfo)
+{
+	if(e.keycode != 13) return;
+	this.fn_ok_rtn();
+};
+]]></Script>
+    <Objects>
+      <Dataset id="ds_input">
+        <ColumnInfo>
+          <Column id="배정일자" type="STRING" size="256"/>
+          <Column id="의전지역" type="STRING" size="256"/>
+          <Column id="외주팀장만" type="STRING" size="256"/>
+          <Column id="의전팀장명" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_areaCD">
+        <ColumnInfo>
+          <Column id="관리지역코드" type="STRING" size="256"/>
+          <Column id="관리지역명" type="STRING" size="256"/>
+          <Column id="업무구분" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_list">
+        <ColumnInfo>
+          <Column id="사원코드" type="STRING" size="256"/>
+          <Column id="사원명" type="STRING" size="256"/>
+          <Column id="자격코드" type="STRING" size="256"/>
+          <Column id="휴대폰" type="STRING" size="256"/>
+          <Column id="휴대폰CTI" type="STRING" size="256"/>
+          <Column id="본부명" type="STRING" size="256"/>
+          <Column id="지사명" type="STRING" size="256"/>
+          <Column id="관리지역코드" type="STRING" size="256"/>
+          <Column id="관리지역명" type="STRING" size="256"/>
+          <Column id="배정일자" type="STRING" size="256"/>
+          <Column id="순번" type="STRING" size="256"/>
+          <Column id="배정시간" type="STRING" size="256"/>
+          <Column id="임시불가" type="STRING" size="256"/>
+          <Column id="비고" type="STRING" size="256"/>
+          <Column id="외주구분" type="STRING" size="256"/>
+          <Column id="행사여부" type="STRING" size="256"/>
+          <Column id="행사계약코드" type="STRING" size="256"/>
+          <Column id="배정불가여부" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

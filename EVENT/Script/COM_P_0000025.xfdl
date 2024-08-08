@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="COM_P_0000025" width="950" height="512" titletext="장례행사문자" onload="fn_onload">
+    <Layouts>
+      <Layout height="512" width="950">
+        <Static id="stc_40" text="20" visible="false" left="0" top="0" height="20" background="orange" taborder="0" right="20"/>
+        <Static id="stc_40_00_00" text="20" visible="false" left="0" top="0" background="orange" taborder="1" width="20" bottom="47"/>
+        <Static id="stc_40_00_00_00" text="20" visible="false" background="orange" taborder="2" right="0" top="0" width="20" bottom="47"/>
+        <Static id="sta_title00" taborder="3" text="사원상담내역" left="20" top="-44" width="110" height="21" cssclass="sta_WF_title" visible="true"/>
+        <Static id="Static08_01_00" taborder="4" text="12" left="0" top="453" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0"/>
+        <Static id="Static08_01_00_00_00" taborder="5" text="12" left="0" top="500" height="12" cssclass="sta_GU_space" visible="false" background="AQUA" opacity="0.5" textAlign="center" wordWrap="char" right="0"/>
+        <Button id="btn_new00" taborder="6" text="문자전송" height="35" top="465" width="72" right="475" onclick="fn_resSave"/>
+        <Static id="st_STitle" taborder="7" text="전송구분" left="20" top="20" width="97" height="23" cssclass="sta_WF_title"/>
+        <Static id="Static34" taborder="8" text="5" left="20" top="43" height="5" cssclass="sta_GU_space" visible="false" background="orange" textAlign="center" wordWrap="char" right="20"/>
+        <Static id="stc_18" taborder="9" left="20" top="48" width="103" height="405" border="1px solid #d3d1d1" background="white"/>
+        <Static id="stc_40_00_00_01" text="15" visible="false" left="123" top="20" background="orange" taborder="10" width="15" bottom="47"/>
+        <Radio id="Radio00" taborder="11" left="23" top="48" width="100" height="130" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" value="장례접수현황" text="장례접수현황" index="0" onitemchanged="Radio00_onitemchanged">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">장례접수현황</Col>
+                <Col id="datacolumn">장례접수현황</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">장례상담결과</Col>
+                <Col id="datacolumn">장례상담결과</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">취소보고</Col>
+                <Col id="datacolumn">취소보고</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="st_STitle00" taborder="12" text="전송문자내용" left="138" top="20" width="100" height="23" cssclass="sta_WF_title"/>
+        <Static id="stc_40_00_00_01_00" text="15" visible="false" left="645" top="20" background="orange" taborder="13" width="15" bottom="47"/>
+        <Static id="st_STitle01" taborder="14" text="수신자" left="660" top="20" width="60" height="23" cssclass="sta_WF_title"/>
+        <Grid id="exGrid00" taborder="15" left="660" top="48" width="270" height="405" binddataset="ds_receiver" onkeyup="exGrid00_onkeyup" onkillfocus="exGrid00_onkillfocus" autoenter="select" cellmovingtype="col" cellsizingtype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="90"/>
+                <Column size="150"/>
+              </Columns>
+              <Rows>
+                <Row size="33" band="head"/>
+                <Row size="30"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" text="수신자명"/>
+                <Cell col="1" displaytype="normal" text="연락처"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" text="bind:구분1"/>
+                <Cell col="1" edittype="text" editfilter="integer" style="accessibility:enable all '연락처' '';" text="bind:NM_CODE" editlimit="15" editlimitbymask="integer" calendardisplaynulltype="none"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_add" taborder="16" text="행추가" left="783" top="20" width="72" height="23" cssclass="btn_WF_addRow" onclick="btn_add_onclick"/>
+        <Button id="btn_del" taborder="17" text="행삭제" left="858" top="20" width="72" height="23" cssclass="btn_WF_addDel" onclick="btn_del_onclick"/>
+        <TextArea id="TextArea00" taborder="18" left="138" top="48" width="507" height="405" border="1px solid #bdbdbd"/>
+        <Button id="btn_close" taborder="19" text="닫기" top="465" width="64" height="35" cssclass="btn_WF_delete" left="478" onclick="btn_close_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[/********************************************************************************
+ * Name			: COM_P_0000026.xfdl
+ * Title		: 장례행사문자
+ * Desc			: 장례행사문자
+ * 작성자			: 조하영
+ * 작성일			: 2024.03.27
+ * 변경사항		:
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+ *=============================================================================*/
+//var fv_userHP	= gv_compCall;
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+ *=============================================================================*/ 
+/**
+ * 화면 온로드 이벤트
+ */
+this.fn_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfn_loadForm(obj);
+	
+	var param = [
+		{code:"00115", dsName:"ds_receiver", selecttype:""} //장례행사문자수신자
+	];
+	this.gfn_comCode(param);
+	
+	fv_eventCd	= comSys.transNullToEmpty(this.parent.pv_eventCd);
+	
+	this.exGrid00.valid = "NM_CODE|required";
+	
+	this.ds_input.addRow();
+	this.ds_input.setColumn(this.ds_input.rowposition,"행사코드",fv_eventCd);
+	this.ds_input.setColumn(this.ds_input.rowposition,"문자구분","장례접수현황");
+	
+	this.fn_search();
+}
+
+/*===============================================================================
+ * 3.FORM 공통 FUNCTION 영역 
+*=============================================================================*/
+/**
+ * 조회
+ */
+this.fn_search = function()
+{
+	this.fsp_clear();
+	this.fsp_addSearch("kwoo/community:COM_P_0000025", false);
+	
+	//FSP연결
+	this.fsp_callService(
+		""
+		,""
+		,"ds_input=ds_input"	// inDs
+		,"ds_list=ds_output"	// outDs
+		,""
+		,"fn_afterSearch"		
+		,true
+	);
+}
+
+/**
+ * 문자보내기
+ */
+this.fn_sendSMS = function() 
+{	
+	this.fsp_clear();
+	this.fsp_addSave(
+		"kwoo/community:COMM_SEND_SMS"	// insert
+		, ""	// update
+		, ""	// delete
+		, ""	// flag column 명
+		, ""	// key sql id
+		, 0	// key 증가 값
+		, "" 
+		, 0 
+		, "N"	// 실행타입
+	);
+	
+	// 서버 호출 
+	this.fsp_callService(
+		""
+		,""
+		,"ds_in_sms=ds_sms:U"	// inDs
+		,""	// outDs
+		,""// args 
+		,"fn_afterSave"
+		,false
+	);
+}
+
+
+/*===============================================================================
+ * 4.CALLBACK 콜백 처리부분
+ *=============================================================================*/
+/**
+* 조회 콜백
+*/
+this.fn_afterSearch = function(ErrorCode, ErrorMsg, trId)
+{
+	if(ErrorCode > 0) {
+		comSys.showMsg("E0002", "W", ["조회"]);
+		return;
+	}
+	this.TextArea00.set_value(this.ds_list.getColumn(0,"문자내용"));
+}
+  
+ /**
+ * 저장 콜백
+ */
+this.fn_afterSave = function(ErrorCode, ErrorMsg) 
+{
+    if(ErrorCode > -1) {
+		comSys.showMsg("전송이 완료되었습니다.", "I");
+		this.reload();
+    }
+}
+
+/*===============================================================================
+ * 5.사용자 FUNCTION 영역
+ *=============================================================================*/
+//중복연락처 확인
+this.receiverChke = function()
+{
+	var nRow = this.ds_receiver.rowposition;
+	for(var i=0; i < this.ds_receiver.rowcount; i++){
+		if(i==nRow){
+			return;
+		}
+		if(Base.isEmpty(this.ds_receiver.getColumn(i, "NM_CODE")) || Base.isEmpty(this.ds_receiver.getColumn(nRow, "NM_CODE"))){
+			return;
+		}
+		if(this.ds_receiver.getColumn(i, "NM_CODE") == this.ds_receiver.getColumn(nRow, "NM_CODE")){
+			comSys.showMsg("이미 입력된 연락처 입니다.", "I");
+			this.ds_receiver.setColumn(nRow, "NM_CODE", "");
+			return;
+		}
+	}
+}
+
+/*===============================================================================
+ * 6.각 COMPONENT 별 EVENT 영역
+ *=============================================================================*/
+ //행추가
+this.btn_add_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.ds_receiver.addRow();
+};
+
+//행삭제
+this.btn_del_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.ds_receiver.deleteRow(this.ds_receiver.rowposition);
+};
+
+this.Radio00_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	this.ds_input.setColumn(this.ds_input.rowposition,"문자구분",this.Radio00.value);
+	this.fn_search();
+};
+
+this.exGrid00_onkeyup = function(obj:nexacro.Grid,e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		this.receiverChke();
+	}
+};
+
+this.exGrid00_onkillfocus = function(obj:nexacro.Grid,e:nexacro.KillFocusEventInfo)
+{
+	this.receiverChke();
+};
+
+this.ds_receiver_canrowposchange = function(obj:nexacro.NormalDataset,e:nexacro.DSRowPosChangeEventInfo)
+{
+	this.receiverChke();
+};
+
+this.fn_resSave = function(obj:Button,  e:ClickEventInfo)
+{
+	//저장하시겠습니까 질의
+	if(!comSys.showMsg("전송하시겠습니까?","Q")) return;
+		var sendMsg		= this.TextArea00.value;
+		var HP			= "";
+		var nRow;
+		var tplCode     = comSys.transNullToEmpty(this.ds_list.getColumn(this.ds_list.rowposition,"알림톡템플릿")); // 2023-08-22 추가
+		
+		//for(var i = 0; i < this.ds_receiver.rowcount; i++) {
+			HP = this.ds_receiver.getColumn(this.ds_receiver.rowposition, "NM_CODE");
+			trace("HP==" + HP);
+			nRow = this.ds_sms.addRow();
+			this.ds_sms.setColumn(nRow, "문자코드",		"대량");
+			this.ds_sms.setColumn(nRow, "착신번호",		HP);
+			this.ds_sms.setColumn(nRow, "문자형태",		"LMS");
+			this.ds_sms.setColumn(nRow, "문자제목",		this.Radio00.text);
+			this.ds_sms.setColumn(nRow, "계약상세코드",fv_eventCd); //행사코드
+			//this.ds_sms.setColumn(nRow, "회신번호",		fv_userHP);
+			this.ds_sms.setColumn(nRow, "회신번호",		"");
+			this.ds_sms.setColumn(nRow, "전송구분",		"행사");
+			this.ds_sms.setColumn(nRow, "Param1", 		sendMsg);
+			this.ds_sms.setColumn(nRow, "템플릿코드",	tplCode);
+	//	}
+		this.fn_sendSMS();
+};
+
+this.btn_close_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+]]></Script>
+    <Objects>
+      <Dataset id="ds_receiver" canrowposchange="ds_receiver_canrowposchange">
+        <ColumnInfo>
+          <Column id="NM_CODE" type="STRING" size="256"/>
+          <Column id="구분1" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_list">
+        <ColumnInfo>
+          <Column id="문자내용" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_input">
+        <ColumnInfo>
+          <Column id="행사코드" type="STRING" size="256"/>
+          <Column id="문자구분" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_sms">
+        <ColumnInfo>
+          <Column id="문자코드" type="STRING" size="256"/>
+          <Column id="Param1" type="STRING" size="256"/>
+          <Column id="Param2" type="STRING" size="256"/>
+          <Column id="Param3" type="STRING" size="256"/>
+          <Column id="Param4" type="STRING" size="256"/>
+          <Column id="Param5" type="STRING" size="256"/>
+          <Column id="착신번호" type="STRING" size="256"/>
+          <Column id="문자형태" type="STRING" size="256"/>
+          <Column id="문자제목" type="STRING" size="256"/>
+          <Column id="계약상세코드" type="STRING" size="256"/>
+          <Column id="회신번호" type="STRING" size="256"/>
+          <Column id="전송구분" type="STRING" size="256"/>
+          <Column id="템플릿코드" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

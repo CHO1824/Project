@@ -1,0 +1,2846 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="EVENT_N_60100100" width="1665" height="817" titletext="장례등록" onload="fn_onload">
+    <Layouts>
+      <Layout height="817" mobileorientation="landscape" width="1665">
+        <Div id="div_search" taborder="0" left="0" top="0" height="101" cssclass="div_WF_search" text="" formscrolltype="none" right="19">
+          <Layouts>
+            <Layout>
+              <Static id="sta_cdJobres00" taborder="0" left="20" top="10" height="23" text="조직" cssclass="sta_WF_searchLabel" width="61"/>
+              <Static id="sta_ynRetire02" taborder="15" left="20" top="38" height="23" text="조회구분" cssclass="sta_WF_searchLabel" width="61"/>
+              <Static id="sta_insure" taborder="16" left="661" top="38" height="23" text="회원명" cssclass="sta_WF_searchLabel" width="50"/>
+              <Edit id="edt_Cnm_sawon00" taborder="4" left="736" top="38" width="75" height="23" onkeyup="fn_search_onkeyup"/>
+              <Static id="sta_ynRetire00" taborder="17" left="881" top="38" height="23" text="상주" cssclass="sta_WF_searchLabel" width="40"/>
+              <Edit id="edt_Cnm_sawon04" taborder="5" left="945" top="38" width="75" height="23" onkeyup="fn_search_onkeyup"/>
+              <Static id="sta_collectFP02" taborder="18" left="1090" top="38" height="23" text="고인" cssclass="sta_WF_searchLabel" width="40"/>
+              <Edit id="edt_Cnm_sawon01" taborder="6" left="1155" top="38" width="75" height="23" onkeyup="fn_search_onkeyup"/>
+              <cp_periodCal id="cp_periodConDate" taborder="3" text="" left="203" top="38" width="396" height="23" async="false" onkeyup="fn_search_onkeyup"/>
+              <Static id="stc_35_00_00_00" text="5" visible="false" left="20" right="-2" top="33" height="5" background="orange" taborder="19"/>
+              <Static id="stc_35_00_00" text="10" visible="false" left="20" right="-1" top="0" height="10" background="orange" taborder="20"/>
+              <Static id="stc_09_00" text="20" visible="false" left="0" width="20" top="10" height="23" background="orange" taborder="21"/>
+              <Static id="stc_09_00_00" text="20" visible="false" left="0" width="20" top="38" height="23" background="orange" taborder="22"/>
+              <Static id="stc_00_03_00" text="30" visible="false" left="76" width="30" top="38" height="23" background="orange" taborder="23"/>
+              <Static id="stc_35_00_00_00_00" text="5" visible="false" left="20" right="-2" top="61" height="5" background="orange" taborder="24"/>
+              <Static id="stc_00_03_00_00" text="30" visible="false" left="76" width="30" top="10" height="23" background="orange" taborder="25"/>
+              <Static id="stc_00_02_00_01" text="70" visible="false" left="591" width="70" top="38" height="23" background="orange" taborder="26"/>
+              <Static id="stc_00_03_01_00_01" text="30" visible="false" left="706" width="30" top="38" height="23" background="orange" taborder="27"/>
+              <Static id="stc_00_02_00_00_01" text="70" visible="false" left="811" width="70" top="38" height="23" background="orange" taborder="28"/>
+              <Static id="stc_00_03_01_00_00_01" text="30" visible="false" left="915" width="30" top="38" height="23" background="orange" taborder="29"/>
+              <Static id="stc_00_02_00_00_00_00" text="70" visible="false" left="1020" width="70" top="38" height="23" background="orange" taborder="30"/>
+              <Static id="stc_00_03_01_00_00_00_00" text="30" visible="false" left="1125" width="30" top="38" height="23" background="orange" taborder="31"/>
+              <Combo id="Combo00" taborder="2" left="106" top="38" width="94" height="23" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" value="행사접수일자" text="행사접수일자" index="0">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">행사접수일자</Col>
+                      <Col id="datacolumn">행사접수일자</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">입관일자</Col>
+                      <Col id="datacolumn">입관일자</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">발인일자</Col>
+                      <Col id="datacolumn">발인일자</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="stc_00_03_01_00_00_00_00_00" text="30" visible="false" left="1356" width="30" top="38" height="23" background="orange" taborder="32"/>
+              <Edit id="edt_Cnm_sawon02" taborder="7" left="1386" top="38" width="135" height="23" onkeyup="fn_search_onkeyup"/>
+              <Static id="stc_00_02_00_00_00_00_00" text="70" visible="false" left="1230" width="70" top="38" height="23" background="orange" taborder="33"/>
+              <Static id="sta_collectFP00" taborder="34" left="1300" top="38" height="23" text="계약코드" cssclass="sta_WF_searchLabel" width="60"/>
+              <Static id="stc_35_00_00_00_00_00" text="10" visible="false" left="20" right="-2" top="89" height="10" background="orange" taborder="35"/>
+              <Static id="stc_09_00_00_00" text="20" visible="false" left="0" width="20" top="66" height="23" background="orange" taborder="36"/>
+              <Static id="sta_insure00" taborder="37" left="20" top="66" height="23" text="수금사원" cssclass="sta_WF_searchLabel" width="61"/>
+              <Static id="stc_00_03_01_00_02" text="30" visible="false" left="76" width="30" top="66" height="23" background="orange" taborder="38"/>
+              <Edit id="edt_empNo" taborder="39" left="106" top="66" width="94" height="23" enable="false" tabstop="false"/>
+              <Edit id="edt_empNm" taborder="8" left="203" top="66" width="120" height="23" onkeydown="fn_empSearchAutoPop"/>
+              <Button id="btn_sCode" taborder="9" left="326" top="66" width="24" height="23" cssclass="btn_WF_popSrch" onclick="div_search_btn_sCode_onclick"/>
+              <Button id="btn_saCode" taborder="10" left="353" top="66" width="24" height="23" cssclass="btn_WF_reload" onclick="fn_empSeachReset"/>
+              <Static id="stc_00_02_00_01_00_00" text="70" visible="false" left="377" width="70" top="66" height="23" background="orange" taborder="40"/>
+              <Static id="sta_insure01" taborder="41" left="447" top="66" height="23" text="의전팀장" cssclass="sta_WF_searchLabel" width="60"/>
+              <Static id="stc_00_03_01_00_02_00" text="30" visible="false" left="504" width="30" top="66" height="23" background="orange" taborder="42"/>
+              <Edit id="edt_empNo00" taborder="43" left="534" top="66" width="100" height="23" enable="false" tabstop="false"/>
+              <Edit id="edt_empNm00" taborder="11" left="637" top="66" width="120" height="23" onkeydown="fn_empSearchAutoPop"/>
+              <Button id="btn_sCode00" taborder="12" left="760" top="66" width="24" height="23" cssclass="btn_WF_popSrch" onclick="div_search_btn_sCode00_onclick"/>
+              <Button id="btn_saCode00" taborder="13" left="787" top="66" width="24" height="23" cssclass="btn_WF_reload" onclick="fn_empSeachReset"/>
+              <Static id="Static06_00_01_00" taborder="44" text="70" left="811" top="66" width="70" height="23" cssclass="sta_GU_space" visible="false" background="orange"/>
+              <Static id="sta_ynRetire01" taborder="45" left="881" top="67" height="23" text="오등록건 포함" cssclass="sta_WF_searchLabel" width="80"/>
+              <Static id="Static05_00_00_01_00_00" taborder="46" text="30" left="962" top="66" width="20" height="23" cssclass="sta_GU_space" visible="false" background="orange"/>
+              <CheckBox id="chk_cancelYN" taborder="14" left="982" top="67" width="16" height="23" fittocontents="width" truevalue="Y" falsevalue="N"/>
+              <exOrgan id="exOrg_dept" taborder="1" text="exOrgan00" left="106" top="10" width="992" height="23" nComboCnt="4"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="sta_guideLine" taborder="1" right="0" background="orange" width="20" text="20" visible="false" textAlign="center" top="0" bottom="0"/>
+        <Static id="sta_guideLine00" taborder="2" bottom="0" background="orange" height="20" text="20" visible="false" textAlign="center" left="0" right="10"/>
+        <Static id="Static00" taborder="3" text="장례등록" left="0" top="116" width="80" height="23" cssclass="sta_WF_title" fittocontents="width"/>
+        <Static id="sta_gridListCnt" taborder="4" text="총 &lt;fc v='#278c6d'&gt;&lt;b v='true'&gt;[ 0 ]&lt;/b&gt;&lt;/fc&gt; 건" left="Static00:10" top="116" width="120" height="23" cssclass="sta_WF_count" usedecorate="true"/>
+        <Grid id="exGrid02" taborder="5" left="0" top="144" binddataset="ds_list" width="390" bottom="20" oncellclick="exGrid02_oncellclick" useExport="false" useFilter="true" useFind="true" useFixCol="true" useSort="true" autoenter="select" cellmovingtype="col" cellsizingtype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="106"/>
+                <Column size="80"/>
+                <Column size="60"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="80"/>
+                <Column size="79"/>
+                <Column size="60"/>
+                <Column size="130"/>
+                <Column size="90"/>
+              </Columns>
+              <Rows>
+                <Row size="66" band="head"/>
+                <Row size="30"/>
+                <Row size="30" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="장례일자"/>
+                <Cell col="1" text="계약코드"/>
+                <Cell col="2" text="회원명"/>
+                <Cell col="3" text="장례&#13;&#10;상태"/>
+                <Cell col="4" text="의전팀장"/>
+                <Cell col="5" text="의전지역"/>
+                <Cell col="6" text="장례식장"/>
+                <Cell col="7" text="소속"/>
+                <Cell col="8" text="상주"/>
+                <Cell col="9" text="고인"/>
+                <Cell col="10" text="즉발구분"/>
+                <Cell col="11" text="상품명"/>
+                <Cell col="12" text="상품금액"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="date" calendardisplaynulltype="none" calendardateformat="yyyy-MM-dd" text="bind:접수일자" cssclass="expr:dataset.getColumn(currow, '행사상태') == '취소' ? 'grd_TxtRed' : dataset.getColumn(currow, '행사상태') == '완료'  ? 'grd_TxtGreen' :  dataset.getColumn(currow, '행사상태') == '진행'  ? 'grd_TxtBold' :  'none' "/>
+                <Cell col="1" style="align:center;color:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');color2:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');font:EXPR(행사상태 == '진행' ? '굴림,9,bold' : '');" text="bind:계약코드" cssclass="expr:dataset.getColumn(currow, '행사상태') == '취소' ? 'grd_TxtRed' : dataset.getColumn(currow, '행사상태') == '완료'  ? 'grd_TxtGreen' :  dataset.getColumn(currow, '행사상태') == '진행'  ? 'grd_TxtBold' :  'none' "/>
+                <Cell col="2" style="color:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');color2:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');font:EXPR(행사상태 == '진행' ? '굴림,9,bold' : '');" text="bind:회원명" textAlign="left" cssclass="expr:dataset.getColumn(currow, '행사상태') == '취소' ? 'grd_TxtRed' : dataset.getColumn(currow, '행사상태') == '완료'  ? 'grd_TxtGreen' :  dataset.getColumn(currow, '행사상태') == '진행'  ? 'grd_TxtBold' :  'none' "/>
+                <Cell col="3" displaytype="normal" style="align:center;color:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');color2:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');font:EXPR(행사상태 == '진행' ? '굴림,9,bold' : '');" text="bind:행사상태" textAlign="left" cssclass="expr:dataset.getColumn(currow, '행사상태') == '취소' ? 'grd_TxtRed' : dataset.getColumn(currow, '행사상태') == '완료'  ? 'grd_TxtGreen' :  dataset.getColumn(currow, '행사상태') == '진행'  ? 'grd_TxtBold' :  'none' "/>
+                <Cell col="4" style="color:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');color2:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');font:EXPR(행사상태 == '진행' ? '굴림,9,bold' : '');" text="bind:의전팀장" textAlign="left" cssclass="expr:dataset.getColumn(currow, '행사상태') == '취소' ? 'grd_TxtRed' : dataset.getColumn(currow, '행사상태') == '완료'  ? 'grd_TxtGreen' :  dataset.getColumn(currow, '행사상태') == '진행'  ? 'grd_TxtBold' :  'none' "/>
+                <Cell col="5" displaytype="text" style="color:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');color2:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');font:EXPR(행사상태 == '진행' ? '굴림,9,bold' : '');" text="bind:의전팀장지역" textAlign="left" cssclass="expr:dataset.getColumn(currow, '행사상태') == '취소' ? 'grd_TxtRed' : dataset.getColumn(currow, '행사상태') == '완료'  ? 'grd_TxtGreen' :  dataset.getColumn(currow, '행사상태') == '진행'  ? 'grd_TxtBold' :  'none' "/>
+                <Cell col="6" style="color:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');color2:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');font:EXPR(행사상태 == '진행' ? '굴림,9,bold' : '');" text="bind:장례식장명" textAlign="left" cssclass="expr:dataset.getColumn(currow, '행사상태') == '취소' ? 'grd_TxtRed' : dataset.getColumn(currow, '행사상태') == '완료'  ? 'grd_TxtGreen' :  dataset.getColumn(currow, '행사상태') == '진행'  ? 'grd_TxtBold' :  'none' "/>
+                <Cell col="7" style="color:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');color2:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');font:EXPR(행사상태 == '진행' ? '굴림,9,bold' : '');" text="bind:의전팀장소속" textAlign="left" cssclass="expr:dataset.getColumn(currow, '행사상태') == '취소' ? 'grd_TxtRed' : dataset.getColumn(currow, '행사상태') == '완료'  ? 'grd_TxtGreen' :  dataset.getColumn(currow, '행사상태') == '진행'  ? 'grd_TxtBold' :  'none' "/>
+                <Cell col="8" style="color:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');color2:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');font:EXPR(행사상태 == '진행' ? '굴림,9,bold' : '');" text="bind:상주명" textAlign="left" cssclass="expr:dataset.getColumn(currow, '행사상태') == '취소' ? 'grd_TxtRed' : dataset.getColumn(currow, '행사상태') == '완료'  ? 'grd_TxtGreen' :  dataset.getColumn(currow, '행사상태') == '진행'  ? 'grd_TxtBold' :  'none' "/>
+                <Cell col="9" style="color:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');color2:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');font:EXPR(행사상태 == '진행' ? '굴림,9,bold' : '');" text="bind:고인명" textAlign="left" cssclass="expr:dataset.getColumn(currow, '행사상태') == '취소' ? 'grd_TxtRed' : dataset.getColumn(currow, '행사상태') == '완료'  ? 'grd_TxtGreen' :  dataset.getColumn(currow, '행사상태') == '진행'  ? 'grd_TxtBold' :  'none' "/>
+                <Cell col="10" style="color:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');color2:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');font:EXPR(행사상태 == '진행' ? '굴림,9,bold' : '');" text="bind:즉발행사구분" textAlign="left" cssclass="expr:dataset.getColumn(currow, '행사상태') == '취소' ? 'grd_TxtRed' : dataset.getColumn(currow, '행사상태') == '완료'  ? 'grd_TxtGreen' :  dataset.getColumn(currow, '행사상태') == '진행'  ? 'grd_TxtBold' :  'none' "/>
+                <Cell col="11" style="color:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');color2:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');font:EXPR(행사상태 == '진행' ? '굴림,9,bold' : '');" text="bind:계약상품명" textAlign="left" cssclass="expr:dataset.getColumn(currow, '행사상태') == '취소' ? 'grd_TxtRed' : dataset.getColumn(currow, '행사상태') == '완료'  ? 'grd_TxtGreen' :  dataset.getColumn(currow, '행사상태') == '진행'  ? 'grd_TxtBold' :  'none' "/>
+                <Cell col="12" style="color:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');color2:EXPR(행사상태 == '취소' ? 'red' : 행사상태 == '완료' ?  'green' : '');font:EXPR(행사상태 == '진행' ? '굴림,9,bold' : '');" text="bind:상품총액" textAlign="right" cssclass="expr:dataset.getColumn(currow, '행사상태') == '취소' ? 'grd_TxtRed' : dataset.getColumn(currow, '행사상태') == '완료'  ? 'grd_TxtGreen' :  dataset.getColumn(currow, '행사상태') == '진행'  ? 'grd_TxtBold' :  'none' " displaytype="number"/>
+              </Band>
+              <Band id="summary">
+                <Cell text="장례상태"/>
+                <Cell col="1" text="expr:dataset.getSum(&quot;(행사상태 != '취소')&quot;,&quot;행사상태&quot;)" textAlign="right" displaytype="number"/>
+                <Cell col="2"/>
+                <Cell col="3"/>
+                <Cell col="4"/>
+                <Cell col="5"/>
+                <Cell col="6"/>
+                <Cell col="7"/>
+                <Cell col="8"/>
+                <Cell col="9"/>
+                <Cell col="10"/>
+                <Cell col="11"/>
+                <Cell col="12" text="expr:dataset.getSum(&quot;상품총액&quot;)" displaytype="number" textAlign="right"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="stc_40_00_00_00_01" text="15" visible="false" left="390" top="86" background="orange" taborder="6" width="15" bottom="18"/>
+        <Static id="stc_40_00_00_00_00" text="15" visible="false" left="411" top="85" background="orange" taborder="7" width="15" bottom="18"/>
+        <Splitter id="Splitter00" taborder="8" width="6" max="1000" top="144" cssclass="btn_WF_splitX" min="15" left="405" tabstop="true" bottom="20">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Splitter>
+        <Button id="btn_upload02" taborder="11" text="Excel 내려받기" left="270" top="116" width="120" height="23" onclick="btn_upload02_onclick"/>
+        <Button id="btn_02" taborder="10" text="장례정산" left="195" top="116" width="72" height="23" onclick="btn_02_onclick"/>
+        <Div id="Div00" taborder="13" text="Div00" top="106" bottom="20" left="426" right="20" tabstop="false">
+          <Layouts>
+            <Layout>
+              <Static id="st_Top03" taborder="2" text="계약정보" left="0" top="100" width="80" height="23" cssclass="sta_WF_title" fittocontents="width"/>
+              <Static id="st_Top01" taborder="1" text="장례정보" left="0" top="276" width="80" height="23" cssclass="sta_WF_title" fittocontents="width"/>
+              <Static id="st_Top02" taborder="3" text="장례취소" left="0" top="542" width="80" height="23" cssclass="sta_WF_title" fittocontents="width"/>
+              <Button id="btn_07" taborder="4" text="장례정보 문자발송" top="276" width="132" height="23" right="0" onclick="fn_reSnsSend"/>
+              <Button id="btn_01" taborder="5" text="장례취소" top="543" height="23" width="72" right="0" onclick="btn_cancel"/>
+              <Radio id="Radio02" taborder="6" top="10" width="92" height="23" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" enable="false" right="4">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">계약</Col>
+                      <Col id="datacolumn">계약</Col>
+                    </Row>
+                    <Row>
+                      <Col id="datacolumn">즉발</Col>
+                      <Col id="codecolumn">즉발</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Static id="stc_00_03_00" text="23" visible="false" left="197" width="30" top="100" height="23" background="orange" taborder="7"/>
+              <Div id="Div01" taborder="8" left="0" top="123" height="152" cssclass="div_WF_detail" right="0">
+                <Layouts>
+                  <Layout>
+                    <Edit id="edt_Cnm_sawon00" taborder="0" left="92" top="5" width="108" height="23" readonly="true" tabstop="false"/>
+                    <Edit id="edt_Cnm_sawon17" taborder="1" left="513" top="5" width="80" height="23" readonly="true" tabstop="false"/>
+                    <Button id="btn_itemL" taborder="2" text="제공내역" left="335" top="35" width="72" height="23" onclick="Div00_Div01_btn_itemL_onclick"/>
+                    <Button id="btn_payment" taborder="3" text="납입내역서 출력" left="782" top="5" width="120" height="23" onclick="Div00_Div01_btn_payment_onclick" visible="false"/>
+                    <Button id="btn_advice" taborder="4" text="상담내역서 출력" top="5" height="23" left="905" width="120" onclick="Div00_Div01_btn_advice_onclick" visible="false"/>
+                    <Static id="sta01_07_00_00" taborder="5" text="상품" left="-1" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Static id="sta01_07_01" taborder="6" text="상품금액" left="410" top="32" width="100" height="30" cssclass="sta_WF_detail"/>
+                    <Static id="sta01_07_00_00_01" taborder="7" text="만기회차" left="596" top="32" height="30" cssclass="sta_WF_detail" width="90"/>
+                    <Static id="sta01_07_01_00" taborder="8" text="상품매출" left="-1" top="62" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Static id="sta01_07_00_00_01_00_00_00" taborder="9" text="면제정책" left="203" top="62" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Static id="sta01_07_01_01" taborder="10" text="모집자" left="-1" top="92" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Calendar id="Calendar01" taborder="11" left="296" top="5" width="111" height="23" dateformat="yyyy-MM-dd" readonly="true" tabstop="false"/>
+                    <Edit id="edt_Cnm_sawon02" taborder="12" left="689" top="5" width="90" height="23" readonly="true" tabstop="false"/>
+                    <Button id="btn_03" taborder="13" left="308" top="35" width="24" height="23" cssclass="btn_WF_popSrch" enable="false" tabstop="false" onclick="Div00_Div01_btn_03_onclick"/>
+                    <MaskEdit id="mae_01" taborder="14" left="513" top="35" width="80" height="23" readonly="true" format="###,###" tabstop="false"/>
+                    <Edit id="edt_Cnm_sawon03" taborder="15" left="689" top="35" height="23" readonly="true" width="90" tabstop="false"/>
+                    <Static id="sta01_07_00_00_01_00" taborder="16" text="납입회차" left="410" top="62" width="100" height="30" cssclass="sta_WF_detail"/>
+                    <MaskEdit id="mae_03" taborder="17" left="513" top="65" width="80" height="23" readonly="true" format="###,###" tabstop="false"/>
+                    <Static id="sta01_07_01_02" taborder="18" text="납입금액" left="596" top="62" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <MaskEdit id="mae_06" taborder="19" left="689" top="65" width="90" height="23" readonly="true" format="###,###"/>
+                    <Static id="sta01_07_00_00_01_00_00" taborder="20" text="잔여회차" left="782" top="32" width="100" height="30" cssclass="sta_WF_detail"/>
+                    <MaskEdit id="mae_00" taborder="21" left="885" top="35" width="80" height="23" readonly="true" format="###,###" tabstop="false"/>
+                    <Static id="sta01_07_00_00_01_00_01" taborder="22" text="잔여금액" left="968" top="32" height="30" cssclass="sta_WF_detail" width="100"/>
+                    <MaskEdit id="mae_07" taborder="23" left="1071" top="35" height="23" readonly="true" format="###,###" width="80" tabstop="false"/>
+                    <Combo id="cbo_job01" taborder="24" left="296" top="65" width="111" height="23" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" readonly="true" tabstop="false">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="datacolumn">- 선택 -</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">할인</Col>
+                            <Col id="datacolumn">할인</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">일반</Col>
+                            <Col id="datacolumn">일반</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Combo>
+                    <MaskEdit id="mae_02" taborder="25" left="92" top="65" width="108" height="23" readonly="true" format="###,###" tabstop="false"/>
+                    <MaskEdit id="mae_04" taborder="26" left="885" top="65" width="80" height="23" readonly="true" format="###,###" tabstop="false"/>
+                    <Static id="sta01_07_00_00_01_00_02" taborder="27" text="면제회차" left="782" top="62" width="100" height="30" cssclass="sta_WF_detail"/>
+                    <MaskEdit id="mae_05" taborder="28" left="1071" top="65" width="80" height="23" readonly="true" format="###,###" tabstop="false"/>
+                    <Static id="sta01_07_01_02_00" taborder="29" text="면제금액" left="968" top="62" width="100" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_Cnm_sawon01" taborder="30" left="92" top="35" width="77" height="23" readonly="true" onkeyup="Div00_Div01_edt_Cnm_sawon01_onkeyup" tabstop="false"/>
+                    <Edit id="edt_Cnm_sawon05" taborder="31" left="172" top="35" width="133" height="23" readonly="true" tabstop="false"/>
+                    <Edit id="edt_Cnm_sawon33" taborder="32" left="92" top="95" width="77" height="23" readonly="true" tabstop="false"/>
+                    <Edit id="edt_Cnm_sawon32" taborder="33" left="172" top="95" width="132" height="23" readonly="true" tabstop="false"/>
+                    <Static id="sta01_00_00_00_00_00" taborder="34" text="휴대폰" left="307" top="92" width="102" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_Cnm_sawon34" taborder="35" left="412" top="95" width="181" height="23" readonly="true" tabstop="false"/>
+                    <Static id="sta01_00_00_00_00_00_00" taborder="36" text="조직" left="596" top="92" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_org04" taborder="37" left="689" top="95" width="379" height="23" readonly="true" tabstop="false"/>
+                    <Static id="sta01_07_01_01_00" taborder="38" text="수금자" left="-1" top="122" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_Cnm_sawon36" taborder="39" left="172" top="125" width="132" height="23" readonly="true" tabstop="false"/>
+                    <Edit id="edt_Cnm_sawon37" taborder="40" left="92" top="125" width="77" height="23" readonly="true" tabstop="false"/>
+                    <Static id="sta01_00_00_00_00_01" taborder="41" text="휴대폰" left="307" top="122" width="102" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_Cnm_sawon38" taborder="42" left="412" top="125" width="181" height="23" readonly="true" tabstop="false"/>
+                    <Static id="sta01_00_00_00_00_00_00_00" taborder="43" text="조직" left="596" top="122" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_org05" taborder="44" left="689" top="125" width="379" height="23" readonly="true" tabstop="false"/>
+                    <Static id="sta01_00" taborder="45" text="계약코드" left="-1" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Static id="sta01_07_00_01" taborder="46" text="계약상태" left="410" top="2" width="100" height="30" cssclass="sta_WF_detail"/>
+                    <Static id="sta01_07_00_01_00" taborder="47" text="납입방법" left="596" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Static id="sta01_00_01" taborder="48" text="계약일자" left="203" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Static id="stc_00_03_00_00" text="23" visible="false" left="197" width="30" top="276" height="23" background="orange" taborder="9"/>
+              <Div id="Div02" taborder="0" text="Div01" top="300" height="243" cssclass="div_WF_detail" right="0" left="0">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta01_00_02" taborder="0" text="장례일시" left="195" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Static id="sta01_03" taborder="43" text="의전지역" left="-2" top="122" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Static id="sta01_06_00" taborder="44" text="발인일시" left="621" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Static id="sta01_05_00" taborder="45" text="고인성별&#13;&#10;/ 연령" left="-2" top="62" width="90" height="30" cssclass="sta_WF_detail" onclick="divDetail_divDetail01_sta01_05_onclick"/>
+                    <Combo id="cbo_gender" taborder="12" left="91" top="65" width="52" height="23" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" type="search" autoselect="true">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="datacolumn">- 선택 -</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">남</Col>
+                            <Col id="datacolumn">남</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">여</Col>
+                            <Col id="datacolumn">여</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Combo>
+                    <Static id="sta01_05_00_00" taborder="46" text="부고사유" left="195" top="62" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Combo id="cbo_bugoW" taborder="14" left="288" top="65" width="75" height="23" type="search" autoselect="true">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="codecolumn">0</Col>
+                            <Col id="datacolumn">가가가가</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">1</Col>
+                            <Col id="datacolumn">나나나나</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">2</Col>
+                            <Col id="datacolumn">다다다다</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Combo>
+                    <Static id="sta01_05_00_00_00" taborder="47" text="상주명" left="366" top="62" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Static id="sta01_05_00_01" taborder="48" text="장례장소" left="366" top="92" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_Cnm_sawon04" taborder="49" left="91" top="5" width="101" height="23" readonly="true" tabstop="false"/>
+                    <Calendar id="cal_start" taborder="1" left="288" top="5" width="102" height="23" dateformat="yyyy-MM-dd" cssclass="essential"/>
+                    <MaskEdit id="mae_startTime" taborder="2" left="393" top="5" width="54" height="23" format="## : ##" type="string"/>
+                    <Calendar id="cal_end" taborder="3" left="459" top="5" width="102" height="23" dateformat="yyyy-MM-dd" tabstop="false" cssclass="essential"/>
+                    <MaskEdit id="mae_endTime" taborder="4" left="564" top="5" width="54" height="23" format="## : ##" type="string"/>
+                    <Calendar id="cal_balin" taborder="6" left="714" top="5" width="102" height="23" dateformat="yyyy-MM-dd" cssclass="essential"/>
+                    <MaskEdit id="mae_balinTime" taborder="7" left="819" top="5" width="55" height="23" format="## : ##" type="string"/>
+                    <Static id="sta01_06_00_01" taborder="50" text="입관일시" left="877" top="2" width="80" height="30" cssclass="sta_WF_detail"/>
+                    <Calendar id="cal_in" taborder="8" left="960" top="5" width="102" height="23" dateformat="yyyy-MM-dd" tabstop="false"/>
+                    <MaskEdit id="cal_inTime" taborder="9" left="1065" top="5" width="51" height="23" format="## : ##" type="string"/>
+                    <Static id="sta01_03_01_00_00" taborder="51" text="회원과의&#13;&#10;관계" left="877" top="62" width="80" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_age" taborder="13" left="146" top="65" width="29" height="23"/>
+                    <Static id="Static01" taborder="52" text="세" left="177" top="65" width="14" height="23" textAlign="center"/>
+                    <Static id="sta01_01_00" taborder="53" text="장례상품" left="-2" top="92" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Static id="sta01_01_01" taborder="54" text="상황부여" left="-2" top="152" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Static id="sta01_01_00_00_00" taborder="55" text="상주연락처" left="527" top="62" width="82" height="30" cssclass="sta_WF_detail"/>
+                    <MaskEdit id="edt_sangjuHp" taborder="16" left="612" top="65" width="95" height="23" format="###-####-####" type="string" displaynulltext=" " autoselect="true"/>
+                    <Static id="sta01_01_01_00_00" taborder="56" text="운구여부" left="1009" top="182" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_org02" taborder="57" left="551" top="125" width="218" height="23" readonly="true" tabstop="false"/>
+                    <Static id="sta01_01_01_00_01_00_00" taborder="58" text="창고지역" left="877" top="122" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Static id="sta01_01_01_00_00_00" taborder="59" text="부고알림" left="646" top="212" width="80" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_Cnm_sawon06" taborder="60" left="729" top="215" width="219" height="23" readonly="true" tabstop="false"/>
+                    <Static id="sta01_01_01_00_00_00_00" taborder="61" text="상주목록" left="-2" top="212" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="txt_sangjuList" taborder="39" left="91" top="215" width="101" height="23"/>
+                    <Static id="sta01_01_01_00_00_00_00_00" taborder="62" text="빈소" left="1038" top="92" width="80" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_binso" taborder="22" left="1121" top="95" width="75" height="23"/>
+                    <Button id="btn_13" taborder="21" left="683" top="95" width="24" height="23" cssclass="btn_WF_popSrch" onclick="btn_openPopup"/>
+                    <Static id="btn_16" taborder="63" text="비고" left="195" top="212" width="90" height="30" cssclass="sta_WF_detail_btn" onclick="fn_bigo"/>
+                    <Edit id="txt_bigo" taborder="40" left="288" top="215" width="355" height="23"/>
+                    <Edit id="edt_productCode" taborder="64" left="91" top="95" width="90" height="23" readonly="true" tabstop="false"/>
+                    <Edit id="edt_productName" taborder="65" left="184" top="95" width="179" height="23" readonly="true" tabstop="false"/>
+                    <Button id="btn_03" taborder="66" left="338" top="95" width="24" height="23" cssclass="btn_WF_popSrch" onclick="btn_openPopup" visible="false"/>
+                    <Edit id="edt_eventPlace" taborder="20" left="527" top="95" width="153" height="23" onkeyup="edt_funeralHall_onkeyup" oninput="Div00_Div02_edt_eventPlace_oninput"/>
+                    <Edit id="edt_sangjuNm" taborder="15" left="459" top="65" width="65" height="23"/>
+                    <Static id="sta01_05_00_03" taborder="67" text="종교" left="710" top="62" width="80" height="30" cssclass="sta_WF_detail"/>
+                    <Combo id="cbo_religion" taborder="17" left="793" top="65" width="81" height="23" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" type="search" autoselect="true">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="datacolumn">- 선택 -</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">기독교</Col>
+                            <Col id="datacolumn">기독교</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">불교</Col>
+                            <Col id="datacolumn">불교</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">천주교</Col>
+                            <Col id="datacolumn">천주교</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Combo>
+                    <Combo id="cbo_area" taborder="24" left="91" top="125" width="101" height="23" innerdataset="ds_area" codecolumn="관리지역코드" datacolumn="관리지역명" type="search" autoselect="true" cssclass="essential" text="" value="" index="-1"/>
+                    <Edit id="edt_jidosaNo" taborder="68" left="288" top="125" width="100" height="23" readonly="true" cssclass="essential" tabstop="false"/>
+                    <Edit id="edt_jidosaNm" taborder="69" left="391" top="125" width="103" height="23" readonly="true" cssclass="essential" tabstop="false"/>
+                    <Button id="btn_04" taborder="25" left="497" top="125" width="24" height="23" cssclass="btn_WF_popSrch" onclick="btn_busiPopup"/>
+                    <Static id="sta01_05_00_01_00_01" taborder="70" text="의전팀장" left="195" top="122" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Button id="btn_05" taborder="26" left="524" top="125" width="24" height="23" cssclass="btn_WF_reload" onclick="fn_empClear"/>
+                    <Edit id="edt_org00" taborder="71" left="772" top="125" width="102" height="23" readonly="true" tabstop="false"/>
+                    <Button id="btn_stgDel" taborder="28" left="1192" top="125" width="24" height="23" cssclass="btn_WF_reload" onclick="fn_empClear"/>
+                    <Button id="btn_stgSch" taborder="27" left="1165" top="125" width="24" height="23" cssclass="btn_WF_popSrch" onclick="btn_openPopup"/>
+                    <Edit id="edt_storageNm" taborder="72" left="1038" top="125" width="124" height="23" readonly="true" tabstop="false"/>
+                    <Edit id="edt_storageCd" taborder="73" left="960" top="125" width="75" height="23" enable="false" tabstop="false"/>
+                    <MaskEdit id="mae_time01" taborder="29" left="91" top="155" width="52" height="23" format="## : ##" type="string"/>
+                    <Static id="sta01_01_01_01" taborder="74" text="출동시간" left="195" top="152" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <MaskEdit id="mae_time03" taborder="30" left="288" top="155" width="53" height="23" format="## : ##" type="string"/>
+                    <Static id="sta01_01_01_01_00" taborder="75" text="도착시간" left="344" top="152" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <MaskEdit id="mae_time02" taborder="31" left="437" top="155" width="54" height="23" format="## : ##" type="string"/>
+                    <Static id="sta01_01_01_01_00_00" taborder="76" text="완료시간" left="494" top="152" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <MaskEdit id="mae_time04" taborder="32" left="587" top="155" width="56" height="23" format="## : ##" type="string"/>
+                    <Static id="sta01_03_00" taborder="77" text="수의사용" left="646" top="182" width="80" height="30" cssclass="sta_WF_detail"/>
+                    <Combo id="cbo_useS" taborder="36" left="729" top="185" width="68" height="23" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" type="search" autoselect="true">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="codecolumn">사용</Col>
+                            <Col id="datacolumn">사용</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">미사용</Col>
+                            <Col id="datacolumn">미사용</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Combo>
+                    <Static id="sta01_03_00_00" taborder="78" text="수의대체" left="800" top="182" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Combo id="cbo_jangjiGbn" taborder="33" left="729" top="155" width="145" height="23" type="filter" autoselect="true" ondropdown="Div00_Div02_cbo_jangjiGbn_ondropdown" oncloseup="Div00_Div02_cbo_jangjiGbn_oncloseup"/>
+                    <Static id="sta01_03_00_00_00" taborder="79" text="장지구분" left="646" top="152" width="80" height="30" cssclass="sta_WF_detail"/>
+                    <Combo id="cbo_job04" taborder="38" left="1102" top="185" width="114" height="23" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" type="search" autoselect="true" text="">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="codecolumn">Y</Col>
+                            <Col id="datacolumn">사용</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">N</Col>
+                            <Col id="datacolumn">미사용</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Combo>
+                    <Static id="sta01_01_01_00_00_01" taborder="80" text="장법" left="-2" top="182" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Combo id="cbo_jangType" taborder="5" left="91" top="185" width="101" height="23" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" type="search" autoselect="true">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                      </Dataset>
+                    </Combo>
+                    <Static id="sta01_05_00_01_00_00_02" taborder="81" text="1차장지" left="195" top="182" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_jangji01" taborder="34" left="288" top="185" width="136" height="23"/>
+                    <Static id="sta01_05_00_01_00_00_00_00" taborder="82" text="2차장지" left="427" top="182" width="80" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_Cnm_sawon29" taborder="35" left="510" top="185" width="133" height="23"/>
+                    <Button id="btn_14" taborder="41" text="부고알림문자발송" left="951" top="215" width="120" height="23" onclick="Div00_Div02_btn_14_onclick"/>
+                    <Button id="btn_bugoChk" taborder="42" text="부고알림URL확인" left="1074" top="215" width="132" height="23" onclick="Div00_Div02_btn_bugoChk_onclick"/>
+                    <Static id="Static00" taborder="83" text="~" left="449" top="4" width="12" height="23"/>
+                    <Combo id="cbo_alterS" taborder="37" left="893" top="185" width="113" height="23" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" type="search" autoselect="true" text="">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="datacolumn">- 선택 -</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">사용</Col>
+                            <Col id="datacolumn">사용</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">미사용</Col>
+                            <Col id="datacolumn">미사용</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Combo>
+                    <Static id="sta01_02" taborder="84" text="장례코드" left="-2" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Combo id="cbo_relation" taborder="18" left="960" top="65" width="75" height="23" type="search" autoselect="true"/>
+                    <Static id="sta01_06_00_00_00_00_00_01" taborder="85" text="고인명" left="1038" top="152" width="80" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_deceased" taborder="23" left="1121" top="155" width="95" height="23" cssclass="essential"/>
+                    <Static id="sta01_06_00_00" taborder="86" text="계약구분" left="0" top="32" width="89" height="30" cssclass="sta_WF_detail"/>
+                    <Combo id="cbo_job06" taborder="87" left="92" top="35" width="100" height="23" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" autoselect="true" type="search" readonly="true" tabstop="false">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="datacolumn">- 선택 -</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">계약</Col>
+                            <Col id="datacolumn">계약</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">즉발</Col>
+                            <Col id="datacolumn">즉발</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Combo>
+                    <Static id="sta01_06_00_00_00" taborder="88" text="장례상태" left="195" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Combo id="cbo_status" taborder="89" left="288" top="35" width="75" height="23" autoselect="true" type="search" readonly="true" tabstop="false">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                      </Dataset>
+                    </Combo>
+                    <Static id="sta01_06_00_02" taborder="90" text="접수일자" left="621" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Calendar id="cal_balin00" taborder="91" left="714" top="35" width="102" height="23" dateformat="yyyy-MM-dd" tabstop="false" readonly="true"/>
+                    <Static id="sta01_06_00_00_00_00" taborder="92" text="외주구분" left="877" top="32" width="80" height="30" cssclass="sta_WF_detail"/>
+                    <Combo id="cbo_outComp" taborder="93" left="960" top="35" width="75" height="23" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" autoselect="true" type="search" readonly="true" tabstop="false">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="datacolumn">- 선택 -</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">유토피아</Col>
+                            <Col id="datacolumn">유토피아</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">외주</Col>
+                            <Col id="datacolumn">외주</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Combo>
+                    <Static id="sta01_01_01_00_00_00_00_00_00" taborder="94" text="발생장소" left="366" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_eventPlace00" taborder="10" left="459" top="35" width="159" height="23"/>
+                    <Static id="sta01_06_00_00_00_00_00_00" taborder="95" text="접수인&#13;&#10;연락처" left="1038" top="32" width="80" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_receiptPhone" taborder="11" left="1121" top="35" width="95" height="23"/>
+                    <Static id="sta01_06_00_00_00_00_00" taborder="96" text="접수인" left="1038" top="62" width="80" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_Cnm_sawon08" taborder="19" left="1121" top="65" width="95" height="23"/>
+                    <Edit id="edt_eventPlace01" taborder="97" left="459" top="95" width="65" height="23" onkeyup="edt_funeralHall_onkeyup" readonly="true" tabstop="false"/>
+                    <Static id="sta01_03_01_00_00_00" taborder="98" left="877" top="152" width="80" height="30" cssclass="sta_WF_detail" text="앰뷸런스"/>
+                    <Combo id="cbo_ambulance" taborder="99" left="960" top="155" width="75" height="23" type="search" autoselect="true" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="datacolumn">- 선택 -</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">사용</Col>
+                            <Col id="datacolumn">사용</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">미사용</Col>
+                            <Col id="datacolumn">미사용</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Combo>
+                    <Static id="sta01_05_00_01_00" taborder="100" text="장례식장&#13;&#10;주소" left="710" top="92" width="80" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_eventPlace02" taborder="101" left="793" top="95" width="242" height="23" onkeyup="edt_funeralHall_onkeyup" oninput="Div00_Div02_edt_eventPlace_oninput" readonly="true"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Static id="stc_00_03_00_00_00_00" text="23" visible="false" left="197" width="30" top="543" height="23" background="orange" taborder="10"/>
+              <Div id="Div04" taborder="11" left="0" cssclass="div_WF_detail" right="0" top="567" height="32">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta01_05_00_02" taborder="0" text="취소구분" left="0" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Combo id="cbo_cancelGbn" taborder="1" left="93" top="5" width="109" height="23" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" type="search" autoselect="true">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="codecolumn">0</Col>
+                            <Col id="datacolumn">가가가가</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">1</Col>
+                            <Col id="datacolumn">나나나나</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">2</Col>
+                            <Col id="datacolumn">다다다다</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Combo>
+                    <Static id="sta01_05_00_00_01" taborder="2" text="취소상세" left="205" top="2" width="90" height="30" cssclass="sta_WF_detail" onclick="divDetail_divDetail02_00_sta01_05_00_00_onclick"/>
+                    <Combo id="cbo_cancelDetail" taborder="3" left="298" top="5" width="120" height="23" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" type="search" autoselect="true">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="codecolumn">0</Col>
+                            <Col id="datacolumn">가가가가</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">1</Col>
+                            <Col id="datacolumn">나나나나</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">2</Col>
+                            <Col id="datacolumn">다다다다</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Combo>
+                    <Static id="sta01_06_00_03" taborder="4" text="취소일시" left="421" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Calendar id="cancel" taborder="5" left="514" top="5" width="88" height="23" dateformat="yyyy-MM-dd" tabstop="false" cssclass="essential"/>
+                    <MaskEdit id="cal_inTime00" taborder="6" left="605" top="5" width="55" height="23" format="## : ##" type="string" cssclass="essential"/>
+                    <Static id="btn_17" taborder="7" text="취소내용" left="663" top="2" width="90" height="30" cssclass="sta_WF_detail_btn" onclick="fn_bigo"/>
+                    <Edit id="txt_cancelDesc" taborder="8" left="756" top="5" height="23" width="460"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Static id="st_Top" taborder="12" text="회원정보" left="0" top="10" width="80" height="23" cssclass="sta_WF_title" fittocontents="width"/>
+              <Div id="Div00" taborder="13" left="0" top="38" height="62" cssclass="div_WF_detail" right="0" text="">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta01" taborder="0" text="회원코드" left="0" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_Cnm_sawon11" taborder="1" left="93" top="5" width="95" height="23" readonly="true" tabstop="false"/>
+                    <Static id="sta01_07" taborder="2" text="회원명" left="191" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_Cnm_sawon12" taborder="3" left="284" top="5" width="94" height="23" readonly="true" tabstop="false"/>
+                    <Static id="sta01_05" taborder="4" text="회원구분" left="381" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Combo id="cbo_job00" taborder="5" left="474" top="5" width="78" height="23" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" readonly="true" text="" tabstop="false">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="datacolumn">- 선택 -</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">법인</Col>
+                            <Col id="datacolumn">법인</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">사업자</Col>
+                            <Col id="datacolumn">사업자</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">개인</Col>
+                            <Col id="datacolumn">개인</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Combo>
+                    <Combo id="cbo_job02" taborder="6" left="555" top="5" width="80" height="23" innerdataset="innerdataset" readonly="true" codecolumn="codecolumn" datacolumn="datacolumn" tabstop="false">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="datacolumn">- 선택 -</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">일반회원</Col>
+                            <Col id="datacolumn">일반회원</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">할인회원</Col>
+                            <Col id="datacolumn">할인회원</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">청각장애인</Col>
+                            <Col id="datacolumn">청각장애인</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Combo>
+                    <Static id="sta01_00_00_00_00" taborder="7" text="휴대폰" left="0" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_Cnm_sawon13" taborder="8" left="93" top="35" width="95" height="23" readonly="true" tabstop="false"/>
+                    <Static id="sta01_07_00" taborder="9" text="생년월일" left="191" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <MaskEdit id="mae_dateOfBirth" taborder="10" left="284" top="35" width="62" format="######-#" onkeyup="tpg_main_tpg_personal_div_input_mdt_Resident_onkeyup" validName="주민번호" valid="required" readonly="true" height="23" type="string" tabstop="false"/>
+                    <Static id="Static04" taborder="11" text="*******" left="347" top="35" width="29" height="23"/>
+                    <Radio id="Radio00" taborder="12" left="377" top="35" width="62" height="23" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" readonly="true" tabstop="false">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="codecolumn">남</Col>
+                            <Col id="datacolumn">남</Col>
+                          </Row>
+                          <Row>
+                            <Col id="datacolumn">여</Col>
+                            <Col id="codecolumn">여</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Radio>
+                    <Static id="sta01_00_00" taborder="13" text="사업자번호" left="438" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+                    <Edit id="edt_businessNum" taborder="14" left="531" top="35" width="114" height="23" text="010-1234-5678" readonly="true" tabstop="false"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_40_00_00" text="15" visible="false" left="0" top="101" height="15" background="orange" taborder="12" right="20"/>
+        <Static id="stc_35_00_00_00_01_00_00" text="3" visible="false" left="0" right="20" top="139" height="5" background="orange" taborder="9"/>
+        <PopupDiv id="pdp_commonBtn00" text="PopupDiv00" left="1731" width="350" top="86" height="42" visible="false">
+          <Layouts>
+            <Layout>
+              <Button id="btn_excel" taborder="12" text="엑셀" onclick="fn_excel" left="290" width="56" top="4" height="34"/>
+              <Button id="btn_print" taborder="13" text="출력" onclick="fn_print" left="232" width="56" top="4" height="34"/>
+              <Button id="btn_search" taborder="14" text="조회" left="175" width="56" top="4" height="34" onclick="fn_search"/>
+              <Button id="btn_delete" taborder="15" text="삭제" onclick="fn_delete" left="117" width="56" top="4" height="34"/>
+              <Button id="btn_edit" taborder="16" text="수정" left="60" width="56" top="4" height="34" oncontextmenu="fn_edit"/>
+              <Button id="btn_save" taborder="17" text="저장" onclick="fn_save" left="3" width="56" top="4" height="34"/>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+        <Static id="sta01_05_00_01_00_01_00" taborder="14" left="1747" top="257" width="80" height="30" cssclass="sta_WF_detail" text="감독관" visible="false"/>
+        <Edit id="edt_jidosaNo00" taborder="15" left="1830" top="260" width="100" height="23" readonly="true" tabstop="false" visible="false"/>
+        <Edit id="edt_jidosaNm00" taborder="16" left="1933" top="260" width="120" height="23" readonly="true" tabstop="false" visible="false"/>
+        <Button id="btn_04_00" taborder="17" left="2056" top="260" width="24" height="23" cssclass="btn_WF_popSrch" onclick="fn_supervisor" visible="false"/>
+        <Button id="btn_05_00" taborder="18" left="2083" top="260" width="24" height="23" cssclass="btn_WF_reload" onclick="fn_supervisor" visible="false"/>
+        <Div id="Div03" taborder="19" left="1750" top="381" height="62" cssclass="div_WF_detail" right="-1304" visible="false">
+          <Layouts>
+            <Layout>
+              <Static id="sta01_05_00_01_00" taborder="0" text="차량" left="0" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Edit id="edt_carCd" taborder="1" left="93" top="5" width="90" height="23" enable="false" tabstop="false"/>
+              <Edit id="edt_carNm" taborder="2" left="186" top="5" width="125" height="23" readonly="true" tabstop="false"/>
+              <Button id="btn_carS" taborder="3" left="314" top="5" width="24" height="23" cssclass="btn_WF_popSrch" onclick="btn_account_pop"/>
+              <Button id="btn_carD" taborder="4" left="341" top="5" width="24" height="23" cssclass="btn_WF_reload" onclick="btn_account_delete"/>
+              <Static id="sta01_05_00_01_00_00" taborder="5" text="화환" left="368" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Edit id="edt_flowerCd" taborder="6" left="461" top="5" width="90" height="23" enable="false" tabstop="false"/>
+              <Edit id="edt_flowerNm" taborder="7" left="554" top="5" width="125" height="23" readonly="true" tabstop="false"/>
+              <Button id="btn_flowerS" taborder="8" left="682" top="5" width="24" height="23" cssclass="btn_WF_popSrch" onclick="btn_account_pop"/>
+              <Button id="btn_flowerD" taborder="9" left="709" top="5" width="24" height="23" cssclass="btn_WF_reload" onclick="btn_account_delete"/>
+              <Static id="sta01_05_00_01_00_00_00" taborder="10" text="상복" left="736" top="2" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Edit id="edt_clothesCd" taborder="11" left="829" top="5" width="90" height="23" enable="false" tabstop="false"/>
+              <Edit id="edt_clothesNm" taborder="12" left="922" top="5" width="125" height="23" readonly="true" tabstop="false"/>
+              <Button id="btn_clothesS" taborder="13" left="1050" top="5" width="24" height="23" cssclass="btn_WF_popSrch" onclick="btn_account_pop"/>
+              <Button id="btn_clothesD" taborder="14" left="1077" top="5" width="24" height="23" cssclass="btn_WF_reload" onclick="btn_account_delete"/>
+              <Edit id="edt_helperCd" taborder="15" left="93" top="35" width="90" height="23" enable="false" tabstop="false"/>
+              <Edit id="edt_helperNm" taborder="16" left="186" top="35" width="125" height="23" readonly="true" tabstop="false"/>
+              <Button id="btn_helperS" taborder="17" left="314" top="35" width="24" height="23" cssclass="btn_WF_popSrch" onclick="btn_helperOrg_pop"/>
+              <Button id="btn_helperD" taborder="18" left="341" top="35" width="24" height="23" cssclass="btn_WF_reload" onclick="btn_account_delete"/>
+              <Edit id="edt_jangjiCd" taborder="19" left="461" top="35" width="90" height="23" enable="false" tabstop="false"/>
+              <Edit id="edt_jangjiNm" taborder="20" left="554" top="35" width="125" height="23" readonly="true" tabstop="false"/>
+              <Button id="btn_jangjiS" taborder="21" left="682" top="35" width="24" height="23" cssclass="btn_WF_popSrch" onclick="btn_account_pop"/>
+              <Button id="btn_jangjiD" taborder="22" left="709" top="35" width="24" height="23" cssclass="btn_WF_reload" onclick="btn_account_delete"/>
+              <Edit id="edt_hamCd" taborder="23" left="829" top="35" width="90" height="23" enable="false" tabstop="false"/>
+              <Edit id="edt_hamNm" taborder="24" left="922" top="35" width="125" height="23" readonly="true" tabstop="false"/>
+              <Button id="btn_hamS" taborder="25" left="1050" top="35" width="24" height="23" cssclass="btn_WF_popSrch" onclick="btn_account_pop"/>
+              <Button id="btn_hamD" taborder="26" left="1077" top="35" width="24" height="23" cssclass="btn_WF_reload" onclick="btn_account_delete"/>
+              <Static id="sta01_05_00_01_00_00_01_00" taborder="27" text="장지" left="368" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Static id="sta01_05_00_01_00_00_01" taborder="28" text="도우미" left="0" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+              <Static id="sta01_05_00_01_00_00_01_01" taborder="29" text="유골함" left="736" top="32" width="90" height="30" cssclass="sta_WF_detail"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="st_Top00" taborder="20" text="협력업체" left="1750" top="357" width="80" height="23" cssclass="sta_WF_title" fittocontents="width" visible="false"/>
+        <Static id="stc_00_03_00_00_00" text="23" visible="false" left="1947" width="30" top="358" height="23" background="orange" taborder="21"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[/********************************************************************************
+ * Name			: EVENT_N_60100100.xfdl
+ * Title		: 행사 > 장례서비스 > 장례등록
+ * Desc			: 장례등록 
+ * 작성자			: 조하영
+ * 작성일			: 2024.03.26
+ * 변경사항		:
+ *******************************************************************************/
+/*===============================================================================
+ * 1.FORM 변수 선언 영역
+ *=============================================================================*/
+var loginInfo = nexacro.getApplication().gds_userInfo.getColumn(0,"사원명");//출력팝업에서 로그인정보
+var fv_bugoURL = "http://192.168.0.9:8081bugo/";
+var fv_eventCD = this.getOwnerFrame().pv_eventCode;
+
+var fv_fspGroup = new String(nexacro.getApplication().gv_fspGroup);
+var fv_funeral;
+/*===============================================================================
+ * 2. Form oninit/onload event 처리
+ *=============================================================================*/ 
+/**
+ * 화면 온로드 이벤트
+ */
+this.fn_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfn_loadForm(obj);
+	
+	this.gfn_exGridSet(this.exGrid02);
+	
+	//Splitter item 적용
+	this.Splitter00.addItem([{componentid:"exGrid02", offset:15, position:"left"},{componentid:"Div00", offset:15, position:"right"} ]);
+							
+	
+	/* 공통코드 콤보 셋팅 */
+	var param = [
+		 {code:"00208", dsName:"ds_00208",selecttype:"S",targetObj:this.Div00.form.Div02.form.cbo_status}			//행사상태
+		,{code:"20042", dsName:"ds_20042",selecttype:"S",targetObj:this.Div00.form.Div02.form.cbo_religion}			//종교
+		,{code:"20001", dsName:"ds_20001",selecttype:"S",targetObj:this.Div00.form.Div02.form.cbo_relation}			//고인과의관계
+		,{code:"20066", dsName:"ds_20066",selecttype:"S",targetObj:this.Div00.form.Div02.form.cbo_outComp}			//외주구분
+		,{code:"00205", dsName:"ds_00205",selecttype:"S",targetObj:this.Div00.form.Div04.form.cbo_cancelGbn}		//행사취소구분
+		,{code:"20015", dsName:"ds_20015",selecttype:"S",targetObj:this.Div00.form.Div04.form.cbo_cancelDetail}		//행사취소상세구분
+		,{code:"20100", dsName:"ds_20100",selecttype:"S",targetObj:this.Div00.form.Div02.form.cbo_bugoW}			//부고사유
+		,{code:"20101", dsName:"ds_20101",selecttype:"S",targetObj:this.Div00.form.Div02.form.cbo_alterS}			//수의대체
+		,{code:"20102", dsName:"ds_20102",selecttype:"S",targetObj:this.Div00.form.Div02.form.cbo_jangjiGbn}		//장지구분
+		,{code:"20104", dsName:"ds_20104",selecttype:"S",targetObj:this.Div00.form.Div02.form.cbo_jangType}			//장법
+		,{code:"20074", dsName:"ds_20074", selecttype:"S", targetObj:this.Div00.form.Div00.form.cbo_job02}			//회원구분
+	];
+	
+	this.gfn_comCode(param);
+	
+	//직급:영업사원
+	if((nexacro.getApplication().gv_AuthCode == "00008")){
+		this.div_search.form.edt_empNm.set_value(nexacro.getApplication().gv_userId);
+		this.div_search.form.edt_empNm.set_value(nexacro.getApplication().gv_userName);
+		this.div_search.form.edt_empNm.set_readonly(true);
+		this.div_search.form.btn_sCode.set_enable(false);
+		this.div_search.form.btn_saCode.set_enable(false);
+	}
+	//직급:행사사원
+	if(nexacro.getApplication().gv_AuthCode == "00014"){
+		this.div_search.form.edt_empNo00.set_value(nexacro.getApplication().gv_userId);
+		this.div_search.edt_empNm00.set_value(nexacro.getApplication().gv_userName);
+		this.div_search.edt_empNm00.set_readonly(true);
+		this.div_search.btn_sCode00.set_enable(false);
+		this.div_search.btn_saCode00.set_enable(false);
+	}
+	
+	this.fn_setArea(); //지역데이터 셋팅
+	
+	/* 행사정산화면에서 행사등록버튼 클릭 시 
+	 * pv_eventCode --> 행사코드 넘김
+	 */
+	
+	if(!Base.isEmpty(fv_eventCD)){
+		this.div_search.form.cp_periodConDate.form.btn_all_onclick();
+		this.ds_input.clearData();
+		var nRow = this.ds_input.addRow();
+		
+		this.ds_input.setColumn(nRow,"행사코드",fv_eventCD);
+		this.fn_dataSearch("리스트조회","ds_list");
+		this.fn_dataSearch("상세조회","ds_burial");
+		return;
+	}	
+};
+ 
+// this.fn_afterOnload = function(){
+// 	this.ds_comm00066.set_keystring("S:구분1");
+// 	this.ds_comm00100.set_keystring("S:구분1");
+// 	this.ds_comm00104.set_keystring("S:구분1");
+// 	this.ds_deceased.filter("구분1=='Y'");
+// }
+/*===============================================================================
+ * 3.FORM 공통 FUNCTION 영역 
+*=============================================================================*/
+/**
+ * 조회(행사정보검색)
+ */
+this.fn_search = function()
+{
+	this.ds_input.clearData();
+	this.ds_input.addRow();
+	this.ds_list.clearData();
+	this.ds_burial.clearData();
+	
+	var sDeptCd = this.div_search.form.exOrg_dept.getData();
+	var sDate = this.div_search.form.cp_periodConDate.form.getData();
+	var cntrNM = comSys.transNullToEmpty(this.div_search.form.edt_Cnm_sawon00.value);
+	var frntNM = comSys.transNullToEmpty(this.div_search.form.edt_Cnm_sawon04.value);
+	var burialNM = comSys.transNullToEmpty(this.div_search.form.edt_Cnm_sawon01.value);
+	var cntrCD = comSys.transNullToEmpty(this.div_search.form.edt_Cnm_sawon02.value);
+	var searchGbn = this.div_search.form.Combo00.value;
+	var empNo = comSys.transNullToEmpty(this.div_search.form.edt_empNo.value);
+	var empNo2 = comSys.transNullToEmpty(this.div_search.form.edt_empNo00.value);
+	var cancelYN = comSys.transNullToEmpty(this.div_search.form.chk_cancelYN.value);
+	var sawon04 = this.Div00.form.Div02.form.edt_Cnm_sawon04.value;
+	
+	this.ds_input.setColumn(0,"접수시작일자",sDate[0]);
+	this.ds_input.setColumn(0,"접수종료일자",sDate[1]);
+	this.ds_input.setColumn(0,"회원명",cntrNM);
+	this.ds_input.setColumn(0,"상주명",frntNM);
+	this.ds_input.setColumn(0,"고인명",burialNM);
+	this.ds_input.setColumn(0,"계약코드",cntrCD);
+	this.ds_input.setColumn(0,"행사코드","");
+	this.ds_input.setColumn(0,"조회구분",searchGbn);
+	this.ds_input.setColumn(0,"오등록포함",cancelYN);
+	
+	this.ds_input.setColumn(0,"본부코드",sDeptCd[0].code);
+	this.ds_input.setColumn(0,"지사코드",sDeptCd[1].code);
+	this.ds_input.setColumn(0,"지점코드",sDeptCd[2].code);
+	this.ds_input.setColumn(0,"팀코드",sDeptCd[3].code);
+	
+	this.ds_input.setColumn(0,"사원코드",empNo);
+	this.ds_input.setColumn(0,"의전팀장",empNo2);
+	
+	fv_eventCode = ""; //행사진행현황에서 넘긴 파라미터 초기화
+	this.fn_dataSearch("리스트조회","ds_list");
+}
+
+this.exGrid02_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	var eventCd = this.ds_list.getColumn(e.row,"행사코드");
+	this.ds_input.setColumn(this.ds_input.rowposition,"행사코드",eventCd);
+	this.fn_dataSearch("상세조회","ds_burial");
+};
+
+this.fn_dataSearch = function(mod,outDs)
+{	
+	this.ds_input.setColumn(this.ds_input.rowposition,"MOD",mod);
+	
+	this.fsp_clear();
+	this.fsp_addSearch(fv_fspGroup+"event:EVENT_N_60100100_S", false);
+	
+	// connect the server
+	this.fsp_callService(
+		""
+		,""
+		,"ds_input=ds_input"	// inDs
+		,outDs+"=ds_output"		// outDs
+		,""
+		,"fn_afterSearch"
+		,true
+		,false
+		,false
+		,outDs
+	);
+}
+
+
+/**
+ * 행사등록
+ */
+this.fn_save = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	//저장할(변경또는 추가) 데이터가 없으면 취소
+	if(!comSys.isDsUpdateChk(this.ds_burial)){
+        comSys.showMsg("I0010","I");
+        return;
+    }
+    
+// 	if (isNaN(this.Div00.form.Div02.form.edt_eventPlace.value) == false){
+// 		comSys.showMsg("전화번호 타입은 저장할 수 없습니다.","W");
+// 		return;
+// 	}
+
+	
+// 	//전화번호 정규식 체크
+// 	var jumin = this.Div00.form.Div02.form.edt_eventPlace.value;
+// 	var regExp = "/^(070|02|0[3-9]{1}[0-9]{1})[0-9]{3,4}[0-9]{4}$/";
+// 	if(!jumin.match(regExp)){
+// 		comSys.showMsg("전화번호 타입은 저장할 수 없습니다.", "I");  
+// 		//this.tpg_main.tpg_personal.form.div_input.form.mdt_Resident.setFocus();
+// 		return false;
+// 	}
+	
+    var	cancelGbn = this.ds_burial.getColumn(this.ds_burial.rowposition,"취소구분");
+    
+    if(Base.isEmpty(cancelGbn)){
+	//	if(!comValid.isValid(this.Div00)) return;
+			
+		//필수로 입력해야 할 컬럼(해당 컬럼이 null일 경우 리턴) -> 벨리데이션 체크
+		//for(var i=0; i < this.ds_burial.rowcount; i++){
+			if(this.ds_burial.getColumn(0,"행사시작일자") == "" || this.ds_burial.getColumn(0,"행사시작일자") == null){
+				comSys.showMsg("I0067","W",["행사시작일자"]);
+				this.Div00.form.Div02.form.cal_start.setFocus();
+				return;
+			}else if(this.ds_burial.getColumn(0,"행사종료일자") == "" || this.ds_burial.getColumn(0,"행사종료일자") == null){
+				comSys.showMsg("I0067","W",["행사종료일자"]);
+				this.Div00.form.Div02.form.cal_end.setFocus();
+				return;
+			}else if(this.ds_burial.getColumn(0,"발인일자") == "" || this.ds_burial.getColumn(0,"발인일자") == null) {
+				comSys.showMsg("I0067","W",["발인일자"]);
+				this.Div00.form.Div02.form.cal_balin.setFocus();
+				return;
+			}else if(this.ds_burial.getColumn(0,"고인명") == "" || this.ds_burial.getColumn(0,"고인명") == null){
+				comSys.showMsg("I0067","W",["고인명"]);
+				this.Div00.form.Div02.form.edt_deceased.setFocus();
+				return;
+			}else if(this.ds_burial.getColumn(0,"지역") == "" || this.ds_burial.getColumn(0,"지역") == null){
+				comSys.showMsg("I0067","W",["지역"]);
+				this.Div00.form.Div02.form.cbo_area.setFocus();
+				return;
+			}
+		//}
+		
+// 		var	goodsCd = this.ds_burial.getColumn(this.ds_burial.rowposition,"행사상품코드");
+// 		if(Base.isEmpty(goodsCd)){
+// 			comSys.showMsg("장례상품은 필수항목 입니다.", "I");
+// 			return;
+// 		} 
+		
+		var noEmp = this.ds_burial.getColumn(this.ds_burial.rowposition,"지도사코드");
+		if(Base.isEmpty(noEmp)){
+			comSys.showMsg("의전팀장은 필수항목 입니다.", "I");
+			return;
+		}
+	
+		var eventP = this.ds_burial.getColumn(this.ds_burial.rowposition,"장례식장");
+		var eventPcd = this.ds_burial.getColumn(this.ds_burial.rowposition,"장례식장코드");
+		if(!Base.isEmpty(eventP) && Base.isEmpty(eventPcd)){
+			comSys.showMsg("장례식장을 선택하세요.\n\n※장례식장 입력 후 팝업창에서 선택 필수", "I");
+			return;
+		}
+	}
+	
+	//저장하시겠습니까?
+	if(!comSys.showMsg("C0001","Q")) return;
+	
+	//저장 조건 체크
+	this.fn_SaveCheck();
+};
+
+/**
+ * 저장 조건 체크
+ */
+this.fn_SaveCheck = function()
+{
+	this.ds_in_saveChk.clearData();
+	var nRow = this.ds_in_saveChk.addRow();
+	this.ds_out_saveChk.addRow();
+	
+	var checkDate = this.ds_burial.getColumn(this.ds_burial.rowposition,"정산완료일");
+	var eventCd = this.ds_burial.getColumn(this.ds_burial.rowposition,"행사코드");
+	
+	this.ds_in_saveChk.setColumn(nRow,"업무일자",checkDate);
+	this.ds_in_saveChk.setColumn(nRow,"행사코드",eventCd);
+	//this.ds_out_saveChk.setColumn(0,"오류코드","00 정상");
+	
+	this.fsp_clear();
+	this.fsp_addSearch(fv_fspGroup+"event:EVENT_N_6010000_CLOSE", false);
+	
+	// connect the server
+	this.fsp_callService(
+		""
+		,""
+		,"ds_in_saveChk=ds_in_saveChk" 		// inDs
+		,"ds_out_saveChk=ds_output" 		// outDs
+		,""                       			// args 
+		,"fn_afterSaveCheck"
+		,true
+	);
+}
+
+
+
+/**
+* 사원찾기버튼
+**/
+this.div_search_btn_sCode_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fn_empSeachPop("btn","S");
+;}
+
+/**
+* 의전팀장찾기버튼
+**/
+this.div_search_btn_sCode00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fn_empSeachPop("btn","B");
+};
+
+
+/**
+* 사원리셋버튼
+**/
+this.fn_empSeachReset = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	switch(obj.name){
+		case "btn_saCode":
+			this.div_search.form.edt_empNo.set_value("");
+			this.div_search.form.edt_empNm.set_value("");
+			break;
+		case "btn_saCode00":
+			this.div_search.form.edt_empNo00.set_value("");
+			this.div_search.form.edt_empNm00.set_value("");
+			break;
+	}
+};
+
+/**
+* 사원이름 입력후 엔터시
+**/
+this.fn_empSearchAutoPop = function(obj:nexacro.Edit,e:nexacro.KeyEventInfo)
+{
+	if (e.keycode != 13) return;
+	
+	this.ds_sawon.clearData();
+	this.ds_sawonInput.setColumn(0, "사원명", obj.value);
+	this.ds_sawonInput.setColumn(0, "재직구분",	"F");    //재직자만
+	
+	var TrId = "";
+	switch(obj.name){
+			case "edt_empNm":
+				TrId = "S";
+				break;
+			case "edt_empNm00":
+				TrId = "B";
+				break;
+	}
+	
+	this.fsp_clear();
+	this.fsp_addSearch(fv_fspGroup+"community:COM_P_EMP_LIST_S", false);
+	
+	// connect the server
+	this.fsp_callService(
+		""
+		, ""
+		, "ds_in_emp=ds_sawonInput"	// inDs
+		, "ds_sawon=ds_out_emp"	    // outDs
+		, ""				        // args 
+		, "fn_afterEmpSearch"
+		, true
+		, false
+		, false
+		, TrId
+	);
+}
+
+/**
+* 사원찾기팝업
+**/
+this.fn_empSeachPop = function(gbn, empGbn)
+{
+	var oArgs = {};
+	var pv_sReturnType, pv_selectType, pv_sawonNm;	
+	if (empGbn == "S"){
+		var empName = comSys.transNullToEmpty(this.div_search.form.edt_empNm.value);
+	}else if(empGbn == "B"){
+		var empName = comSys.transNullToEmpty(this.div_search.form.edt_empNm00.value);
+	}
+	if(gbn == "btn"){
+		oArgs = {
+			pv_sReturnType : "A"
+			,pv_selectType : "auto"
+			,pv_sawonNm : empName
+		};
+	}
+	comSys.openPopup("com::COM_P_0000008.xfdl", empGbn, oArgs, null, this, "fn_popupCallBack");
+}
+
+this.fn_popupCallBack = function(popupId, rtn)
+{
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	try{
+		aJson = JSON.parse(rtn);
+	}catch(ex){}
+	
+	var empName = comSys.transNullToEmpty(this.div_search.form.edt_empNm.value);
+	switch(popupId){
+		case "S":
+			empName = comSys.transNullToEmpty(this.div_search.form.edt_empNm.value);
+			break;
+		case "B":
+			empName = comSys.transNullToEmpty(this.div_search.form.edt_empNm00.value);
+			break;
+	}
+	
+	switch(popupId){
+		case "S":
+			this.div_search.form.edt_empNo.set_value(aJson[0]);
+			this.div_search.form.edt_empNm.set_value(aJson[1]);
+			break;
+		case "B":
+			this.div_search.form.edt_empNo00.set_value(aJson[0]);
+			this.div_search.form.edt_empNm00.set_value(aJson[1]);
+			break;
+	}
+};
+/*===============================================================================
+ * 4.CALLBACK 콜백 처리부분
+ *=============================================================================*/
+this.fn_afterSearch = function(ErrorCode, ErrorMsg, TrId)
+{ 
+	if(ErrorCode < 0) {
+		comSys.showMsg("E0001", "W", ["확인"]);
+	} else {
+		switch(TrId){
+			case "ds_burial":
+				if (this.ds_burial.getColumn(this.ds_burial.rowposition, "회원구분") == "개인") {
+					//생년월일
+					//changeBindItem.set_compid("div_Main.mae_dateOfBirth");
+					//changeBindItem.bind();
+					
+					this.Div00.form.Div00.form.edt_businessNum.set_value("");
+				//사업자,법인
+				} else {
+					//사업자번호
+					//changeBindItem.set_compid("div_Main.edt_businessNum");
+					//changeBindItem.bind();
+					
+					this.Div00.form.Div00.form.mae_dateOfBirth.set_value("");
+				}
+				
+				//계약구분이 즉발이면 상품변경 가능
+				if(this.ds_burial.getColumn(this.ds_burial.rowposition,"즉발행사구분") == "즉발"){
+					this.Div00.form.Div01.form.btn_03.set_enable(true);
+					this.Div00.form.Div01.form.edt_Cnm_sawon01.set_readonly(false);
+				} else {
+					this.Div00.form.Div01.form.btn_03.set_enable(false);
+					this.Div00.form.Div01.form.edt_Cnm_sawon01.set_readonly(true);
+				}
+				this.Div00.form.Div02.form.edt_Cnm_sawon08.setFocus();
+				//this.Div00.form.Div02.form.cbo_job04.set_index(0);
+				//this.Div00.form.Div02.form.cbo_area.set_index(0);
+				//this.Div00.form.Div02.form.cbo_useS.set_index(0);
+				break;
+			case "ds_list":
+			//조회건수
+				this.sta_gridListCnt.set_text(comSys.getGridRowCntText(this.ds_list));
+				break;
+		}
+	}
+};
+
+
+/**
+ * 조회 콜백
+ */
+this.fn_afterEmpSearch = function(ErrorCode, ErrorMsg, TrId)
+{
+	if(ErrorCode < 0){
+        comSys.showMsg("E0002","W",["조회"]);
+        return;
+    } // End of if
+	
+	if (this.ds_sawon.rowcount == 0) {
+	
+		comSys.showMsg("사원이 존재하지 않습니다.", "W", [""]);
+		
+	} else if (this.ds_sawon.rowcount > 1) {
+
+		this.fn_empSeachPop("btn",TrId);
+		
+	} else if (this.ds_sawon.rowcount == 1) {
+		
+		switch(TrId){
+			case "S":
+				this.div_search.form.edt_empNo.set_value(this.ds_sawon.getColumn(this.ds_sawon.rowposition, "사원코드"));
+				this.div_search.form.edt_empNm.set_value(this.ds_sawon.getColumn(this.ds_sawon.rowposition, "사원명"));
+				break;
+			case "B":
+				this.div_search.form.edt_empNo00.set_value(this.ds_sawon.getColumn(this.ds_sawon.rowposition, "사원코드"));
+				this.div_search.form.edt_empNm00.set_value(this.ds_sawon.getColumn(this.ds_sawon.rowposition, "사원명"));
+				break;
+		}
+	}
+}
+
+/**
+* 지역코드 콜백
+**/
+this.fn_afterSetArea = function(ErrorCode, ErrorMsg, TrId)
+{
+	if(ErrorCode < 0){
+        comSys.showMsg("E0002","W",["조회"]);
+        return;
+    } // End of if
+};
+// /**
+// * 의전지역 콜백
+// **/
+// this.fn_afterSelect = function(ErrorCode, ErrorMsg, TrId)
+// {
+// 	if(ErrorCode < 0){
+//         comSys.showMsg("E0002","W",["조회"]);
+//         return;
+//     } // End of if
+// };
+
+/**
+* 저장 조건 체크 콜백
+**/
+this.fn_afterSaveCheck = function(ErrorCode, ErrorMsg, TrId)
+{	 
+	if(ErrorCode < 0) {
+		comSys.showMsg("E0001", "W", ["확인"]);		
+	} else {
+		
+		var returnMsg = this.ds_out_saveChk.getColumn(this.ds_out_saveChk.rowposition, "오류코드");    //00 이면 정상
+		
+		if (Base.isEmpty(returnMsg) ) {
+			comSys.showMsg("등록불가 체크 중 에러 발생 - 전산실에 요청", "E", [""]);
+			return false;
+		}
+		
+		var errCode   = returnMsg.substr(0,2);
+		var errMsg    = returnMsg.substr(3);
+		
+		if (errCode != "00") {
+			
+			comSys.showMsg("오류코드 : "+errCode+"\n"+errMsg, "E", [""]);
+			return false;
+		}
+		
+		//저장
+		this.fn_dataSave("U");	
+	}
+};
+
+//문자발송 저장 콜백
+this.fn_afterSave = function(ErrorCode, ErrorMsg, TrId)
+{
+	if(ErrorCode < 0) {
+		comSys.showMsg("E0002", "W", ["저장"]);
+		newGbn = ""; //신규여부
+		
+	} else {
+		if(TrId == "sendSMS"){ // 부고알림문자발송 시
+			comSys.showMsg("부고알림문자발송이 완료되었습니다.","I");
+		}else{
+			comSys.showMsg("I0004", "I");
+		}
+		
+		this.ds_burial.clearData();	
+		this.fn_search();		
+	}
+};
+
+/**
+* 문자 재전송 콜백
+**/
+this.fn_afterReSend = function(ErrorCode, ErrorMsg, TrId){
+	if(ErrorCode < 0) {
+		comSys.showMsg("E0002", "W", ["문자전송"]);
+	} else {
+		comSys.showMsg("문자 재전송 완료.", "I");
+	}
+};
+
+/*===============================================================================
+ * 5.사용자 FUNCTION 영역
+ *=============================================================================*/
+/**
+ * 지역코드 셋팅
+ **/
+this.fn_setArea = function(){
+	
+	this.ds_input.clearData();
+	this.ds_input.addRow();
+	
+	this.fsp_clear();
+	this.fsp_addSearch(fv_fspGroup+"community:COMM_AREA_S", false);
+	
+	// connect the server
+	this.fsp_callService(
+		""
+		,""
+		,"ds_input=ds_input"	// inDs
+		,"ds_area=ds_output"	// outDs
+		,"Gbn=의전팀장"
+		,"fn_afterSetArea"
+		,true
+	);
+}
+
+// //장례조회
+// this.fn_getEventInfo = function()
+// {
+// 	var code = this.ds_list.getColumn(this.ds_list.rowposition,"행사코드");
+// 	this.ds_burial.clearData();
+// 	
+// 	this.fsp_clear();
+// 	this.fsp_addSearch("kwoo/event:EVENT_N_60100100_S_01", false);
+// 	
+// 	// connect the server 
+// 	this.fsp_callService(
+// 		""
+// 		,""
+// 		,""	// inDs
+// 		,"ds_burial=ds_output"	// outDs
+// 		,"MOD=상세조회 eventCD="+code
+// 		,"fn_afterSelect"
+// 		,true
+// 	);
+// }
+
+
+/**
+ * 저장 함수
+ **/
+this.fn_dataSave = function(gbn)
+{
+	var eventST = this.ds_burial.getColumn(this.ds_burial.rowposition,"행사상태");
+	if(eventST == "접수"){
+		this.ds_burial.setColumn(this.ds_burial.rowposition,"행사상태","진행");
+	}
+	
+	var progress = this.ds_burial.getColumn(this.ds_burial.rowposition, "상품매출");							//행사진행금액
+	var discount = nexacro.toNumber(this.ds_burial.getColumn(this.ds_burial.rowposition, "행사특별할인"),0);	//할인금액
+	var sales = progress - discount;
+
+	this.fsp_clear();
+	this.fsp_addSave(
+		  ""									// insert
+		, fv_fspGroup+"event:EVENT_N_60100100_"+gbn	// update
+		, ""									// delete
+		, ""									// flag column 명
+		, ""									// key sql id
+		, 0										// key 증가 값
+		, "" 
+		, 0 
+		, "N"									// 실행타입
+	);
+	
+	// 서버 호출 
+	this.fsp_callService(
+		""
+		,""
+		,"ds_input=ds_burial:U"		// inDs
+		,""							// outDs
+		,"sales="+sales				// args
+		,"fn_afterSave"
+		,false						//에러결과		true : 호출X, false : 호출o
+		,true						//처리중표시	true : 표시x, false : 표시o
+		,false						//동기비동기	true : 동기, false : 비동기
+	);
+}
+
+/**
+ * 공통 팝업창
+ */
+this.fn_eventPopupCom = function(gbn)
+{
+	var oArgs;
+	var sOption;
+	var path = "com::";
+	//팝업 파라미터 설정	
+	if (gbn == "행사상품조회")  {   //행사상품조회
+		var sOption = "autosize=false, width=500, height=550,modeless=false"; // 세로모드
+		var pCode = this.ds_burial.getColumn(this.ds_burial.rowposition,"상품코드");		
+		var yn = this.ds_burial.getColumn(this.ds_burial.rowposition,"즉발행사구분");		
+		oArgs = { sql:fv_fspGroup+"community:COMM_EVENT_PRODUCT_S", params:"eventGbn=장례 productCD="+pCode+" instant="+yn, viewCol:["장례상품코드","장례상품명:300"], returnType:"A", sTitle:"행사상품조회" };
+		//팝업 호출
+		comSys.openPopup(path+"COM_P_0000001.xfdl", "COM_P_0000001_01", oArgs, sOption, this, "fn_popupCallBack1");        
+	}else if (gbn == "창고지역조회")  {   //창고지역조회
+		var sOption = "autosize=false, width=500, height=550,modeless=false"; // 세로모드
+		var schDate = this.ds_burial.getColumn(this.ds_burial.rowposition, "행사시작일자");
+		oArgs = { sql:fv_fspGroup+"community:COMM_STORAGE_S", params:"use=Y inquiry="+schDate, viewCol:["창고지역명:170","창고지역상세명:200"], returnType:"A", sTitle:"창고조회" };
+		//팝업 호출
+		comSys.openPopup(path+"COM_P_0000001.xfdl", "COM_P_0000001_03", oArgs, sOption, this, "fn_popupCallBack3");        
+			
+	}
+ 
+}
+
+//공통 팝업창 콜백
+this.fn_popupCallBack1 = function(popupId, rtn)
+{
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	try{
+		aJson = JSON.parse(rtn);
+	}catch(ex){}
+	
+	switch(popupId){			
+		case "COM_P_0000001_01":
+			this.Div00.form.Div02.form.edt_productCode.set_value(aJson[0]); //상품코드
+			this.Div00.form.Div02.form.edt_productName.set_value(aJson[1]); //상품명
+			this.Div00.form.Div02.form.btn_13.setFocus(); //장례상품->장례장소
+			break;
+	}
+};
+
+//공통 팝업창 콜백
+this.fn_popupCallBack2 = function(popupId, rtn)
+{
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	try{
+		aJson = JSON.parse(rtn);
+	}catch(ex){}
+	
+	switch(popupId){			
+		case "COM_P_0000001_02":
+			
+			this.ds_burial.setColumn(this.ds_burial.rowposition,"장례식장코드",rtn[0]); 	//장례식장코드
+			this.ds_burial.setColumn(this.ds_burial.rowposition,"장례식장",rtn[1]); 		//장례식장명
+			this.Div00.form.Div02.form.edt_eventPlace00.setFocus(); 						//장례장소->발생장소
+			break;	
+	}
+};
+
+//공통 팝업창 콜백
+this.fn_popupCallBack3 = function(popupId, rtn)
+{
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	try{
+		aJson = JSON.parse(rtn);
+	}catch(ex){}
+	
+	switch(popupId){			
+		case "COM_P_0000001_03":
+		
+			this.ds_burial.setColumn(this.ds_burial.rowposition,"창고지역",this.gfn_decodeURI(rtn["창고지역"]));
+			this.ds_burial.setColumn(this.ds_burial.rowposition,"창고지역명",this.gfn_decodeURI(rtn["창고지역명"]));
+			this.ds_burial.setColumn(this.ds_burial.rowposition,"창고지역상세",this.gfn_decodeURI(rtn["창고지역상세"]));
+			this.ds_burial.setColumn(this.ds_burial.rowposition,"창고지역상세명",this.gfn_decodeURI(rtn["창고지역상세명"]));	
+			this.Div00.form.Div02.form.mae_time01.setFocus(); //창고지역->상황부여
+	}
+};
+
+
+/*
+ * 회원구분에 따른 바인딩 변경 (생년월일 or 사업자번호)
+ */
+this.fn_changeBind = function()
+{
+	//개인
+	if (this.ds_burial.getColumn(this.ds_burial.rowposition, "회원구분") == "개인") {
+		//생년월일
+	//	changeBindItem.set_compid("Div00.mae_dateOfBirth");
+		//changeBindItem.bind();		
+		this.Div00.form.Div00.form.edt_businessNum.set_value("");
+		//<BindItem id="changeBindItem" compid="div_Main.div_cust.mae_dateOfBirth" propid="value" datasetid="ds_cust" columnid="주민번호"/>
+	
+	//사업자,법인
+	} else {
+		//사업자번호
+		//changeBindItem.set_compid("Div00.edt_businessNum.");
+		//changeBindItem.bind();		
+		this.Div00.form.Div00.form.mae_dateOfBirth.set_value("");
+		//<BindItem id="changeBindItem" compid="div_Main.div_cust.edt_businessNum" propid="value" datasetid="ds_cust" columnid="주민번호"/>
+	}
+}
+
+this.setBurialInfo = function()
+{
+	var eventStatus = this.ds_burial.getColumn(this.ds_burial.rowposition,"행사상태");
+	// 부고알림 URL 설정
+	var eventCode = comSys.transNullToEmpty(this.ds_burial.getColumn(this.ds_burial.rowposition,"행사코드"));
+	this.Div00.form.Div02.form.edt_Cnm_sawon06.set_value(fv_bugoURL+eventCode);
+}
+
+/**
+ * 문자발송
+*/
+this.fn_sendMsg = function(gbn){
+	
+	this.ds_in_sms.clearData(); // 초기화
+	var nRow = this.ds_in_sms.addRow();
+	this.ds_in_sms.setColumn(nRow,"문자코드","부고");
+	this.ds_in_sms.setColumn(nRow,"Param1",this.ds_burial.getColumn(this.ds_burial.rowposition,"고인명"));
+	this.ds_in_sms.setColumn(nRow,"착신번호",this.ds_burial.getColumn(this.ds_burial.rowposition,"상주연락처"));
+	this.ds_in_sms.setColumn(nRow,"문자형태","3");
+	this.ds_in_sms.setColumn(nRow,"문자제목","[부고알림]");
+	this.ds_in_sms.setColumn(nRow,"계약상세코드",this.ds_burial.getColumn(this.ds_burial.rowposition,"행사코드"));
+	this.ds_in_sms.setColumn(nRow,"회신번호","18003535");
+	this.ds_in_sms.setColumn(nRow,"전송구분","부고알림");
+	
+	this.fsp_clear();
+	this.fsp_addSave(
+		fv_fspGroup+"event:EVENT_BUGO_SMS"	// insert
+		, ""						// update
+		, ""						// delete
+		, ""						// flag column 명
+		, ""						// key sql id
+		, 0							// key 증가 값
+		, "" 
+		, 0 
+		, "N"						// 실행타입
+	);
+	
+	// 서버 호출 
+	this.fsp_callService(
+		""
+		,""
+		,"ds_in_sms=ds_in_sms:U"	// inDs
+		,""	// outDs
+		,""// args 
+		,"fn_afterSave"
+		,true
+		,false
+		,false
+		,"sendSMS"
+	);
+}
+
+/*********************** 엔터키로 포커스 이동 공통함수 시작**********************/
+this.fn_moveNext = function(nEvent, nNextObj) {
+	if (nEvent == 13) { //엔터
+		nNextObj.setFocus();
+	}
+}
+
+//감독관 팝업
+this.fn_supervisor = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	if(this.ds_burial.rowcount == 0) {
+		comSys.showMsg("행사를 선택해 주시기 바랍니다.","W");
+		return;
+	}
+	
+	if (obj.name == "btn_04_00"){
+		var oArgs, returnType;
+		oArgs = {
+					returnType  : "A"
+				};
+		//팝업 호출
+		comSys.openPopup("com::COM_P_0000033.xfdl", "COM_P_0000033", oArgs, null, this, "fn_popupCallBack16");
+	}else if (obj.name == "btn_05_00"){
+		this.Div00.form.Div02.form.edt_jidosaNo00.set_value("");
+		this.Div00.form.Div02.form.edt_jidosaNm00.set_value("");
+	}
+};
+
+//감독관 팝업 콜백
+this.fn_popupCallBack16 = function(popupId, rtn)
+{
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	
+	try{
+		aJson = JSON.parse(rtn);
+	} catch(ex){}
+	
+	this.Div00.form.Div02.form.edt_jidosaNo00.set_value(aJson[0]);
+	this.Div00.form.Div02.form.edt_jidosaNm00.set_value(aJson[1]);
+}
+
+/**
+ * 행사취소 버튼 이벤트
+ */
+this.btn_cancel = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var cancelGbn 	= this.ds_burial.getColumn(this.ds_burial.rowposition,"취소구분");
+	var cancelDt 	= this.ds_burial.getColumn(this.ds_burial.rowposition,"취소상세");
+	
+	if(Base.isEmpty(cancelGbn)){
+		comSys.showMsg("취소구분을 입력하세요.", "I");
+		return;
+	}
+	
+	if(Base.isEmpty(cancelDt)){
+		comSys.showMsg("취소상세구분을 입력하세요." ,"I");
+		return;
+	}
+	
+	if(!comSys.showMsg("장례를 취소하시겠습니까?","Q")) return;
+	
+	//행사취소
+	this.fn_dataSave("D");
+};
+
+/**
+* 의전팀장 찾기
+**/
+this.btn_busiPopup = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{	
+	var areaCd = comSys.transNullToEmpty(this.Div00.form.Div02.form.cbo_area.value);
+	
+	if(Base.isEmpty(areaCd)){
+		comSys.showMsg("의전지역을 선택하세요.","I");
+		this.Div00.form.Div02.form.cbo_area.setFocus();
+		return;
+	}		
+	
+	var oArgs = {
+					pv_areaCd:areaCd
+					,returnType:"P"
+				};
+	var sOption = "";
+	
+	comSys.openPopup("com::COM_P_0000021.xfdl", "COM_P_0000021", oArgs, sOption, this, function(popGbn, sArg) {
+
+		var aJson;
+
+		try{
+			aJson = JSON.parse(decodeURIComponent(sArg));
+		}catch(ex){}
+		
+// 		trace("========================");
+// 		for(var val in aJson){ trace(val+" : "+aJson[val]);}
+// 		trace("========================");
+		
+		// 팝업 후 처리
+		if(!Base.isEmpty(aJson)) {
+			var cRow = this.ds_burial.rowposition;
+			this.ds_burial.setColumn(cRow,"지도사코드",this.gfn_decodeURI(aJson["실제사원코드"]));
+			this.ds_burial.setColumn(cRow,"지도사명",this.gfn_decodeURI(aJson["사원명"])); 
+			
+			this.Div00.form.Div02.form.edt_org02.set_value(this.gfn_decodeURI(aJson["지점명"]) +" > "+ this.gfn_decodeURI(aJson["팀명"]));
+				
+			this.ds_burial.setColumn(cRow,"지도사자격코드",this.gfn_decodeURI(aJson["자격코드"]));
+			this.ds_burial.setColumn(cRow,"지도사상세분류",this.gfn_decodeURI(aJson["상세분류"]));
+			this.ds_burial.setColumn(cRow,"지도사휴대폰",this.gfn_decodeURI(aJson["휴대폰"]));
+			
+			this.ds_burial.setColumn(cRow,"지역",this.gfn_decodeURI(aJson["권역코드"]));
+// 			this.ds_burial.setColumn(cRow,"창고지역",this.gfn_decodeURI(aJson[12]));
+// 			this.ds_burial.setColumn(cRow,"창고지역명",this.gfn_decodeURI(aJson[13]));
+// 			this.ds_burial.setColumn(cRow,"창고지역상세",this.gfn_decodeURI(aJson[14]));
+// 			this.ds_burial.setColumn(cRow,"창고지역상세명",this.gfn_decodeURI(aJson[15]));
+			this.ds_burial.setColumn(cRow,"외주구분",this.gfn_decodeURI(aJson["외주구분"]));
+			this.Div00.form.Div02.form.btn_stgSch.setFocus();
+		}
+	});	
+}
+// 
+// this.fn_popupCallBack7 = function(popupId, rtn)
+// {
+// 	var aJson;
+// 	if(Base.isEmpty(rtn)) return;
+// 	
+// 	try{
+// 		aJson = JSON.parse(rtn);
+// 	} catch(ex){}
+// 	
+// 	var cRow = this.ds_burial.rowposition;
+// 	this.ds_burial.setColumn(cRow,"지도사코드",this.gfn_decodeURI(aJson[0]));
+// 	this.ds_burial.setColumn(cRow,"지도사명",this.gfn_decodeURI(aJson[1]));
+// 		
+// 	if(aJson[5] == ""){
+// 		this.Div00.form.Div02.form.edt_org02.set_value(this.gfn_decodeURI(aJson[5]) +" > "+ this.gfn_decodeURI(aJson[6]));
+// 	}else{
+// 		this.Div00.form.Div02.form.edt_org02.set_value(this.gfn_decodeURI(aJson[5]) +" > "+ this.gfn_decodeURI(aJson[6]));
+// 	}
+// 		
+// 	this.ds_burial.setColumn(this.ds_burial.rowposition,"지도사자격코드",this.gfn_decodeURI(aJson[3]));
+// 	this.ds_burial.setColumn(this.ds_burial.rowposition,"지도사상세분류",this.gfn_decodeURI(aJson[24]));
+// 	this.ds_burial.setColumn(this.ds_burial.rowposition,"지도사휴대폰",this.gfn_decodeURI(aJson[4]));
+// 	
+// 	this.ds_burial.setColumn(this.ds_burial.rowposition,"지역",this.gfn_decodeURI(aJson[10]));
+// 	this.ds_burial.setColumn(this.ds_burial.rowposition,"창고지역",this.gfn_decodeURI(aJson[12]));
+// 	this.ds_burial.setColumn(this.ds_burial.rowposition,"창고지역명",this.gfn_decodeURI(aJson[13]));
+// 	this.ds_burial.setColumn(this.ds_burial.rowposition,"창고지역상세",this.gfn_decodeURI(aJson[14]));
+// 	this.ds_burial.setColumn(this.ds_burial.rowposition,"창고지역상세명",this.gfn_decodeURI(aJson[15]));
+// 	this.ds_burial.setColumn(this.ds_burial.rowposition,"외주구분",this.gfn_decodeURI(aJson[20]));
+// 	this.Div00.form.Div02.form.btn_stgSch.setFocus();
+// };
+
+
+/**
+ *비고팝업
+ **/
+this.fn_bigo = function(obj:nexacro.Static,e:nexacro.ClickEventInfo)
+{
+	/* 비고 */
+	if(obj.name == "btn_16"){
+		this.gfn_editExpand(obj.text, this.Div00.form.Div02.form.txt_bigo.value, "", "", "", "fn_popupCallBack8");    //타이틀명, 보여줄 내용
+	
+	/* 취소내용 */
+	}else if(obj.name == "btn_17"){
+		this.gfn_editExpand(obj.text, this.Div00.form.Div04.form.txt_cancelDesc.value, "", "", "", "fn_popupCallBack9");    //타이틀명, 보여줄 내용
+	}
+};
+
+//비고 팝업콜백
+this.fn_popupCallBack8 = function(popupId, rtn)
+{
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	
+	try{
+		aJson = JSON.parse(rtn);
+	} catch(ex){}
+	this.Div00.form.Div02.form.txt_bigo.set_value(aJson[0]);
+};
+
+//취소내용 팝업콜백
+this.fn_popupCallBack9 = function(popupId, rtn)
+{
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	
+	try{
+		aJson = JSON.parse(rtn);
+	} catch(ex){}
+	this.Div00.form.Div04.form.txt_cancelDesc.set_value(aJson[0]);
+};
+
+// /**
+// * 시간입력제한
+// **/
+// function fn_time_check(obj:MaskEdit,  e:CharEventInfo)
+// {
+// 	if(parseInt(e.posttext.substr(0,1)) > 2 || parseInt(e.posttext.substr(0,2)) > 23 || parseInt(e.posttext.substr(2,1)) > 5){
+// 		return false;
+// 	}
+// }
+
+/**
+ * 팝업
+ **/
+this.btn_openPopup = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	if (obj.name == "btn_03") {				//행사상품조회
+		this.fn_eventPopupCom("행사상품조회");
+	}else if(obj.name == "btn_13"){	// 장례식장 조회
+		this.fn_funeralHallSearch() ; 
+	}else if (obj.name == "btn_stgSch"){ // 창고지역 조회
+		alert("업무정의안된 기능입니다.")
+		this.fn_eventPopupCom("창고지역조회");
+	}
+};
+
+/**
+* 장례식장 찾기
+**/
+this.fn_funeralHallSearch = function()
+{
+	var sOption = "autosize=false, width=850, height=550,modeless=false"; // 세로모드
+	var nm = comSys.transNullToEmpty(this.Div00.form.Div02.form.edt_eventPlace.value);
+	var oArgs = { sql:fv_fspGroup+"community:COMM_FUNERAL_S", params:"funeralNM="+nm+" phone="+nm, viewCol:["장례식장코드:90","장례식장명:170","전화번호:100","특이사항:400","장례식장주소:400"], returnType:"A", sTitle:"장례식장조회" };
+	
+	comSys.openPopup("com::COM_P_0000001.xfdl", "COM_P_0000001_04", oArgs, sOption, this, "fn_popupCallBack5");
+}
+
+//장례식장 찾기 팝업 콜백
+this.fn_popupCallBack5 = function(popupId, rtn)
+{
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	
+	try{
+		aJson = JSON.parse(rtn);
+	} catch(ex){}
+	
+	var cRow = this.ds_burial.rowposition;
+	this.ds_burial.setColumn(cRow, "장례식장코드", aJson[0]);
+	this.ds_burial.setColumn(cRow, "장례식장", aJson[1]);
+	this.ds_burial.setColumn(cRow, "장례식장주소", aJson[4]);
+	this.Div00.form.Div02.form.edt_eventPlace00.setFocus();
+}
+
+
+this.fn_empClear = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	switch(obj.name){
+		case "btn_05":
+			this.ds_burial.setColumn(this.ds_burial.rowposition,"지도사코드","");
+			this.ds_burial.setColumn(this.ds_burial.rowposition,"지도사명","");
+			this.ds_burial.setColumn(this.ds_burial.rowposition,"지도사조직","");
+			this.ds_burial.setColumn(this.ds_burial.rowposition,"지도사자격코드","");
+			break;
+		case "btn_07":
+			this.ds_burial.setColumn(this.ds_burial.rowposition,"상례사코드","");
+			this.ds_burial.setColumn(this.ds_burial.rowposition,"상례사명","");
+			this.ds_burial.setColumn(this.ds_burial.rowposition,"상례사조직","");
+			this.ds_burial.setColumn(this.ds_burial.rowposition,"상례사자격코드","");
+			break;
+	}
+}
+
+
+/**
+* 협력업체
+**/
+this.btn_account_pop = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var colNm = "";
+	var btnObj;
+	var event = this.ds_list.getColumn(this.ds_list.rowposition, "회원코드");
+	
+	switch(obj.name){
+		case "btn_carS":
+			colNm = "차량";
+			break;
+		case "btn_flowerS":
+			colNm = "화환";
+			break;
+		case "btn_clothesS":
+			colNm = "상복";
+			break;
+		case "btn_jangjiS":
+			colNm = "장지";
+			break;
+		case "btn_hamS":
+			colNm = "유골함";
+			break;
+	}
+	
+	var oArgs = { sql:fv_fspGroup+"system:SYS_N_90300100_S", params:"classification=장례 transaction=정상거래 헙력업체="+colNm, viewCol:["거래처코드:90","거래처명:170"], returnType:"A", sTitle:"거래처조회" };
+	//var sOption = "autosize=false, width=400, height=400";
+	
+	comSys.openPopup("com::COM_P_0000001.xfdl", colNm, oArgs, null, this, "fn_popupCallBack6");
+}
+
+this.fn_popupCallBack6 = function(popupId, rtn)
+{
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	
+	try{
+		aJson = JSON.parse(rtn);
+	} catch(ex){}
+		
+	switch(popupId){
+		case "차량":
+			colNm = "차량";
+			break;
+		case "화환":
+			colNm = "화환";
+			break;
+		case "상복":
+			colNm = "상복";
+			break;
+		case "장지":
+			colNm = "장지";
+			break;
+		case "유골함":
+			colNm = "유골함";
+			break;
+	}
+	
+	var cRow = this.ds_burial.rowposition;
+	this.ds_burial.setColumn(cRow, "협력업체_"+popupId, this.gfn_decodeURI(aJson[0]));
+	this.ds_burial.setColumn(cRow, "협력업체_"+popupId+"명", this.gfn_decodeURI(aJson[1]));
+	if(popupId == "유골함") return;
+}
+
+
+/**
+*  도우미 팝업
+**/
+
+this.btn_helperOrg_pop = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var oArgs = { sql:fv_fspGroup+"community:COMM_AREA_DT_S", params:"work=복지사", viewCol:["창고지역상세코드:110","창고지역상세명:170"], returnType:"P", sTitle:"도우미 팀조회" };
+	comSys.openPopup("com::COM_P_0000001.xfdl", "COM_P_0000001_06", oArgs, null, this, "fn_popupCallBack12");
+}
+
+this.fn_popupCallBack12 = function(popupId, rtn)
+{
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	
+	try{
+		aJson = JSON.parse(rtn);
+	} catch(ex){}
+	
+	var cRow = this.ds_burial.rowposition;
+	this.ds_burial.setColumn(cRow, "협력업체_도우미", this.gfn_decodeURI(rtn["창고지역상세코드"]));
+	this.ds_burial.setColumn(cRow, "협력업체_도우미명", this.gfn_decodeURI(rtn["창고지역상세명"]));
+}
+
+/**
+* 협력업체 지우개
+**/
+this.btn_account_delete = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var colNm = "";
+	switch(obj.name){
+		case "btn_carD":
+			colNm = "차량";
+			break;
+		case "btn_flowerD":
+			colNm = "화환";
+			break;
+		case "btn_clothesD":
+			colNm = "상복";
+			break;
+		case "btn_helperD":
+			colNm = "도우미";
+			break;
+		case "btn_jangjiD":
+			colNm = "장지";
+			break;
+		case "btn_hamD":
+			colNm = "유골함";
+			break;
+	}
+	var cRow = this.ds_burial.rowposition;
+	this.ds_burial.setColumn(cRow, "협력업체_"+colNm, "");
+	this.ds_burial.setColumn(cRow, "협력업체_"+colNm+"명", "");
+}
+
+/**
+* 문자 재전송
+**/
+this.fn_reSnsSend = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+// 	if(!comSys.showMsg("행사접수시 전송된 문자가 재전송됩니다. 전송하시겠습니까?","Q")) return;
+// 	
+// 	var eventCd = ds_burial.getColumn(ds_burial.rowposition,"행사코드");
+// 	
+// 	ds_in_send.clearData();
+// 	var nRow = ds_in_send.addRow();
+// 	ds_in_send.setColumn(nRow,"행사코드",eventCd);
+// 	
+// 	fsp_clear();
+// 	fsp_addMulti("event:EVENT_N_60100100_RESEND", "", 0, "", "N");
+// 	
+// 	// 서버 호출 
+// 	fsp_callService(
+// 		""
+// 		,""
+// 		,"ds_in_send=ds_in_send"	// inDs
+// 		,""	// outDs
+// 		,""// args 
+// 		,"fn_afterReSend"
+// 		,false
+// 	);
+	
+	if(Base.isEmpty(this.ds_burial.getColumn(this.ds_burial.rowposition,"행사코드"))){
+		comSys.showMsg("행사를 선택해 주시기 바랍니다.","W");
+		return;
+	}
+
+	var eventCd = this.ds_list.getColumn(this.ds_list.rowposition,"행사코드");
+	var oArgs  = {
+					pv_eventCd : eventCd
+				};
+	comSys.openPopup("com::COM_P_0000025.xfdl", "COM_P_0000025", oArgs, null, this, "fn_popupCallBack13");
+}
+
+//상품 팝업 콜백
+this.fn_popupCallBack15 = function(popupId, rtn)
+{
+	var aJson;
+	if(Base.isEmpty(rtn)) return;
+	
+	try{
+		aJson = JSON.parse(rtn);
+	} catch(ex){}
+	
+	// pop-up return 값 처리
+	this.ds_burial.setColumn(this.ds_burial.rowposition, "상품코드", aJson[0]);
+ 	this.ds_burial.setColumn(this.ds_burial.rowposition, "계약상품명", this.gfn_decodeURI(aJson[1]));
+}
+/*===============================================================================
+ * 6.각 COMPONENT 별 EVENT 영역
+ *=============================================================================*/
+/**
+* 장례식장 엔터시
+**/
+this.edt_funeralHall_onkeyup = function(obj:nexacro.Edit,e:nexacro.KeyEventInfo)
+{
+	if(e.keycode != 13) return;
+	this.fn_funeralHallSearch();
+}
+
+this.ds_burial_onrowposchanged = function(obj:nexacro.NormalDataset,e:nexacro.DSRowPosChangeEventInfo)
+{
+	this.fn_changeBind(); //생년월일 or 사업자번호 바인딩
+	this.setBurialInfo();
+}
+
+this.ds_burial_cancolumnchange = function(obj:nexacro.NormalDataset,e:nexacro.DSColChangeEventInfo)
+{
+	if(e.columnid == "행사시작일자"){
+		var endDate = this.ds_burial.getColumn(e.row,"행사종료일자");
+		if(Base.isEmpty(endDate)) return;
+		
+		if(e.newvalue > endDate){
+			comSys.showMsg("시작일자는 종료일자보다 작아야합니다.","I");
+			return false;
+		}
+	}
+	else if(e.columnid == "행사종료일자"){
+		var startDate = this.ds_burial.getColumn(e.row,"행사시작일자");
+		if(Base.isEmpty(startDate)) return;
+		
+		if(e.newvalue < startDate){
+			comSys.showMsg("종료일자는 시작일자보다 커야합니다.","I");
+			return false;
+		}
+	}else if(e.columnid == "입관일자"){
+		var startDate = this.ds_burial.getColumn(e.row,"행사시작일자");
+		var endDate = this.ds_burial.getColumn(e.row,"행사종료일자");
+		if(Base.isEmpty(startDate) || Base.isEmpty(endDate)) return;
+		
+		if(e.newvalue < startDate){
+			comSys.showMsg("입관일자는 시작일자보다 커야합니다.", "I");
+			return false;
+		}
+		
+		if(e.newvalue > endDate){
+			comSys.showMsg("입관일자는 종료일자보다 작아야합니다.","I");
+			return false;
+		}
+		
+	}
+	
+}
+//장례정산
+this.btn_02_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var yn = this.ds_burial.getColumn(this.ds_burial.rowposition,"행사상태");
+	if(this.ds_burial.rowposition < 0){
+		comSys.showMsg("정산할 장례를 선택하세요.", "I");
+		return;
+	}
+	
+	if(yn == "접수"){
+		comSys.showMsg("행사 등록 후 정산이 가능합니다.", "I");
+		return;
+	}
+	
+	var eventCode = this.ds_burial.getColumn(this.ds_burial.rowposition,"행사코드");
+	var oArgs = {
+					pv_eventCode:eventCode
+				};
+	this.gfn_openMenu("MN60100350",oArgs);
+}
+
+/**
+ * 납입내역서 출력 버튼 function
+ */
+this.Div00_Div01_btn_payment_onclick = function(obj:nexacro.Button,e:nexacro.CliㅊckEventInfo)
+{
+	var cntrCD = this.ds_burial.getColumn(this.ds_burial.rowposition,"계약코드");
+
+	var oArgs = {
+					popJrfName:"계약_납입내역서" // 레포트명
+					,popArgs:"#cntrCD#"+cntrCD+"#login#"+loginInfo+"#" // 파라미터
+					,popDataList:null
+				}; // 데이터셋(Array)
+	
+	//팝업 호출
+	comSys.openPopup("com::COM_P_0000006.xfdl", "COM_P_0000006", oArgs, null, this, "fn_popupCallBack10");
+};
+
+/**
+ * 상담내역서 출력 버튼 function
+ */
+this.Div00_Div01_btn_advice_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var cntrCD = this.ds_burial.getColumn(this.ds_burial.rowposition,"계약코드");
+
+	var oArgs = {
+					popJrfName:"계약_상담내역서" // 레포트명
+					,popArgs:"#cntrCD#"+cntrCD+"#login#"+loginInfo+"#" // 파라미터
+					,popDataList:null
+				}; // 데이터셋(Array)
+				
+	//팝업 호출
+	comSys.openPopup("com::COM_P_0000006.xfdl", "COM_P_0000006", oArgs, null, this, "fn_popupCallBack11");
+}
+
+// 부고알림문자전송
+this.Div00_Div02_btn_14_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var	eventCondition = this.ds_burial.getColumn(0,"행사상태");
+	var sangjuHp = this.Div00.form.Div02.form.edt_sangjuHp.value;
+	if(Base.isEmpty(this.ds_burial.getColumn(this.ds_burial.rowposition,"행사코드")))
+	{
+		comSys.showMsg("행사를 선택해 주시기 바랍니다.","W");
+		return;
+	}
+	
+	//행사상태 완료면 문자 발송 막기
+	if(!(eventCondition == "진행" || eventCondition == "접수")){
+		comSys.showMsg("행사가 종료되어 문자발송을 할수없습니다.", "I");
+		return;
+	}
+	
+	//상주 입력 체크  2024.03.27 조하영
+	if (sangjuHp == ""){
+		comSys.showMsg("상주연락처를 입력해주세요.","W");
+		this.Div00.form.Div02.form.edt_sangjuHp.setFocus();
+		return;
+	}
+	
+	if(comSys.showMsg("부고알림문자전송 하시겠습니까?","Q")){
+		this.fn_sendMsg("부고알림");
+	}
+}
+
+//조회시엔터
+this.fn_search_onkeyup = function(obj:nexacro.Edit,e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == "13") {
+		this.fn_search();
+		obj.setFocus();
+	}
+}
+
+/**
+* URL 확인
+**/
+this.Div00_Div02_btn_bugoChk_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	if(Base.isEmpty(this.ds_burial.getColumn(this.ds_burial.rowposition,"행사코드")))
+	{
+		comSys.showMsg("행사를 선택해 주시기 바랍니다.","W");
+		return;
+	}
+	system.execBrowser(this.Div00.form.Div02.form.edt_Cnm_sawon06.value);
+}
+
+
+/**
+* 제공내역
+**/
+this.Div00_Div01_btn_itemL_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	if(this.ds_burial.rowcount == 0) {
+		comSys.showMsg("행사를 선택해 주시기 바랍니다.","W");
+		return;
+	}
+	
+	var imgPath	= comSys.transNullToEmpty(this.ds_burial.getColumn(this.ds_burial.rowposition, "상품이미지경로"));
+	trace("imgPath==" + imgPath);
+	var oArgs = {
+					pv_title		: "상품정보"
+					,pv_img			: imgPath
+					,pv_pathF		: nexacro.getEnvironment().services["FileService"].url+"Goods"+"/"
+					,pv_uploadYN	: "N"
+					,pv_deepth 		: "/Goods"
+				};
+	
+	comSys.openPopup("com::COM_P_0000011.xfdl", "COM_P_0000011", oArgs, null, this, "");
+};
+
+// function Div00_edt_eventPlace_ontextchange(obj:Edit,  e:TextChangeEventInfo)
+// {
+// 	this.ds_burial.setColumn(this.ds_burial.rowposition,"장례식장코드","");
+// }
+
+this.Div00_Div02_cbo_jangjiGbn_ondropdown = function(obj:nexacro.Combo,e:nexacro.EventInfo)
+{
+	this.ds_20102.filter("구분1 == 'Y'");
+};
+
+this.Div00_Div02_cbo_jangjiGbn_oncloseup = function(obj:nexacro.Combo,e:nexacro.ComboCloseUpEventInfo)
+{
+	this.ds_20102.filter("");
+}
+
+this.ds_list_onrowsetchanged = function(obj:nexacro.NormalDataset,e:nexacro.DSRowsetChangeEventInfo)
+{
+	//this.fn_dataSearch("상세조회","ds_burial");
+	if(e.reason != Dataset.REASON_FILTER) return;
+		//조회건수
+	this.sta_gridListCnt.set_text(comSys.getGridRowCntText(this.ds_list));
+}
+
+
+//상품 팝업
+this.Div00_Div01_btn_03_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var oArgs;
+	var sOption, returnType;
+
+	var goods_cd = this.Div00.form.Div01.form.edt_Cnm_sawon01.value;
+	if(Base.isEmpty(goods_cd))
+	{
+		goods_cd ="";
+	}
+	oArgs = {
+				returnType  : "A"
+				,pProductCd : goods_cd
+			};
+	
+	comSys.openPopup("Contract::CNTR_P_40000340.xfdl", "CNTR_P_40000340", oArgs, null, this, "fn_popupCallBack15");
+};
+
+this.Div00_Div01_edt_Cnm_sawon01_onkeyup = function(obj:nexacro.Edit,e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == "13") {
+		var oArgs;
+		var sOption, returnType;;
+		
+		var goods_cd = this.Div00.form.Div01.form.edt_Cnm_sawon01.value;
+		if(Base.isEmpty(goods_cd))
+		{
+			goods_cd = "";
+		}
+		oArgs = {
+					returnType  : "A"
+					,pProductCd : goods_cd 
+				};
+		//팝업 호출
+		comSys.openPopup("Contract::CNTR_P_40000340.xfdl", "CNTR_P_40000340", oArgs, null, this, "fn_popupCallBack15");
+	}
+}
+
+this.btn_upload02_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	if (this.ds_list.rowposition == -1){
+		comSys.showMsg("I0011","I");
+		return;
+	}
+	if(comSys.showMsg(" 엑셀내려받기 작업을 진행하시겠습니까?","Q")){ 
+		this.gfn_exportExcel(this.exGrid02,"장례리스트");
+   }
+};
+
+//장례식장 값이 변경될때 코드 값 초기화
+this.Div00_Div02_edt_eventPlace_oninput = function(obj:nexacro.Edit,e:nexacro.InputEventInfo)
+{
+	this.Div00.form.Div02.form.edt_eventPlace01.set_value("");
+	this.Div00.form.Div02.form.edt_eventPlace02.set_value("");
+};
+]]></Script>
+    <Objects>
+      <Dataset id="ds_status">
+        <ColumnInfo>
+          <Column id="CD_CODE" type="STRING" size="256"/>
+          <Column id="NM_CODE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_cancelGbn">
+        <ColumnInfo>
+          <Column id="CD_CODE" type="STRING" size="256"/>
+          <Column id="NM_CODE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_cancelDetail">
+        <ColumnInfo>
+          <Column id="CD_CODE" type="STRING" size="256"/>
+          <Column id="NM_CODE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_area">
+        <ColumnInfo>
+          <Column id="관리지역코드" type="STRING" size="256"/>
+          <Column id="관리지역명" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_burial" onrowposchanged="ds_burial_onrowposchanged" cancolumnchange="ds_burial_cancolumnchange">
+        <ColumnInfo>
+          <Column id="라인번호" type="STRING" size="256"/>
+          <Column id="회원코드" type="STRING" size="15"/>
+          <Column id="회원명" type="STRING" size="100"/>
+          <Column id="회원구분" type="STRING" size="20"/>
+          <Column id="회원상세구분" type="STRING" size="1"/>
+          <Column id="휴대폰" type="STRING" size="20"/>
+          <Column id="주민번호" type="STRING" size="13"/>
+          <Column id="성별" type="STRING" size="5"/>
+          <Column id="계약자명" type="STRING" size="50"/>
+          <Column id="계약자휴대폰" type="STRING" size="20"/>
+          <Column id="계약자전화번호" type="STRING" size="20"/>
+          <Column id="계약자주민번호" type="STRING" size="20"/>
+          <Column id="계약자성별" type="STRING" size="5"/>
+          <Column id="계약코드" type="STRING" size="15"/>
+          <Column id="계약상세코드" type="STRING" size="15"/>
+          <Column id="계약일자" type="STRING" size="10"/>
+          <Column id="계약상태" type="STRING" size="20"/>
+          <Column id="계약회차" type="STRING" size="11"/>
+          <Column id="납입방법" type="STRING" size="10"/>
+          <Column id="납입회차" type="STRING" size="20"/>
+          <Column id="납입금액" type="STRING" size="20"/>
+          <Column id="잔여회차" type="STRING" size="20"/>
+          <Column id="잔여금액" type="STRING" size="20"/>
+          <Column id="상품총액" type="STRING" size="21"/>
+          <Column id="상품매출" type="STRING" size="25"/>
+          <Column id="할인정책" type="STRING" size="1"/>
+          <Column id="할인회차" type="STRING" size="11"/>
+          <Column id="할인금액" type="STRING" size="24"/>
+          <Column id="행사특별할인" type="STRING" size="256"/>
+          <Column id="상품코드" type="STRING" size="10"/>
+          <Column id="계약상품명" type="STRING" size="50"/>
+          <Column id="접수일자" type="STRING" size="10"/>
+          <Column id="소속부서" type="STRING" size="100"/>
+          <Column id="모집사원코드" type="STRING" size="15"/>
+          <Column id="모집사원명" type="STRING" size="50"/>
+          <Column id="모집사원휴대폰" type="STRING" size="20"/>
+          <Column id="모집사원조직" type="STRING" size="409"/>
+          <Column id="수금사원코드" type="STRING" size="15"/>
+          <Column id="수금사원명" type="STRING" size="50"/>
+          <Column id="수금사원휴대폰" type="STRING" size="20"/>
+          <Column id="수금사원조직" type="STRING" size="409"/>
+          <Column id="행사코드" type="STRING" size="15"/>
+          <Column id="행사상태" type="STRING" size="20"/>
+          <Column id="외주구분" type="STRING" size="10"/>
+          <Column id="지역" type="STRING" size="10"/>
+          <Column id="지역명" type="STRING" size="256"/>
+          <Column id="창고지역" type="STRING" size="10"/>
+          <Column id="창고지역명" type="STRING" size="50"/>
+          <Column id="창고지역상세" type="STRING" size="10"/>
+          <Column id="창고지역상세명" type="STRING" size="50"/>
+          <Column id="행사시작일자" type="STRING" size="12"/>
+          <Column id="행사시작시간" type="STRING" size="5"/>
+          <Column id="행사종료일자" type="STRING" size="12"/>
+          <Column id="행사종료시간" type="STRING" size="5"/>
+          <Column id="입관일자" type="STRING" size="12"/>
+          <Column id="입관시간" type="STRING" size="10"/>
+          <Column id="발인일자" type="STRING" size="12"/>
+          <Column id="발인시간" type="STRING" size="10"/>
+          <Column id="고인명" type="STRING" size="50"/>
+          <Column id="상주명" type="STRING" size="50"/>
+          <Column id="상주연락처" type="STRING" size="20"/>
+          <Column id="장례식장코드" type="STRING" size="5"/>
+          <Column id="장례식장" type="STRING" size="200"/>
+          <Column id="장례식장주소" type="STRING" size="256"/>
+          <Column id="운구여부" type="STRING" size="2"/>
+          <Column id="장법" type="STRING" size="10"/>
+          <Column id="장지1차" type="STRING" size="1000"/>
+          <Column id="장지2차" type="STRING" size="100"/>
+          <Column id="특이사항" type="STRING" size="10000"/>
+          <Column id="비고" type="STRING" size="2000"/>
+          <Column id="취소구분" type="STRING" size="20"/>
+          <Column id="취소상세" type="STRING" size="50"/>
+          <Column id="취소내용" type="STRING" size="50"/>
+          <Column id="즉발행사구분" type="STRING" size="20"/>
+          <Column id="행사상품코드" type="STRING" size="10"/>
+          <Column id="행사상품명" type="STRING" size="50"/>
+          <Column id="종교" type="STRING" size="20"/>
+          <Column id="지도사SEQ" type="STRING" size="20"/>
+          <Column id="지도사코드" type="STRING" size="15"/>
+          <Column id="지도사명" type="STRING" size="100"/>
+          <Column id="지도사휴대폰" type="STRING" size="20"/>
+          <Column id="지도사조직" type="STRING" size="100"/>
+          <Column id="지도사자격코드" type="STRING" size="20"/>
+          <Column id="지도사상세분류" type="STRING" size="20"/>
+          <Column id="발생장소" type="STRING" size="100"/>
+          <Column id="관계" type="STRING" size="20"/>
+          <Column id="상주목록" type="STRING" size="1000"/>
+          <Column id="접수인" type="STRING" size="50"/>
+          <Column id="접수인연락처" type="STRING" size="20"/>
+          <Column id="감독관코드" type="STRING" size="256"/>
+          <Column id="감독관명" type="STRING" size="256"/>
+          <Column id="정산완료일" type="STRING" size="10"/>
+          <Column id="고인성별" type="STRING" size="2"/>
+          <Column id="연령" type="STRING" size="11"/>
+          <Column id="부고사유" type="STRING" size="50"/>
+          <Column id="빈소" type="STRING" size="50"/>
+          <Column id="앰뷸런스" type="STRING" size="256"/>
+          <Column id="협력업체_차량" type="STRING" size="10"/>
+          <Column id="협력업체_차량명" type="STRING" size="50"/>
+          <Column id="협력업체_화환" type="STRING" size="10"/>
+          <Column id="협력업체_화환명" type="STRING" size="50"/>
+          <Column id="협력업체_상복" type="STRING" size="10"/>
+          <Column id="협력업체_상복명" type="STRING" size="50"/>
+          <Column id="협력업체_도우미" type="STRING" size="10"/>
+          <Column id="협력업체_도우미명" type="STRING" size="50"/>
+          <Column id="협력업체_장지" type="STRING" size="10"/>
+          <Column id="협력업체_장지명" type="STRING" size="50"/>
+          <Column id="협력업체_유골함" type="STRING" size="10"/>
+          <Column id="협력업체_유골함명" type="STRING" size="50"/>
+          <Column id="상황부여" type="STRING" size="5"/>
+          <Column id="도착시간" type="STRING" size="5"/>
+          <Column id="출동시간" type="STRING" size="5"/>
+          <Column id="완료시간" type="STRING" size="5"/>
+          <Column id="수의구분" type="STRING" size="10"/>
+          <Column id="기타구분" type="STRING" size="20"/>
+          <Column id="장지구분" type="STRING" size="50"/>
+          <Column id="상품이미지경로" type="STRING" size="100"/>
+          <Column id="취소일자" type="STRING" size="10"/>
+          <Column id="취소시간" type="STRING" size="10"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_input">
+        <ColumnInfo>
+          <Column id="접수시작일자" type="STRING" size="256"/>
+          <Column id="접수종료일자" type="STRING" size="256"/>
+          <Column id="회원명" type="STRING" size="256"/>
+          <Column id="상주명" type="STRING" size="256"/>
+          <Column id="고인명" type="STRING" size="256"/>
+          <Column id="계약코드" type="STRING" size="256"/>
+          <Column id="행사코드" type="STRING" size="256"/>
+          <Column id="MOD" type="STRING" size="256"/>
+          <Column id="조회구분" type="STRING" size="256"/>
+          <Column id="본부코드" type="STRING" size="256"/>
+          <Column id="지사코드" type="STRING" size="256"/>
+          <Column id="지점코드" type="STRING" size="256"/>
+          <Column id="팀코드" type="STRING" size="256"/>
+          <Column id="사원코드" type="STRING" size="256"/>
+          <Column id="의전팀장" type="STRING" size="256"/>
+          <Column id="오등록포함" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_product">
+        <ColumnInfo>
+          <Column id="장례상품코드" type="STRING" size="256"/>
+          <Column id="상품코드" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_sms">
+        <ColumnInfo>
+          <Column id="발송타입" size="10" type="STRING"/>
+          <Column id="발송일자" size="10" type="STRING"/>
+          <Column id="수신번호" size="11" type="STRING"/>
+          <Column id="수신자명" size="50" type="STRING"/>
+          <Column id="발신번호" size="11" type="STRING"/>
+          <Column id="제목" size="64" type="STRING"/>
+          <Column id="메세지본문" size="2000" type="STRING"/>
+          <Column id="첨부파일" size="1000" type="STRING"/>
+          <Column id="대체발송문자타입" size="3" type="STRING"/>
+          <Column id="대체메세지내용" size="2000" type="STRING"/>
+          <Column id="계약코드" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_hp">
+        <ColumnInfo>
+          <Column id="사원명" type="STRING" size="256"/>
+          <Column id="휴대폰" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_list" onrowsetchanged="ds_list_onrowsetchanged">
+        <ColumnInfo>
+          <Column id="회원코드" type="STRING" size="15"/>
+          <Column id="회원명" type="STRING" size="100"/>
+          <Column id="회원구분" type="STRING" size="20"/>
+          <Column id="회원상세구분" type="STRING" size="20"/>
+          <Column id="장애구분" type="STRING" size="20"/>
+          <Column id="휴대폰" type="STRING" size="20"/>
+          <Column id="주민번호" type="STRING" size="13"/>
+          <Column id="내국인구분" type="STRING" size="10"/>
+          <Column id="성별" type="STRING" size="5"/>
+          <Column id="계약코드" type="STRING" size="15"/>
+          <Column id="계약상세코드" type="STRING" size="15"/>
+          <Column id="계약일자" type="STRING" size="10"/>
+          <Column id="계약상태" type="STRING" size="20"/>
+          <Column id="납입방법" type="STRING" size="10"/>
+          <Column id="납입회차" type="BIGDECIMAL" size="20"/>
+          <Column id="납입금액" type="BIGDECIMAL" size="20"/>
+          <Column id="제품납입회차" type="BIGDECIMAL" size="20"/>
+          <Column id="제품납입금액" type="BIGDECIMAL" size="20"/>
+          <Column id="결합상품금액" type="INT" size="11"/>
+          <Column id="결합상품코드" type="STRING" size="10"/>
+          <Column id="결합상품명" type="STRING" size="100"/>
+          <Column id="결합만기회차" type="INT" size="11"/>
+          <Column id="계약회차" type="INT" size="11"/>
+          <Column id="상품총액" type="BIGDECIMAL" size="21"/>
+          <Column id="할인정책" type="STRING" size="20"/>
+          <Column id="할인율" type="INT" size="11"/>
+          <Column id="할인회차" type="INT" size="11"/>
+          <Column id="할인금액" type="INT" size="11"/>
+          <Column id="상품코드" type="STRING" size="10"/>
+          <Column id="계약상품명" type="STRING" size="50"/>
+          <Column id="접수일자" type="STRING" size="10"/>
+          <Column id="모집사원코드" type="STRING" size="15"/>
+          <Column id="모집자명" type="STRING" size="50"/>
+          <Column id="모집휴대폰" type="STRING" size="20"/>
+          <Column id="모집본부명" type="STRING" size="100"/>
+          <Column id="모집지사명" type="STRING" size="100"/>
+          <Column id="모집지점명" type="STRING" size="100"/>
+          <Column id="모집팀명" type="STRING" size="100"/>
+          <Column id="담당사원코드" type="STRING" size="15"/>
+          <Column id="담당자명" type="STRING" size="50"/>
+          <Column id="담당휴대폰" type="STRING" size="20"/>
+          <Column id="담당본부명" type="STRING" size="100"/>
+          <Column id="담당지사명" type="STRING" size="100"/>
+          <Column id="담당지점명" type="STRING" size="100"/>
+          <Column id="담당팀명" type="STRING" size="100"/>
+          <Column id="행사코드" type="STRING" size="15"/>
+          <Column id="행사상태" type="STRING" size="10"/>
+          <Column id="외주구분" type="STRING" size="10"/>
+          <Column id="지역" type="STRING" size="10"/>
+          <Column id="행사시작일자" type="STRING" size="10"/>
+          <Column id="행사시작시간" type="STRING" size="5"/>
+          <Column id="행사종료일자" type="STRING" size="10"/>
+          <Column id="행사종료시간" type="STRING" size="5"/>
+          <Column id="입관일자" type="STRING" size="10"/>
+          <Column id="입관시간" type="STRING" size="10"/>
+          <Column id="발인일자" type="STRING" size="10"/>
+          <Column id="발인시간" type="STRING" size="10"/>
+          <Column id="고인명" type="STRING" size="50"/>
+          <Column id="상주명" type="STRING" size="50"/>
+          <Column id="상주연락처" type="STRING" size="20"/>
+          <Column id="장례식장코드" type="STRING" size="5"/>
+          <Column id="장례식장" type="STRING" size="100"/>
+          <Column id="운구여부" type="STRING" size="2"/>
+          <Column id="장법" type="STRING" size="10"/>
+          <Column id="장지1차" type="STRING" size="100"/>
+          <Column id="장지2차" type="STRING" size="100"/>
+          <Column id="특이사항" type="STRING" size="200"/>
+          <Column id="비고" type="STRING" size="2000"/>
+          <Column id="취소구분" type="STRING" size="20"/>
+          <Column id="취소상세" type="STRING" size="50"/>
+          <Column id="취소내용" type="STRING" size="50"/>
+          <Column id="즉발행사구분" type="STRING" size="20"/>
+          <Column id="행사상품코드" type="STRING" size="10"/>
+          <Column id="행사상품명" type="STRING" size="50"/>
+          <Column id="종교" type="STRING" size="20"/>
+          <Column id="엔딩플래너SEQ" type="BIGDECIMAL" size="20"/>
+          <Column id="엔딩플래너코드" type="STRING" size="15"/>
+          <Column id="엔딩플래너명" type="STRING" size="100"/>
+          <Column id="엔딩플래너조직" type="STRING" size="306"/>
+          <Column id="엔딩플래너자격코드" type="STRING" size="20"/>
+          <Column id="상례사SEQ" type="BIGDECIMAL" size="20"/>
+          <Column id="상례사코드" type="STRING" size="15"/>
+          <Column id="상례사명" type="STRING" size="100"/>
+          <Column id="전문상례사여부" type="STRING" size="1"/>
+          <Column id="상례사조직" type="STRING" size="306"/>
+          <Column id="상례사자격코드" type="STRING" size="20"/>
+          <Column id="지도사SEQ" type="BIGDECIMAL" size="20"/>
+          <Column id="지도사코드" type="STRING" size="15"/>
+          <Column id="지도사명" type="STRING" size="100"/>
+          <Column id="지도사휴대폰" type="STRING" size="15"/>
+          <Column id="지도사조직" type="STRING" size="306"/>
+          <Column id="지도사자격코드" type="STRING" size="20"/>
+          <Column id="입관보조SEQ" type="BIGDECIMAL" size="20"/>
+          <Column id="입관보조코드" type="STRING" size="15"/>
+          <Column id="입관보조명" type="STRING" size="100"/>
+          <Column id="입관보조조직" type="STRING" size="306"/>
+          <Column id="입관보조자격코드" type="STRING" size="20"/>
+          <Column id="발생장소" type="STRING" size="100"/>
+          <Column id="관계" type="STRING" size="10"/>
+          <Column id="상주목록" type="STRING" size="1000"/>
+          <Column id="접수인" type="STRING" size="50"/>
+          <Column id="접수인연락처" type="STRING" size="20"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_in_hp">
+        <ColumnInfo>
+          <Column id="본부코드" type="STRING" size="256"/>
+          <Column id="지사코드" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_out_saveChk">
+        <ColumnInfo>
+          <Column id="오류코드" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_in_saveChk">
+        <ColumnInfo>
+          <Column id="업무일자" size="10" type="STRING"/>
+          <Column id="행사코드" size="15" type="STRING"/>
+          <Column id="로그인사원코드" size="15" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_in_send">
+        <ColumnInfo>
+          <Column id="행사코드" type="STRING" size="15"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_in_sms">
+        <ColumnInfo>
+          <Column id="문자코드" type="STRING" size="256"/>
+          <Column id="Param1" type="STRING" size="256"/>
+          <Column id="Param2" type="STRING" size="256"/>
+          <Column id="Param3" type="STRING" size="256"/>
+          <Column id="Param4" type="STRING" size="256"/>
+          <Column id="Param5" type="STRING" size="256"/>
+          <Column id="착신번호" type="STRING" size="256"/>
+          <Column id="문자형태" type="STRING" size="256"/>
+          <Column id="문자제목" type="STRING" size="256"/>
+          <Column id="계약상세코드" type="STRING" size="256"/>
+          <Column id="회신번호" type="STRING" size="256"/>
+          <Column id="전송구분" type="STRING" size="256"/>
+          <Column id="템플릿코드" type="STRING" size="256"/>
+          <Column id="발신프로필키" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_sawonInput">
+        <ColumnInfo>
+          <Column id="본부코드" type="STRING" size="256"/>
+          <Column id="지사코드" type="STRING" size="256"/>
+          <Column id="지점코드" type="STRING" size="256"/>
+          <Column id="팀코드" type="STRING" size="256"/>
+          <Column id="사원명" type="STRING" size="50"/>
+          <Column id="재직구분" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_sawon">
+        <ColumnInfo>
+          <Column id="사원코드" type="STRING" size="15"/>
+          <Column id="사원명" type="STRING" size="50"/>
+          <Column id="대표사원코드" type="STRING" size="50"/>
+          <Column id="사원구분" type="STRING" size="10"/>
+          <Column id="재직구분" type="STRING" size="10"/>
+          <Column id="주민번호" type="STRING" size="13"/>
+          <Column id="사원등급" type="STRING" size="10"/>
+          <Column id="사원등록일자" type="STRING" size="10"/>
+          <Column id="퇴사일자" type="STRING" size="10"/>
+          <Column id="지원서접수일" type="STRING" size="10"/>
+          <Column id="유치자코드" type="STRING" size="15"/>
+          <Column id="증원사원명" type="STRING" size="50"/>
+          <Column id="멘토코드" type="STRING" size="15"/>
+          <Column id="ERP사용구분" type="STRING" size="1"/>
+          <Column id="SMS수신" type="STRING" size="1"/>
+          <Column id="재고불출구분" type="STRING" size="1"/>
+          <Column id="휴대폰" type="STRING" size="15"/>
+          <Column id="집전화" type="STRING" size="15"/>
+          <Column id="직장전화" type="STRING" size="15"/>
+          <Column id="업종" type="STRING" size="50"/>
+          <Column id="직종" type="STRING" size="50"/>
+          <Column id="직장명" type="STRING" size="50"/>
+          <Column id="부서명" type="STRING" size="50"/>
+          <Column id="자택우편번호" type="STRING" size="7"/>
+          <Column id="자택우편주소" type="STRING" size="200"/>
+          <Column id="자택도로명주소" type="STRING" size="200"/>
+          <Column id="자택상세주소" type="STRING" size="200"/>
+          <Column id="직장우편번호" type="STRING" size="7"/>
+          <Column id="직장우편주소" type="STRING" size="200"/>
+          <Column id="직장상세주소" type="STRING" size="200"/>
+          <Column id="은행코드" type="STRING" size="20"/>
+          <Column id="계좌번호" type="STRING" size="20"/>
+          <Column id="예금주" type="STRING" size="100"/>
+          <Column id="예금주주민번호" type="STRING" size="13"/>
+          <Column id="예금주관계" type="STRING" size="50"/>
+          <Column id="지급방법" type="STRING" size="10"/>
+          <Column id="거래처코드" type="STRING" size="10"/>
+          <Column id="법인카드사" type="STRING" size="10"/>
+          <Column id="법인카드번호" type="STRING" size="20"/>
+          <Column id="시간당비용" type="INT" size="11"/>
+          <Column id="EMail계정" type="STRING" size="50"/>
+          <Column id="EMail호스트" type="STRING" size="50"/>
+          <Column id="EMail" type="STRING" size="256"/>
+          <Column id="생일" type="STRING" size="5"/>
+          <Column id="생일구분" type="STRING" size="4"/>
+          <Column id="결혼기념일" type="STRING" size="10"/>
+          <Column id="비밀번호" type="STRING" size="20"/>
+          <Column id="입사지원서" type="STRING" size="1"/>
+          <Column id="위촉계약서" type="STRING" size="1"/>
+          <Column id="정보제공동의서" type="STRING" size="1"/>
+          <Column id="신분증사본" type="STRING" size="1"/>
+          <Column id="등본" type="STRING" size="1"/>
+          <Column id="통장사본" type="STRING" size="1"/>
+          <Column id="가족관계증명서" type="STRING" size="1"/>
+          <Column id="고객리스트" type="STRING" size="1"/>
+          <Column id="BP적립확인서" type="STRING" size="1"/>
+          <Column id="사원사진" type="STRING" size="1"/>
+          <Column id="실적본부코드" type="STRING" size="7"/>
+          <Column id="실적지사코드" type="STRING" size="7"/>
+          <Column id="실적지점코드" type="STRING" size="7"/>
+          <Column id="실적팀코드" type="STRING" size="7"/>
+          <Column id="직장팩스" type="STRING" size="15"/>
+          <Column id="세금성명" type="STRING" size="50"/>
+          <Column id="세금주민번호" type="STRING" size="13"/>
+          <Column id="세금사업자번호" type="STRING" size="20"/>
+          <Column id="본부코드" type="STRING" size="7"/>
+          <Column id="본부명" type="STRING" size="100"/>
+          <Column id="지사코드" type="STRING" size="7"/>
+          <Column id="지사명" type="STRING" size="100"/>
+          <Column id="지점코드" type="STRING" size="7"/>
+          <Column id="지점명" type="STRING" size="100"/>
+          <Column id="팀코드" type="STRING" size="7"/>
+          <Column id="팀명" type="STRING" size="100"/>
+          <Column id="조직시작일자" type="STRING" size="10"/>
+          <Column id="조직종료일자" type="STRING" size="10"/>
+          <Column id="직급코드" type="STRING" size="4"/>
+          <Column id="직급명" type="STRING" size="50"/>
+          <Column id="직급시작일자" type="STRING" size="10"/>
+          <Column id="직급종료일자" type="STRING" size="10"/>
+          <Column id="신용등급" type="STRING" size="5"/>
+          <Column id="비고" type="STRING" size="2000"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Div00.form.Div00.form.edt_Cnm_sawon11" propid="value" datasetid="ds_burial" columnid="회원코드"/>
+      <BindItem id="item1" compid="Div00.form.Div00.form.edt_Cnm_sawon12" propid="value" datasetid="ds_burial" columnid="회원명"/>
+      <BindItem id="item2" compid="Div00.form.Div00.form.cbo_job00" propid="value" datasetid="ds_burial" columnid="회원구분"/>
+      <BindItem id="item3" compid="Div00.form.Div00.form.cbo_job02" propid="value" datasetid="ds_burial" columnid="회원상세구분"/>
+      <BindItem id="item4" compid="Div00.form.Div00.form.edt_Cnm_sawon13" propid="value" datasetid="ds_burial" columnid="휴대폰"/>
+      <BindItem id="item5" compid="Div00.form.Div00.form.mae_dateOfBirth" propid="value" datasetid="ds_burial" columnid="주민번호"/>
+      <BindItem id="item6" compid="Div00.form.Div00.form.Radio00" propid="value" datasetid="ds_burial" columnid="성별"/>
+      <BindItem id="item7" compid="Div00.form.Div01.form.edt_Cnm_sawon00" propid="value" datasetid="ds_burial" columnid="계약코드"/>
+      <BindItem id="item8" compid="Div00.form.Div01.form.Calendar01" propid="value" datasetid="ds_burial" columnid="계약일자"/>
+      <BindItem id="item9" compid="Div00.form.Div01.form.edt_Cnm_sawon17" propid="value" datasetid="ds_burial" columnid="계약상태"/>
+      <BindItem id="item10" compid="Div00.form.Div01.form.edt_Cnm_sawon02" propid="value" datasetid="ds_burial" columnid="납입방법"/>
+      <BindItem id="item11" compid="Div00.form.Div01.form.edt_Cnm_sawon01" propid="value" datasetid="ds_burial" columnid="상품코드"/>
+      <BindItem id="item12" compid="Div00.form.Div01.form.edt_Cnm_sawon05" propid="value" datasetid="ds_burial" columnid="계약상품명"/>
+      <BindItem id="item13" compid="Div00.form.Div01.form.mae_01" propid="value" datasetid="ds_burial" columnid="상품총액"/>
+      <BindItem id="item14" compid="Div00.form.Div01.form.edt_Cnm_sawon03" propid="value" datasetid="ds_burial" columnid="계약회차"/>
+      <BindItem id="item15" compid="Div00.form.Div01.form.mae_00" propid="value" datasetid="ds_burial" columnid="잔여회차"/>
+      <BindItem id="item16" compid="Div00.form.Div01.form.mae_07" propid="value" datasetid="ds_burial" columnid="잔여금액"/>
+      <BindItem id="item17" compid="Div00.form.Div01.form.mae_02" propid="value" datasetid="ds_burial" columnid="상품매출"/>
+      <BindItem id="item18" compid="Div00.form.Div01.form.cbo_job01" propid="value" datasetid="ds_burial" columnid="할인정책"/>
+      <BindItem id="item19" compid="Div00.form.Div01.form.mae_03" propid="value" datasetid="ds_burial" columnid="납입회차"/>
+      <BindItem id="item20" compid="Div00.form.Div01.form.mae_06" propid="value" datasetid="ds_burial" columnid="납입금액"/>
+      <BindItem id="item21" compid="Div00.form.Div01.form.mae_04" propid="value" datasetid="ds_burial" columnid="할인회차"/>
+      <BindItem id="item22" compid="Div00.form.Div01.form.mae_05" propid="value" datasetid="ds_burial" columnid="할인금액"/>
+      <BindItem id="item23" compid="Div00.form.Div01.form.edt_Cnm_sawon33" propid="value" datasetid="ds_burial" columnid="모집사원코드"/>
+      <BindItem id="item24" compid="Div00.form.Div01.form.edt_Cnm_sawon32" propid="value" datasetid="ds_burial" columnid="모집사원명"/>
+      <BindItem id="item25" compid="Div00.form.Div01.form.edt_Cnm_sawon34" propid="value" datasetid="ds_burial" columnid="모집사원휴대폰"/>
+      <BindItem id="item26" compid="Div00.form.Div01.form.edt_org04" propid="value" datasetid="ds_burial" columnid="모집사원조직"/>
+      <BindItem id="item27" compid="Div00.form.Div01.form.edt_Cnm_sawon37" propid="value" datasetid="ds_burial" columnid="수금사원코드"/>
+      <BindItem id="item28" compid="Div00.form.Div01.form.edt_Cnm_sawon36" propid="value" datasetid="ds_burial" columnid="수금사원명"/>
+      <BindItem id="item29" compid="Div00.form.Div01.form.edt_Cnm_sawon38" propid="value" datasetid="ds_burial" columnid="수금사원휴대폰"/>
+      <BindItem id="item30" compid="Div00.form.Div01.form.edt_org05" propid="value" datasetid="ds_burial" columnid="수금사원조직"/>
+      <BindItem id="item31" compid="Div00.form.Div02.form.edt_Cnm_sawon04" propid="value" datasetid="ds_burial" columnid="행사코드"/>
+      <BindItem id="item38" compid="Div00.form.Div02.form.cal_start" propid="value" datasetid="ds_burial" columnid="행사시작일자"/>
+      <BindItem id="item39" compid="Div00.form.Div02.form.mae_startTime" propid="value" datasetid="ds_burial" columnid="행사시작시간"/>
+      <BindItem id="item40" compid="Div00.form.Div02.form.cal_end" propid="value" datasetid="ds_burial" columnid="행사종료일자"/>
+      <BindItem id="item41" compid="Div00.form.Div02.form.mae_endTime" propid="value" datasetid="ds_burial" columnid="행사종료시간"/>
+      <BindItem id="item42" compid="Div00.form.Div02.form.cal_balin" propid="value" datasetid="ds_burial" columnid="발인일자"/>
+      <BindItem id="item43" compid="Div00.form.Div02.form.mae_balinTime" propid="value" datasetid="ds_burial" columnid="발인시간"/>
+      <BindItem id="item44" compid="Div00.form.Div02.form.cal_in" propid="value" datasetid="ds_burial" columnid="입관일자"/>
+      <BindItem id="item45" compid="Div00.form.Div02.form.cal_inTime" propid="value" datasetid="ds_burial" columnid="입관시간"/>
+      <BindItem id="item46" compid="Div00.form.Div02.form.cbo_relation" propid="value" datasetid="ds_burial" columnid="관계"/>
+      <BindItem id="item47" compid="Div00.form.Div02.form.cbo_gender" propid="value" datasetid="ds_burial" columnid="고인성별"/>
+      <BindItem id="item48" compid="Div00.form.Div02.form.edt_age" propid="value" datasetid="ds_burial" columnid="연령"/>
+      <BindItem id="item49" compid="Div00.form.Div02.form.cbo_bugoW" propid="value" datasetid="ds_burial" columnid="부고사유"/>
+      <BindItem id="item50" compid="Div00.form.Div02.form.edt_sangjuNm" propid="value" datasetid="ds_burial" columnid="상주명"/>
+      <BindItem id="item51" compid="Div00.form.Div02.form.edt_sangjuHp" propid="value" datasetid="ds_burial" columnid="상주연락처"/>
+      <BindItem id="item52" compid="Div00.form.Div02.form.cbo_religion" propid="value" datasetid="ds_burial" columnid="종교"/>
+      <BindItem id="item54" compid="Div00.form.Div02.form.edt_productCode" propid="value" datasetid="ds_burial" columnid="행사상품코드"/>
+      <BindItem id="item55" compid="Div00.form.Div02.form.edt_productName" propid="value" datasetid="ds_burial" columnid="행사상품명"/>
+      <BindItem id="item56" compid="Div00.form.Div02.form.edt_eventPlace" propid="value" datasetid="ds_burial" columnid="장례식장"/>
+      <BindItem id="item57" compid="Div00.form.Div02.form.edt_binso" propid="value" datasetid="ds_burial" columnid="빈소"/>
+      <BindItem id="item58" compid="Div00.form.Div02.form.cbo_jangjiGbn" propid="value" datasetid="ds_burial" columnid="장지구분"/>
+      <BindItem id="item59" compid="Div00.form.Div02.form.edt_deceased" propid="value" datasetid="ds_burial" columnid="고인명"/>
+      <BindItem id="item60" compid="Div00.form.Div02.form.cbo_area" propid="value" datasetid="ds_burial" columnid="지역"/>
+      <BindItem id="item61" compid="Div00.form.Div02.form.edt_jidosaNo" propid="value" datasetid="ds_burial" columnid="지도사코드"/>
+      <BindItem id="item62" compid="Div00.form.Div02.form.edt_jidosaNm" propid="value" datasetid="ds_burial" columnid="지도사명"/>
+      <BindItem id="item63" compid="Div00.form.Div02.form.edt_org02" propid="value" datasetid="ds_burial" columnid="지도사조직"/>
+      <BindItem id="item64" compid="Div00.form.Div02.form.edt_org00" propid="value" datasetid="ds_burial" columnid="지도사휴대폰"/>
+      <BindItem id="item65" compid="Div00.form.Div02.form.edt_storageCd" propid="value" datasetid="ds_burial" columnid="창고지역명"/>
+      <BindItem id="item66" compid="Div00.form.Div02.form.edt_storageNm" propid="value" datasetid="ds_burial" columnid="창고지역상세명"/>
+      <BindItem id="item67" compid="Div00.form.Div02.form.mae_time01" propid="value" datasetid="ds_burial" columnid="상황부여"/>
+      <BindItem id="item68" compid="Div00.form.Div02.form.mae_time03" propid="value" datasetid="ds_burial" columnid="출동시간"/>
+      <BindItem id="item69" compid="Div00.form.Div02.form.mae_time02" propid="value" datasetid="ds_burial" columnid="도착시간"/>
+      <BindItem id="item70" compid="Div00.form.Div02.form.mae_time04" propid="value" datasetid="ds_burial" columnid="완료시간"/>
+      <BindItem id="item71" compid="Div00.form.Div02.form.cbo_useS" propid="value" datasetid="ds_burial" columnid="수의구분"/>
+      <BindItem id="item72" compid="Div00.form.Div02.form.cbo_alterS" propid="value" datasetid="ds_burial" columnid="기타구분"/>
+      <BindItem id="item73" compid="Div00.form.Div02.form.cbo_job04" propid="value" datasetid="ds_burial" columnid="운구여부"/>
+      <BindItem id="item74" compid="Div00.form.Div02.form.cbo_jangType" propid="value" datasetid="ds_burial" columnid="장법"/>
+      <BindItem id="item75" compid="Div00.form.Div02.form.edt_jangji01" propid="value" datasetid="ds_burial" columnid="장지1차"/>
+      <BindItem id="item76" compid="Div00.form.Div02.form.edt_Cnm_sawon29" propid="value" datasetid="ds_burial" columnid="장지2차"/>
+      <BindItem id="item77" compid="Div00.form.Div02.form.txt_sangjuList" propid="value" datasetid="ds_burial" columnid="상주목록"/>
+      <BindItem id="item78" compid="Div00.form.Div02.form.txt_bigo" propid="value" datasetid="ds_burial" columnid="비고"/>
+      <BindItem id="item91" compid="Div00.form.Div04.form.cbo_cancelGbn" propid="value" datasetid="ds_burial" columnid="취소구분"/>
+      <BindItem id="item92" compid="Div00.form.Div04.form.cbo_cancelDetail" propid="value" datasetid="ds_burial" columnid="취소상세"/>
+      <BindItem id="item93" compid="Div00.form.Div04.form.cancel" propid="value" datasetid="ds_burial" columnid="취소일자"/>
+      <BindItem id="item94" compid="Div00.form.Div04.form.cal_inTime00" propid="value" datasetid="ds_burial" columnid="취소시간"/>
+      <BindItem id="item95" compid="Div00.form.Div04.form.txt_cancelDesc" propid="value" datasetid="ds_burial" columnid="취소내용"/>
+      <BindItem id="item96" compid="Div00.form.Radio02" propid="value" datasetid="ds_burial" columnid="즉발행사구분"/>
+      <BindItem id="item32" compid="Div00.form.Div02.form.cbo_job06" propid="value" datasetid="ds_burial" columnid="즉발행사구분"/>
+      <BindItem id="item33" compid="Div00.form.Div02.form.cbo_status" propid="value" datasetid="ds_burial" columnid="행사상태"/>
+      <BindItem id="item34" compid="Div00.form.Div02.form.cal_balin00" propid="value" datasetid="ds_burial" columnid="접수일자"/>
+      <BindItem id="item35" compid="Div00.form.Div02.form.cbo_outComp" propid="value" datasetid="ds_burial" columnid="외주구분"/>
+      <BindItem id="item53" compid="Div00.form.Div02.form.edt_eventPlace00" propid="value" datasetid="ds_burial" columnid="발생장소"/>
+      <BindItem id="item37" compid="Div00.form.Div02.form.edt_receiptPhone" propid="value" datasetid="ds_burial" columnid="접수인연락처"/>
+      <BindItem id="item36" compid="Div00.form.Div02.form.edt_Cnm_sawon08" propid="value" datasetid="ds_burial" columnid="접수인"/>
+      <BindItem id="item99" compid="Div00.form.Div02.form.edt_eventPlace01" propid="value" datasetid="ds_burial" columnid="장례식장코드"/>
+      <BindItem id="item97" compid="edt_jidosaNo00" propid="value" datasetid="ds_burial" columnid="감독관코드"/>
+      <BindItem id="item98" compid="edt_jidosaNm00" propid="value" datasetid="ds_burial" columnid="감독관명"/>
+      <BindItem id="item79" compid="Div03.form.edt_carCd" propid="value" datasetid="ds_burial" columnid="협력업체_차량"/>
+      <BindItem id="item80" compid="Div03.form.edt_carNm" propid="value" datasetid="ds_burial" columnid="협력업체_차량명"/>
+      <BindItem id="item81" compid="Div03.form.edt_flowerCd" propid="value" datasetid="ds_burial" columnid="협력업체_화환"/>
+      <BindItem id="item82" compid="Div03.form.edt_flowerNm" propid="value" datasetid="ds_burial" columnid="협력업체_화환명"/>
+      <BindItem id="item83" compid="Div03.form.edt_clothesCd" propid="value" datasetid="ds_burial" columnid="협력업체_상복"/>
+      <BindItem id="item84" compid="Div03.form.edt_clothesNm" propid="value" datasetid="ds_burial" columnid="협력업체_상복명"/>
+      <BindItem id="item85" compid="Div03.form.edt_helperCd" propid="value" datasetid="ds_burial" columnid="협력업체_도우미"/>
+      <BindItem id="item86" compid="Div03.form.edt_helperNm" propid="value" datasetid="ds_burial" columnid="협력업체_도우미명"/>
+      <BindItem id="item87" compid="Div03.form.edt_jangjiCd" propid="value" datasetid="ds_burial" columnid="협력업체_장지"/>
+      <BindItem id="item88" compid="Div03.form.edt_jangjiNm" propid="value" datasetid="ds_burial" columnid="협력업체_장지명"/>
+      <BindItem id="item89" compid="Div03.form.edt_hamCd" propid="value" datasetid="ds_burial" columnid="협력업체_유골함"/>
+      <BindItem id="item90" compid="Div03.form.edt_hamNm" propid="value" datasetid="ds_burial" columnid="협력업체_유골함명"/>
+      <BindItem id="item100" compid="Div00.form.Div02.form.cbo_ambulance" propid="value" datasetid="ds_burial" columnid="관계"/>
+      <BindItem id="item101" compid="Div00.form.Div02.form.edt_eventPlace02" propid="value" datasetid="ds_burial" columnid="장례식장주소"/>
+    </Bind>
+  </Form>
+</FDL>
