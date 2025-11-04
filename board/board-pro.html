@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>핑크 보드 Pro — 서버 없이 동작</title>
+<style>
+:root{
+  --bg:#fff6f9; --panel:#ffffff; --text:#3b2430; --muted:#7a5361; --border:#f5cfe0;
+  --accent:#ff5894; --accent-2:#ff83b0; --ok:#22a06b; --danger:#ff5b7c; --warn:#ffb020;
+  --shadow:0 12px 36px rgba(255,88,148,.18); --radius:16px
+}
+:root.dark{
+  --bg:#1b1217; --panel:#251923; --text:#f5e9f0; --muted:#bd9fb0; --border:#3b2936;
+  --accent:#ff5894; --accent-2:#ff83b0; --ok:#2fdc9a; --danger:#ff6f8a; --warn:#ffc46b;
+  --shadow:0 12px 36px rgba(0,0,0,.45)
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
+  background:
+    radial-gradient(900px 600px at 10% -10%, #ffe2ee40 0%, transparent 60%),
+    radial-gradient(900px 600px at 120% 10%, #ffeaf340 0%, transparent 60%),
+    var(--bg);
+  color:var(--text)
+}
+.container{max-width:1100px;margin:26px auto;padding:0 16px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+.topbar{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 18px;margin-bottom:14px}
+.badge{display:inline-flex;gap:8px;align-items:center;background:#ffe4f1;color:#a43a63;border:1px dashed var(--border);padding:6px 12px;border-radius:999px;font-size:12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{appearance:none;cursor:pointer;border-radius:12px;padding:9px 13px;font-weight:800;border:1px solid var(--border);background:linear-gradient(180deg,var(--accent),#ff3f87);color:#fff}
+.btn.secondary{background:#ffe6f1;color:#6a3f53}
+.btn.ghost{background:#fff;color:#6a3f53}
+.btn.warn{background:var(--warn);color:#40220a;border-color:var(--warn)}
+.btn.danger{background:var(--danger)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.switch{border:1px solid var(--border);background:#fff;border-radius:12px;padding:9px 13px;cursor:pointer}
+
+.panel{padding:18px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.input,.select{background:#fff;border:1px solid var(--border);border-radius:12px;color:var(--text);padding:10px 12px;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s}
+:root.dark .input,:root.dark .select{background:#2b1d28;color:var(--text)}
+.input:focus,.select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,88,148,.18)}
+.textarea{min-height:220px;resize:vertical}
+.chip{display:inline-flex;align-items:center;gap:6px;background:#ffeaf3;color:#9a5d71;border:1px solid var(--border);padding:4px 8px;border-radius:999px;font-size:12px}
+.empty{color:var(--muted);padding:26px;text-align:center}
+
+table{width:100%;border-collapse:collapse}
+th,td{padding:12px;border-bottom:1px solid var(--border);text-align:left}
+th{background:#fff0f6;color:#7a4a59}
+tr:hover td{background:#fff7fb}
+.row-item.selected td{background:#ffeef5!important}
+
+.meta{display:flex;gap:12px;color:var(--muted);font-size:12px}
+.title{font-size:22px;margin:0 0 8px}
+.divider{height:1px;background:var(--border);margin:12px 0}
+
+.pagination{display:flex;gap:6px;justify-content:center;padding:14px}
+.page-btn{border:1px solid var(--border);background:#fff;border-radius:10px;padding:8px 12px;cursor:pointer}
+.page-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.hidden{display:none!important}
+
+/* 태그 */
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{background:#ffeaf3;border:1px solid var(--border);border-radius:999px;padding:2px 8px;font-size:12px;color:#9a5d71}
+
+/* 첨부 이미지 */
+.attach{display:flex;gap:10px;flex-wrap:wrap}
+.thumb{width:100px;height:80px;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center}
+.thumb img{width:100%;height:100%;object-fit:cover}
+
+/* 댓글/대댓글 */
+.cmt-wrap{display:grid;gap:12px}
+.cmt-title{margin:0 0 4px;font-size:18px}
+.cmt-list{display:grid;gap:8px}
+.cmt-item{border:1px solid var(--border);border-radius:12px;padding:10px;background:#fff}
+.cmt-head{display:flex;gap:8px;align-items:center;justify-content:space-between;color:#7a4a59;font-size:12px}
+.cmt-author{font-weight:700}
+.cmt-body{white-space:pre-wrap;line-height:1.6;margin-top:6px}
+.cmt-actions{display:flex;gap:6px}
+.cmt-form{display:grid;gap:8px;border:1px dashed var(--border);padding:10px;border-radius:12px;background:#fffdfd}
+.cmt-row{display:grid;grid-template-columns:1fr 120px;gap:8px}
+.cmt-text{min-height:90px}
+.reply{margin-left:24px;border-left:3px solid #ffd1e1;padding-left:10px;border-radius:6px}
+
+/* 휴지통 */
+.trash-note{font-size:12px;color:#9a5d71}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="topbar card">
+    <span class="badge">💗 핑크 보드 Pro · 서버/DB 없이 localStorage로 동작</span>
+    <div class="actions">
+      <button class="switch" id="toggleTheme">🌙 다크모드</button>
+      <button class="btn" id="goWrite">글쓰기</button>
+      <button class="btn secondary" id="goList">목록</button>
+      <button class="btn ghost" id="goTrash">휴지통</button>
+      <button class="btn ghost" id="btnExport">내보내기</button>
+      <label class="btn ghost" for="importFile" style="cursor:pointer">불러오기</label>
+      <input id="importFile" type="file" accept="application/json" style="display:none"/>
+    </div>
+  </div>
+
+  <!-- 목록 -->
+  <section id="page-list" class="card panel">
+    <div class="toolbar">
+      <input id="search" class="input" placeholder="검색(제목/내용/작성자/태그) [F]"/>
+      <select id="sort" class="select">
+        <option value="createdAt-desc">최신순</option>
+        <option value="createdAt-asc">오래된순</option>
+        <option value="views-desc">조회수 높은순</option>
+        <option value="title-asc">제목 A→Z</option>
+      </select>
+      <select id="tagFilter" class="select"><option value="">전체 태그</option></select>
+      <span class="chip">핀 고정 ↑</span>
+      <span class="chip">더블클릭으로 열기</span>
+      <span class="chip">데이터: localStorage</span>
+    </div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:70px">번호</th>
+            <th>제목</th>
+            <th style="width:160px">작성자</th>
+            <th style="width:140px">작성일</th>
+            <th style="width:100px">조회</th>
+            <th style="width:80px">핀</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div id="empty" class="hidden empty">등록된 글이 없습니다. 우측 상단 <b>글쓰기</b>로 작성해보세요 ✨</div>
+      <div class="pagination" id="pager"></div>
+    </div>
+  </section>
+
+  <!-- 에디터 -->
+  <section id="page-editor" class="card panel hidden">
+    <h2 id="editorTitle" style="margin:0 0 10px">새 글 작성</h2>
+    <div class="toolbar"><span class="chip">⌘/Ctrl+Enter 저장 · Esc 취소 · 초안 자동 저장</span></div>
+    <div style="display:grid;gap:10px">
+      <div style="display:grid;grid-template-columns:1fr 220px 100px;gap:10px">
+        <input id="iptTitle" class="input" placeholder="제목"/>
+        <input id="iptAuthor" class="input" placeholder="작성자 (선택)"/>
+        <label style="display:flex;align-items:center;gap:6px">
+          <input id="iptPinned" type="checkbox"/> 핀 고정
+        </label>
+      </div>
+      <input id="iptTags" class="input" placeholder="태그(쉼표로 구분) 예: 공지,업데이트"/>
+      <textarea id="iptContent" class="input textarea" placeholder="내용을 입력하세요 (기본 텍스트)"></textarea>
+
+      <!-- 첨부 -->
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+          <div class="chip">이미지 첨부(선택)</div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <label for="iptAttach" class="btn secondary" style="cursor:pointer">이미지 추가</label>
+            <input id="iptAttach" type="file" accept="image/*" style="display:none"/>
+            <button class="btn ghost" id="btnClearAttach">첨부 비우기</button>
+          </div>
+        </div>
+        <div id="attachWrap" class="attach" style="margin-top:8px"></div>
+      </div>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn" id="btnSave">저장</button>
+        <button class="btn secondary" id="btnCancel">취소</button>
+        <button class="btn danger hidden" id="btnDelete">삭제</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 상세 -->
+  <section id="page-view" class="card panel hidden">
+    <h2 class="title" id="vTitle"></h2>
+    <div class="meta">
+      <span id="vAuthor"></span><span>•</span>
+      <span id="vDate"></span><span>•</span>
+      <span>조회 <span id="vViews"></span></span>
+    </div>
+    <div class="tags" id="vTags" style="margin-top:6px"></div>
+    <div class="divider"></div>
+    <div id="vContent" style="white-space:pre-wrap;line-height:1.7"></div>
+    <div id="vImages" class="attach" style="margin-top:10px"></div>
+
+    <div class="divider"></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" id="btnEdit">수정</button>
+      <button class="btn warn" id="btnPinToggle">핀 토글</button>
+      <button class="btn danger" id="btnMoveTrash">휴지통으로</button>
+      <button class="btn secondary" id="btnBack">목록</button>
+    </div>
+
+    <div class="divider"></div>
+    <!-- 댓글/대댓글 -->
+    <div class="cmt-wrap">
+      <h3 class="cmt-title">댓글 <span id="cmtCount" style="font-size:14px;color:#9a5d71"></span></h3>
+      <div id="cmtList" class="cmt-list"></div>
+      <form id="cmtForm" class="cmt-form">
+        <div class="cmt-row">
+          <input id="cmtAuthor" class="input" placeholder="작성자 (선택, 미입력 시 익명)"/>
+          <button class="btn" type="submit">댓글 등록</button>
+        </div>
+        <textarea id="cmtContent" class="input cmt-text" placeholder="댓글 내용을 입력하세요"></textarea>
+        <div class="chip">대댓글: 댓글의 “답글” 클릭</div>
+      </form>
+    </div>
+  </section>
+
+  <!-- 휴지통 -->
+  <section id="page-trash" class="card panel hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <h3 style="margin:0">휴지통</h3>
+      <div class="actions">
+        <button class="btn ghost" id="btnEmptyTrash">휴지통 비우기(완전삭제)</button>
+        <button class="btn secondary" id="btnBackList">목록</button>
+      </div>
+    </div>
+    <div class="trash-note">※ 휴지통의 글은 언제든 복원 가능. 완전삭제 시 되돌릴 수 없어요.</div>
+    <div id="trashWrap" style="margin-top:10px"></div>
+  </section>
+</div>
+
+<script>
+/* ===== 상수/키 ===== */
+const DB_KEY='pink-board-pro-posts';
+const UI_KEY='pink-board-pro-ui';
+const DRAFT_KEY='pink-board-pro-draft';
+const PAGE_SIZE=8;
+
+/* ===== 유틸 ===== */
+const $=s=>document.querySelector(s);
+const $$=s=>Array.from(document.querySelectorAll(s));
+const debounce=(fn,ms=250)=>{let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),ms)}};
+const fmtDate=ts=>{const d=new Date(ts);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+const escapeHtml=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const nl2br=s=>escapeHtml(s).replace(/\n/g,'<br>');
+function toTags(str){return str.split(',').map(t=>t.trim()).filter(Boolean).slice(0,10);}
+function unique(arr){return Array.from(new Set(arr));}
+
+/* ===== 데이터 계층 ===== */
+const db={
+  all(){ return JSON.parse(localStorage.getItem(DB_KEY)||'[]'); },
+  save(list){ localStorage.setItem(DB_KEY, JSON.stringify(list)); },
+  nextId(){ const l=this.all(); return l.length? Math.max(...l.map(p=>p.id))+1 : 1; },
+  upsert(p){ const l=this.all(); const i=l.findIndex(x=>x.id===p.id); if(i>=0) l[i]=p; else l.push(p); this.save(l); },
+  find(id){ return this.all().find(p=>p.id===id); },
+  softRemove(id){ const p=this.find(id); if(!p) return; p.deletedAt=Date.now(); this.upsert(p); },
+  restore(id){ const p=this.find(id); if(!p) return; delete p.deletedAt; this.upsert(p); },
+  purge(ids){ this.save(this.all().filter(p=>!ids.includes(p.id))); },
+  export(){ return JSON.stringify(this.all(),null,2); },
+  import(json,mode='merge'){
+    const arr=JSON.parse(json); if(!Array.isArray(arr)) throw new Error('JSON 배열이 아님');
+    if(mode==='replace'){ this.save(arr); return; }
+    const map=new Map(this.all().map(p=>[p.id,p])); arr.forEach(p=>map.set(p.id,p)); this.save([...map.values()].sort((a,b)=>a.id-b.id));
+  }
+};
+
+/* ===== 테마 ===== */
+(function initTheme(){
+  const ui=JSON.parse(localStorage.getItem(UI_KEY)||'{}');
+  if(ui.theme==='dark') document.documentElement.classList.add('dark');
+  $('#toggleTheme').textContent=document.documentElement.classList.contains('dark')?'☀️ 라이트모드':'🌙 다크모드';
+})();
+$('#toggleTheme').addEventListener('click',()=>{
+  document.documentElement.classList.toggle('dark');
+  const ui=JSON.parse(localStorage.getItem(UI_KEY)||'{}');
+  ui.theme=document.documentElement.classList.contains('dark')?'dark':'light';
+  localStorage.setItem(UI_KEY, JSON.stringify(ui));
+  $('#toggleTheme').textContent=document.documentElement.classList.contains('dark')?'☀️ 라이트모드':'🌙 다크모드';
+});
+
+/* ===== 라우팅 ===== */
+const routes={ list:()=>showList(), write:()=>openEditor(), view:id=>openView(Number(id)), edit:id=>openEditor(Number(id)), trash:()=>openTrash() };
+function navigate(path){ const next='#'+path; if(location.hash!==next) location.hash=next; handleRoute(); }
+window.addEventListener('hashchange', handleRoute);
+function hideAll(){ ['page-list','page-editor','page-view','page-trash'].forEach(id=>$('#'+id).classList.add('hidden')); }
+function handleRoute(){ const [p,param]=location.hash.replace('#','').split('/'); hideAll(); (routes[p]||routes.list)(param); }
+
+/* ===== 목록 ===== */
+let currentPage=1,currentQuery='',currentSort='createdAt-desc',currentTag='';
+function showList(){
+  $('#page-list').classList.remove('hidden');
+  renderList();
+  renderTagFilter();
+}
+function renderList(){
+  const tbody=$('#tbody'), empty=$('#empty'), pager=$('#pager');
+  let list=db.all().filter(p=>!p.deletedAt);
+
+  if(currentQuery){
+    const q=currentQuery.toLowerCase();
+    list=list.filter(p=>{
+      const hay=(p.title+p.content+(p.author||'')+(p.tags||[]).join(',')).toLowerCase();
+      return hay.includes(q);
+    });
+  }
+  if(currentTag){ list=list.filter(p=>(p.tags||[]).includes(currentTag)); }
+
+  const [key,dir]=currentSort.split('-');
+  list.sort((a,b)=>{
+    // 핀 우선
+    if((b.pinned|0)!==(a.pinned|0)) return (b.pinned|0)-(a.pinned|0);
+    const va=a[key]??'', vb=b[key]??'';
+    if(va<vb) return dir==='asc'?-1:1;
+    if(va>vb) return dir==='asc'?1:-1;
+    return 0;
+  });
+
+  const total=list.length, pages=Math.max(1,Math.ceil(total/PAGE_SIZE));
+  currentPage=Math.min(Math.max(1,currentPage),pages);
+  const start=(currentPage-1)*PAGE_SIZE;
+  const pageItems=list.slice(start,start+PAGE_SIZE);
+
+  tbody.innerHTML=pageItems.map(p=>`
+    <tr class="row-item" data-id="${p.id}" tabindex="0">
+      <td>${p.id}</td>
+      <td style="cursor:pointer;color:#b03967">
+        ${p.pinned? '📌 ': ''}${escapeHtml(p.title)}
+        ${(p.tags&&p.tags.length)? p.tags.slice(0,3).map(t=>`<span class="tag" style="margin-left:6px">${escapeHtml(t)}</span>`).join(''):''}
+      </td>
+      <td>${escapeHtml(p.author||'익명')}</td>
+      <td>${fmtDate(p.createdAt)}</td>
+      <td>${p.views|0}</td>
+      <td>${p.pinned? '고정': '-'}</td>
+    </tr>
+  `).join('');
+
+  empty.classList.toggle('hidden', total>0);
+  pager.innerHTML=Array.from({length:pages},(_,i)=>`<button class="page-btn ${i+1===currentPage?'active':''}" data-page="${i+1}">${i+1}</button>`).join('');
+
+  $$('.row-item').forEach(tr=>{
+    tr.addEventListener('click',()=>{ $$('.row-item').forEach(x=>x.classList.remove('selected')); tr.classList.add('selected'); });
+    tr.addEventListener('dblclick',()=>navigate('view/'+tr.dataset.id));
+    tr.addEventListener('keydown',e=>{ if(e.key==='Enter') navigate('view/'+tr.dataset.id); });
+  });
+  $$('.page-btn').forEach(b=> b.addEventListener('click',()=>{ currentPage=Number(b.dataset.page); renderList(); }));
+}
+function renderTagFilter(){
+  const select=$('#tagFilter');
+  const tags=unique(db.all().filter(p=>!p.deletedAt).flatMap(p=>p.tags||[])).sort();
+  select.innerHTML='<option value="">전체 태그</option>'+tags.map(t=>`<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`).join('');
+  select.value=currentTag;
+}
+
+/* ===== 상세 + 댓글/대댓글 ===== */
+let currentId=null;
+function openView(id){
+  const p=db.find(id);
+  if(!p || p.deletedAt){ alert('존재하지 않는 글입니다.'); return navigate('list'); }
+  p.views=(p.views||0)+1; db.upsert(p);
+  currentId=id;
+
+  $('#vTitle').textContent=p.title;
+  $('#vAuthor').textContent=p.author||'익명';
+  $('#vDate').textContent=fmtDate(p.createdAt);
+  $('#vViews').textContent=p.views;
+  $('#vTags').innerHTML=(p.tags||[]).map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join('');
+  $('#vContent').textContent=p.content;
+
+  const imgWrap=$('#vImages');
+  imgWrap.innerHTML=(p.images||[]).map(src=>`<div class="thumb"><img src="${src}" alt="attachment"></div>`).join('');
+
+  renderComments(p);
+  $('#page-view').classList.remove('hidden');
+}
+
+function renderComments(post){
+  const listEl=$('#cmtList');
+  const countEl=$('#cmtCount');
+  const items=(post.comments||[]).slice().sort((a,b)=>a.createdAt-b.createdAt);
+  countEl.textContent=`(${items.length})`;
+
+  // 트리 구성
+  const byParent=new Map(); items.forEach(c=>{ const k=c.parentId||0; if(!byParent.has(k)) byParent.set(k,[]); byParent.get(k).push(c); });
+  const makeHtml=(pid,depth=0)=> (byParent.get(pid)||[]).map(c=>`
+    <div class="cmt-item ${c.parentId? 'reply':''}" data-cid="${c.id}">
+      <div class="cmt-head">
+        <div><span class="cmt-author">${escapeHtml(c.author||'익명')}</span> · <span>${fmtDate(c.createdAt)}</span></div>
+        <div class="cmt-actions">
+          <button class="page-btn" data-act="reply">답글</button>
+          <button class="page-btn" data-act="edit">수정</button>
+          <button class="page-btn" data-act="delete" style="color:#c62828">삭제</button>
+        </div>
+      </div>
+      <div class="cmt-body">${nl2br(c.content||'')}</div>
+      ${makeHtml(c.id, depth+1).join('')}
+    </div>
+  `);
+
+  listEl.innerHTML = makeHtml(0).join('');
+
+  // 이벤트
+  $$('#cmtList .cmt-item .page-btn').forEach(btn=>{
+    const act=btn.dataset.act;
+    btn.addEventListener('click',()=>{
+      const cid=Number(btn.closest('.cmt-item').dataset.cid);
+      if(act==='delete'){
+        if(confirm('이 댓글을 삭제할까요?')){
+          const p=db.find(currentId); p.comments=(p.comments||[]).filter(x=>x.id!==cid && x.parentId!==cid); db.upsert(p); renderComments(p);
+        }
+      }
+      if(act==='edit'){
+        const p=db.find(currentId); const c=(p.comments||[]).find(x=>x.id===cid); if(!c) return;
+        const edited=prompt('댓글 수정', c.content); if(edited==null) return;
+        const t=edited.trim(); if(!t){ if(confirm('빈 내용입니다. 삭제할까요?')){ p.comments=p.comments.filter(x=>x.id!==cid && x.parentId!==cid); db.upsert(p); renderComments(p);} return; }
+        c.content=t; db.upsert(p); renderComments(p);
+      }
+      if(act==='reply'){
+        const author=prompt('작성자(미입력시 익명)')||'익명';
+        const content=prompt('답글 내용'); if(!content) return;
+        const p=db.find(currentId); if(!Array.isArray(p.comments)) p.comments=[];
+        const nid = (p.comments.length? Math.max(...p.comments.map(x=>x.id))+1:1);
+        p.comments.push({id:nid,parentId:cid,author,content,createdAt:Date.now()}); db.upsert(p); renderComments(p);
+      }
+    });
+  });
+
+  // 등록 폼
+  const form=$('#cmtForm'); const aEl=$('#cmtAuthor'); const cEl=$('#cmtContent');
+  form.onsubmit=(e)=>{ e.preventDefault(); if(!cEl.value.trim()){ alert('내용을 입력하세요.'); return; } const p=db.find(currentId); if(!Array.isArray(p.comments)) p.comments=[]; const nid=(p.comments.length? Math.max(...p.comments.map(x=>x.id))+1:1); p.comments.push({id:nid,parentId:0,author:aEl.value.trim()||'익명',content:cEl.value.trim(),createdAt:Date.now()}); db.upsert(p); cEl.value=''; renderComments(p); };
+}
+
+/* ===== 에디터 ===== */
+const iptTitle=$('#iptTitle'),iptAuthor=$('#iptAuthor'),iptContent=$('#iptContent'),iptTags=$('#iptTags'),iptPinned=$('#iptPinned');
+const iptAttach=$('#iptAttach'), attachWrap=$('#attachWrap');
+let btnSave=$('#btnSave'), btnDelete=$('#btnDelete');
+function openEditor(id){
+  const edit=!!id; $('#page-editor').classList.remove('hidden');
+  $('#editorTitle').textContent=edit?'글 수정':'새 글 작성';
+  btnSave.replaceWith(btnSave.cloneNode(true)); btnDelete.replaceWith(btnDelete.cloneNode(true)); btnSave=$('#btnSave'); btnDelete=$('#btnDelete');
+
+  let images=[];
+  function renderAttach(){ attachWrap.innerHTML = images.map((src,i)=>`<div class="thumb" title="클릭해 제거" data-i="${i}"><img src="${src}"/></div>`).join(''); $$('#attachWrap .thumb').forEach(t=>t.addEventListener('click',()=>{ images.splice(Number(t.dataset.i),1); renderAttach(); })); }
+
+  if(edit){
+    const p=db.find(Number(id)); if(!p || p.deletedAt){ alert('글을 찾을 수 없습니다.'); return navigate('list'); }
+    iptTitle.value=p.title; iptAuthor.value=p.author||''; iptContent.value=p.content; iptTags.value=(p.tags||[]).join(','); iptPinned.checked=!!p.pinned;
+    images = (p.images||[]).slice(); renderAttach();
+    btnDelete.classList.remove('hidden'); btnDelete.onclick=()=>{ if(confirm('이 글을 휴지통으로 이동할까요?')){ db.softRemove(p.id); navigate('list'); renderList(); } };
+    btnSave.onclick=()=> savePost(p.id, images);
+  }else{
+    const draft=JSON.parse(localStorage.getItem(DRAFT_KEY)||'null');
+    if(draft && confirm('이전에 작성 중인 초안을 불러올까요?')){ iptTitle.value=draft.title||''; iptAuthor.value=draft.author||''; iptContent.value=draft.content||''; iptTags.value=draft.tags||''; iptPinned.checked=!!draft.pinned; images=draft.images||[]; }
+    else { iptTitle.value=''; iptAuthor.value=''; iptContent.value=''; iptTags.value=''; iptPinned.checked=false; images=[]; }
+    renderAttach();
+    btnDelete.classList.add('hidden');
+    btnSave.onclick=()=> savePost(null, images);
+  }
+
+  // 첨부 추가
+  iptAttach.onchange=(ev)=>{
+    const f=ev.target.files?.[0]; if(!f) return;
+    const reader=new FileReader();
+    reader.onload=()=>{ images.push(reader.result); renderAttach(); saveDraft(); };
+    reader.readAsDataURL(f); ev.target.value='';
+  };
+  $('#btnClearAttach').onclick=()=>{ images=[]; renderAttach(); saveDraft(); };
+
+  // 자동 초안 저장
+  [iptTitle,iptAuthor,iptContent,iptTags,iptPinned].forEach(el=> el.addEventListener('input', debounce(saveDraft,300)));
+  function saveDraft(){
+    localStorage.setItem(DRAFT_KEY, JSON.stringify({ title:iptTitle.value, author:iptAuthor.value, content:iptContent.value, tags:iptTags.value, pinned:iptPinned.checked, images }));
+  }
+}
+
+/* 검증 + 저장 */
+function validate(title, content){
+  if(!title||!content){ alert('제목과 내용을 입력해주세요.'); return false; }
+  if(title.length>140){ alert('제목은 140자 이하로 입력해주세요.'); return false; }
+  return true;
+}
+function savePost(id, images){
+  const title=iptTitle.value.trim(); const author=iptAuthor.value.trim()||'익명'; const content=iptContent.value.trim();
+  const tags=toTags(iptTags.value); const pinned=iptPinned.checked;
+  if(!validate(title,content)) return;
+  const now=Date.now();
+  if(id){
+    const p=db.find(id); if(!p) return;
+    db.upsert({...p,title,author,content,tags,pinned,images,updatedAt:now});
+    localStorage.removeItem(DRAFT_KEY);
+    renderList(); navigate('view/'+id);
+  }else{
+    const newId=db.nextId();
+    db.upsert({id:newId,title,author,content,tags,pinned,images,createdAt:now,updatedAt:now,views:0,comments:[]});
+    localStorage.removeItem(DRAFT_KEY);
+    renderList(); navigate('view/'+newId);
+  }
+}
+
+/* ===== 휴지통 ===== */
+function openTrash(){
+  $('#page-trash').classList.remove('hidden');
+  const wrap=$('#trashWrap');
+  const list=db.all().filter(p=>p.deletedAt).sort((a,b)=>b.deletedAt-a.deletedAt);
+  wrap.innerHTML = list.length? list.map(p=>`
+    <div class="card panel" style="margin-bottom:10px">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+        <div>
+          <div style="font-weight:800">${escapeHtml(p.title)}</div>
+          <div class="meta"><span>${escapeHtml(p.author||'익명')}</span> · <span>삭제일 ${fmtDate(p.deletedAt)}</span> · <span>ID ${p.id}</span></div>
+        </div>
+        <div class="actions">
+          <button class="btn secondary" data-act="restore" data-id="${p.id}">복원</button>
+          <button class="btn danger" data-act="purge" data-id="${p.id}">완전삭제</button>
+        </div>
+      </div>
+    </div>
+  `).join('') : '<div class="empty">휴지통이 비었습니다.</div>';
+
+  wrap.querySelectorAll('button').forEach(b=>{
+    const id=Number(b.dataset.id);
+    if(b.dataset.act==='restore') b.addEventListener('click',()=>{ db.restore(id); openTrash(); });
+    if(b.dataset.act==='purge') b.addEventListener('click',()=>{ if(confirm('정말 완전삭제할까요?')){ db.purge([id]); openTrash(); }});
+  });
+}
+
+/* ===== 내보내기/불러오기 ===== */
+$('#btnExport').addEventListener('click',()=>{
+  const blob=new Blob([db.export()],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='board-pro.json'; a.click(); URL.revokeObjectURL(a.href);
+});
+$('#importFile').addEventListener('change',ev=>{
+  const f=ev.target.files?.[0]; if(!f) return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const mode=confirm('확인=덮어쓰기(모든 데이터 교체)\n취소=병합(기존에 합치기)');
+      db.import(reader.result, mode?'replace':'merge');
+      alert('불러오기 완료!'); navigate('list'); renderList(); renderTagFilter();
+    }catch(e){ alert('불러오기 실패: 올바른 JSON이 아닙니다.'); }
+  };
+  reader.readAsText(f,'utf-8'); ev.target.value='';
+});
+
+/* ===== 상단 버튼 ===== */
+$('#goWrite').addEventListener('click',()=>navigate('write'));
+$('#goList').addEventListener('click',()=>navigate('list'));
+$('#goTrash').addEventListener('click',()=>navigate('trash'));
+$('#btnBackList').addEventListener('click',()=>navigate('list'));
+
+/* ===== 상세 버튼 ===== */
+$('#btnBack').addEventListener('click',()=>navigate('list'));
+$('#btnEdit').addEventListener('click',()=>{ if(currentId!=null) navigate('edit/'+currentId); });
+$('#btnMoveTrash').addEventListener('click',()=>{ if(currentId==null) return; if(confirm('이 글을 휴지통으로 이동할까요?')){ db.softRemove(currentId); navigate('list'); renderList(); }});
+$('#btnPinToggle').addEventListener('click',()=>{ if(currentId==null) return; const p=db.find(currentId); if(!p) return; p.pinned=!p.pinned; db.upsert(p); openView(currentId); renderList(); });
+
+/* ===== 목록 검색/필터/정렬 ===== */
+$('#search').addEventListener('input',debounce(e=>{ currentQuery=e.target.value; currentPage=1; renderList(); },250));
+$('#sort').addEventListener('change',e=>{ currentSort=e.target.value; renderList(); });
+$('#tagFilter').addEventListener('change',e=>{ currentTag=e.target.value; currentPage=1; renderList(); });
+
+/* ===== 휴지통 비우기 ===== */
+$('#btnEmptyTrash').addEventListener('click',()=>{
+  const ids=db.all().filter(p=>p.deletedAt).map(p=>p.id);
+  if(!ids.length) return alert('비울 항목이 없습니다.');
+  if(confirm(`휴지통의 ${ids.length}개 항목을 완전삭제할까요? 이 작업은 되돌릴 수 없습니다.`)){ db.purge(ids); openTrash(); }
+});
+
+/* ===== 단축키 ===== */
+document.addEventListener('keydown',e=>{
+  const k=e.key.toLowerCase();
+  if(k==='n'){ navigate('write'); }
+  if(k==='e' && !$('#page-view').classList.contains('hidden')) $('#btnEdit').click();
+  if(k==='l'){ navigate('list'); }
+  if(k==='f'){ $('#search').focus(); e.preventDefault(); }
+});
+
+/* ===== 초기 시드 ===== */
+(function seed(){
+  if(db.all().length) return;
+  const now=Date.now();
+  db.save([
+    {id:1,title:'핑크 보드 Pro 시작하기 💗',author:'관리자',content:'이 게시판은 서버 없이 localStorage로 동작합니다.\n핀/태그/이미지/댓글/휴지통/다크모드까지!',tags:['공지','가이드'],pinned:true,images:[],createdAt:now-86400000*2,updatedAt:now-86400000*2,views:10,comments:[]},
+    {id:2,title:'업데이트 노트',author:'관리자',content:'- 핀 고정\n- 태그 필터\n- 이미지 첨부\n- 대댓글/휴지통',tags:['업데이트'],pinned:false,images:[],createdAt:now-86400000,updatedAt:now-86400000,views:6,comments:[]}
+  ]);
+})();
+
+/* ===== 초기 진입 ===== */
+if(!location.hash) navigate('list'); else handleRoute();
+window.addEventListener('load',()=>handleRoute());
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>화이트 안면인식 데모 (브라우저만)</title>
+  <style>
+    :root{
+      --bg:#f6f7fb; --panel:#ffffff; --text:#1f2330; --muted:#6c7280; --border:#e7e9ef;
+      --accent:#1f6fff; --danger:#ff5c77; --ok:#16a34a; --radius:16px; --shadow:0 8px 24px rgba(0,0,0,.06)
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;background:var(--bg);color:var(--text)}
+    .container{max-width:1000px;margin:28px auto;padding:0 16px}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;margin-bottom:14px}
+    .title{font-weight:800}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{appearance:none;border:1px solid var(--border);background:#fff;border-radius:12px;padding:10px 14px;cursor:pointer}
+    .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    .btn.danger{background:var(--danger);border-color:var(--danger);color:#fff}
+    .btn.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+    .btn:disabled{opacity:.5;cursor:not-allowed}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+    .panel{padding:14px}
+    .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .input, .select{border:1px solid var(--border);border-radius:12px;padding:10px 12px;background:#fff;color:var(--text);font-size:14px;outline:none}
+    .muted{color:var(--muted);font-size:12px}
+    .video-wrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--border)}
+    video, canvas{display:block;width:100%;height:auto}
+    .status{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .pill{display:inline-flex;gap:8px;align-items:center;background:#eef3ff;color:#2b4580;border:1px dashed #d6e3ff;padding:4px 10px;border-radius:999px;font-size:12px}
+    ul{margin:8px 0 0 14px; padding:0}
+    li{margin:4px 0}
+    code{background:#f3f5fa;border:1px solid var(--border);padding:1px 6px;border-radius:6px}
+  </style>
+  <!-- face-api.js (TFJS 기반) -->
+  <script defer src="https://unpkg.com/face-api.js@0.22.2/dist/face-api.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar card">
+      <div class="title">🤍 화이트 안면인식 (브라우저만, 서버 無)</div>
+      <div class="actions">
+        <button id="btnExport" class="btn">백업(내보내기)</button>
+        <label for="importFile" class="btn" style="cursor:pointer">복원(불러오기)</label>
+        <input id="importFile" type="file" accept="application/json" style="display:none"/>
+        <button id="btnClear" class="btn danger">등록 데이터 전체 삭제</button>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- 좌: 비디오/오버레이 -->
+      <section class="card panel">
+        <div class="row" style="justify-content:space-between">
+          <div class="status">
+            <span class="pill" id="pillModel">모델: 준비 중…</span>
+            <span class="pill" id="
