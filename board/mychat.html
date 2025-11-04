@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>대화 채팅</title>
+  <style>
+    :root{
+      --bg:#f6f7fb; --panel:#ffffff; --text:#1f2330; --muted:#6c7280; --border:#e7e9ef;
+      --accent:#1f6fff; --accent-weak:#eef3ff; --danger:#ff5c77; --ok:#16a34a;
+      --radius:16px; --shadow:0 8px 24px rgba(0,0,0,.06);
+      --me:#1f6fff; --you:#f1f5f9;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;background:var(--bg);color:var(--text)}
+    .container{max-width:900px;margin:30px auto;padding:0 16px}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;margin-bottom:14px}
+    .title{font-weight:800}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{appearance:none;border:1px solid var(--border);background:#fff;border-radius:12px;padding:8px 12px;cursor:pointer}
+    .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    .btn.danger{background:var(--danger);border-color:var(--danger);color:#fff}
+    .btn.ghost{background:#fff}
+    .btn:disabled{opacity:.5;cursor:not-allowed}
+
+    .chat{display:grid;grid-template-rows:1fr auto;height:70vh}
+    .messages{padding:16px;overflow:auto;scroll-behavior:smooth}
+    .day{display:flex;gap:10px;align-items:center;justify-content:center;margin:16px 0;color:var(--muted);font-size:12px}
+    .day::before,.day::after{content:"";flex:1;height:1px;background:var(--border)}
+
+    .row{display:flex;gap:10px;margin:8px 0;align-items:flex-end}
+    .row.me{justify-content:flex-end}
+    .avatar{width:34px;height:34px;border-radius:50%;background:#eef1f6;color:#5b6577;display:flex;align-items:center;justify-content:center;font-weight:700;border:1px solid var(--border)}
+    .bubble{max-width:70%;padding:10px 12px;border-radius:14px;border:1px solid var(--border);background:var(--you)}
+    .row.me .bubble{background:var(--accent);border-color:var(--accent);color:#fff}
+    .meta{margin-top:4px;font-size:11px;color:var(--muted);display:flex;gap:6px;align-items:center}
+    .row.me .meta{justify-content:flex-end}
+    .text{white-space:pre-wrap;line-height:1.6}
+    .tools{opacity:0;display:flex;gap:6px}
+    .row:hover .tools{opacity:1}
+    .tool-btn{border:none;background:transparent;color:inherit;cursor:pointer;font-size:12px;text-decoration:underline}
+
+    .composer{border-top:1px solid var(--border);padding:12px;display:grid;gap:8px}
+    .controls{display:flex;gap:8px;align-items:center}
+    .select, .input, .textarea{border:1px solid var(--border);border-radius:12px;padding:10px 12px;background:#fff;color:var(--text);font-size:14px;outline:none}
+    .textarea{resize:vertical;min-height:72px;max-height:40vh}
+    .hint{font-size:12px;color:var(--muted)}
+    .pill{display:inline-flex;gap:8px;align-items:center;background:var(--accent-weak);color:#26407b;border:1px dashed #d6e3ff;padding:4px 10px;border-radius:999px;font-size:12px}
+
+    @media (max-width:600px){
+      .bubble{max-width:82%}
+      .avatar{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar card">
+      <div class="title">🤍 대화 채팅</div>
+      <div class="actions">
+        <button id="btnExport" class="btn ghost" title="JSON 내보내기">내보내기</button>
+        <label for="importFile" class="btn ghost" title="JSON 불러오기" style="cursor:pointer">불러오기</label>
+        <input id="importFile" type="file" accept="application/json" style="display:none"/>
+        <button id="btnClear" class="btn danger">전체 삭제</button>
+      </div>
+    </div>
+
+    <section class="card chat">
+      <div id="messages" class="messages"></div>
+
+      <div class="composer">
+        <div class="controls">
+          <select id="role" class="select">
+            <option value="me">나</option>
+            <option value="you">상대</option>
+          </select>
+          <span class="pill">Enter 전송 · Shift+Enter 줄바꿈</span>
+        </div>
+        <textarea id="input" class="textarea" placeholder="메시지를 입력하세요"></textarea>
+        <div style="display:flex;gap:8px;justify-content:flex-end">
+          <button id="btnSend" class="btn primary">전송</button>
+        </div>
+        <div class="hint">Tip: 메시지 위에 마우스를 올리면 <b>수정 / 삭제 / 복사</b>가 보여요. 더블클릭으로도 수정할 수 있어요.</div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // ===== 설정 =====
+    const DB_KEY='white-chat-v1';
+
+    // ===== 유틸 =====
+    const $ = s => document.querySelector(s);
+    const $$ = s => Array.from(document.querySelectorAll(s));
+    const escapeHtml = s => s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const fmtTime = ts => {
+      const d=new Date(ts); const h=String(d.getHours()).padStart(2,'0'); const m=String(d.getMinutes()).padStart(2,'0'); return `${h}:${m}`;
+    };
+    const fmtDay = ts => {
+      const d=new Date(ts);
+      return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    };
+
+    // ===== 저장소 =====
+    const store = {
+      all(){ return JSON.parse(localStorage.getItem(DB_KEY) || '[]'); },
+      save(list){ localStorage.setItem(DB_KEY, JSON.stringify(list)); },
+      nextId(){ const list=this.all(); return list.length? Math.max(...list.map(m=>m.id))+1 : 1; },
+      add(msg){ const list=this.all(); list.push(msg); this.save(list); },
+      upsert(msg){ const list=this.all(); const i=list.findIndex(m=>m.id===msg.id); if(i>=0) list[i]=msg; else list.push(msg); this.save(list); },
+      remove(id){ this.save(this.all().filter(m=>m.id!==id)); },
+      clear(){ localStorage.removeItem(DB_KEY); },
+      export(){ return JSON.stringify(this.all(), null, 2); },
+      import(json, mode='merge'){ // 'replace'|'merge'
+        const incoming = JSON.parse(json);
+        if(!Array.isArray(incoming)) throw new Error('올바른 JSON 배열이 아닙니다.');
+        if(mode==='replace'){ this.save(incoming); return; }
+        const map = new Map(this.all().map(m=>[m.id, m]));
+        for(const m of incoming){ map.set(m.id, m); }
+        this.save([...map.values()].sort((a,b)=>a.id-b.id));
+      }
+    };
+
+    // ===== 렌더링 =====
+    function render(){
+      const box = $('#messages');
+      const list = store.all().sort((a,b)=>a.createdAt-b.createdAt);
+      let html = '';
+      let lastDay = '';
+
+      for(const m of list){
+        const day = fmtDay(m.createdAt);
+        if(day !== lastDay){
+          html += `<div class="day">${day}</div>`;
+          lastDay = day;
+        }
+        const me = m.role === 'me';
+        const initials = me ? '나' : '상대';
+        html += `
+          <div class="row ${me?'me':'you'}" data-id="${m.id}">
+            ${me? '' : `<div class="avatar">${escapeHtml(initials)}</div>`}
+            <div>
+              <div class="bubble">
+                <div class="text">${escapeHtml(m.text)}</div>
+              </div>
+              <div class="meta">
+                <span>${me?'나':'상대'}</span>
+                <span>· ${fmtTime(m.createdAt)}</span>
+                <span class="tools">
+                  <button class="tool-btn" data-act="edit">수정</button>
+                  <button class="tool-btn" data-act="copy">복사</button>
+                  <button class="tool-btn" data-act="delete" style="color:#c62828">삭제</button>
+                </span>
+              </div>
+            </div>
+            ${me? `<div class="avatar" title="나">나</div>` : ''}
+          </div>
+        `;
+      }
+      box.innerHTML = html || `<div class="day">메시지를 입력해 보세요</div>`;
+      attachRowEvents();
+      scrollToBottom();
+    }
+
+    function attachRowEvents(){
+      $$('#messages .row').forEach(row=>{
+        row.addEventListener('dblclick', ()=> startEdit(row.dataset.id));
+        row.querySelectorAll('.tool-btn').forEach(btn=>{
+          const act = btn.dataset.act;
+          if(act==='edit') btn.addEventListener('click', ()=> startEdit(row.dataset.id));
+          if(act==='delete') btn.addEventListener('click', ()=> deleteMsg(row.dataset.id));
+          if(act==='copy') btn.addEventListener('click', ()=> copyMsg(row.dataset.id));
+        });
+      });
+    }
+
+    function scrollToBottom(){
+      const box = $('#messages');
+      box.scrollTop = box.scrollHeight;
+    }
+
+// ===== 액션 =====
+// 추가: 초단기 중복 방지용 상태
+let __lastSend = { text: '', ts: 0 };
+
+function send(){
+  const role = $('#role').value;
+  const text = $('#input').value.replace(/\r\n/g,"\n").trim();
+  if(!text) return;
+
+  // --- 추가: 같은 내용이 400ms 안에 또 오면 무시
+  const now = Date.now();
+  if (__lastSend.text === text && (now - __lastSend.ts) < 400) return;
+  __lastSend = { text, ts: now };
+  // ---
+
+  const msg = { id: store.nextId(), role, text, createdAt: now };
+  store.add(msg);
+  $('#input').value = '';
+  render();
+}
+
+    function startEdit(id){
+      id = Number(id);
+      const list = store.all();
+      const m = list.find(x=>x.id===id);
+      if(!m) return;
+      const edited = prompt('메시지 수정', m.text);
+      if(edited==null) return; // cancel
+      const text = edited.trim();
+      if(!text){ if(confirm('빈 메시지입니다. 삭제할까요?')){ deleteMsg(id); } return; }
+      store.upsert({ ...m, text });
+      render();
+    }
+
+    function deleteMsg(id){
+      id = Number(id);
+      if(!confirm('이 메시지를 삭제할까요?')) return;
+      store.remove(id); render();
+    }
+
+    async function copyMsg(id){
+      id = Number(id);
+      const m = store.all().find(x=>x.id===id);
+      if(!m) return;
+      try{ await navigator.clipboard.writeText(m.text); alert('클립보드에 복사했어요!'); }
+      catch(e){ alert('복사 실패: 브라우저 권한을 확인해주세요.'); }
+    }
+
+   // ===== 이벤트 바인딩 =====
+$('#btnSend').addEventListener('click', send);
+
+$('#input').addEventListener('keydown', (e)=>{
+  // --- 추가: 한글/일본어 입력 확정 중 Enter는 무시 + 길게 누른 반복키 무시
+  if (e.isComposing || e.repeat) return;
+  // ---
+  if(e.key === 'Enter' && !e.shiftKey){
+    e.preventDefault();
+    send();
+  }
+});
+
+
+    $('#btnClear').addEventListener('click', ()=>{
+      if(!store.all().length) return;
+      if(confirm('모든 메시지를 삭제할까요?')){ store.clear(); render(); }
+    });
+
+    $('#btnExport').addEventListener('click', ()=>{
+      const blob = new Blob([store.export()], {type:'application/json'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'white-chat.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+
+    $('#importFile').addEventListener('change', ev=>{
+      const f = ev.target.files?.[0]; if(!f) return;
+      const reader = new FileReader();
+      reader.onload = ()=>{
+        try{
+          const mode = confirm('확인=덮어쓰기(기존 삭제)\n취소=병합(ID 기준 덮어쓰기)');
+          store.import(reader.result, mode?'replace':'merge');
+          alert('불러오기 완료!');
+          render();
+        }catch(e){ alert('불러오기 실패: 올바른 JSON이 아닙니다.'); }
+      };
+      reader.readAsText(f, 'utf-8');
+      ev.target.value='';
+    });
+
+    // ===== 초기 렌더 =====
+    render();
+  </script>
+</body>
+</html>
