@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>글쓰기</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>✏️ 글쓰기</h1>
+
+  <form id="writeForm">
+    <label>제목</label><br>
+    <input type="text" id="title"><br><br>
+
+    <label>내용</label><br>
+    <textarea id="content" rows="8"></textarea><br><br>
+
+    <button type="submit">등록</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('writeForm');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const title = document.getElementById('title').value;
+      const content = document.getElementById('content').value;
+
+      if (!title || !content) {
+        alert('제목과 내용을 입력하세요!');
+        return;
+      }
+
+      const posts = JSON.parse(localStorage.getItem('posts')) || [];
+      const newPost = {
+        title,
+        content,
+        date: new Date().toLocaleString()
+      };
+      posts.push(newPost);
+      localStorage.setItem('posts', JSON.stringify(posts));
+
+      alert('글이 등록되었습니다!');
+      location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

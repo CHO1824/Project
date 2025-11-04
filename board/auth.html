@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>핑크 테마 회원가입 · 로그인 (로컬 전용)</title>
+  <style>
+    :root{
+      --bg:#fff5f8;
+      --panel:#ffffff;
+      --accent:#ff6690;
+      --accent-2:#ff85b3;
+      --accent-3:#ffd1e1;
+      --text:#522b3a;
+      --muted:#7a5361;
+      --danger:#ff4d6d;
+      --border:#f7cad0;
+      --shadow:0 10px 30px rgba(255,102,153,.15);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      background: radial-gradient(1000px 600px at 20% -10%, #ffe4ee 0%, transparent 60%),
+                  radial-gradient(1000px 600px at 120% 10%, #ffeef5 0%, transparent 60%), var(--bg);
+      color:var(--text);
+      display:grid; place-items:center; padding:24px;
+    }
+    .wrap{width:100%; max-width:1000px; display:grid; grid-template-columns: 1.1fr 0.9fr; gap:28px}
+    @media (max-width: 940px){ .wrap{grid-template-columns:1fr} .art{order:-1} }
+
+    .card{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow)}
+
+    .hero{ padding:28px; background:linear-gradient(180deg, #fff0f6, #ffffff); border-radius:var(--radius);}
+    .badge{display:inline-flex; align-items:center; gap:8px; background:#ffe0ec; color:#b03967; padding:6px 12px; border-radius:999px; font-size:12px; border:1px dashed var(--border)}
+    h1{margin:12px 0 8px; font-size:28px}
+    p.hero-sub{margin:0; color:var(--muted)}
+
+    .panel{padding:22px}
+
+    .tabs{display:flex; gap:8px; background:#ffe9f1; border:1px solid var(--border); padding:6px; border-radius:999px; width:fit-content; margin:0 auto 18px}
+    .tab{cursor:pointer; padding:10px 16px; border-radius:999px; color:var(--muted); font-weight:700; border:1px solid transparent}
+    .tab.active{color:#fff; background:var(--accent); border-color:var(--accent)}
+
+    form{display:grid; gap:14px}
+    label{font-size:13px; color:var(--muted)}
+    .field{display:grid; gap:8px}
+
+    .row{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
+    @media (max-width:520px){ .row{grid-template-columns:1fr} }
+
+    .input{background:#fff; border:1px solid var(--border); border-radius:12px; color:var(--text); padding:12px 14px; font-size:15px; outline:none; transition:border-color .2s, box-shadow .2s}
+    .input:focus{border-color:var(--accent); box-shadow:0 0 0 3px rgba(255,102,153,.15)}
+
+    .btn{appearance:none; cursor:pointer; border-radius:12px; padding:12px 14px; font-weight:800; letter-spacing:.2px; border:1px solid var(--border); color:white; background:linear-gradient(180deg, var(--accent), #ff4f8a)}
+    .btn:hover{filter:brightness(1.06)}
+    .btn.secondary{background:#ffe6f0; color:#7a4a59}
+
+    .helper{font-size:12px; color:var(--muted)}
+    .error{font-size:12px; color:var(--danger)}
+    .success{font-size:12px; color:#2fa36e}
+
+    .pw-meter{height:8px; background:#ffe9f2; border:1px solid var(--border); border-radius:999px; overflow:hidden}
+    .pw-meter>div{height:100%; width:0%; background:linear-gradient(90deg,#ff7b9e,#ffd66b,#7bd389); transition:width .25s ease}
+
+    .signed{display:none; padding:18px}
+    .grid2{display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:center}
+    .avatar{width:56px; height:56px; border-radius:50%; background:#ffe3ef; display:grid; place-items:center; font-weight:900; color:#cc3369}
+
+    /* 오른쪽 캐릭터 섹션 */
+    .art{ position:relative; overflow:hidden; display:grid; place-items:center; padding:24px; }
+    .art .bubble{ position:absolute; inset:18px; border-radius:18px; background:linear-gradient(145deg,#fff0f6,#ffffff); border:1px solid var(--border) }
+    .art .img{ position:relative; z-index:1; display:grid; place-items:center; padding:12px }
+    .art .img img{ max-width:340px; width:100%; object-fit:contain; filter: drop-shadow(0 10px 20px rgba(255,102,153,.25)); }
+    .art .caption{ position:absolute; bottom:14px; right:16px; font-size:11px; color:#9a5d71 }
+
+    .notice{font-size:12px; color:#9a5d71; background:#fff0f6; border:1px dashed var(--border); padding:10px 12px; border-radius:12px; margin-top:10px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- 왼쪽: 설명 + 폼 -->
+    <section class="card hero">
+      <span class="badge">💗 핑크 테마 버전</span>
+      <h1>회원가입 · 로그인</h1>
+      <p class="hero-sub">
+    </section>
+
+    
+    <!-- 아래: 실제 폼 카드 -->
+    <section class="card panel" style="grid-column:1/-1">
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="login" aria-selected="true">로그인</button>
+        <button class="tab" data-tab="signup" aria-selected="false">회원가입</button>
+      </div>
+
+      <!-- 로그인 -->
+      <div id="view-login">
+        <form id="loginForm" autocomplete="on">
+          <div class="field">
+            <label for="loginEmail">이메일</label>
+            <input class="input" id="loginEmail" name="email" type="email" placeholder="you@example.com" required />
+          </div>
+          <div class="field">
+            <label for="loginPassword">비밀번호</label>
+            <div class="row">
+              <input class="input" id="loginPassword" name="password" type="password" placeholder="••••••••" required />
+              <button class="btn secondary" type="button" id="toggleLoginPw">표시</button>
+            </div>
+          </div>
+          <div class="row" style="align-items:center;">
+            <label class="helper" style="display:flex; gap:8px; align-items:center;">
+              <input type="checkbox" id="rememberMe" /> 로그인 상태 유지
+            </label>
+            <div class="helper" id="loginMsg"></div>
+          </div>
+          <button class="btn" type="submit">로그인</button>
+        </form>
+      </div>
+
+      <!-- 회원가입 -->
+      <div id="view-signup" style="display:none;">
+        <form id="signupForm" autocomplete="off">
+          <div class="field">
+            <label for="name">이름</label>
+            <input class="input" id="name" name="name" placeholder="홍길동" required />
+          </div>
+          <div class="field">
+            <label for="email">이메일</label>
+            <input class="input" id="email" name="email" type="email" placeholder="you@example.com" required />
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="password">비밀번호</label>
+              <input class="input" id="password" name="password" type="password" placeholder="8자 이상, 대/소문자, 숫자, 특수문자" required />
+            </div>
+            <div class="field">
+              <label for="password2">비밀번호 확인</label>
+              <input class="input" id="password2" name="password2" type="password" placeholder="다시 입력" required />
+            </div>
+          </div>
+          <div class="pw-meter" aria-hidden="true"><div id="pwStrength"></div></div>
+          <div class="helper" id="signupMsg"></div>
+          <button class="btn" type="submit">회원가입</button>
+        </form>
+      </div>
+
+      <!-- 로그인 후 화면 -->
+      <div class="signed" id="signedView">
+        <div class="grid2">
+          <div class="avatar" id="avatar">U</div>
+          <div>
+            <div class="helper">로그인 사용자</div>
+            <div id="signedName" style="font-weight:800; font-size:18px"></div>
+            <div class="helper" id="signedEmail"></div>
+          </div>
+        </div>
+        <div style="height:1px; background:var(--border); margin:14px 0"></div>
+        <button class="btn" id="logoutBtn">로그아웃</button>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // ----- localStorage 유저 저장소 -----
+    const store = {
+      _key:'users', _sessionKey:'currentUser',
+      all(){ return JSON.parse(localStorage.getItem(this._key) || '[]'); },
+      saveAll(v){ localStorage.setItem(this._key, JSON.stringify(v)); },
+      findByEmail(e){ return this.all().find(u=>u.email===e); },
+      upsert(user){ const arr=this.all(); const i=arr.findIndex(u=>u.email===user.email); if(i>=0) arr[i]=user; else arr.push(user); this.saveAll(arr); },
+      setSession(email,remember=false){ const data=JSON.stringify({email,at:Date.now()}); if(remember) localStorage.setItem(this._sessionKey,data); else sessionStorage.setItem(this._sessionKey,data); },
+      getSession(){ return JSON.parse(sessionStorage.getItem(this._sessionKey) || localStorage.getItem(this._sessionKey) || 'null'); },
+      clearSession(){ sessionStorage.removeItem(this._sessionKey); localStorage.removeItem(this._sessionKey); }
+    };
+
+    // ----- 유틸 -----
+    async function sha256Hex(input){ const enc=new TextEncoder(); const buf=await crypto.subtle.digest('SHA-256', enc.encode(input)); return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join(''); }
+    function makeSalt(len=16){ const arr=new Uint8Array(len); crypto.getRandomValues(arr); return [...arr].map(b=>b.toString(16).padStart(2,'0')).join(''); }
+    function initial(name){ return (name?.trim()?.[0]||'U').toUpperCase(); }
+    function emailValid(e){ return /\S+@\S+\.\S+/.test(e); }
+
+    function scorePassword(pw){ let s=0; if(!pw) return 0; const letters={}; for(let i=0;i<pw.length;i++) letters[pw[i]]=(letters[pw[i]]||0)+1; s += Object.keys(letters).reduce((sum,k)=> sum + 5.0/letters[k],0); const v={digits:/\d/.test(pw), lower:/[a-z]/.test(pw), upper:/[A-Z]/.test(pw), nonWords:/[^\w]/.test(pw), length: pw.length>=8}; s += Object.values(v).filter(Boolean).length*10; return Math.min(100,Math.round(s)); }
+    function updatePwMeter(pw){ const el=document.getElementById('pwStrength'); el.style.width = scorePassword(pw)+'%'; }
+
+    function setActiveTab(target){ document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.tab===target)); document.getElementById('view-login').style.display = target==='login'?'block':'none'; document.getElementById('view-signup').style.display = target==='signup'?'block':'none'; }
+    function setSignedView(user){ const v=document.getElementById('signedView'); if(user){ v.style.display='block'; document.getElementById('avatar').textContent=initial(user.name); document.getElementById('signedName').textContent=user.name; document.getElementById('signedEmail').textContent=user.email; } else { v.style.display='none'; } }
+
+    // 탭 스위치
+    document.querySelectorAll('.tab').forEach(btn=> btn.addEventListener('click', ()=> setActiveTab(btn.dataset.tab)) );
+
+    // 비밀번호 보기 토글
+    document.getElementById('toggleLoginPw').addEventListener('click', ()=>{ const ipt=document.getElementById('loginPassword'); ipt.type = ipt.type==='password' ? 'text' : 'password'; });
+
+    // 회원가입
+    document.getElementById('password').addEventListener('input', e=> updatePwMeter(e.target.value));
+    document.getElementById('signupForm').addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const name=document.getElementById('name').value.trim();
+      const email=document.getElementById('email').value.trim().toLowerCase();
+      const pw=document.getElementById('password').value;
+      const pw2=document.getElementById('password2').value;
+      const msg=document.getElementById('signupMsg'); msg.textContent=''; msg.className='helper';
+      if(!emailValid(email)){ msg.textContent='이메일 형식이 올바르지 않습니다.'; msg.className='error'; return; }
+      if(pw!==pw2){ msg.textContent='비밀번호가 일치하지 않습니다.'; msg.className='error'; return; }
+      if(scorePassword(pw)<40){ msg.textContent='비밀번호가 약합니다. 숫자/대소문자/특수문자를 섞어 8자 이상으로 만들어주세요.'; msg.className='error'; return; }
+      if(store.findByEmail(email)){ msg.textContent='이미 가입된 이메일입니다.'; msg.className='error'; return; }
+      const salt=makeSalt(); const hash=await sha256Hex(pw+':'+salt); const user={name,email,salt,hash,createdAt:new Date().toISOString()}; store.upsert(user);
+      msg.textContent='가입이 완료되었습니다. 이제 로그인 해주세요!'; msg.className='success'; setActiveTab('login'); document.getElementById('loginEmail').value=email; document.getElementById('loginPassword').value=''; updatePwMeter('');
+    });
+
+    // 로그인
+    document.getElementById('loginForm').addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const email=document.getElementById('loginEmail').value.trim().toLowerCase();
+      const pw=document.getElementById('loginPassword').value;
+      const remember=document.getElementById('rememberMe').checked;
+      const div=document.getElementById('loginMsg'); div.textContent='';
+      const user=store.findByEmail(email); if(!user){ div.textContent='가입되지 않은 이메일입니다.'; return; }
+      const hash=await sha256Hex(pw+':'+user.salt); if(hash!==user.hash){ div.textContent='비밀번호가 올바르지 않습니다.'; return; }
+      store.setSession(user.email, remember); renderSigned(); document.getElementById('loginPassword').value='';
+    });
+
+    // 로그아웃
+    document.getElementById('logoutBtn').addEventListener('click', ()=>{ store.clearSession(); renderSigned(); });
+
+    // 상태 렌더링
+    function renderSigned(){ const s=store.getSession(); const logged=!!s?.email; document.getElementById('view-login').style.display = logged?'none':'block'; document.getElementById('view-signup').style.display = logged?'none':'block'; document.querySelector('.tabs').style.display = logged?'none':'flex'; setSignedView(logged? store.findByEmail(s.email) : null); }
+
+    // 초기
+    renderSigned();
+  </script>
+</body>
+</html>
